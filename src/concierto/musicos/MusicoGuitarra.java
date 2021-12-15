@@ -1,19 +1,19 @@
 package concierto.musicos;
 
-import concierto.instrumentos.Instrumento;
 import concierto.instrumentos.InstrumentoInterface;
 
-public class Musico implements MusicoInterface {
+public class MusicoGuitarra implements MusicoInterface {
 
 	private InstrumentoInterface instrumentoInterface;
-	
+
 	@Override
-	public void tocar() {
+	public void tocarGuitarra() {
 		System.out.println(getInstrumentoInterface().sonar());
 
 	}
 
-	public InstrumentoInterface getInstrumentoInterface() {
+	private InstrumentoInterface getInstrumentoInterface() {
+
 		return instrumentoInterface;
 	}
 
@@ -21,10 +21,16 @@ public class Musico implements MusicoInterface {
 		this.instrumentoInterface = instrumentoInterface;
 	}
 
-	
-	
-	
+	@Override
+	public void tocar() {
+		
+		
+	}
 
-	
+	@Override
+	public void tocarTromba() {
+		
+		
+	}
 
 }
