@@ -21,6 +21,18 @@ public class Musico implements MusicoInterface {
 		this.instrumentoInterface = instrumentoInterface;
 	}
 
+	@Override
+	public void tocarGuitarra() {
+		System.out.println(getInstrumentoInterface().sonar());
+		
+	}
+
+	@Override
+	public void tocarTromba() {
+		System.out.println(getInstrumentoInterface().sonar());
+		
+	}
+
 	
 	
 	

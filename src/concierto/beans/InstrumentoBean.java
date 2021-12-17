@@ -4,6 +4,9 @@ public class InstrumentoBean {
 	
 	private String sonido,marca;
 	private int precio;
+	
+	
+
 	public String getSonido() {
 		return sonido;
 	}
