@@ -1,10 +1,7 @@
-/**
- * 
- */
 package concierto.musicos;
 
 /**
- * @author fjdia
+ * @author Antonio
  *interface de los musicos
  */
 public interface MusicoInterface {

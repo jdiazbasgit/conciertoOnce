@@ -1,10 +1,7 @@
-/**
- * 
- */
 package concierto.instrumentos;
 
 /**
- * @author profe
+ * @author Antonio
  *Interface que genera clases de instrumentos
  */
 public interface InstrumentoInterface {

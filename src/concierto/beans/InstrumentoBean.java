@@ -2,14 +2,19 @@ package concierto.beans;
 
 public class InstrumentoBean {
 	
-	private String sonido,marca;
-	private int precio;
+	private String sonido;
+	//private String marca;
+	//private int precio;
+	
+	
 	public String getSonido() {
 		return sonido;
 	}
+	
 	public void setSonido(String sonido) {
 		this.sonido = sonido;
 	}
+/**
 	public String getMarca() {
 		return marca;
 	}
@@ -22,5 +27,5 @@ public class InstrumentoBean {
 	public void setPrecio(int precio) {
 		this.precio = precio;
 	}
-
+*/
 }

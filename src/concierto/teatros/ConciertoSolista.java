@@ -3,38 +3,36 @@ package concierto.teatros;
 import concierto.beans.InstrumentoBean;
 import concierto.instrumentos.Instrumento;
 import concierto.instrumentos.InstrumentoInterface;
-import concierto.musicos.MusicoGuitarra;
-import concierto.musicos.MusicoTambor;
-import concierto.musicos.MusicoTromba;
+import concierto.musicos.Musico;
 
 public class ConciertoSolista {
 
-	public static void main(String[] args) {
+	public static void main(String[] args ) {
 		
 
 		
 		InstrumentoBean instrumentoBean= new InstrumentoBean();
-		instrumentoBean.setSonido("pom, pom ,pom en bean");
-		instrumentoBean.setMarca("nueva marca");
-		instrumentoBean.setPrecio(500);
+		instrumentoBean.setSonido("pom, pom ,pom ");
+		//instrumentoBean.setMarca("nueva marca");
+		//instrumentoBean.setPrecio(500);
 		InstrumentoInterface tambor = new Instrumento(instrumentoBean);
 		//tambor.setInstrumentoBean(instrumentoBean);
 		
-		MusicoTambor solista= new MusicoTambor();
+		Musico solista= new Musico();
 		solista.setInstrumentoInterface(tambor);
 		
 		InstrumentoBean instrumentoBeanGuitarra= new InstrumentoBean();
 		instrumentoBeanGuitarra.setSonido("clit,clit,clit");
 		InstrumentoInterface guitarra = new Instrumento(instrumentoBeanGuitarra);
 		
-		MusicoGuitarra solistaGuitarra = new MusicoGuitarra();
+		Musico solistaGuitarra = new Musico();
 		solistaGuitarra.setInstrumentoInterface(guitarra);
 		
 		InstrumentoBean instrumentoBeanTromba= new InstrumentoBean();
 		instrumentoBeanTromba.setSonido("porron,porron,porron");
 		InstrumentoInterface tromba = new Instrumento(instrumentoBeanTromba);
 		
-		MusicoTromba solistaTromba = new MusicoTromba();
+		Musico solistaTromba = new Musico();
 		solistaTromba.setInstrumentoInterface(tromba);
 		
 		

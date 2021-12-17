@@ -1,14 +1,12 @@
-/**
- * 
- */
 package concierto.instrumentos;
+
+/**
+ * @author Antonio
+ */
 
 import concierto.beans.InstrumentoBean;
 
-/**
- * @author fjdia
- * Calase del instrumento
- */
+
 public class Instrumento implements InstrumentoInterface {
 
 	private InstrumentoBean instrumentoBean;
