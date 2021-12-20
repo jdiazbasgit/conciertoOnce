@@ -22,8 +22,7 @@ public class ConciertoSolista {
 
 		MusicoInterface solista = new MusicoMar(tambor);
 
-		solista.tocar();
-		
+		solista.tocar();		
 
 		
 
