@@ -18,5 +18,6 @@ Hola, soy JAvier C
 Hola soy Juan
 soy Ricardo
 soy Antonio/nuevo
-
+Soy Juan Vega
+Soy Pedro Hola como estais?
 
