@@ -1,11 +1,13 @@
 package concierto.teatros;
 
-import java.util.Iterator;
 
 import concierto.beans.InstrumentoBean;
 import concierto.instrumentos.Instrumento;
 import concierto.instrumentos.InstrumentoInterface;
+import concierto.instrumentos.InstrumentoMar;
 import concierto.musicos.Musico;
+import concierto.musicos.MusicoInterface;
+import concierto.musicos.MusicoMar;
 
 public class ConciertoSolista {
 
@@ -15,11 +17,10 @@ public class ConciertoSolista {
 		instrumentoBeanTambor.setSonido("pom, pom ,pom en bean");
 		instrumentoBeanTambor.setMarca("nueva marca");
 		instrumentoBeanTambor.setPrecio(500);
-		InstrumentoInterface tambor = new Instrumento(instrumentoBeanTambor);
+		InstrumentoInterface tambor = new InstrumentoMar(instrumentoBeanTambor);
 		
 
-		Musico solista = new Musico(tambor);
-		solista.setInstrumentoInterface(tambor);
+		MusicoInterface solista = new MusicoMar(tambor);
 
 		solista.tocar();
 		
