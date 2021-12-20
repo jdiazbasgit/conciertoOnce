@@ -2,7 +2,7 @@ package concierto.musicos;
 
 import concierto.instrumentos.InstrumentoInterface;
 
-public class MusicoJavier {
+public class MusicoJavier implements MusicoInterface {
 private InstrumentoInterface instrumentoInterface;
 	
 	@Override

@@ -1,11 +1,9 @@
 package concierto.teatros;
 
-import java.util.Iterator;
-
 import concierto.beans.InstrumentoBean;
 import concierto.instrumentos.Instrumento;
 import concierto.instrumentos.InstrumentoInterface;
-import concierto.musicos.Musico;
+import concierto.musicos.MusicoJavier;
 
 public class ConciertoSolista {
 
@@ -18,7 +16,7 @@ public class ConciertoSolista {
 		InstrumentoInterface tambor = new Instrumento(instrumentoBeanTambor);
 		
 
-		Musico solista = new Musico(tambor);
+		MusicoJavier solista = new MusicoJavier(tambor);
 		solista.setInstrumentoInterface(tambor);
 
 		solista.tocar();
