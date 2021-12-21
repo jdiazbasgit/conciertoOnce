@@ -1,9 +1,6 @@
-/**
- * 
- */
-package concierto.instrumentos;
 
-import concierto.beans.InstrumentoBean;
+
+package concierto.instrumentos;
 
 /**
  * @author profe

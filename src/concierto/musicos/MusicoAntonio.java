@@ -1,19 +1,18 @@
 package concierto.musicos;
 
-import concierto.instrumentos.Instrumento;
 import concierto.instrumentos.InstrumentoInterface;
 
 public class MusicoAntonio implements MusicoInterface {
 	
-
+		
 		private InstrumentoInterface instrumentoInterface;
 		
 		public void tocar () {
-			System.out.println(getInstrumentoInterface().sonar()));
+			System.out.println(getInstrumentoInterface().sonar());
 		}
 		
-		public MusicoAntonio(InstrumentoIntwerface instrumentoInterface) {
-			super()
+		public MusicoAntonio(InstrumentoInterface instrumentoInterface) {
+			super();
 			this.instrumentoInterface= instrumentoInterface;
 			
 		}
@@ -22,8 +21,8 @@ public class MusicoAntonio implements MusicoInterface {
 			return instrumentoInterface;
 		}
 		
-		public void setInstrumentoInterface(InstrumentoInterface instrumentoInterface) {
-			this.instrumentoInterface = instrumentoInterface;
+		public void setInstrumentoInterface(MusicoAntonio solistaAntonio) {
+			this.instrumentoInterface = (InstrumentoInterface) solistaAntonio;
 		}
 		
 }
