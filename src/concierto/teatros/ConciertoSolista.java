@@ -2,19 +2,24 @@ package concierto.teatros;
 
 import concierto.instrumentos.InstrumentoInterface;
 import concierto.instrumentos.InstrumentoMar;
-import concierto.musicos.MusicoInterface;
+
 import concierto.musicos.MusicoMar;
 import concierto.beans.InstrumentoBean;
 import concierto.instrumentos.InstrumentoInterface;
-import concierto.instrumentos.InstrumentoRicardo;
-import concierto.musicos.MusicoInterface;
-import concierto.musicos.MusicoRicardo;
-import concierto.musicos.MusicoJuan;
-import concierto.instrumentos.InstrumentoJavier;
+
+import concierto.instrumentos.InstrumentoJacinto;
+import concierto.instrumentos.InstrumentoMiguelAngel;
 import concierto.musicos.MusicoInterface;
 import concierto.musicos.MusicoJacinto;
 import concierto.musicos.MusicoJavier;
+import concierto.musicos.MusicoMiguelAngel;
+
+import concierto.instrumentos.InstrumentoRicardo;
+import concierto.musicos.MusicoRicardo;
+import concierto.musicos.MusicoJuan;
+import concierto.instrumentos.InstrumentoJavier;
 import concierto.musicos.MusicoProfe;
+
 
 public class ConciertoSolista {
 
@@ -55,6 +60,15 @@ public class ConciertoSolista {
 		jacinto.setInstrumentoInterface(tambor);
 		MusicoJavier solista = new MusicoJavier(tambor);
 		solista.setInstrumentoInterface(tambor);
+
+		
+		jacinto.tocar();
+
+		InstrumentoInterface instrumentoMiguelAngel = new InstrumentoMiguelAngel("Sonido de instrumento Miguel Angel");
+		MusicoInterface musicoMiguelAngel = new MusicoMiguelAngel(instrumentoMiguelAngel);
+		
+		musicoMiguelAngel.tocar();
+
 		MusicoJuan musicoJuan = new MusicoJuan(juan);
 		musicoJuan.setInstrumentoInterface(juan);
 
