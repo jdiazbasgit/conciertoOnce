@@ -1,22 +1,19 @@
 package concierto.instrumentos;
 
-public class InstrumentoJavier implements InstrumentoInterface {
-
+public class InstrumentoRicardo implements InstrumentoInterface {
 	private String sonido;
-	
-	
-	
-	public InstrumentoJavier(String sonido) {
+
+	@Override
+	public String sonar() {
+		// TODO Auto-generated method stub
+		return getSonido();
+	}
+
+	public InstrumentoRicardo(String sonido) {
 		super();
 		this.sonido = sonido;
 	}
-	
-	@Override
-	public String sonar() {
-		
-		return getSonido();
-	}
-	
+
 	public String getSonido() {
 		return sonido;
 	}
