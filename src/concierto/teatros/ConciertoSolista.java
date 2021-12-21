@@ -28,6 +28,7 @@ public class ConciertoSolista {
 		solistaPedro.setInstrumentoInterface(hang);
 
 		solista.tocar();
+		solistaPedro.tocar();
 
 	}
 
