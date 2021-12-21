@@ -3,6 +3,8 @@ package concierto.teatros;
 import concierto.beans.InstrumentoBean;
 import concierto.instrumentos.Instrumento;
 import concierto.instrumentos.InstrumentoInterface;
+import concierto.instrumentos.InstrumentoJavier;
+import concierto.musicos.MusicoInterface;
 import concierto.musicos.MusicoJavier;
 
 public class ConciertoSolista {
@@ -20,6 +22,12 @@ public class ConciertoSolista {
 		solista.setInstrumentoInterface(tambor);
 
 		solista.tocar();
+		
+		
+		InstrumentoInterface instrumentoJavier = new InstrumentoJavier("sonido de instrumento Javier");
+		MusicoInterface musicoJavier = new MusicoJavier(instrumentoJavier);
+		musicoJavier.tocar();
+		
 		//hola de nuevo otra vez va la tercera
 
 		
