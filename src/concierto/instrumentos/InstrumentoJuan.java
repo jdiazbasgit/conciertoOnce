@@ -12,9 +12,6 @@ public class InstrumentoJuan implements InstrumentoInterface {
 	}
 
 	@Override
-	/**
-	 *
-	 */
 	public String sonar() {
 		
 		return getInstrumentoBean().getSonido();

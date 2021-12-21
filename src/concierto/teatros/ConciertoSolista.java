@@ -6,8 +6,6 @@ import concierto.instrumentos.InstrumentoInterface;
 import concierto.musicos.Musico;
 import concierto.musicos.MusicoJuan;
 
-import java.awt.*;
-
 public class ConciertoSolista {
 
 	public static void main(String[] args) {
