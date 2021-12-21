@@ -1,7 +1,5 @@
 package concierto.teatros;
 
-import java.util.Iterator;
-
 import concierto.beans.InstrumentoBean;
 import concierto.instrumentos.Instrumento;
 import concierto.instrumentos.InstrumentoInterface;
@@ -11,6 +9,8 @@ public class ConciertoSolista {
 
 	public static void main(String[] args) {
 
+		
+		
 		InstrumentoBean instrumentoBeanTambor = new InstrumentoBean();
 		instrumentoBeanTambor.setSonido("pom, pom ,pom en bean");
 		instrumentoBeanTambor.setMarca("nueva marca");
