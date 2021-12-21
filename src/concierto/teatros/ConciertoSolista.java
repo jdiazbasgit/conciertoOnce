@@ -1,9 +1,16 @@
 package concierto.teatros;
+
 import concierto.beans.InstrumentoBean;
 import concierto.instrumentos.Instrumento;
 import concierto.instrumentos.InstrumentoAlmu2;
 import concierto.instrumentos.InstrumentoHortensia;
 import concierto.instrumentos.InstrumentoInterface;
+
+import concierto.instrumentos.InstrumentoPedro;
+import concierto.musicos.Musico;
+import concierto.musicos.MusicoInterface;
+import concierto.musicos.MusicoPedro;
+
 import concierto.instrumentos.InstrumentoSergio;
 import concierto.instrumentos.InstrumentoMar;
 import concierto.musicos.MusicoMar;
@@ -39,6 +46,7 @@ import concierto.musicos.MusicoProfe;
 
 
 
+
 public class ConciertoSolista {
 
 	
@@ -58,6 +66,9 @@ public class ConciertoSolista {
 		InstrumentoBean instrumentoBeanTambor = new InstrumentoBean();
 
 		instrumentoBeanTambor.setSonido("pom, pom ,pom en bean");
+
+		InstrumentoInterface tambor = new Instrumento(instrumentoBeanTambor);
+
 		InstrumentoInterface tambor = new Instrumento(instrumentoBeanTambor);
 
 		// mi musico
@@ -96,6 +107,7 @@ public class ConciertoSolista {
 
 		
 
+
 		Musico solista = new Musico(tambor);
 		MusicoCarlos carlos = new MusicoCarlos(intrumentocarlos);
 		
@@ -115,6 +127,13 @@ public class ConciertoSolista {
 
     
 		solista.setInstrumentoInterface(tambor);
+
+
+		InstrumentoInterface hang = new InstrumentoPedro("wuon, wan, wuon");
+		MusicoInterface solistaPedro = new MusicoPedro(hang);
+
+		solista.tocar();
+		solistaPedro.tocar();
 
 
 		carlos.setInstrumentoInterface(intrumentocarlos);
@@ -179,6 +198,7 @@ public class ConciertoSolista {
 		InstrumentoInterface instrumentoProfe= new InstrumentoProfe("sonido de instrumento profe");
 		MusicoInterface musicoProfe= new MusicoProfe(instrumentoProfe);
 		musicoProfe.tocar();
+
 
 	}
 

@@ -1,11 +1,12 @@
 
 
 
+
 package concierto.instrumentos;
 
+
 /**
- * @author profe
- *Interface que genera clases de instrumentos
+ * @author profe Interface que genera clases de instrumentos
  */
 
 package concierto.instrumentos;
