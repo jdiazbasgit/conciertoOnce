@@ -1,5 +1,9 @@
 package concierto.teatros;
 import concierto.beans.InstrumentoBean;
+
+import concierto.instrumentos.InstrumentoInterface;
+import concierto.instrumentos.InstrumentoJavier;
+import concierto.musicos.MusicoInterface;
 import concierto.musicos.MusicoJacinto;
 import concierto.musicos.MusicoJavier;
 import concierto.musicos.MusicoProfe;
@@ -24,6 +28,11 @@ public class ConciertoSolista {
 		
 		
 		
+		InstrumentoInterface instrumentoJavier = new InstrumentoJavier("sonido de instrumento Javier");
+		MusicoInterface musicoJavier = new MusicoJavier(instrumentoJavier);
+		musicoJavier.tocar();
+		
+		//hola de nuevo otra vez va la tercera
 		InstrumentoInterface instrumentoProfe= new InstrumentoProfe("sonido de instrumento profe");
 		MusicoInterface musicoProfe= new MusicoProfe(instrumentoProfe);
 		musicoProfe.tocar();
