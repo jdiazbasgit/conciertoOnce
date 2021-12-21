@@ -3,10 +3,10 @@ package concierto.musicos;
 import concierto.instrumentos.Instrumento;
 import concierto.instrumentos.InstrumentoInterface;
 
-public class MusicoPedro MusicoInterface {
+public class MusicoPedro implements MusicoInterface {
 
 	private InstrumentoInterface instrumentoInterface;
-	
+
 	@Override
 	public void tocar() {
 		System.out.println(getInstrumentoInterface().sonar());
@@ -24,6 +24,6 @@ public class MusicoPedro MusicoInterface {
 
 	public void setInstrumentoInterface(InstrumentoInterface instrumentoInterface) {
 		this.instrumentoInterface = instrumentoInterface;
-	} 
+	}
 
 }
