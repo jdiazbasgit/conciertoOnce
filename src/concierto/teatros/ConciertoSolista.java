@@ -9,11 +9,11 @@ public class ConciertoSolista {
 
 	public static void main(String[] args) {
 
-		InstrumentoInterface tambor = new InstrumentoMar("Mar => pom, pom ,pom");		
+		InstrumentoInterface tamborMar = new InstrumentoMar("Mar => pom, pom ,pom");		
 
-		MusicoInterface solista = new MusicoMar(tambor);
+		MusicoInterface solistaMar = new MusicoMar(tamborMar);
 
-		solista.tocar();			
+		solistaMar.tocar();			
 
 	}
 
