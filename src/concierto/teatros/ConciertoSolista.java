@@ -5,6 +5,7 @@ import concierto.beans.InstrumentoPedro;
 import concierto.instrumentos.Instrumento;
 import concierto.instrumentos.InstrumentoInterface;
 import concierto.musicos.Musico;
+import concierto.musicos.MusicoInterface;
 import concierto.musicos.MusicoPedro;
 
 public class ConciertoSolista {
@@ -20,8 +21,7 @@ public class ConciertoSolista {
 		Musico solista = new Musico(tambor);
 		solista.setInstrumentoInterface(tambor);
 
-		MusicoPedro solistaPedro = new MusicoPedro(hang);
-		solistaPedro.setInstrumentoInterface(hang);
+		MusicoInterface solistaPedro = new MusicoPedro(hang);
 
 		solista.tocar();
 		solistaPedro.tocar();
