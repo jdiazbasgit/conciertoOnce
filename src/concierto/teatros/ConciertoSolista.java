@@ -20,8 +20,8 @@ public class ConciertoSolista {
 		//mi musico
 		
 		InstrumentoBean instrumentoBeanAntonio = new InstrumentoBean();
-		instrumentoBeanAntonio.getSonido("Soy el instrumento que toca Antonio");
-		InstrumentoInterface antonio = new InstrumentoAntonio(instrumentoBeanAntonio);
+		//instrumentoBeanAntonio.setSonido("Soy el instrumento que toca Antonio");
+		InstrumentoInterface antonio = new InstrumentoAntonio("Soy el instrumento que toca Antonio");
 		
 		MusicoAntonio solistsAntonio = new MusicoAntonio(antonio);
 		solistaAntonio.setInstrumentoInterface(solistaAntonio);
