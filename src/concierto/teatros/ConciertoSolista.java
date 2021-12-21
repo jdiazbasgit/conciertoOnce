@@ -20,7 +20,7 @@ public class ConciertoSolista {
 		solista.setInstrumentoInterface(tambor);
 
 		solista.tocar();
-		//hola de nuevo otra vez
+		//hola de nuevo otra vez va la tercera
 
 		
 
