@@ -21,8 +21,5 @@ public class MusicoAntonio implements MusicoInterface {
 			return instrumentoInterface;
 		}
 		
-		//public void setInstrumentoInterface(MusicoAntonio solistaAntonio) {
-		//	this.instrumentoInterface =  (InstrumentoInterface) solistaAntonio;
-		//}
 		
 }
