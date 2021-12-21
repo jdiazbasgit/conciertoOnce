@@ -1,6 +1,4 @@
-package concierto.beans;
-
-import concierto.instrumentos.InstrumentoInterface;
+package concierto.instrumentos;
 
 public class InstrumentoPedro implements InstrumentoInterface {
 	private String sonido;

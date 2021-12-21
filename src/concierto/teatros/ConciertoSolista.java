@@ -1,9 +1,9 @@
 package concierto.teatros;
 
 import concierto.beans.InstrumentoBean;
-import concierto.beans.InstrumentoPedro;
 import concierto.instrumentos.Instrumento;
 import concierto.instrumentos.InstrumentoInterface;
+import concierto.instrumentos.InstrumentoPedro;
 import concierto.musicos.Musico;
 import concierto.musicos.MusicoInterface;
 import concierto.musicos.MusicoPedro;
