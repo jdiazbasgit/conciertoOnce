@@ -10,7 +10,8 @@ public class MusicoJuan implements MusicoInterface {
 		super();
 		this.instrumentoInterface = instrumentoInterface;
 	}
-
+	
+	@Override
 	public void tocar() {
 		System.out.println(getInstrumentoInterface().sonar());
 
