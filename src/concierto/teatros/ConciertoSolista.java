@@ -1,15 +1,14 @@
 package concierto.teatros;
 
-import concierto.beans.InstrumentoBean;
-
 import concierto.instrumentos.InstrumentoInterface;
-
+import concierto.instrumentos.InstrumentoMar;
+import concierto.musicos.MusicoInterface;
+import concierto.musicos.MusicoMar;
+import concierto.beans.InstrumentoBean;
+import concierto.instrumentos.InstrumentoInterface;
 import concierto.instrumentos.InstrumentoRicardo;
-
 import concierto.musicos.MusicoInterface;
 import concierto.musicos.MusicoRicardo;
-
-
 import concierto.musicos.MusicoJuan;
 import concierto.instrumentos.InstrumentoJavier;
 import concierto.musicos.MusicoInterface;
@@ -17,26 +16,25 @@ import concierto.musicos.MusicoJacinto;
 import concierto.musicos.MusicoJavier;
 import concierto.musicos.MusicoProfe;
 
-
-
 public class ConciertoSolista {
 
 	public static void main(String[] args) {
 
+		InstrumentoInterface tamborMar = new InstrumentoMar("Mar => pom, pom ,pom");		
+
+		MusicoInterface solistaMar = new MusicoMar(tamborMar);
+
+		solistaMar.tocar();			
 
 		InstrumentoBean instrumentoBeanTambor = new InstrumentoBean();
-		instrumentoBeanTambor.setSonido("pom, pom ,pom en bean");
-
-		
+		instrumentoBeanTambor.setSonido("pom, pom ,pom en bean");		
 
 		instrumentoBeanTambor.setMarca("nueva marca");
 		
 		
 		instrumentoBeanTambor.setPrecio(500);
 		InstrumentoInterface tambor = new Instrumento(instrumentoBeanTambor);
-
-
-		
+	
 		Musico solista = new Musico(tambor);
 
 		
@@ -60,7 +58,6 @@ public class ConciertoSolista {
 		MusicoJuan musicoJuan = new MusicoJuan(juan);
 		musicoJuan.setInstrumentoInterface(juan);
 
-
 		solista.tocar();
 
 		InstrumentoInterface instrumentoRicardo= new InstrumentoRicardo("sonido de instrumentoRicardo");
@@ -69,8 +66,6 @@ public class ConciertoSolista {
 
 		musicoJuan.tocar();
 		jacinto.tocar();
-
-	
 		
 		InstrumentoInterface instrumentoJavier = new InstrumentoJavier("sonido de instrumento Javier");
 		MusicoInterface musicoJavier = new MusicoJavier(instrumentoJavier);
@@ -80,9 +75,6 @@ public class ConciertoSolista {
 		InstrumentoInterface instrumentoProfe= new InstrumentoProfe("sonido de instrumento profe");
 		MusicoInterface musicoProfe= new MusicoProfe(instrumentoProfe);
 		musicoProfe.tocar();
-
-		
-	
 	}
 
 }
