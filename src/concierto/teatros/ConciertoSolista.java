@@ -1,45 +1,33 @@
 package concierto.teatros;
-
 import concierto.beans.InstrumentoBean;
 import concierto.instrumentos.Instrumento;
-
 import concierto.instrumentos.InstrumentoAlmu2;
-
 import concierto.instrumentos.InstrumentoHortensia;
-
-
-
 import concierto.instrumentos.InstrumentoInterface;
+import concierto.instrumentos.InstrumentoSergio;
 import concierto.instrumentos.InstrumentoMar;
-
 import concierto.musicos.MusicoMar;
 import concierto.beans.InstrumentoBean;
 import concierto.musicos.Musico;
-
+import concierto.musicos.MusicoInterface;
+import concierto.musicos.MusicoSergio;
 import concierto.instrumentos.InstrumentoAntonio;
 import concierto.musicos.MusicoAntonio;
-
 import concierto.musicos.MusicoAlmu2;
 import concierto.musicos.MusicoInterface;
-
 import concierto.musicos.MusicoHortensia;
-
 import concierto.musicos.MusicoCarlos;
-
 import concierto.instrumentos.InstrumentoJacinto;
-
 import concierto.instrumentos.InstrumentoSara;
 import concierto.musicos.MusicoInterface;
 import concierto.musicos.MusicoJacinto;
 import concierto.musicos.MusicoJavier;
 import concierto.musicos.MusicoSara;
-
 import concierto.instrumentos.InstrumentoMiguelAngel;
 import concierto.musicos.MusicoInterface;
 import concierto.musicos.MusicoJacinto;
 import concierto.musicos.MusicoJavier;
 import concierto.musicos.MusicoMiguelAngel;
-
 import concierto.instrumentos.InstrumentoRicardo;
 import concierto.musicos.MusicoRicardo;
 import concierto.musicos.MusicoJuan;
@@ -173,24 +161,24 @@ public class ConciertoSolista {
 
 		
 
-		solista.tocar();
 
+		InstrumentoInterface instrumentoSergio= new InstrumentoSergio("sonido de instrumento msergio");
+		MusicoInterface musicoSergio= new MusicoSergio(instrumentoSergio);
+		
+		musicoSergio.tocar();
+		solista.tocar()
 		InstrumentoInterface instrumentoRicardo= new InstrumentoRicardo("sonido de instrumentoRicardo");
 		MusicoInterface musicoRicardo= new MusicoRicardo(instrumentoRicardo);
-		musicoRicardo.tocar();
-
+		musicoRicardo.tocar()
 		musicoJuan.tocar();
-		jacinto.tocar();
-		
+		jacinto.tocar()
 		InstrumentoInterface instrumentoJavier = new InstrumentoJavier("sonido de instrumento Javier");
 		MusicoInterface musicoJavier = new MusicoJavier(instrumentoJavier);
 		musicoJavier.tocar();
-		
 		//hola de nuevo otra vez va la tercera
 		InstrumentoInterface instrumentoProfe= new InstrumentoProfe("sonido de instrumento profe");
 		MusicoInterface musicoProfe= new MusicoProfe(instrumentoProfe);
 		musicoProfe.tocar();
-
 
 	}
 
