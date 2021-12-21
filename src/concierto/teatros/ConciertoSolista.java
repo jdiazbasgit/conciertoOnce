@@ -6,6 +6,8 @@ import concierto.instrumentos.InstrumentoInterface;
 import concierto.musicos.Musico;
 import concierto.musicos.MusicoJuan;
 
+import java.awt.*;
+
 public class ConciertoSolista {
 
 	public static void main(String[] args) {
@@ -31,7 +33,9 @@ public class ConciertoSolista {
 		
 		// prueba pull nueva
 
-		
+		Component c= new Frame("");
+		c.contains(3,4);
+		c.add(new Panel());
 
 	}
 
