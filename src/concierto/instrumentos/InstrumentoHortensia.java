@@ -1,28 +1,26 @@
 package concierto.instrumentos;
 
-public class InstrumentoJavier implements InstrumentoInterface {
+public class InstrumentoHortensia implements InstrumentoInterface {
 
 	private String sonido;
-	
-	
-	
-	public InstrumentoJavier(String sonido) {
+
+	public InstrumentoHortensia(String sonido) {
 		super();
 		this.sonido = sonido;
 	}
-	
-	@Override
-	public String sonar() {
-		
-		return getSonido();
-	}
-	
+
 	public String getSonido() {
 		return sonido;
 	}
 
 	public void setSonido(String sonido) {
 		this.sonido = sonido;
+
 	}
 
+	@Override
+	public String sonar() {
+		return this.getSonido();
+
+	}
 }

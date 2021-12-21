@@ -1,22 +1,20 @@
 package concierto.instrumentos;
 
-public class InstrumentoJavier implements InstrumentoInterface {
-
+public class InstrumentoArk4no implements InstrumentoInterface {
 	private String sonido;
-	
-	
-	
-	public InstrumentoJavier(String sonido) {
+
+
+	public InstrumentoArk4no(String sonido) {
 		super();
 		this.sonido = sonido;
 	}
-	
-	@Override
-	public String sonar() {
 		
+		@Override
+	public String sonar() {
 		return getSonido();
+		
 	}
-	
+
 	public String getSonido() {
 		return sonido;
 	}
@@ -24,5 +22,7 @@ public class InstrumentoJavier implements InstrumentoInterface {
 	public void setSonido(String sonido) {
 		this.sonido = sonido;
 	}
+
+
 
 }
