@@ -1,5 +1,8 @@
 package concierto.teatros;
 
+import concierto.beans.InstrumentoBean;
+import concierto.instrumentos.Instrumento;
+import concierto.instrumentos.InstrumentoHortensia;
 
 
 import concierto.instrumentos.InstrumentoInterface;
@@ -8,6 +11,9 @@ import concierto.instrumentos.InstrumentoMar;
 import concierto.musicos.MusicoMar;
 import concierto.beans.InstrumentoBean;
 import concierto.musicos.Musico;
+
+import concierto.musicos.MusicoHortensia;
+
 import concierto.musicos.MusicoCarlos;
 
 import concierto.instrumentos.InstrumentoJacinto;
@@ -64,7 +70,10 @@ public class ConciertoSolista {
 		InstrumentoInterface intrumentocarlos = new Instrumento(instrumentoBeanCarlos);
 		
 
-    
+		
+		
+		
+
 		Musico solista = new Musico(tambor);
 		MusicoCarlos carlos = new MusicoCarlos(intrumentocarlos);
 		
@@ -93,6 +102,11 @@ public class ConciertoSolista {
 		
 		jacinto.tocar();
 
+
+		InstrumentoInterface instrumentoHortensia= new InstrumentoHortensia("sonido de instrumento Hortensia");
+		MusicoInterface musicoHortensia= new MusicoHortensia(instrumentoHortensia);
+		
+		musicoHortensia.tocar();
 		InstrumentoInterface instrumentoMiguelAngel = new InstrumentoMiguelAngel("Sonido de instrumento Miguel Angel");
 		MusicoInterface musicoMiguelAngel = new MusicoMiguelAngel(instrumentoMiguelAngel);
 		
