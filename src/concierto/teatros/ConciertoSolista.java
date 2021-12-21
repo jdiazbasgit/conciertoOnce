@@ -33,9 +33,7 @@ public class ConciertoSolista {
 		
 		// prueba pull nueva
 
-		Component c= new Frame("");
-		c.contains(3,4);
-		c.add(new Panel());
+		
 
 	}
 
