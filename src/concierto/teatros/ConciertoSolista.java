@@ -5,7 +5,10 @@ import java.util.Iterator;
 import concierto.beans.InstrumentoBean;
 import concierto.instrumentos.Instrumento;
 import concierto.instrumentos.InstrumentoInterface;
+import concierto.instrumentos.InstrumentoSergio;
 import concierto.musicos.Musico;
+import concierto.musicos.MusicoInterface;
+import concierto.musicos.MusicoSergio;
 
 public class ConciertoSolista {
 
@@ -24,7 +27,10 @@ public class ConciertoSolista {
 		solista.tocar();
 		
 
+		InstrumentoInterface instrumentoSergio= new InstrumentoSergio("sonido de instrumento msergio");
+		MusicoInterface musicoSergio= new MusicoSergio(instrumentoSergio);
 		
+		musicoSergio.tocar();
 
 	}
 
