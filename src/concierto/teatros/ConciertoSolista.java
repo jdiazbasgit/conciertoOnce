@@ -15,6 +15,10 @@ import concierto.instrumentos.InstrumentoMar;
 import concierto.musicos.MusicoMar;
 import concierto.beans.InstrumentoBean;
 import concierto.musicos.Musico;
+
+import concierto.instrumentos.InstrumentoAntonio;
+import concierto.musicos.MusicoAntonio;
+
 import concierto.musicos.MusicoAlmu2;
 import concierto.musicos.MusicoInterface;
 
@@ -38,6 +42,7 @@ import concierto.musicos.MusicoProfe;
 
 
 
+
 public class ConciertoSolista {
 
 	public static void main(String[] args) {
@@ -53,6 +58,18 @@ public class ConciertoSolista {
 
     
 		InstrumentoBean instrumentoBeanTambor = new InstrumentoBean();
+
+		instrumentoBeanTambor.setSonido("pom, pom ,pom en bean");
+		InstrumentoInterface tambor = new Instrumento(instrumentoBeanTambor);
+
+		// mi musico
+
+		InstrumentoBean instrumentoBeanAntonio = new InstrumentoBean();
+	    instrumentoBeanAntonio.setSonido("Soy el instrumento que toca Antonio");
+		InstrumentoInterface antonio = new InstrumentoAntonio(instrumentoBeanAntonio);
+
+		MusicoAntonio solistaAntonio = new MusicoAntonio(antonio);
+
 		instrumentoBeanTambor.setSonido("pom, pom ,pom en bean");		
 
 		instrumentoBeanTambor.setMarca("nueva marca");
@@ -78,6 +95,7 @@ public class ConciertoSolista {
 
 		
 		
+
 		
 
 		Musico solista = new Musico(tambor);
@@ -106,6 +124,9 @@ public class ConciertoSolista {
 
     
 		solista.tocar();
+
+		solistaAntonio.tocar();
+
 		carlos.tocar();
 		
 
@@ -151,6 +172,8 @@ public class ConciertoSolista {
 		MusicoInterface musicoProfe= new MusicoProfe(instrumentoProfe);
 		musicoProfe.tocar();
 
+
 	}
 
 }
+
