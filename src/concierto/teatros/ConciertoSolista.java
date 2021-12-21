@@ -4,12 +4,19 @@ import concierto.beans.InstrumentoBean;
 
 import concierto.instrumentos.InstrumentoInterface;
 
+import concierto.instrumentos.InstrumentoRicardo;
+
+import concierto.musicos.MusicoInterface;
+import concierto.musicos.MusicoRicardo;
+
+
 import concierto.musicos.MusicoJuan;
 import concierto.instrumentos.InstrumentoJavier;
 import concierto.musicos.MusicoInterface;
 import concierto.musicos.MusicoJacinto;
 import concierto.musicos.MusicoJavier;
 import concierto.musicos.MusicoProfe;
+
 
 
 public class ConciertoSolista {
@@ -19,9 +26,19 @@ public class ConciertoSolista {
 
 		InstrumentoBean instrumentoBeanTambor = new InstrumentoBean();
 		instrumentoBeanTambor.setSonido("pom, pom ,pom en bean");
+
+		
+
 		instrumentoBeanTambor.setMarca("nueva marca");
+		
+		
 		instrumentoBeanTambor.setPrecio(500);
 		InstrumentoInterface tambor = new Instrumento(instrumentoBeanTambor);
+
+
+		
+		Musico solista = new Musico(tambor);
+
 		
 		InstrumentoBean instrumentoBeanJuan = new InstrumentoBean();
 		instrumentoBeanJuan.setSonido("Juan, Juan, Juan");
@@ -45,10 +62,15 @@ public class ConciertoSolista {
 
 
 		solista.tocar();
+
+		InstrumentoInterface instrumentoRicardo= new InstrumentoRicardo("sonido de instrumentoRicardo");
+		MusicoInterface musicoRicardo= new MusicoRicardo(instrumentoRicardo);
+		musicoRicardo.tocar();
+
 		musicoJuan.tocar();
 		jacinto.tocar();
-		
-		
+
+	
 		
 		InstrumentoInterface instrumentoJavier = new InstrumentoJavier("sonido de instrumento Javier");
 		MusicoInterface musicoJavier = new MusicoJavier(instrumentoJavier);
