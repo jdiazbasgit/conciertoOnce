@@ -27,6 +27,13 @@ import concierto.musicos.MusicoHortensia;
 import concierto.musicos.MusicoCarlos;
 
 import concierto.instrumentos.InstrumentoJacinto;
+
+import concierto.instrumentos.InstrumentoSara;
+import concierto.musicos.MusicoInterface;
+import concierto.musicos.MusicoJacinto;
+import concierto.musicos.MusicoJavier;
+import concierto.musicos.MusicoSara;
+
 import concierto.instrumentos.InstrumentoMiguelAngel;
 import concierto.musicos.MusicoInterface;
 import concierto.musicos.MusicoJacinto;
@@ -43,9 +50,12 @@ import concierto.musicos.MusicoProfe;
 
 
 
+
 public class ConciertoSolista {
 
-	public static void main(String[] args) {
+	
+
+	public static void main(String[] args)  {
 
 
     
@@ -137,6 +147,15 @@ public class ConciertoSolista {
 
 		jacinto.tocar();
 
+		// prueba para sara
+		
+	 InstrumentoInterface instrumentoSara=new InstrumentoSara("sonido de instrumento de Sara");
+	 MusicoInterface musicoSara= new MusicoSara(instrumentoSara);
+	 musicoSara.tocar();
+}
+}
+
+
 
 
 		InstrumentoInterface instrumentoHortensia= new InstrumentoHortensia("sonido de instrumento Hortensia");
@@ -176,4 +195,5 @@ public class ConciertoSolista {
 	}
 
 }
+
 
