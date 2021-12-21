@@ -1,27 +1,22 @@
 package concierto.teatros;
 
-import java.util.Iterator;
-
 import concierto.beans.InstrumentoBean;
 import concierto.instrumentos.Instrumento;
+import concierto.instrumentos.InstrumentoArk4no;
 import concierto.instrumentos.InstrumentoInterface;
 import concierto.musicos.Musico;
+import concierto.musicos.MusicoArk4no;
+import concierto.musicos.MusicoInterface;
 
 public class ConciertoSolista {
 
 	public static void main(String[] args) {
 
-		InstrumentoBean instrumentoBeanTambor = new InstrumentoBean();
-		instrumentoBeanTambor.setSonido("pom, pom ,pom en bean");
-		instrumentoBeanTambor.setMarca("nueva marca");
-		instrumentoBeanTambor.setPrecio(500);
-		InstrumentoInterface tambor = new Instrumento(instrumentoBeanTambor);
-		
 
-		Musico solista = new Musico(tambor);
-		solista.setInstrumentoInterface(tambor);
-
-		solista.tocar();
+		InstrumentoInterface instrumentoArk4no = new InstrumentoArk4no("bombo, caja, bombo, caja");
+		MusicoInterface musicoArk4no = new MusicoArk4no (instrumentoArk4no);
+		System.out.println("bat bi hiru lau!!!");
+		musicoArk4no.tocar();
 		
 
 		

@@ -5,10 +5,7 @@ package concierto.instrumentos;
 
 import concierto.beans.InstrumentoBean;
 
-/**
- * @author fjdia
- * Calase del instrumento
- */
+
 public class Instrumento implements InstrumentoInterface {
 
 	private InstrumentoBean instrumentoBean;
@@ -18,7 +15,7 @@ public class Instrumento implements InstrumentoInterface {
 		this.instrumentoBean = instrumentoBean;
 	}
 
-	@Override
+
 	/**
 	 * metodo que devuelve el sonido del instrumento
 	 */
