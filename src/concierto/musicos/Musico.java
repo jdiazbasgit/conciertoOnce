@@ -6,10 +6,12 @@ public class Musico implements MusicoInterface {
 
 	private InstrumentoInterface instrumentoInterface;
 	
+	
 	@Override
 	public void tocar() {
 		System.out.println(getInstrumentoInterface().sonar());
-
+	  
+		
 	}
 
 	public Musico(InstrumentoInterface instrumentoInterface) {

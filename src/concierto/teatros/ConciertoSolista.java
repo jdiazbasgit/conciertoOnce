@@ -12,6 +12,7 @@ public class ConciertoSolista {
 
 		
 		
+		
 		InstrumentoBean instrumentoBeanTambor = new InstrumentoBean();
 		instrumentoBeanTambor.setSonido("pom, pom ,pom en bean");
 		instrumentoBeanTambor.setMarca("nueva marca");
