@@ -1,32 +1,34 @@
 package concierto.instrumentos;
 
-import concierto.beans.InstrumentoBean;
-
 public class InstrumentoMar implements InstrumentoInterface{
 
+	private String sonido;
 
-	private InstrumentoBean instrumentoBean;
-	
-	public InstrumentoMar(InstrumentoBean instrumentoBean) {
+	public InstrumentoMar(String sonido) {
 		super();
-		this.instrumentoBean = instrumentoBean;
+		this.sonido = sonido;
+	}
+
+	/**
+	 * @return the sonido
+	 */
+	public String getSonido() {
+		return sonido;
+	}
+
+	/**
+	 * @param sonido the sonido to set
+	 */
+	public void setSonido(String sonido) {
+		this.sonido = sonido;
 	}
 
 	@Override
 	/**
 	 * metodo que devuelve el sonido del instrumento
 	 */
-	public String sonar() {
-		
-		return getInstrumentoBean().getSonido();
-	}
-
-	public InstrumentoBean getInstrumentoBean() {
-		return instrumentoBean;
-	}
-
-	public void setInstrumentoBean(InstrumentoBean instrumentoBean) {
-		this.instrumentoBean = instrumentoBean;
+	public String sonar() {		
+		return getSonido();
 	}
 
 }
