@@ -19,6 +19,6 @@ public class ConciertoSolista {
 
 		jacinto.tocar();
 
-	}
+	} 
 
 }
