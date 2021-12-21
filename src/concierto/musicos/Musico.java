@@ -13,6 +13,11 @@ public class Musico implements MusicoInterface {
 
 	}
 
+	public Musico(InstrumentoInterface instrumentoInterface) {
+		super();
+		this.instrumentoInterface = instrumentoInterface;
+	}
+
 	public InstrumentoInterface getInstrumentoInterface() {
 		return instrumentoInterface;
 	}
