@@ -2,14 +2,9 @@ package concierto.musicos;
 
 import concierto.instrumentos.InstrumentoInterface;
 
-public class Musico implements MusicoInterface {
+public class MusicoJacinto implements MusicoInterface {
 
-	public Musico(InstrumentoInterface instrumentoInterface) {
-		super();
-		this.instrumentoInterface = instrumentoInterface;
-	}
-
-	private InstrumentoInterface instrumentoInterface;
+private InstrumentoInterface instrumentoInterface;
 	
 	@Override
 	public void tocar() {
@@ -17,12 +12,28 @@ public class Musico implements MusicoInterface {
 
 	}
 
+	
+	
+	public MusicoJacinto(InstrumentoInterface instrumentoInterface) {
+		super();
+		this.instrumentoInterface = instrumentoInterface;
+	}
+
+
+
+	/**
+	 * @return the instrumentoInterface
+	 */
 	public InstrumentoInterface getInstrumentoInterface() {
 		return instrumentoInterface;
 	}
 
+	/**
+	 * @param instrumentoInterface the instrumentoInterface to set
+	 */
 	public void setInstrumentoInterface(InstrumentoInterface instrumentoInterface) {
 		this.instrumentoInterface = instrumentoInterface;
 	}
-
+	
+	
 }
