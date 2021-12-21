@@ -1,6 +1,5 @@
 package concierto.musicos;
 
-import concierto.instrumentos.Instrumento;
 import concierto.instrumentos.InstrumentoInterface;
 
 public class Musico implements MusicoInterface {
