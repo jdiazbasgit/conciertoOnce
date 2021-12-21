@@ -1,11 +1,14 @@
 package concierto.teatros;
 
+
+
 import concierto.instrumentos.InstrumentoInterface;
 import concierto.instrumentos.InstrumentoMar;
 
 import concierto.musicos.MusicoMar;
 import concierto.beans.InstrumentoBean;
-import concierto.instrumentos.InstrumentoInterface;
+import concierto.musicos.Musico;
+import concierto.musicos.MusicoCarlos;
 
 import concierto.instrumentos.InstrumentoJacinto;
 import concierto.instrumentos.InstrumentoMiguelAngel;
@@ -21,16 +24,22 @@ import concierto.instrumentos.InstrumentoJavier;
 import concierto.musicos.MusicoProfe;
 
 
+
+
 public class ConciertoSolista {
 
 	public static void main(String[] args) {
 
+
+    
 		InstrumentoInterface tamborMar = new InstrumentoMar("Mar => pom, pom ,pom");		
 
 		MusicoInterface solistaMar = new MusicoMar(tamborMar);
 
 		solistaMar.tocar();			
 
+
+    
 		InstrumentoBean instrumentoBeanTambor = new InstrumentoBean();
 		instrumentoBeanTambor.setSonido("pom, pom ,pom en bean");		
 
@@ -47,7 +56,20 @@ public class ConciertoSolista {
 		instrumentoBeanJuan.setSonido("Juan, Juan, Juan");
 		InstrumentoInterface juan = new Instrumento(instrumentoBeanJuan);
 		
+		
+		InstrumentoBean instrumentoBeanCarlos = new InstrumentoBean();
+		instrumentoBeanCarlos.setSonido("pom, pom ,pom en bean de carlos");
+		instrumentoBeanCarlos.setMarca("nueva marca de carlos");
+		instrumentoBeanCarlos.setPrecio(3000);
+		InstrumentoInterface intrumentocarlos = new Instrumento(instrumentoBeanCarlos);
+		
 
+    
+		Musico solista = new Musico(tambor);
+		MusicoCarlos carlos = new MusicoCarlos(intrumentocarlos);
+		
+
+    
 		InstrumentoInterface instrumentoArk4no = new InstrumentoArk4no("bombo, caja, bombo, caja");
 		MusicoInterface musicoArk4no = new MusicoArk4no (instrumentoArk4no);
 		System.out.println("bat bi hiru lau!!!");
@@ -59,8 +81,15 @@ public class ConciertoSolista {
 		MusicoJacinto jacinto = new MusicoJacinto(tambor);
 		jacinto.setInstrumentoInterface(tambor);
 		MusicoJavier solista = new MusicoJavier(tambor);
-		solista.setInstrumentoInterface(tambor);
 
+    
+		solista.setInstrumentoInterface(tambor);
+		carlos.setInstrumentoInterface(intrumentocarlos);
+
+
+    
+		solista.tocar();
+		carlos.tocar();
 		
 		jacinto.tocar();
 
