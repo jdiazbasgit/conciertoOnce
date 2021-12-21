@@ -30,6 +30,8 @@ public class ConciertoSolista {
 		musicoJuan.tocar();
 		
 		//asjdfkljasdlkfjaslk
+		// prueba pull nueva
+
 
 	}
 
