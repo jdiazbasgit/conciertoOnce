@@ -18,6 +18,7 @@ public class ConciertoSolista {
 		solista.setInstrumentoInterface(tambor);
 
 		jacinto.tocar();
+		// prueba para sara
 
 	} 
 
