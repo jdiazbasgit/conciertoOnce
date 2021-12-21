@@ -22,7 +22,7 @@ public class ConciertoSolista {
 		InstrumentoInterface antonio = new InstrumentoAntonio(instrumentoBeanAntonio);
 
 		MusicoAntonio solistaAntonio = new MusicoAntonio(antonio);
-		solistaAntonio.setInstrumentoInterface(solistaAntonio);
+		
 
 		Musico solista = new Musico(tambor);
 		solista.setInstrumentoInterface(tambor);
