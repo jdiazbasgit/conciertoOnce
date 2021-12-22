@@ -1,10 +1,12 @@
-/**
- * 
- */
 package concierto.musicos;
 
 
-public interface MusicoInterface {
+/**
+ * @author fjdia interface de los musicos
+ */
 
+public interface MusicoInterface {
+	
 	public void tocar();
+
 }
