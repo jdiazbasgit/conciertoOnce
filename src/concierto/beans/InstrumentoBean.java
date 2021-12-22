@@ -12,11 +12,10 @@ public class InstrumentoBean {
 	private int precio;
 	
 	
-	public InstrumentoBean(String sonido, String marca, int precio) {
+	public InstrumentoBean(String sonido) {
 		super();
 		this.sonido = sonido;
-		this.marca = marca;
-		this.precio = precio;
+		
 	}
 	public String getSonido() {
 		return sonido;
