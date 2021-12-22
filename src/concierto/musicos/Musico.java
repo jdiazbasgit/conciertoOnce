@@ -14,7 +14,7 @@ public class Musico implements MusicoInterface {
 	@Override
 	public void tocar() {
 		System.out.println(getInstrumentoInterface().sonar());
-	  
+	   
 		
 	}
 
