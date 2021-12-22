@@ -2,6 +2,14 @@ package concierto.teatros;
 
 import concierto.beans.InstrumentoBean;
 import concierto.instrumentos.Instrumento;
+
+import concierto.instrumentos.InstrumentoArk4no;
+import concierto.instrumentos.InstrumentoInterface;
+import concierto.instrumentos.InstrumentoJacinto;
+import concierto.instrumentos.InstrumentoJavier;
+import concierto.instrumentos.InstrumentoProfe;
+import concierto.musicos.MusicoArk4no;
+
 import concierto.instrumentos.InstrumentoAlmu2;
 import concierto.instrumentos.InstrumentoAntonio;
 import concierto.instrumentos.InstrumentoArk4no;
@@ -22,13 +30,16 @@ import concierto.musicos.MusicoAntonio;
 import concierto.musicos.MusicoArk4no;
 import concierto.musicos.MusicoCarlos;
 import concierto.musicos.MusicoHortensia;
+
 import concierto.musicos.MusicoInterface;
 import concierto.musicos.MusicoJacinto;
 import concierto.musicos.MusicoJavier;
 import concierto.musicos.MusicoJuan;
+
 import concierto.musicos.MusicoMar;
 import concierto.musicos.MusicoMiguelAngel;
 import concierto.musicos.MusicoPedro;
+
 import concierto.musicos.MusicoProfe;
 import concierto.musicos.MusicoRicardo;
 import concierto.musicos.MusicoSara;
