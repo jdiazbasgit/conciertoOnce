@@ -7,6 +7,11 @@ public abstract class Musico implements MusicoInterface {
 	private InstrumentoInterface instrumentoInterface;
 	private InstrumentoInterface[] instrumentosInterface;
 
+	public Musico(InstrumentoInterface[] instrumentosInterface) {
+		super();
+		this.instrumentosInterface = instrumentosInterface;
+	}
+
 	@Override
 
 	public abstract void tocar();
