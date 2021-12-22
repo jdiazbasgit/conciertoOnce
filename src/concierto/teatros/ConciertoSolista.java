@@ -28,5 +28,7 @@ public class ConciertoSolista {
 	 InstrumentoInterface instrumentoSara=new InstrumentoSara("sonido de instrumento de Sara");
 	 MusicoInterface musicoSara= new MusicoSara(instrumentoSara);
 	 musicoSara.tocar();
+	 
+	 MusicoSara Solista= new MusicoSara (new InstrumentoSara("pom,pom,pom"));
 }
 }
