@@ -2,7 +2,7 @@ package concierto.teatros;
 
 import concierto.beans.InstrumentoBean;
 import concierto.instrumentos.Instrumento;
-import concierto.musicos.Musico;
+import concierto.musicos.Solista;
 
 public class ConciertoSolista {
 
@@ -14,7 +14,7 @@ public class ConciertoSolista {
 		
 		
 		
-		Musico solista= new Musico(new Instrumento(new InstrumentoBean("sonido")));
+		Solista solista= new Solista(new Instrumento(new InstrumentoBean("sonido")));
 		solista.tocar();
 
 	}
