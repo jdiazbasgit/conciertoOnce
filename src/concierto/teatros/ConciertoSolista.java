@@ -1,10 +1,7 @@
 package concierto.teatros;
 
-import concierto.beans.InstrumentoBean;
-import concierto.instrumentos.Instrumento;
 import concierto.instrumentos.InstrumentoInterface;
 import concierto.instrumentos.InstrumentoSara;
-import concierto.musicos.Musico;
 import concierto.musicos.MusicoInterface;
 import concierto.musicos.MusicoSara;
 
@@ -23,10 +20,7 @@ public class ConciertoSolista {
    
 
     
-		InstrumentoBean instrumentoBeanTambor = new InstrumentoBean("sonido");
-
-		instrumentoBeanTambor.setSonido("pom, pom ,pom en bean");
-		InstrumentoInterface tambor = new Instrumento(instrumentoBeanTambor);
+		
 
 	
 		

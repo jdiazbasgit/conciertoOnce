@@ -11,7 +11,6 @@ public class InstrumentoBean {
 		this.sonido = sonido;
 		
 	}
-	private String Sonido;
 	
 	
 
