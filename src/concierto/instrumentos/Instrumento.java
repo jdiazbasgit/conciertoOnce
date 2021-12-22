@@ -1,6 +1,6 @@
 package concierto.instrumentos;
 import concierto.beans.InstrumentoBean;
-
+  
 public class Instrumento implements InstrumentoInterface {
 
 	private InstrumentoBean instrumentoBean;
