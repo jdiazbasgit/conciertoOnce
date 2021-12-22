@@ -18,10 +18,8 @@ public class InstrumentoPedro implements InstrumentoInterface {
 
 	@Override
 	public String sonar() {
-		
+
 		return getSonido();
 	}
-
-	
 
 }
