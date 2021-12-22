@@ -2,7 +2,14 @@ package concierto.musicos;
 
 import concierto.instrumentos.InstrumentoInterface;
 
-public class Musico implements MusicoInterface {
+public abstract class Musico implements MusicoInterface {
+
+	private InstrumentoInterface[] instrumentosInterface;
+
+	public Musico(InstrumentoInterface[] instrumentosInterface) {
+		super();
+		this.setInstrumentosInterface(instrumentosInterface);
+	}
 
 	public Musico(InstrumentoInterface instrumentoInterface) {
 		super();
@@ -12,11 +19,7 @@ public class Musico implements MusicoInterface {
 	private InstrumentoInterface instrumentoInterface;
 
 	@Override
-	public void tocar() {
-		System.out.println(getInstrumentoInterface().sonar());
-	  
-		
-	}
+	public abstract void tocar();
 
 	public InstrumentoInterface getInstrumentoInterface() {
 		return instrumentoInterface;
@@ -24,6 +27,14 @@ public class Musico implements MusicoInterface {
 
 	public void setInstrumentoInterface(InstrumentoInterface instrumentoInterface) {
 		this.instrumentoInterface = instrumentoInterface;
+	}
+
+	public InstrumentoInterface[] getInstrumentosInterface() {
+		return instrumentosInterface;
+	}
+
+	public void setInstrumentosInterface(InstrumentoInterface[] instrumentosInterface) {
+		this.instrumentosInterface = instrumentosInterface;
 	}
 
 }
