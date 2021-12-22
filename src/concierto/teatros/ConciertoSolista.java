@@ -3,9 +3,9 @@ import concierto.beans.InstrumentoBean;
 import concierto.instrumentos.Instrumento;
 import concierto.instrumentos.InstrumentoInterface;
 import concierto.instrumentos.InstrumentoJavier;
-import concierto.musicos.Musico;
 import concierto.musicos.MusicoInterface;
 import concierto.musicos.MusicoJavier;
+import concierto.musicos.Solista;
 
 public class ConciertoSolista {
 
@@ -15,11 +15,11 @@ public class ConciertoSolista {
 		
 		
 		
-		InstrumentoInterface instrumentoJavier = new InstrumentoJavier("sonido de instrumento Javier");
+		/*InstrumentoInterface instrumentoJavier = new InstrumentoJavier("sonido de instrumento Javier");
 		MusicoInterface musicoJavier = new MusicoJavier(instrumentoJavier);
-		musicoJavier.tocar();
+		musicoJavier.tocar();*/
 		
-		Musico solista = new Musico(new Instrumento(new InstrumentoBean("sonido")));
+		Solista solista = new Solista(new Instrumento(new InstrumentoBean("sonido")));
 		solista.tocar();
 
 		
