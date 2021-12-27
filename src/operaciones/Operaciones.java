@@ -1,20 +1,21 @@
 package operaciones;
 
 public class Operaciones {
-	private float saldo;
+	
+	private double saldo;
 	
 	
-	public void Ingresar(float cantidad) {
+	public void ingresar(double cantidad) {
 	
 		saldo = saldo + cantidad;
 	}
 	
-	 public void retirar(float cantidad) {
+	 public void retirar(double cantidad) {
 	        saldo = saldo - cantidad;
 	    }
 
 	
-	public float getSaldo() {
+	public double getSaldo() {
 		return saldo;
 	}
 
