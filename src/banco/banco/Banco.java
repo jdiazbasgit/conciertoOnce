@@ -5,6 +5,23 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class Banco {
+	private double saldo;
+
+	
+
+	public double getSaldo() {
+		return saldo;
+	}
+
+	public void setSaldo(double saldo) {
+		this.saldo = saldo;
+	}
+	
+
+	public Banco(double saldo) {
+		super();
+		this.saldo = saldo;
+	}
 
 	public static void main(String[] args) {
 
@@ -14,14 +31,14 @@ public class Banco {
 				int opcion = Integer.parseInt(leerTeclado());
 				switch (opcion) {
 				case 1:
-
+					ingresar();
 					break;
 				case 2:
-
+					cobrar();
 					break;
 
 				case 3:
-
+					System.out.println("el saldo es : " + getSaldo());
 					break;
 				case 4:
 
@@ -54,6 +71,21 @@ public class Banco {
 		System.out.println("3.-saldo");
 		System.out.println("4.- Terminar");
 		System.out.println("Teclea opción:");
+	}
+
+	public static void ingresar() {
+		System.out.println("escribe un ingreso en decimal");
+		double ingreso = Double.parseDouble(leerTeclado());
+		if (ingreso >= 0)
+			setSaldo(ingreso + getSaldo());
+
+	}
+
+	public static void cobrar() {
+		System.out.println("escribe un cobro en decimal");
+		double cobro = Double.parseDouble(leerTeclado());
+		if ( getSaldo() >= cobro ) 
+		setSaldo( getSaldo()-cobro);
 	}
 
 }
