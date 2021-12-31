@@ -1,7 +1,5 @@
 package concierto.musicos;
 
-import java.util.List;
-
 import concierto.instrumentos.InstrumentoInterface;
 
 public class HombreOrquesta extends Musico {
@@ -14,9 +12,7 @@ public class HombreOrquesta extends Musico {
 	public void tocar() {
 
 		for (int i = 0; i < getInstrumentosInterface().length; i++) {
-			if (getInstrumentosInterface()[i].sonar().length() >12) {
 				System.out.println(getInstrumentosInterface()[i].sonar());
-			}
 		}
 
 		/*

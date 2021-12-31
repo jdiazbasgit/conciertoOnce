@@ -8,7 +8,7 @@ public class ConciertoSolista {
 
 	public static void main(String[] args) {
 		
-		//InstrumentoBean instrumentoBean= new InstrumentoBean("soinido");
+		//InstrumentoBean instrumentoBean= new InstrumentoBean("sonido");
 		//Instrumento instrumento= new Instrumento(instrumentoBean);
 		//Musico solista= new Musico(instrumento);
 		

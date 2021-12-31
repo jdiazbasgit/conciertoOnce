@@ -4,7 +4,8 @@ import concierto.beans.InstrumentoBean;
 
 
 /**
- * @author fjdia Calase del instrumento
+ * @author Juan Vega
+ * Clase del instrumento.
  */
 
 
