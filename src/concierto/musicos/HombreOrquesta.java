@@ -1,7 +1,5 @@
 package concierto.musicos;
 
-import java.util.List;
-
 import concierto.instrumentos.InstrumentoInterface;
 
 public class HombreOrquesta extends Musico implements MusicoInterface {
