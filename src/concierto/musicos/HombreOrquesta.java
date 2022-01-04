@@ -1,4 +1,4 @@
-package concierto.musicos;
+/*package concierto.musicos;
 
 import concierto.instrumentos.InstrumentoInterface;
 
@@ -19,12 +19,12 @@ public class HombreOrquesta extends Musico {
 			
 			
 	/*for (InstrumentoInterface instrumento: getInstrumentosInterface()) {
-		System.out.println(instrumento.sonar());*/
-	}
-	/*List.of(getInstrumentoInterface()).stream().filter(i->i.sonar().length()>12)forEach(instrumento->{
+		System.out.println(instrumento.sonar())
+	
+	List.of(getInstrumentoInterface()).stream().filter(i->i.sonar().length()>12)forEach(instrumento->{
  System.out.println(instrumento.sonar());
 	}*/
 	
-	}}
+	
 
 	
