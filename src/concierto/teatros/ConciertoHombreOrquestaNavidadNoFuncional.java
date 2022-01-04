@@ -5,7 +5,7 @@ import concierto.instrumentos.Instrumento;
 import concierto.instrumentos.InstrumentoInterface;
 import concierto.musicos.HombreOrquesta;
 
-public class ConciertoHombreOrquestaNavidadFuncional {
+public class ConciertoHombreOrquestaNavidadNoFuncional {
 	
 	public static void main(String[] args) {
 		InstrumentoInterface[] instrumentos= {new Instrumento(new InstrumentoBean("clin, clin, clin")),
@@ -20,8 +20,8 @@ public class ConciertoHombreOrquestaNavidadFuncional {
 				new Instrumento(new InstrumentoBean("lolololo"))
 				};
 		
-		HombreOrquesta hombreOrquestaNavidadFuncional= new HombreOrquesta(instrumentos);
-		hombreOrquestaNavidadFuncional.tocar();
+		HombreOrquesta hombreOrquestaNavidadNoFuncional= new HombreOrquesta(instrumentos);
+		hombreOrquestaNavidadNoFuncional.tocar();
 
 	}
 
