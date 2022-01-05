@@ -22,6 +22,7 @@ public class ConciertoHombreOrquesta {
 				new Instrumento(new InstrumentoBean("tlan, tlan, tlan"))};
 		
 		HombreOrquesta hombreOrquesta = new HombreOrquesta(instrumentos);
+		
 		hombreOrquesta.tocar();
 
 	}
