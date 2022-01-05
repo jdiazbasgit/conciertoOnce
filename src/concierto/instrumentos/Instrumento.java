@@ -16,6 +16,11 @@ public class Instrumento implements InstrumentoInterface {
 	}
 
 
+	public Instrumento(String string) {
+		// TODO Auto-generated constructor stub
+	}
+
+
 	@Override
 
 	
