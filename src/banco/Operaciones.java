@@ -7,10 +7,6 @@ public class Operaciones {
 		return saldo;
 	}
 
-	public void setSaldo(double saldo) {
-		this.saldo = saldo;
-	}
-	
 	public void ingresar(double cantidadIngresada) {
 		saldo = saldo + cantidadIngresada;
 
