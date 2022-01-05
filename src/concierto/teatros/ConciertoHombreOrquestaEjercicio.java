@@ -3,7 +3,7 @@ package concierto.teatros;
 import concierto.beans.InstrumentoBean;
 import concierto.instrumentos.Instrumento;
 import concierto.instrumentos.InstrumentoInterface;
-import concierto.musicos.HombreOrquestaEjercicio;
+import concierto.musicos.HombreOrquesta;
 
 public class ConciertoHombreOrquestaEjercicio {
 
@@ -19,7 +19,7 @@ public class ConciertoHombreOrquestaEjercicio {
 				 new Instrumento(new InstrumentoBean("tilin,tilin,tilin")),
 				 new Instrumento(new InstrumentoBean("la,la,la")),
 				 new Instrumento(new InstrumentoBean("da,de,di,do,du"))};
-		 HombreOrquestaEjercicio hombreOrquesta= new HombreOrquestaEjercicio(instrumentos);
+		 HombreOrquesta hombreOrquesta= new HombreOrquesta(instrumentos);
 		 hombreOrquesta.tocar();
 
 		}
