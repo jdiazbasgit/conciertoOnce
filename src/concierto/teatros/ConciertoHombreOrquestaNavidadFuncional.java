@@ -4,9 +4,10 @@ import concierto.instrumentos.Instrumento;
 import concierto.musicos.HombreOrquestaNavidad;
 
 public class ConciertoHombreOrquestaNavidadFuncional {
-	{ 
 	
-	 new HombreOrquestaNavidad (new Instrumento("")).tocar();
-}
+	public static void main (String[] args) {
+	
+	 new HombreOrquestaNavidad (new Instrumento("troloooooooooooooo, tabum, tabuuuummm")).tocar();
+};
 }
 

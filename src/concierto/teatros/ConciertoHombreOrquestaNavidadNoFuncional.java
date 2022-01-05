@@ -8,7 +8,8 @@ import concierto.musicos.HombreOrquesta;
 public class ConciertoHombreOrquestaNavidadNoFuncional {
 	
 	public static void main(String[] args) {
-		InstrumentoInterface[] instrumentos= {new Instrumento(new InstrumentoBean("clin, clin, clin")),
+		InstrumentoInterface[] instrumentos= 
+			   {new Instrumento(new InstrumentoBean("clin, clin, clin")),
 				new Instrumento(new InstrumentoBean("plis, plas, plus")),
 				new Instrumento(new InstrumentoBean("la, la, la")),
 				new Instrumento(new InstrumentoBean("clon, clon, clon")),
