@@ -12,6 +12,10 @@ public class Instrumento implements InstrumentoInterface {
 		this.instrumentoBean = instrumentoBean;
 	}
 
+	public Instrumento(String string) {
+		
+	}
+
 	@Override
 
 	public String sonar() {
