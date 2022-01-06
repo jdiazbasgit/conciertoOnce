@@ -23,6 +23,7 @@ public class Instrumento implements InstrumentoInterface {
 		return getInstrumentoBean().getSonido();
 	}
 
+
 	public InstrumentoBean getInstrumentoBean() {
 		return instrumentoBean;
 	}
@@ -30,5 +31,8 @@ public class Instrumento implements InstrumentoInterface {
 	public void setInstrumentoBean(InstrumentoBean instrumentoBean) {
 		this.instrumentoBean = instrumentoBean;
 	}
+
+	
+	
 
 }
