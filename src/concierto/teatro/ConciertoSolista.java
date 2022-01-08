@@ -1,4 +1,4 @@
-package concierto.teatros;
+package concierto.teatro;
 
 import concierto.beans.InstrumentoBean;
 import concierto.instrumentos.Instrumento;

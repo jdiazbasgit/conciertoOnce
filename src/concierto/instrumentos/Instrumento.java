@@ -38,4 +38,7 @@ public class Instrumento implements InstrumentoInterface {
 		this.instrumentoBean = instrumentoBean;
 	}
 
-}
+
+	}
+
+
