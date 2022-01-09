@@ -10,6 +10,8 @@ public class Principal {
 		Scanner teclado = new Scanner(System.in);
 		boolean salir = false;
 		
+		
+		
 		double totalCuenta;
 		Cuenta cuenta1;
 		cuenta1 = new Cuenta(1111111,2500.70);
