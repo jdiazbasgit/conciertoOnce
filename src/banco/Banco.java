@@ -6,25 +6,33 @@ import java.io.InputStreamReader;
 
 public class Banco {
 
-	public static void main(String[] args) {
+	public Banco() {
+		// TODO Auto-generated constructor stub
+	}
 
+	public static void main(String[] args) {
+		
+		CuentaBancaria cuenta = new CuentaBancaria();
+		
 		while (true) {
 			menu();
 			try {
 				int opcion = Integer.parseInt(leerTeclado());
 				switch (opcion) {
 				case 1:
-
+					System.out.println("Introduce cantidad a ingresar : ");
+					double ingreso = Double.parseDouble(leerTeclado());
+					cuenta.ingresar(ingreso);
 					break;
 				case 2:
-
+					System.out.println("Introduce cantidad a sacar : ");
+					double cantidad = Double.parseDouble(leerTeclado());
+					cuenta.sacarDinero(cantidad);
 					break;
-
 				case 3:
-
+					System.out.println("Saldo Cuenta : " + cuenta.getSaldo());
 					break;
 				case 4:
-
 					System.exit(0);
 
 				default:
