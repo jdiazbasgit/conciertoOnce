@@ -6,12 +6,20 @@ public class Operaciones {
 	
 	
 	public void ingresar(double cantidad) {
-	
-		saldo = saldo + cantidad;
+		if (cantidad <= 0 ) {
+			System.out.println("Tienes que meter cantidad");
+			return;	
+		}
+		setSaldo(getSaldo() + cantidad);
+		//saldo = saldo + cantidad;
 	}
 	
 	 public void retirar(double cantidad) {
-	        saldo = saldo - cantidad;
+		 if (cantidad <= 0 ) {
+				System.out.println("Tienes que sacar cantidad");
+				return;	
+			}
+			setSaldo(getSaldo() - cantidad);
 	    }
 
 	
@@ -19,7 +27,7 @@ public class Operaciones {
 		return saldo;
 	}
 
-	public void setSaldo(float saldo) {
+	public void setSaldo(double saldo) {
 		this.saldo = saldo;
 	}
 

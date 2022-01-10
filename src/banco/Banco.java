@@ -20,7 +20,7 @@ public class Banco {
 				case 1:
 					
 					System.out.println("¿Cuanto vas a meter?");
-					Float opcion2 = Float.parseFloat(leerTeclado());	
+					Double opcion2 = Double.parseDouble(leerTeclado());	
 					operaciones.ingresar(opcion2);
 					System.out.println("has ingresado: " + opcion2);
 					System.out.println("Tienes: " + operaciones.getSaldo());
@@ -30,7 +30,7 @@ public class Banco {
 				case 2:
 					
 					System.out.println("¿Cuanto vas a retirar?");
-					Float opcion3 = Float.parseFloat(leerTeclado());
+					Double opcion3 = Double.parseDouble(leerTeclado());
 					operaciones.retirar(opcion3);
 					System.out.println("has retirado: " + opcion3);
 					System.out.println("Tienes: " + operaciones.getSaldo());
