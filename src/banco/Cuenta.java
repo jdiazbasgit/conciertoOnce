@@ -22,17 +22,21 @@ public class Cuenta {
 
 
 
-public Cuenta(int cuenta, int inicial) {
+public Cuenta(int cuenta, int d) {
     NumeroDeCuenta = cuenta;
-    SaldoDelaCuenta = inicial;
+    SaldoDelaCuenta = NumeroDeCuenta;
+}
+
+public Cuenta(int cuenta, double d) {
+	// TODO Auto-generated constructor stub
 }
 
 public void depositar(int Cantidad, int SaldoDelaCuenta) {
-	this.SaldoDelaCuenta = SaldoDelaCuenta - Cantidad;
+	this.SaldoDelaCuenta = SaldoDelaCuenta + Cantidad;
 }
 
 public void retirar(int Cantidad) {
-	
+	SaldoDelaCuenta = SaldoDelaCuenta - Cantidad;
 	
 }
 
