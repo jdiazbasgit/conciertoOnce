@@ -1,6 +1,7 @@
 package concierto.teatro;
 
 import concierto.beans.InstrumentoBean;
+import concierto.excepciones.SinSonidoException;
 import concierto.instrumentos.Instrumento;
 import concierto.instrumentos.InstrumentoInterface;
 import concierto.instrumentos.InstrumentoSara;
@@ -17,7 +18,7 @@ public class ConciertoSolista {
 
 	
 
-	public static void main(String[] args)  {
+	public static void main(String[] args) throws SinSonidoException {
 
 
   	// prueba para sara
@@ -26,15 +27,18 @@ public class ConciertoSolista {
 	 MusicoInterface musicoSara= new MusicoSara(instrumentoSara);
 	 musicoSara.tocar();
 	 
- Solista Solista= new Solista (new Instrumento(new InstrumentoBean("sonido")));
-
-Solista.tocar();
+	 Solista solista= new Solista(new Instrumento(new InstrumentoBean("nada")));
+		try {
+			solista.tocar();
+		} catch (SinSonidoException e) {
+			System.out.println("Señores el instrumento se ha roto y se ha acabado el concierto");
+		}
 
 	
-
+	}
 
 	}
 
-}
+
 
 
