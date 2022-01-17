@@ -16,19 +16,18 @@ public class Operaciones {
 		//saldo = saldo + cantidad;
 	}
 	
-	 public void retirar(double cantidad) {
+	 public void retirar(double cantidad) throws SinSaldoException {
+		 if (getSaldo() - cantidad <0) {
+				throw new SinSaldoException();
+		}
 		 if (cantidad <= 0 ) {
 				System.out.println("Tienes que sacar cantidad");
 				return;	
 			}
 			setSaldo(getSaldo() - cantidad);
-			try {
-				if (getSaldo() - cantidad <=0) {
-						
-				}
-			} catch (SinSaldoException e) {
+		
 				
-			}
+			
 			
 	    }
 

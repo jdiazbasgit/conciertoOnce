@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import excepcion.SinSaldoException;
 import operaciones.Operaciones;
 
 public class Banco {
@@ -28,13 +29,19 @@ public class Banco {
 				
 					break;
 				case 2:
+					try {
+						System.out.println("¿Cuanto vas a retirar?");
+						Double opcion3 = Double.parseDouble(leerTeclado());
+						operaciones.retirar(opcion3);
+						System.out.println("has retirado: " + opcion3);
+						System.out.println("Tienes: " + operaciones.getSaldo());
+						break;
+						
+					} catch (SinSaldoException e) {
+						System.out.println("No puedes sacar mas de lo que no tienes");
+						break;
+					}
 					
-					System.out.println("¿Cuanto vas a retirar?");
-					Double opcion3 = Double.parseDouble(leerTeclado());
-					operaciones.retirar(opcion3);
-					System.out.println("has retirado: " + opcion3);
-					System.out.println("Tienes: " + operaciones.getSaldo());
-					break;
 					
 					
 				case 3:
