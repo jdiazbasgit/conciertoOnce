@@ -16,11 +16,11 @@ public class Instrumento implements InstrumentoInterface {
 		this.instrumentoBean = instrumentoBean;
 	}
 
-	@Override
+	
 
 	/**
 	 * metodo que devuelve el sonido del instrumento
-	 * 
+	 *  
 	 * @throws SinSonidoException
 	 */
 

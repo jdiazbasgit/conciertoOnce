@@ -19,7 +19,6 @@ public abstract class Musico implements MusicoInterface {
 		this.instrumentosInterface = instrumentosInterface;
 	}
 
-	@Override
 	public abstract void tocar() throws SinSonidoException ;
 
 	public InstrumentoInterface getInstrumentoInterface() {
