@@ -1,5 +1,7 @@
 package operaciones;
 
+import excepcion.SinSaldoException;
+
 public class Operaciones {
 	
 	private double saldo;
@@ -20,6 +22,14 @@ public class Operaciones {
 				return;	
 			}
 			setSaldo(getSaldo() - cantidad);
+			try {
+				if (getSaldo() - cantidad <=0) {
+						
+				}
+			} catch (SinSaldoException e) {
+				
+			}
+			
 	    }
 
 	
