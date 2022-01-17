@@ -1,5 +1,6 @@
 package concierto.musicos;
 
+import concierto.excepciones.SinSonidoException;
 import concierto.instrumentos.Instrumento;
 import concierto.instrumentos.InstrumentoInterface;
 
@@ -16,7 +17,7 @@ public class HombreOrquestaNavidad extends Musico implements MusicoInterface {
 	}
 
 	@Override
-		public void tocar() {
+		public void tocar() throws SinSonidoException {
 			for (InstrumentoInterface instrumento : getInstrumentosInterface()) {
 				System.out.println(instrumento.sonar());
 		

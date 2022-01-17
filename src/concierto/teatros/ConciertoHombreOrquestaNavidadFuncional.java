@@ -1,14 +1,14 @@
 package concierto.teatros;
 
 import concierto.beans.InstrumentoBean;
+import concierto.excepciones.SinSonidoException;
 import concierto.instrumentos.Instrumento;
-import concierto.instrumentos.InstrumentoInterface;
 import concierto.musicos.HombreOrquestaNavidadFuncional;
 
-public class ConciertoHombreOrquestaNavidadFuncional {
+public class ConciertoHombreOrquestaNavidadFuncional  {
 
 	public static void main(String[] args) {
-		InstrumentoInterface[] instrumentos = { new Instrumento(new InstrumentoBean("clin, clin, clin")),
+		Instrumento[] instrumentos = { new Instrumento(new InstrumentoBean("clin, clin, clin")),
 				new Instrumento(new InstrumentoBean("plis, plas, plus")),
 				new Instrumento(new InstrumentoBean("la, la, la")),
 				new Instrumento(new InstrumentoBean("clon, clon, clon")),
@@ -18,6 +18,25 @@ public class ConciertoHombreOrquestaNavidadFuncional {
 				new Instrumento(new InstrumentoBean("guan, guan, guan")),
 				new Instrumento(new InstrumentoBean("tralalalala")), new Instrumento(new InstrumentoBean("lolololo")) };
 
-		new HombreOrquestaNavidadFuncional(instrumentos).tocar();
-	};
+		try {
+			new HombreOrquestaNavidadFuncional(instrumentos).tocar();
+		} catch (SinSonidoException e) {
+			System.out.println("Señores el instrumento se ha roto y lo voy a arreglar");
+			e.instrumentoRoto();
+			for (Instrumento instrumento : instrumentos) {
+				if(instrumento.getInstrumentoBean().getSonido().equals("nada"))
+					instrumento.getInstrumentoBean().setSonido("pin, pin,  pion");
+			}
+			System.out.println("señores reanudamos el concierto");
+			try {
+				hombreOrquestaNavidadFuncional.tocar();
+			} catch (SinSonidoException e1) {
+	}
+			finally {
+				System.out.println("señores gracias por venir a este teatro y esparamos vers de nuevo");
+			}
+		}
+	}
 }
+	
+
