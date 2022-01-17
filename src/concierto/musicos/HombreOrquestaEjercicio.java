@@ -22,8 +22,4 @@ public class HombreOrquestaEjercicio extends Musico {
 
 	}
 
-	@Override
-	public void tocar1() throws SinSonidoException {
-		// TODO Auto-generated method stub
-		
-	}}
+}

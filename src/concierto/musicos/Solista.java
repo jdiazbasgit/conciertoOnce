@@ -10,14 +10,11 @@ public class Solista extends Musico {
 	
 	}
 
+	
+
 	@Override
 	public void tocar() throws SinSonidoException {
 		System.out.println(getInstrumentoInterface().sonar());
 	}
 
-	@Override
-	public void tocar1() throws SinSonidoException {
-		// TODO Auto-generated method stub
-		
-	}
 }

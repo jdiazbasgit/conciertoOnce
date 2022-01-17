@@ -1,7 +1,5 @@
 package concierto.musicos;
 
-
-
 import concierto.excepciones.SinSonidoException;
 import concierto.instrumentos.InstrumentoInterface;
 
@@ -11,8 +9,8 @@ public class HombreOrquesta extends Musico {
 		super(instrumentosInterface);
 	}
 
-	
-	public void tocar11() throws SinSonidoException {
+	@Override
+	public void tocar() throws SinSonidoException {
 
 		for (int i = 0; i < getInstrumentosInterface().length; i++) {
 			//if (getInstrumentosInterface()[i].sonar().length() <512) {
@@ -31,21 +29,4 @@ public class HombreOrquesta extends Musico {
 		 */
 	}
 
-
-	@Override
-	public void tocar() throws SinSonidoException {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
-	public void tocar1() throws SinSonidoException {
-		// TODO Auto-generated method stub
-		
-	}
-
-	
-
-	
-	}
+}

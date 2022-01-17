@@ -5,23 +5,21 @@ import concierto.instrumentos.InstrumentoInterface;
 
 public abstract class Musico implements MusicoInterface {
 
-	private InstrumentoInterface instrumentoInterface;
 	private InstrumentoInterface[] instrumentosInterface;
 
-	public Musico(InstrumentoInterface[] instrumentosInterface) {
-		super();
-		this.instrumentosInterface = instrumentosInterface;
-	}
-
-	@Override
-
-	public abstract void tocar() throws SinSonidoException;
+	private InstrumentoInterface instrumentoInterface;
 
 	public Musico(InstrumentoInterface instrumentoInterface) {
 		super();
 		this.instrumentoInterface = instrumentoInterface;
 	}
-	public abstract void tocar1() throws SinSonidoException ;
+	
+	public Musico(InstrumentoInterface[] instrumentosInterface) {
+		super();
+		this.instrumentosInterface = instrumentosInterface;
+	}
+
+	public abstract void tocar() throws SinSonidoException ;
 
 	public InstrumentoInterface getInstrumentoInterface() {
 		return instrumentoInterface;
@@ -35,7 +33,9 @@ public abstract class Musico implements MusicoInterface {
 		return instrumentosInterface;
 	}
 
-
-
+	public void setInstrumentosInterface(InstrumentoInterface[] instrumentosInterface) {
+		this.instrumentosInterface = instrumentosInterface;
+	}
 
 }
+
