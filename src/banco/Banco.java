@@ -39,7 +39,11 @@ public class Banco {
 	private static void cobrar(Cuenta cuenta) {
 		System.out.println("Introduce inporte a cobrar:");
 		int importe = Integer.parseInt(leerTeclado());
-		System.out.println("Su saldo actual es: " + cuenta.operar(importe, 1));
+		try {
+			System.out.println("Su saldo actual es: " + cuenta.operar(importe, 1));
+		} catch (SinSaldoException e) {
+			System.out.println("No tienes saldo suficiente, introducca otro importe");
+		}
 
 	}
 
@@ -48,10 +52,14 @@ public class Banco {
 
 	}
 
-	private static void ingresar(Cuenta cuenta) {
+	private static void ingresar(Cuenta cuenta)  {
 		System.out.println("Introduce inporte a ingresar:");
 		int importe = Integer.parseInt(leerTeclado());
-		System.out.println("Su saldo actual es: " + cuenta.operar(importe, 0));
+		try {
+			System.out.println("Su saldo actual es: " + cuenta.operar(importe, 0));
+		} catch (SinSaldoException e) {
+			System.out.println("Fallo en ingreso, intentelo mas tarde");
+		}
 
 	}
 
@@ -72,7 +80,7 @@ public class Banco {
 		System.out.println("2.- Cobrar");
 		System.out.println("3.- Saldo");
 		System.out.println("4.- Terminar");
-		System.out.println("Teclea opción:");
+		System.out.println("Teclea opciï¿½n:");
 	}
 
 }
