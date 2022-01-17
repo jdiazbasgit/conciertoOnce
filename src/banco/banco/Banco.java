@@ -5,40 +5,30 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class Banco {
-	private double saldo;
-
 	
-
-	public double getSaldo() {
-		return saldo;
-	}
-
-	public void setSaldo(double saldo) {
-		this.saldo = saldo;
-	}
-	
-
-	public Banco(double saldo) {
-		super();
-		this.saldo = saldo;
-	}
 
 	public static void main(String[] args) {
-
+       CuentaCorriente cuentaCorriente = new CuentaCorriente();
 		while (true) {
 			menu();
 			try {
 				int opcion = Integer.parseInt(leerTeclado());
 				switch (opcion) {
 				case 1:
-					ingresar();
+					ingresar(cuentaCorriente);
 					break;
 				case 2:
-					cobrar();
+					try {
+						cobrar(cuentaCorriente);
+					} catch (CobroMayorQueSaldoException e) {
+						System.out.println("el saldo de la cuenta es inferior al cobro");
+						e.printStackTrace();
+					}
+					
 					break;
 
 				case 3:
-					System.out.println("el saldo es : " + getSaldo());
+					System.out.println("el saldo es : " + cuentaCorriente.getSaldo());
 					break;
 				case 4:
 
@@ -72,20 +62,21 @@ public class Banco {
 		System.out.println("4.- Terminar");
 		System.out.println("Teclea opción:");
 	}
-
-	public static void ingresar() {
+	public static void ingresar(CuentaCorriente cuentaCorriente) {
 		System.out.println("escribe un ingreso en decimal");
 		double ingreso = Double.parseDouble(leerTeclado());
 		if (ingreso >= 0)
-			setSaldo(ingreso + getSaldo());
+			cuentaCorriente.setSaldo(ingreso + cuentaCorriente.getSaldo());
 
 	}
 
-	public static void cobrar() {
+	public static void cobrar(CuentaCorriente cuentaCorriente ) throws CobroMayorQueSaldoException {
 		System.out.println("escribe un cobro en decimal");
 		double cobro = Double.parseDouble(leerTeclado());
-		if ( getSaldo() >= cobro ) 
-		setSaldo( getSaldo()-cobro);
+		if ( cuentaCorriente.getSaldo() >= cobro ) 
+			cuentaCorriente.setSaldo( cuentaCorriente.getSaldo()-cobro);
+		else throw new CobroMayorQueSaldoException();
 	}
+	
 
 }
