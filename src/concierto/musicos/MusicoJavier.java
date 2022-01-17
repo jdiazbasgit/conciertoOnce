@@ -1,5 +1,6 @@
 package concierto.musicos;
 
+import concierto.excepciones.SinSonidoException;
 import concierto.instrumentos.InstrumentoInterface;
 
 public class MusicoJavier implements MusicoInterface {
@@ -17,7 +18,7 @@ public class MusicoJavier implements MusicoInterface {
 
 
 	@Override
-	public void tocar() {
+	public void tocar() throws SinSonidoException {
 		
 		System.out.println(getInstrumentoInterface().sonar());
 	}

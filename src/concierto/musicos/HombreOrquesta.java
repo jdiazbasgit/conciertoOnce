@@ -2,6 +2,7 @@ package concierto.musicos;
 
 import java.util.List;
 
+import concierto.excepciones.SinSonidoException;
 import concierto.instrumentos.InstrumentoInterface;
 
 public class HombreOrquesta extends Musico {
@@ -12,17 +13,17 @@ public class HombreOrquesta extends Musico {
 	}
 
 	@Override
-	public void tocar() {
+	public void tocar() throws SinSonidoException {
 		
-		/*for (int i = 0; i < getInstrumentosInterface().length; i++) {
+		for (int i = 0; i < getInstrumentosInterface().length; i++) {
 			System.out.println(getInstrumentosInterface()[i].sonar());
-		}*/
+		}
 	/*		for (InstrumentoInterface instrumento : getInstrumentosInterface()) {
 		System.out.println(instrumento.sonar()); 
 	}*/
-	List.of(getInstrumentosInterface()).stream().filter(i->i.sonar().length()>1).forEach(instrumento->{
+	/*List.of(getInstrumentosInterface()).stream().filter(i->i.sonar().length()>1).forEach(instrumento->{
 		System.out.println(instrumento.sonar());
-	});
+	});*/
 		
 	}
 	
