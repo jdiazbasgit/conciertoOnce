@@ -17,4 +17,8 @@ public class Solista extends Musico {
 		System.out.println(getInstrumentoInterface().sonar());
 	}
 
+
+
+	
+
 }

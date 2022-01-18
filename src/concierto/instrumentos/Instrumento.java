@@ -18,7 +18,7 @@ public class Instrumento implements InstrumentoInterface {
 
 
 	public Instrumento(String string) {
-		// TODO Auto-generated constructor stub
+		
 	}
 
 
@@ -27,14 +27,14 @@ public class Instrumento implements InstrumentoInterface {
 	
 
 	public String sonar()throws SinSonidoException {
-		if (getInstrumentoBean1().getSonido().equals("nada")) {
+		if (getInstrumentoBean11().getSonido().equals("nada")) {
 			throw new SinSonidoException();
 		}
 		
-		return getInstrumentoBean1().getSonido();
+		return getInstrumentoBean11().getSonido();
 	}
 
-	public InstrumentoBean getInstrumentoBean1() {
+	public InstrumentoBean getInstrumentoBean11() {
 		return instrumentoBean;
 	}
 
@@ -43,8 +43,16 @@ public class Instrumento implements InstrumentoInterface {
 	}
 
 
+	@Override
+	public InstrumentoBean getInstrumentoBean1() {
+		
+		return null;
+	}
+
+
+	@Override
 	public InstrumentoBean getInstrumentoBean() {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
@@ -55,6 +63,8 @@ public class Instrumento implements InstrumentoInterface {
 		return null;
 	}
 
+
+	
 
 	}
 
