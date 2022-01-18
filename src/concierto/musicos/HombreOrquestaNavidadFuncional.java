@@ -22,7 +22,7 @@ import concierto.instrumentos.Instrumento;
 		
 		public void tocar(HombreOrquestaNavidadFuncional hombreOrquestaNavidadFuncional, Instrumento[] instrumentos) {
 			
-			 List.of(getInstrumentosInterface()).stream().filter(i->{
+			 List.of(getInstrumentos()).stream().filter(i->{
 				try {
 					return i.sonar().length()>1;
 				} catch (SinSonidoException e) {
@@ -56,7 +56,11 @@ import concierto.instrumentos.Instrumento;
 
 		@Override
 		public void tocar() throws SinSonidoException {
-			// TODO Auto-generated method stub
+			for (Instrumento instrumento: getInstrumentos()) {
+				System.out.println(instrumento.sonar());
+			}
+			
+			
 			
 		}
 			

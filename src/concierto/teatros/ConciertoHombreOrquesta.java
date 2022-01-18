@@ -8,9 +8,9 @@ import concierto.musicos.HombreOrquesta;
 public class ConciertoHombreOrquesta {
 
 	public static void main(String[] args) {
-		Instrumento[] instrumentos= {new Instrumento(new InstrumentoBean("pom, pom, pom")),
+		Instrumento[] instrumentos= {new Instrumento(new InstrumentoBean("tklan, tklan, tklan")),
 				new Instrumento(new InstrumentoBean("nada")),
-				new Instrumento(new InstrumentoBean("tklan, tklan, tklan"))
+				new Instrumento(new InstrumentoBean("pom, pom, pom"))
 				};
 		
 		HombreOrquesta hombreOrquesta= new HombreOrquesta(instrumentos);

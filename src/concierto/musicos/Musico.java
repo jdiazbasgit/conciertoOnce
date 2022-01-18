@@ -1,41 +1,40 @@
 package concierto.musicos;
 
 import concierto.excepciones.SinSonidoException;
-import concierto.instrumentos.InstrumentoInterface;
+import concierto.instrumentos.Instrumento;
 
 public abstract class Musico implements MusicoInterface {
 
-	private InstrumentoInterface[] instrumentosInterface;
+	private Instrumento[] instrumentos;
 
-	public Musico(InstrumentoInterface[] instrumentosInterface) {
+	public Musico(Instrumento[] instrumentos) {
 		super();
-		this.setInstrumentosInterface(instrumentosInterface);
+		this.setInstrumentos(instrumentos);
 	}
 
-	public Musico(InstrumentoInterface instrumentoInterface) {
+	public Musico(Instrumento instrumento) {
 		super();
-		this.instrumentoInterface = instrumentoInterface;
+		this.instrumento = instrumento;
 	}
 
-	protected InstrumentoInterface instrumentoInterface;
+	protected Instrumento instrumento;
 
-	@Override
 	public abstract void tocar() throws SinSonidoException;
 
-	public InstrumentoInterface getInstrumentoInterface() {
-		return instrumentoInterface;
+	public Instrumento getInstrumento() {
+		return instrumento;
 	}
 
-	public void setInstrumentoInterface(InstrumentoInterface instrumentoInterface) {
-		this.instrumentoInterface = instrumentoInterface;
+	public void setInstrumento(Instrumento instrumento) {
+		this.instrumento = instrumento;
 	}
 
-	public InstrumentoInterface[] getInstrumentosInterface() {
-		return instrumentosInterface;
+	public Instrumento[] getInstrumentos() {
+		return instrumentos;
 	}
 
-	public void setInstrumentosInterface(InstrumentoInterface[] instrumentosInterface) {
-		this.instrumentosInterface = instrumentosInterface;
+	public void setInstrumentos(Instrumento[] instrumentos) {
+		this.instrumentos = instrumentos;
 	}
 
 }

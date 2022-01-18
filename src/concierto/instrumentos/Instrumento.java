@@ -13,7 +13,8 @@ public class Instrumento implements InstrumentoInterface {
 		this.instrumentoBean = instrumentoBean;
 	}
 
-	public Instrumento(String string) {
+	public Instrumento(String sonido) {
+		this.setInstrumentoBean(new InstrumentoBean(sonido));
 		
 	}
 
