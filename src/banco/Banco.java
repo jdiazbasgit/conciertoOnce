@@ -7,40 +7,28 @@ import java.io.InputStreamReader;
 public class Banco {
 	public static void main(String[] args) {
 		Cuenta cuenta = new Cuenta();
-		double limiteGastoDiario = cuenta.getLimiteGastoDiario();
 		while (true) {
 			try {
 				menu();
 				int opcionMenu = Integer.parseInt(leerTeclado());
+				double operando;
 				switch (opcionMenu) {
+				
 				case 1:
-					System.out.println("\r\n" + "¿Qué cantidad vas a ingresar?" + "\r\n");
-					double cantidadAIngresar = Double.parseDouble(leerTeclado());
-					cuenta.ingresar(cantidadAIngresar);
-					System.out.println("\r\n" + "Cantidad ingresada con éxito. Saldo actual = " + cuenta.getSaldo()
-							+ " €" + "\r\n");
-					break;
-
+					System.out.println("\r\n" + "¿Qué cantidad quieres ingresar?" + "\r\n");
+					operando = Double.parseDouble(leerTeclado());
+					cuenta.ingreso(operando);
+				break;
+				
 				case 2:
-
-					System.out.println("\r\n" + "¿Qué cantidad vas a sacar?" + "\r\n");
-					double cantidadAExtraer = Double.parseDouble(leerTeclado());
-					if (cuenta.getSaldo() - cantidadAExtraer < cuenta.getLimiteCredito()
-							|| limiteGastoDiario - cantidadAExtraer < 0) {
-						System.out.println("\r\n" + "La cantidad excede el límite permitido. Saldo actual = "
-								+ cuenta.getSaldo() + " €" + "\r\n" + "Límite de gasto diario restante: "
-								+ limiteGastoDiario + " €" + "\r\n");
-						break;
-					}
-					cuenta.extraer(cantidadAExtraer);
-					limiteGastoDiario = limiteGastoDiario - cantidadAExtraer;
-					System.out.println("\r\n" + "Cantidad extraída con éxito. Saldo actual = " + cuenta.getSaldo()
-							+ " €" + "\r\n");
-					break;
+					System.out.println("\r\n" + "¿Qué cantidad quieres extraer?" + "\r\n");
+					operando = Double.parseDouble(leerTeclado());
+					cuenta.reintegro(operando);	
+				break;
 
 				case 3:
-					System.out.println("\r\n" + "Tu saldo es: " + cuenta.getSaldo() + " €" + "\r\n");
-					break;
+					cuenta.verSaldo();
+				break;
 
 				case 4:
 					try {
@@ -49,45 +37,34 @@ public class Banco {
 						switch (opcionOtros) {
 
 						case 1:
-							System.out.println("\r\n" + "El límite de reintegro en cajeros es de: "
-									+ cuenta.getLimiteReintegroCajero() + " €" + "\r\n");
-							break;
+							cuenta.verLimiteCajero();
+						break;
+						
 						case 2:
-							System.out.println("\r\n" + "El límite de reintegro en cajeros actual es de: "
-									+ cuenta.getLimiteReintegroCajero() + "\r\n"
-									+ "Introduce el nuevo límite de reintegro en cajeros" + "\r\n");
-							double nuevoLimiteReintegroCajero = Double.parseDouble(leerTeclado());
-							cuenta.setLimiteReintegroCajero(nuevoLimiteReintegroCajero);
-							System.out.println("\r\n" + "Límite de reintegro en cajeros actualizado." + "\r\n"
-									+ "Su nuevo límite de reintegro es de: " + nuevoLimiteReintegroCajero + " €"
-									+ "\r\n");
-							break;
+							cuenta.verLimiteCajero();
+							System.out.println("Introduce el nuevo límite de reintegro en cajeros" + "\r\n");
+							operando = Double.parseDouble(leerTeclado());
+							cuenta.nuevoLimiteReintegroCajero(operando);;
+						break;
+						
 						case 3:
-							System.out.println("\r\n" + "El límite de gasto diario es de: "
-									+ cuenta.getLimiteGastoDiario() + " €" + "\r\n");
-							break;
+							cuenta.verLimiteDeGastoDiario();
+						break;
+						
 						case 4:
-							System.out.println(
-									"\r\n" + "El límite de gasto diario actual es de: " + cuenta.getLimiteGastoDiario()
-											+ "\r\n" + "Introduce el nuevo límite de gasto diario" + "\r\n");
-							double nuevoLimiteGastoDiario = Double.parseDouble(leerTeclado());
-							cuenta.setLimiteGastoDiario(nuevoLimiteGastoDiario);
-							nuevoLimiteGastoDiario = nuevoLimiteGastoDiario - limiteGastoDiario;
-							limiteGastoDiario=nuevoLimiteGastoDiario;
-							System.out.println(
-									"\r\n" + "Límite de gasto diario actualizado. Su nuevo límite de gasto es de: "
-											+ nuevoLimiteGastoDiario + " €" + "\r\n");
-							break;
+							cuenta.verLimiteDeGastoDiario();
+							System.out.println("Introduce el nuevo límite de gasto diario" + "\r\n");
+							operando = Double.parseDouble(leerTeclado());
+							cuenta.nuevoLimiteGastoDiario(operando);
+						break;
+						
 						case 5:
-							cuenta.setLimiteGastoDiario(
-									9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999e99);
-							System.out.println("\r\n" + "Límite de gasto diario quitado" + "\r\n");
 							break;
+							
 						case 6:
-							break;
-						case 7:
 							System.out.println("\r\n" + "Fin de la aplicación. ¡Vuelva pronto!" + "\r\n");
 							System.exit(0);
+							
 						default:
 							System.out.println("\r\n" + "opción no válida" + "\r\n");
 						}
@@ -95,7 +72,7 @@ public class Banco {
 					} catch (NumberFormatException e) {
 						System.out.println("\r\n" + "Debes escribir un número" + "\r\n");
 					}
-					break;
+				break;
 
 				case 5:
 					System.out.println("\r\n" + "Fin de la aplicación. ¡Vuelva pronto!" + "\r\n");
@@ -139,9 +116,8 @@ public class Banco {
 		System.out.println("2.- Cambiar límite de reintegro en cajeros");
 		System.out.println("3.- Consultar límite de gasto diario");
 		System.out.println("4.- Cambiar límite de gasto diario");
-		System.out.println("5.- Quitar límite de gasto diario");
-		System.out.println("6.- Volver al menú principal");
-		System.out.println("7.- Salir");
+		System.out.println("5.- Volver al menú principal");
+		System.out.println("6.- Salir");
 		System.out.println("\r\n" + "Teclea una opción:");
 	}
 }
