@@ -31,15 +31,7 @@ public class Cuenta {
 			System.out.println("\r\n" + ok() + getSaldo() + " €" + "\r\n" + "Límite de gasto diario: " + getLimiteGastoDiario() + "\r\n" + "Límite de reintegro por operación: " + getLimiteReintegroCajero() + "\r\n");
 		}
 	}
-	
-	public String ok() {
-		return "Operación realizada con éxito." + "\r\n" + "Saldo actual = ";
-	}
-	
-	public String ko() {
-		return "Operación rechazada." + "\r\n" + "Saldo actual = ";
-	}
-	
+
 	public void verSaldo() {
 		System.out.println("\r\n" + "Tu saldo es: " + getSaldo() + " €" + "\r\n");
 	}
@@ -61,6 +53,22 @@ public class Cuenta {
 	
 	public void verLimiteDeGastoDiario() {
 		System.out.println("\r\n" + "El límite de gasto diario es de: "	+ getLimiteGastoDiario() + " €" + "\r\n");
+	}
+	
+	public String ok() {
+		return "Operación realizada con éxito." + "\r\n" + "Saldo actual = ";
+	}
+	
+	public String ko() {
+		return "Operación rechazada." + "\r\n" + "Saldo actual = ";
+	}
+	
+	public void despedida() {
+		System.out.println("\r\n" + "Fin de la aplicación. ¡Vuelva pronto!" + "\r\n");
+	}
+	
+	public void errorOpcion() {
+		System.out.println("\r\n" + "opción no válida" + "\r\n");	
 	}
 	
 	public double getSaldo() {

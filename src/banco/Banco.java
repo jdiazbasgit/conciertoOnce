@@ -62,27 +62,27 @@ public class Banco {
 							break;
 							
 						case 6:
-							System.out.println("\r\n" + "Fin de la aplicación. ¡Vuelva pronto!" + "\r\n");
+							cuenta.despedida();
 							System.exit(0);
 							
 						default:
-							System.out.println("\r\n" + "opción no válida" + "\r\n");
+							cuenta.errorOpcion();
 						}
 
 					} catch (NumberFormatException e) {
-						System.out.println("\r\n" + "Debes escribir un número" + "\r\n");
+						cuenta.errorOpcion();
 					}
 				break;
 
 				case 5:
-					System.out.println("\r\n" + "Fin de la aplicación. ¡Vuelva pronto!" + "\r\n");
+					cuenta.despedida();
 					System.exit(0);
 				default:
-					System.out.println("\r\n" + "opción no válida" + "\r\n");
+					cuenta.errorOpcion();
 
 				}
 			} catch (NumberFormatException e) {
-				System.out.println("\r\n" + "Debes escribir un número" + "\r\n");
+				cuenta.errorOpcion();
 			}
 		}
 
