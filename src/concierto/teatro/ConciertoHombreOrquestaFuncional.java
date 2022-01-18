@@ -1,11 +1,10 @@
-/*package concierto.teatro;
+package concierto.teatro;
 
 import concierto.beans.InstrumentoBean;
 import concierto.instrumentos.Instrumento;
 import concierto.instrumentos.InstrumentoInterface;
-import concierto.musicos.HombreOrquestaEjercicioFuncional;
 
-public class ConciertoHombreOrquestaEjercicioFuncional {
+public class ConciertoHombreOrquestaFuncional {
 
 	public static void main(String[] args) {
 		InstrumentoInterface[] instrumentos = { new Instrumento(new InstrumentoBean("tim,tim,tim")),
@@ -19,7 +18,6 @@ public class ConciertoHombreOrquestaEjercicioFuncional {
 				new Instrumento(new InstrumentoBean("la,la,la,la")),
 				new Instrumento(new InstrumentoBean("da,de,di,do,du")) };
 
-		new HombreOrquestaEjercicioFuncional(instrumentos).tocar();
+		new HombreOrquestaFuncional(instrumentos).tocar();
 	}
-
-}*/
+}
