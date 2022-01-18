@@ -59,7 +59,7 @@ public class Instrumento implements InstrumentoInterface {
 
 	@Override
 	public InstrumentoBean getInstrumentoBean2() {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 

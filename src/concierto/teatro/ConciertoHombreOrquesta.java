@@ -13,7 +13,7 @@ public class ConciertoHombreOrquesta {
 	 InstrumentoInterface[] instrumentos= {
 			 new Instrumento(new InstrumentoBean("pom,pom,pom")),
 			 new Instrumento(new InstrumentoBean("tuuu,tuuu,tuuu")),
-			 new Instrumento(new InstrumentoBean("tklan,tlan,tlan")) };
+			 new Instrumento(new InstrumentoBean("nada")) };
 	 
 	 
 	 HombreOrquesta hombreOrquesta= new HombreOrquesta(instrumentos);
@@ -24,13 +24,13 @@ public class ConciertoHombreOrquesta {
 			e.instrumentoRoto();
 			for (InstrumentoInterface instrumento : instrumentos) {
 				if(instrumento.getInstrumentoBean().getSonido().equals("nada"))
-					instrumento.getInstrumentoBean().setSonido("pin, pin,  pion");
+					instrumento.getInstrumentoBean().setSonido("la,la,la");
 			}
 			System.out.println("señores reanudamos el concierto");
 			try {
 				hombreOrquesta.tocar();
 			} catch (SinSonidoException e1) {
-				
+				e.getStackTrace();
 			}
 			
 		}
