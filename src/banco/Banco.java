@@ -13,22 +13,22 @@ public class Banco {
 				int opcionMenu = Integer.parseInt(leerTeclado());
 				double operando;
 				switch (opcionMenu) {
-				
+
 				case 1:
 					System.out.println("\r\n" + "¿Qué cantidad quieres ingresar?" + "\r\n");
 					operando = Double.parseDouble(leerTeclado());
 					cuenta.ingreso(operando);
-				break;
-				
+					break;
+
 				case 2:
 					System.out.println("\r\n" + "¿Qué cantidad quieres extraer?" + "\r\n");
 					operando = Double.parseDouble(leerTeclado());
-					cuenta.reintegro(operando);	
-				break;
+					cuenta.reintegro(operando);
+					break;
 
 				case 3:
 					cuenta.verSaldo();
-				break;
+					break;
 
 				case 4:
 					try {
@@ -38,33 +38,34 @@ public class Banco {
 
 						case 1:
 							cuenta.verLimiteCajero();
-						break;
-						
+							break;
+
 						case 2:
 							cuenta.verLimiteCajero();
 							System.out.println("Introduce el nuevo límite de reintegro en cajeros" + "\r\n");
 							operando = Double.parseDouble(leerTeclado());
-							cuenta.nuevoLimiteReintegroCajero(operando);;
-						break;
-						
+							cuenta.nuevoLimiteReintegroCajero(operando);
+							;
+							break;
+
 						case 3:
 							cuenta.verLimiteDeGastoDiario();
-						break;
-						
+							break;
+
 						case 4:
 							cuenta.verLimiteDeGastoDiario();
 							System.out.println("Introduce el nuevo límite de gasto diario" + "\r\n");
 							operando = Double.parseDouble(leerTeclado());
 							cuenta.nuevoLimiteGastoDiario(operando);
-						break;
-						
+							break;
+
 						case 5:
 							break;
-							
+
 						case 6:
 							cuenta.despedida();
 							System.exit(0);
-							
+
 						default:
 							cuenta.errorOpcion();
 						}
@@ -72,7 +73,7 @@ public class Banco {
 					} catch (NumberFormatException e) {
 						cuenta.errorOpcion();
 					}
-				break;
+					break;
 
 				case 5:
 					cuenta.despedida();
