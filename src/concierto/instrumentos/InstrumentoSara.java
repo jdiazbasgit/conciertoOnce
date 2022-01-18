@@ -32,13 +32,6 @@ private String Sonido;
 
 
 	@Override
-	public InstrumentoBean getInstrumentoBean() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	@Override
 	public InstrumentoBean getInstrumentoBean1() {
 		// TODO Auto-generated method stub
 		return null;
@@ -50,5 +43,13 @@ private String Sonido;
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+
+	@Override
+	public InstrumentoBean getInstrumentoBean() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 }

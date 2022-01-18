@@ -1,5 +1,4 @@
-package concierto.teatro;
-
+package concierto.solista;
 import concierto.beans.InstrumentoBean;
 import concierto.excepciones.SinSonidoException;
 import concierto.instrumentos.Instrumento;
