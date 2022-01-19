@@ -9,7 +9,7 @@ import concierto.musicos.HombreOrquesta;
 
 public class ConciertoHombreOrquesta {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) { 
 	 InstrumentoInterface[] instrumentos= {
 			 new Instrumento(new InstrumentoBean("pom,pom,pom")),
 			 new Instrumento(new InstrumentoBean("tuuu,tuuu,tuuu")),

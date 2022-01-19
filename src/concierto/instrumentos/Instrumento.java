@@ -17,53 +17,50 @@ public class Instrumento implements InstrumentoInterface {
 	}
 
 
-	public Instrumento(String string) {
+	public Instrumento(String sonido) {
 		
-	}
+		this.setInstrumentoBean(new InstrumentoBean(sonido));
+		
+		}
 
+		/**
+		 * metodo que devuelve el sonido del instrumento
+		 *  
+		 * @throws SinSonidoException
+		 */
 
-	@Override
-
-	
-
-	public String sonar()throws SinSonidoException {
-		if (getInstrumentoBean11().getSonido().equals("nada")) {
-			throw new SinSonidoException();
+		public String sonar() throws SinSonidoException {
+			if (getInstrumentoBean().getSonido().equals("nada")) {
+				throw new SinSonidoException();
+			}
+			return getInstrumentoBean().getSonido();
+			
 		}
 		
-		return getInstrumentoBean11().getSonido();
-	}
 
-	public InstrumentoBean getInstrumentoBean11() {
-		return instrumentoBean;
-	}
+		public InstrumentoBean getInstrumentoBean() {
+			return instrumentoBean;
+		}
 
-	public void setInstrumentoBean(InstrumentoBean instrumentoBean) {
-		this.instrumentoBean = instrumentoBean;
-	}
+		public void setInstrumentoBean(InstrumentoBean instrumentoBean) {
+			this.instrumentoBean = instrumentoBean;
+		}
 
 
-	@Override
-	public InstrumentoBean getInstrumentoBean1() {
+		@Override
+		public InstrumentoBean getInstrumentoBean1() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+
+		@Override
+		public InstrumentoBean getInstrumentoBean2() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
 		
-		return null;
-	}
-
-
-	@Override
-	public InstrumentoBean getInstrumentoBean() {
-		
-		return null;
-	}
-
-
-	@Override
-	public InstrumentoBean getInstrumentoBean2() {
-		
-		return null;
-	}
-
-
 	
 
 	}
