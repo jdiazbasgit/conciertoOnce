@@ -17,7 +17,7 @@ public class LeerTexto {
 			while(bufferedReader.ready()) {
 				System.out.println(bufferedReader.readLine());
 			}
-			  
+			
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
