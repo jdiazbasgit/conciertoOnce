@@ -3,8 +3,6 @@ package streams.input;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
-import javax.swing.text.StyledEditorKit.ForegroundAction;
-
 public class CopiarImagen {
 
 	public static void main(String[] args) {

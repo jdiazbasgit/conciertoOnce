@@ -4,7 +4,6 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
-import java.util.GregorianCalendar;
 import java.util.Optional;
 
 import streams.output.Persona;
