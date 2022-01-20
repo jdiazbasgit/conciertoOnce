@@ -19,7 +19,7 @@ public class EscribirTexto {
 			
 			
 			Calendar fecha1= new GregorianCalendar();
-			System.out.println(fecha1.get(Calendar.DAY_OF_MONTH));
+			System.err.println(fecha1.get(Calendar.DAY_OF_MONTH));
 			
 
 		} catch (FileNotFoundException e) {
