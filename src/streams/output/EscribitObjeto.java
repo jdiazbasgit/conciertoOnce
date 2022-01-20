@@ -2,7 +2,6 @@ package streams.output;
 
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
-import java.util.Optional;
 
 public class EscribitObjeto {
 	

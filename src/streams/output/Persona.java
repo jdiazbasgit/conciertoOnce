@@ -2,6 +2,7 @@ package streams.output;
 
 import java.io.Serializable;
 
+@SuppressWarnings("serial")
 public class Persona  implements Serializable{
 
 	private String nombre;
