@@ -58,7 +58,10 @@ public class Banco {
 	private static String leerTeclado() {
 
 		try {
-			return new BufferedReader(new InputStreamReader(System.in)).readLine();
+			InputStreamReader inputStreamReader= new InputStreamReader(System.in);
+			BufferedReader bufferedReader= new BufferedReader(inputStreamReader);
+			return bufferedReader.readLine();
+			
 		} catch (IOException e) {
 			return null;
 		}
