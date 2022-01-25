@@ -4,6 +4,7 @@ import java.awt.Frame;
 import java.awt.Graphics;
 import java.awt.Image;
 
+@SuppressWarnings("serial")
 public class VentanaBolas extends Frame {
 
 	public VentanaBolas() {
@@ -18,15 +19,14 @@ public class VentanaBolas extends Frame {
 		Graphics externo = imagen.getGraphics();
 		Bola bola = new Bola(200, 200, 1, 1, 2, 1, 50);
 		while (true) {
-			externo.clearRect(0, 0,this.getWidth() , this.getHeight());
-			
+			externo.clearRect(0, 0, this.getWidth(), this.getHeight());
 
-			if (bola.getPosicionX() < 0 || bola.getPosicionX() > this.getWidth()-bola.getDimension()) {
+			if (bola.getPosicionX() < 0 || bola.getPosicionX() > this.getWidth() - bola.getDimension()) {
 				bola.setSentidoX(bola.getSentidoX() * -1);
-				if(bola.getPosicionX() <= 0 ) {
-					
-					for(int i=50;i>25;i--) {
-						externo.clearRect(0, 0,this.getWidth() , this.getHeight());
+				if (bola.getPosicionX() <= 0) {
+
+					for (int i = 50; i > 25; i--) {
+						externo.clearRect(0, 0, this.getWidth(), this.getHeight());
 						externo.fillOval(bola.getPosicionX(), bola.getPosicionY(), i, bola.getDimension());
 						g.drawImage(imagen, 0, 0, 2000, 2000, this);
 						try {
@@ -36,8 +36,58 @@ public class VentanaBolas extends Frame {
 							e.printStackTrace();
 						}
 					}
-					for(int i=25;i<50;i++) {
-						externo.clearRect(0, 0,this.getWidth() , this.getHeight());
+					for (int i = 25; i < 50; i++) {
+						externo.clearRect(0, 0, this.getWidth(), this.getHeight());
+						externo.fillOval(bola.getPosicionX(), bola.getPosicionY(), i, bola.getDimension());
+						g.drawImage(imagen, 0, 0, 2000, 2000, this);
+						try {
+							Thread.sleep(20);
+						} catch (InterruptedException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					}
+				}
+				if (bola.getPosicionX() <= 950) {
+
+					for (int i = 50; i > 25; i--) {
+						externo.clearRect(0, 0, this.getWidth(), this.getHeight());
+						externo.fillOval(bola.getPosicionX(), bola.getPosicionY(), i, bola.getDimension());
+						g.drawImage(imagen, 0, 0, 2000, 2000, this);
+						try {
+							Thread.sleep(20);
+						} catch (InterruptedException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					}
+					for (int i = 25; i < 50; i++) {
+						externo.clearRect(0, 0, this.getWidth(), this.getHeight());
+						externo.fillOval(bola.getPosicionX(), bola.getPosicionY(), i, bola.getDimension());
+						g.drawImage(imagen, 0, 0, 2000, 2000, this);
+						try {
+							Thread.sleep(20);
+						} catch (InterruptedException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					}
+				}
+				if (bola.getPosicionY() <= 50) {
+
+					for (int i = 50; i > 25; i--) {
+						externo.clearRect(0, 0, this.getWidth(), this.getHeight());
+						externo.fillOval(bola.getPosicionX(), bola.getPosicionY(), i, bola.getDimension());
+						g.drawImage(imagen, 0, 0, 2000, 2000, this);
+						try {
+							Thread.sleep(20);
+						} catch (InterruptedException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					}
+					for (int i = 25; i < 50; i++) {
+						externo.clearRect(0, 0, this.getWidth(), this.getHeight());
 						externo.fillOval(bola.getPosicionX(), bola.getPosicionY(), i, bola.getDimension());
 						g.drawImage(imagen, 0, 0, 2000, 2000, this);
 						try {
@@ -49,8 +99,8 @@ public class VentanaBolas extends Frame {
 					}
 				}
 			}
-			
-			if (bola.getPosicionY() < 5 || bola.getPosicionY() > this.getHeight()-bola.getDimension())
+
+			if (bola.getPosicionY() < 5 || bola.getPosicionY() > this.getHeight() - bola.getDimension())
 				bola.setSentidoY(bola.getSentidoY() * -1);
 
 			bola.setPosicionX(bola.getPosicionX() + (bola.getIncrementoX() * bola.getSentidoX()));
