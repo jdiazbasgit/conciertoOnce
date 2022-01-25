@@ -21,8 +21,34 @@ public class VentanaBolas extends Frame {
 			externo.clearRect(0, 0,this.getWidth() , this.getHeight());
 			
 
-			if (bola.getPosicionX() < 0 || bola.getPosicionX() > this.getWidth()-bola.getDimension())
+			if (bola.getPosicionX() < 0 || bola.getPosicionX() > this.getWidth()-bola.getDimension()) {
 				bola.setSentidoX(bola.getSentidoX() * -1);
+				if(bola.getPosicionX() <= 0 ) {
+					
+					for(int i=50;i>25;i--) {
+						externo.clearRect(0, 0,this.getWidth() , this.getHeight());
+						externo.fillOval(bola.getPosicionX(), bola.getPosicionY(), i, bola.getDimension());
+						g.drawImage(imagen, 0, 0, 2000, 2000, this);
+						try {
+							Thread.sleep(20);
+						} catch (InterruptedException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					}
+					for(int i=25;i<50;i++) {
+						externo.clearRect(0, 0,this.getWidth() , this.getHeight());
+						externo.fillOval(bola.getPosicionX(), bola.getPosicionY(), i, bola.getDimension());
+						g.drawImage(imagen, 0, 0, 2000, 2000, this);
+						try {
+							Thread.sleep(20);
+						} catch (InterruptedException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					}
+				}
+			}
 			
 			if (bola.getPosicionY() < 5 || bola.getPosicionY() > this.getHeight()-bola.getDimension())
 				bola.setSentidoY(bola.getSentidoY() * -1);
