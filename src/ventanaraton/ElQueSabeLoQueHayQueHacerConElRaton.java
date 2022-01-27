@@ -1,6 +1,5 @@
 package ventanaraton;
 
-import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
@@ -23,7 +22,7 @@ public class ElQueSabeLoQueHayQueHacerConElRaton implements MouseListener, Mouse
 	public void mouseDragged(MouseEvent e) {
 		if (getVentanaRaton().getExterno() != null)
 			getVentanaRaton().getExterno().setColor(Color.RED);
-		notificaraVentanaRaton(e);
+			notificaraVentanaRaton(e);
 
 	}
 
