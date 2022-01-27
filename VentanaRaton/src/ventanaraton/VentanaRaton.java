@@ -12,10 +12,10 @@ public class VentanaRaton extends Frame {
 	private int x;
 	private int y;
 	private Color color;
-	@SuppressWarnings("unused")
 	private Font font;
 
 	public VentanaRaton() {
+		
 		setSize(1000, 800);
 		this.addMouseListener(new ElQueSabeLoQueHayQueHacerConElRaton(this));
 		this.addMouseMotionListener(new ElQueSabeLoQueHayQueHacerConElRaton(this));
@@ -43,7 +43,7 @@ public class VentanaRaton extends Frame {
 
 	@Override
 	public void paint(Graphics g) {
-		Image image = createImage(1000, 1000);
+	    Image image = createImage(1000, 1000);
 		Graphics externo = image.getGraphics();
 		externo.clearRect(0, 0, 1000, 1000);
 		externo.setColor(getColor());
