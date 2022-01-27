@@ -28,6 +28,7 @@ public class VentanaRaton extends Frame {
 
 	
 
+	@SuppressWarnings("unused")
 	private void addWindowListener(ElQueSabeLoQueHayQueHacerConElRaton elQueSabeLoQueHayQueHacerConElRaton) {
 		// TODO Auto-generated method stub
 
