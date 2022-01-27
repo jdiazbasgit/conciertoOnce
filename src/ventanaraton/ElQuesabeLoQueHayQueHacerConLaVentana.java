@@ -47,4 +47,5 @@ public class ElQuesabeLoQueHayQueHacerConLaVentana implements WindowListener {
 		
 	}
 
+	
 }

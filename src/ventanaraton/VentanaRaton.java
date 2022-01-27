@@ -4,6 +4,7 @@ import java.awt.Frame;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Color;
+import java.awt.Font;
 
 @SuppressWarnings("serial")
 public class VentanaRaton extends Frame {
@@ -11,6 +12,10 @@ public class VentanaRaton extends Frame {
 	private int x;
 	private int y;
 	private Graphics externo;
+	@SuppressWarnings("unused")
+	private Font font;
+	@SuppressWarnings("unused")
+	private Color color;
 	
 	private boolean primeraVez = true;
 	private Image imagen;
@@ -20,7 +25,24 @@ public class VentanaRaton extends Frame {
 		this.addMouseListener(new ElQueSabeLoQueHayQueHacerConElRaton(this));
 		this.addMouseMotionListener(new ElQueSabeLoQueHayQueHacerConElRaton(this));
 		this.addWindowListener(new ElQuesabeLoQueHayQueHacerConLaVentana());
-		
+		setColor(Color.BLACK);
+		setFont(new Font("HELVETICA",Font.ITALIC,10));
+	}
+
+	public Font getFont() {
+		return font;
+	}
+
+	public void setFont(Font font) {
+		this.font = font;
+	}
+
+	public Color getColor() {
+		return color;
+	}
+
+	public void setColor(Color color) {
+		this.color = color;
 	}
 
 	@Override
@@ -29,6 +51,7 @@ public class VentanaRaton extends Frame {
 			setImagen(createImage(1000, 1000));
 			setExterno(getImagen().getGraphics());
 			setPrimeraVez(false);
+			externo.setFont(getFont());
 		}
 		externo.clearRect(0, 0, 1000, 1000);
 		//externo.setColor(getColor());
