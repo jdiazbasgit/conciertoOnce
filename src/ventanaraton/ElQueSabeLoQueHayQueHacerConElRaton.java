@@ -5,7 +5,6 @@ import java.awt.Font;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
-import java.util.Optional;
 
 public class ElQueSabeLoQueHayQueHacerConElRaton implements MouseListener, MouseMotionListener {
 
@@ -25,7 +24,7 @@ public class ElQueSabeLoQueHayQueHacerConElRaton implements MouseListener, Mouse
 	public void mouseDragged(MouseEvent e) {
 		if (getVentanaRaton().getExterno() != null) {
 			getVentanaRaton().getExterno().setColor(Color.RED);
-			getVentanaRaton().getExterno().setFont(new Font(Font.SANS_SERIF, Font.BOLD,35));
+			getVentanaRaton().getExterno().setFont(new Font(Font.SANS_SERIF, Font.BOLD,40));
 		}
 			notificaraVentanaRaton(e);
 
@@ -35,7 +34,7 @@ public class ElQueSabeLoQueHayQueHacerConElRaton implements MouseListener, Mouse
 	public void mouseMoved(MouseEvent e) {
 		if (getVentanaRaton().getExterno() != null) {
 			getVentanaRaton().getExterno().setColor(Color.BLACK);
-			getVentanaRaton().getExterno().setFont(new Font(Font.SANS_SERIF, Font.BOLD,10));
+			getVentanaRaton().getExterno().setFont(new Font(Font.SANS_SERIF, Font.BOLD,20));
 		}
 		notificaraVentanaRaton(e);
 
