@@ -1,9 +1,11 @@
 package ventanaraton;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.util.Optional;
 
 public class ElQueSabeLoQueHayQueHacerConElRaton implements MouseListener, MouseMotionListener {
 
@@ -21,16 +23,20 @@ public class ElQueSabeLoQueHayQueHacerConElRaton implements MouseListener, Mouse
 
 	@Override
 	public void mouseDragged(MouseEvent e) {
-		if (getVentanaRaton().getExterno() != null)
+		if (getVentanaRaton().getExterno() != null) {
 			getVentanaRaton().getExterno().setColor(Color.RED);
+			getVentanaRaton().getExterno().setFont(new Font(Font.SANS_SERIF, Font.BOLD,35));
+		}
 			notificaraVentanaRaton(e);
 
 	}
 
 	@Override
 	public void mouseMoved(MouseEvent e) {
-		if (getVentanaRaton().getExterno() != null)
+		if (getVentanaRaton().getExterno() != null) {
 			getVentanaRaton().getExterno().setColor(Color.BLACK);
+			getVentanaRaton().getExterno().setFont(new Font(Font.SANS_SERIF, Font.BOLD,10));
+		}
 		notificaraVentanaRaton(e);
 
 	}
