@@ -19,7 +19,7 @@ public class VentanaRaton extends Frame {
 		setSize(1000, 800);
 		this.addMouseListener(new ElQueSabeLoQueHayQueHacerConElRaton(this));
 		this.addMouseMotionListener(new ElQueSabeLoQueHayQueHacerConElRaton(this));
-		this.addWindowListener(new ElQueSabeLoQueHayQueHacerConElRaton(this));
+		this.addWindowListener(new ElQueSabeLoQueHayQueHacerConLaVentana());
 		setColor(Color.BLACK);
 		setFont(new Font("SAN_SERIF", Font.BOLD,20));
 		
@@ -76,11 +76,19 @@ public class VentanaRaton extends Frame {
 
 
 
-	public void setFont(String sansSerif, int bold, int i) {
-		// TODO Auto-generated method stub
-		
+	public Font getFont() {
+		return font;
 	}
 
+
+
+	public void setFont(Font font) {
+		this.font = font;
+	}
+
+
+
+	
 
 
 	

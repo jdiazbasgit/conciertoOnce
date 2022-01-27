@@ -24,7 +24,7 @@ public class ElQueSabeLoQueHayQueHacerConElRaton implements MouseListener, Mouse
 	public void mouseDragged(MouseEvent e) {
 
 		getVentanaRaton().setColor(Color.RED);
-		getVentanaRaton().setFont(Font.SANS_SERIF,Font.BOLD,40);
+		getVentanaRaton().setFont(new Font(Font.SANS_SERIF,Font.BOLD,40));
 		notificacionRaton(e);
 	
 	}
@@ -32,7 +32,7 @@ public class ElQueSabeLoQueHayQueHacerConElRaton implements MouseListener, Mouse
 	@Override
 	public void mouseMoved(MouseEvent e) {
 		getVentanaRaton().setColor(Color.BLACK);
-	    getVentanaRaton().setFont(Font.SANS_SERIF,Font.BOLD,20);
+		getVentanaRaton().setFont(new Font(Font.SANS_SERIF,Font.BOLD,20));
 		notificacionRaton(e);
 		
 
