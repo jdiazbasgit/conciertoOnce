@@ -1,4 +1,5 @@
-
+package ventanaraton;
+import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
@@ -12,7 +13,31 @@ public class ElQueSabeLoQueHayQueHacerConElRaton implements MouseListener, Mouse
 	public ElQueSabeLoQueHayQueHacerConElRaton(VentanaRaton ventanaRaton) {
 		this.ventanaRaton=ventanaRaton;
 		
+
 	}
+	
+	
+	private void notificaraVentanaRaton(MouseEvent e) {
+		getVentanaRaton().setX(e.getX());
+		getVentanaRaton().setY(e.getY());
+		getVentanaRaton().repaint();
+	}
+	
+	@Override
+	public void mouseDragged(MouseEvent e) {
+		
+		getVentanaRaton().setColor(Color.RED);
+		notificaraVentanaRaton(e);
+	    
+	    }
+
+		
+	@Override
+	public void mouseMoved(MouseEvent e) {
+		getVentanaRaton().setColor(Color.BLACK);
+		notificaraVentanaRaton(e);
+		
+	    }
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
@@ -44,23 +69,7 @@ public class ElQueSabeLoQueHayQueHacerConElRaton implements MouseListener, Mouse
 
 	}
 
-	@Override
-	public void mouseDragged(MouseEvent e) {
-		getVentanaRaton().setX(e.getX());
-		getVentanaRaton().setY(e.getY());
-	    getVentanaRaton().repaint();
-	    
-	    }
-
-		
 	
-
-	@Override
-	public void mouseMoved(MouseEvent e) {
-		getVentanaRaton().setX(e.getX());
-		getVentanaRaton().setY(e.getY());
-	    getVentanaRaton().repaint();
-	    }
 
 	public VentanaRaton getVentanaRaton() {
 		return ventanaRaton;
