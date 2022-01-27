@@ -10,24 +10,30 @@ public class VentanaRaton extends Frame {
 
 	private int x;
 	private int y;
+	private Graphics externo;
 	
-	private Color color;
+	private boolean primeraVez = true;
+	private Image imagen;
 
 	public VentanaRaton() {
 		setSize(1000, 800);
 		this.addMouseListener(new ElQueSabeLoQueHayQueHacerConElRaton(this));
 		this.addMouseMotionListener(new ElQueSabeLoQueHayQueHacerConElRaton(this));
-		setColor(new Color(0,0,0));
+		this.addWindowListener(new ElQuesabeLoQueHayQueHacerConLaVentana());
+		
 	}
 
 	@Override
 	public void paint(Graphics g) {
-		Image imagen = createImage(1000, 1000);
-		Graphics externo = imagen.getGraphics();
+		if (isPrimeraVez()) {
+			setImagen(createImage(1000, 1000));
+			setExterno(getImagen().getGraphics());
+			setPrimeraVez(false);
+		}
 		externo.clearRect(0, 0, 1000, 1000);
-		externo.setColor(getColor());
+		//externo.setColor(getColor());
 		externo.drawString("(" + getX() + " , " + getY() + ")", getX() - 10, getY() - 10);
-		g.drawImage(imagen, 0, 0, this);
+		g.drawImage(getImagen(), 0, 0, this);
 
 	}
 
@@ -52,12 +58,30 @@ public class VentanaRaton extends Frame {
 		this.y = y;
 	}
 
-	public Color getColor() {
-		return color;
+	
+
+	public Graphics getExterno() {
+		return externo;
 	}
 
-	public void setColor(Color color) {
-		this.color = color;
+	public void setExterno(Graphics externo) {
+		this.externo = externo;
+	}
+
+	public boolean isPrimeraVez() {
+		return primeraVez;
+	}
+
+	public void setPrimeraVez(boolean primeraVez) {
+		this.primeraVez = primeraVez;
+	}
+
+	public Image getImagen() {
+		return imagen;
+	}
+
+	public void setImagen(Image imagen) {
+		this.imagen = imagen;
 	}
 
 }
