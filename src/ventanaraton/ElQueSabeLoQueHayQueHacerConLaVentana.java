@@ -7,7 +7,7 @@ public class ElQueSabeLoQueHayQueHacerConLaVentana implements WindowListener {
 
 	@Override
 	public void windowClosed(WindowEvent e) {
-		System.exit(0);
+		
 
 	}
 	
@@ -19,7 +19,7 @@ public class ElQueSabeLoQueHayQueHacerConLaVentana implements WindowListener {
 
 	@Override
 	public void windowClosing(WindowEvent e) {
-		// TODO Auto-generated method stub
+		System.exit(0);
 
 	}
 
