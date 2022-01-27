@@ -17,7 +17,7 @@ public class VentanaRaton extends Frame {
 	private int x;
 	private int y;
 	private Color color;
-	private Font font;
+//	private Font font;
 	
 	
 
@@ -28,7 +28,7 @@ public class VentanaRaton extends Frame {
 		this.addMouseMotionListener (new ElQueSabeLoQueHayQueHacerConElRaton(this));
 		this.addWindowListener(new ElQueSabeLoQueHayQueHacerConLaVentana());
 		setColor(Color.BLACK);
-		setFont(new Font(getName(), y, 20));
+		setFont(new Font(Font.SANS_SERIF, Font.BOLD, 20));
 		
 	}
 	
@@ -82,14 +82,14 @@ public class VentanaRaton extends Frame {
 		this.color = color;
 	}
 
-	public Font getFont() {
-		return font;
-	}
-
-
-	public void setFont(Font font) {
-		this.font = font;
-	}
+//	public Font getFont() {
+//		return font;
+//	}
+//
+//
+//	public void setFont(Font font) {
+//		this.font = font;
+//	}
 
 
 	
