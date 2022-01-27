@@ -3,7 +3,7 @@ package ventanaraton;
 import java.awt.Frame;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.Color;
+import java.awt.Font;
 
 @SuppressWarnings("serial")
 public class VentanaRaton extends Frame {
@@ -11,6 +11,7 @@ public class VentanaRaton extends Frame {
 	private int x;
 	private int y;
 	private Graphics externo;
+	private Font fuente;
 	
 	private boolean primeraVez = true;
 	private Image imagen;
@@ -20,6 +21,8 @@ public class VentanaRaton extends Frame {
 		this.addMouseListener(new ElQueSabeLoQueHayQueHacerConElRaton(this));
 		this.addMouseMotionListener(new ElQueSabeLoQueHayQueHacerConElRaton(this));
 		this.addWindowListener(new ElQuesabeLoQueHayQueHacerConLaVentana());
+		fuente = new Font ("Agency FB", Font.BOLD, 40);
+		setFuente(fuente);
 		
 	}
 
@@ -30,9 +33,11 @@ public class VentanaRaton extends Frame {
 			setExterno(getImagen().getGraphics());
 			setPrimeraVez(false);
 		}
-		externo.clearRect(0, 0, 1000, 1000);
+		
+		getExterno().clearRect(0, 0, 1000, 1000);
 		//externo.setColor(getColor());
-		externo.drawString("(" + getX() + " , " + getY() + ")", getX() - 10, getY() - 10);
+		getExterno().setFont(getFuente());
+		getExterno().drawString("(" + getX() + " , " + getY() + ")", getX() - 10, getY() - 10);
 		g.drawImage(getImagen(), 0, 0, this);
 
 	}
@@ -82,6 +87,20 @@ public class VentanaRaton extends Frame {
 
 	public void setImagen(Image imagen) {
 		this.imagen = imagen;
+	}
+
+	/**
+	 * @return the fuente
+	 */
+	public Font getFuente() {
+		return fuente;
+	}
+
+	/**
+	 * @param fuente the fuente to set
+	 */
+	public void setFuente(Font fuente) {
+		this.fuente = fuente;
 	}
 
 }
