@@ -31,6 +31,8 @@ public class Instrumento implements InstrumentoInterface {
 		return getInstrumentoBean().getSonido();
 		
 	}
+	
+	
 
 	public InstrumentoBean getInstrumentoBean() {
 		return instrumentoBean;
@@ -38,6 +40,23 @@ public class Instrumento implements InstrumentoInterface {
 
 	public void setInstrumentoBean(InstrumentoBean instrumentoBean) {
 		this.instrumentoBean = instrumentoBean;
+	}
+
+
+
+	@Override
+	public int hashCode() {
+		
+		return this.getInstrumentoBean().getSonido().hashCode()+1;
+	}
+
+
+
+	@Override
+	public boolean equals(Object obj) {
+		Instrumento instrumento=(Instrumento) obj;
+		return this.getInstrumentoBean().getSonido().equals(instrumento.getInstrumentoBean().getSonido());
+		
 	}
 
 }
