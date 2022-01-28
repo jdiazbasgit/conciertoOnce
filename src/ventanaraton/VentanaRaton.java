@@ -1,19 +1,20 @@
 package ventanaraton;
 
+import java.awt.Font;
 import java.awt.Frame;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.Color;
+import java.util.Optional;
 
 @SuppressWarnings("serial")
 public class VentanaRaton extends Frame {
 
 	private int x;
 	private int y;
-	private Graphics externo;
-	
+	private Optional<Graphics> externo=Optional.empty();
 	private boolean primeraVez = true;
 	private Image imagen;
+	
 
 	public VentanaRaton() {
 		setSize(1000, 800);
@@ -27,12 +28,11 @@ public class VentanaRaton extends Frame {
 	public void paint(Graphics g) {
 		if (isPrimeraVez()) {
 			setImagen(createImage(1000, 1000));
-			setExterno(getImagen().getGraphics());
+			setExterno(Optional.ofNullable(getImagen().getGraphics()));
 			setPrimeraVez(false);
 		}
-		externo.clearRect(0, 0, 1000, 1000);
-		//externo.setColor(getColor());
-		externo.drawString("(" + getX() + " , " + getY() + ")", getX() - 10, getY() - 10);
+		getExterno().get().clearRect(0, 0, 1000, 1000);
+		getExterno().get().drawString("(" + getX() + " , " + getY() + ")", getX() - 10, getY() - 10);
 		g.drawImage(getImagen(), 0, 0, this);
 
 	}
@@ -60,13 +60,6 @@ public class VentanaRaton extends Frame {
 
 	
 
-	public Graphics getExterno() {
-		return externo;
-	}
-
-	public void setExterno(Graphics externo) {
-		this.externo = externo;
-	}
 
 	public boolean isPrimeraVez() {
 		return primeraVez;
@@ -82,6 +75,15 @@ public class VentanaRaton extends Frame {
 
 	public void setImagen(Image imagen) {
 		this.imagen = imagen;
+	}
+
+	
+	public Optional<Graphics> getExterno() {
+		return externo;
+	}
+
+	public void setExterno(Optional<Graphics> externo) {
+		this.externo = externo;
 	}
 
 }
