@@ -16,4 +16,19 @@ public class Utilidades {
 			return null;
 		}
 	}
+	
+	public void ejemploEstatico() {
+		
+		String numero="2345";
+		
+		Integer integer= new Integer(numero);
+		int nuimeroComoNumero=integer.intValue();
+		
+		int nuimeroComoNumero1=Integer.parseInt(numero);
+		
+	}
+	
+	public static int suma(int a, int b) {
+		return a+b;
+	}
 }
