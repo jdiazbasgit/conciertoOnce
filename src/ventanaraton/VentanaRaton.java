@@ -3,11 +3,9 @@ package ventanaraton;
 import java.awt.Frame;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.Color;
 
 @SuppressWarnings("serial")
 public class VentanaRaton extends Frame {
-
 	private int x;
 	private int y;
 	private Graphics externo;
