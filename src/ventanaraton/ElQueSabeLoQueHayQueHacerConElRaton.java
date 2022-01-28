@@ -1,13 +1,11 @@
 package ventanaraton;
 
 import java.awt.Color;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
-import java.util.Optional;
 import java.awt.Font;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
-public class ElQueSabeLoQueHayQueHacerConElRaton implements MouseListener, MouseMotionListener {
+public class ElQueSabeLoQueHayQueHacerConElRaton extends MouseAdapter {
 
 	private VentanaRaton ventanaRaton;
 
@@ -46,31 +44,12 @@ public class ElQueSabeLoQueHayQueHacerConElRaton implements MouseListener, Mouse
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		System.out.println(e);
+		
+		
+		
 	}
 
-	@Override
-	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void mouseReleased(MouseEvent e) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void mouseEntered(MouseEvent e) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void mouseExited(MouseEvent e) {
-		// TODO Auto-generated method stub
-
-	}
+	
 
 	public VentanaRaton getVentanaRaton() {
 		return ventanaRaton;

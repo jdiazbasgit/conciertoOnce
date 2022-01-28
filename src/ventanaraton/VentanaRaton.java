@@ -1,9 +1,9 @@
 package ventanaraton;
 
+import java.awt.Font;
 import java.awt.Frame;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.Font;
 
 @SuppressWarnings("serial")
 public class VentanaRaton extends Frame {
