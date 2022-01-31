@@ -1,4 +1,4 @@
-package trenes;
+package trenes.list;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package trenes;
+package trenes.list;
 
 public class Tren {
 	
