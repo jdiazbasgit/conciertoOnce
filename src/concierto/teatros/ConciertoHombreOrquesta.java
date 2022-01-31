@@ -1,9 +1,13 @@
 package concierto.teatros;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
+import java.util.TreeSet;
 
 import concierto.beans.InstrumentoBean;
 import concierto.excepciones.SinSonidoException;
@@ -13,15 +17,33 @@ import concierto.musicos.HombreOrquesta;
 
 public class ConciertoHombreOrquesta {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) {	
 		
-		Set<InstrumentoInterface> instrumentos= new HashSet <>();
-		InstrumentoInterface tambor=new Instrumento(new InstrumentoBean("cpom,pom,pom"));
-		InstrumentoInterface trompeta=new Instrumento(new InstrumentoBean("atuuu, tuuu, tuuu"));
-		InstrumentoInterface guitarra=new Instrumento(new InstrumentoBean("cpom,pom,pom"));
+		Map<String,InstrumentoBean> coleccion= new HashMap<>();
 		
-		instrumentos.add(tambor);
+		coleccion.put("tambor",new InstrumentoBean("pom, pom, pom","honner",50));
+		coleccion.put("trompeta", new InstrumentoBean("tuuu, tuuu, tuuu","honner",500));
+		coleccion.put("guitarra",new InstrumentoBean("tlan, tlan, tlan","honner",1000));
+		
+		for (String nombre : coleccion.keySet()) {
+			System.out.println(nombre+ " - "+coleccion.get(nombre).getPrecio());
+		}
+		
+		
+		
+		
+		
+		Set<Instrumento> instrumentos= new TreeSet <>();
+		Instrumento guitarra=new Instrumento(new InstrumentoBean("apom,pom,pom"));
+	
+		Instrumento trompeta=new Instrumento(new InstrumentoBean("apom,pom,pom"));
+		
+		Instrumento tambor=new Instrumento(new InstrumentoBean("cpom,pom,pom"));
+		
+		
 		instrumentos.add(trompeta);
+		instrumentos.add(tambor);
+		
 		instrumentos.add(guitarra);
 		instrumentos.add(tambor);
 		instrumentos.add(trompeta);

@@ -7,7 +7,7 @@ import concierto.excepciones.SinSonidoException;
  * @author fjdia Calase del instrumento
  */
 
-public class Instrumento implements InstrumentoInterface {
+public class Instrumento implements InstrumentoInterface, Comparable<Instrumento>{
 
 	private InstrumentoBean instrumentoBean;
 
@@ -44,19 +44,27 @@ public class Instrumento implements InstrumentoInterface {
 
 
 
-	@Override
+	/*@Override
 	public int hashCode() {
 		
 		return this.getInstrumentoBean().getSonido().hashCode()+1;
-	}
+	}*/
 
 
 
-	@Override
+	/*@Override
 	public boolean equals(Object obj) {
 		Instrumento instrumento=(Instrumento) obj;
 		return this.getInstrumentoBean().getSonido().equals(instrumento.getInstrumentoBean().getSonido());
 		
+	}*/
+
+
+
+	@Override
+	public int compareTo(Instrumento o) {
+		// TODO Auto-generated method stub
+		return this.getInstrumentoBean().getSonido().compareTo(o.getInstrumentoBean().getSonido());
 	}
 
 }
