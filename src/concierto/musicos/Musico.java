@@ -1,6 +1,5 @@
 package concierto.musicos;
 
-import java.util.List;
 import java.util.Set;
 
 import concierto.excepciones.SinSonidoException;
