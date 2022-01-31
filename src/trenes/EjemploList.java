@@ -14,7 +14,7 @@ public class EjemploList {
 		Tren t5 = new Tren("Madrid", "Cadiz", 120);
 		Tren t6 = new Tren("Madrid", "Almeria", 120);
 
-		List<Tren> trenesJuntos = juntarTrenes("pepe",5,t1, t2, t3,t4,t5,t6);
+		List<Tren> trenesJuntos = juntarTrenes(t1, t2, t3,t4,t5,t6);
 		
 		for (Tren tren : trenesJuntos) {
 			System.out.println(tren.toString());
@@ -25,7 +25,7 @@ public class EjemploList {
 
 	}
 
-	private static List<Tren> juntarTrenes(String texto, int numero, Tren... trenes) {
+	private static List<Tren> juntarTrenes(Tren... trenes) {
 		List<Tren> trenesList = new ArrayList<Tren>();
 		
 		for (int i = 0; i < trenes.length; i++) {
