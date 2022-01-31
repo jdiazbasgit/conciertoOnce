@@ -1,35 +1,50 @@
 package concierto.teatros;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 import concierto.beans.InstrumentoBean;
 import concierto.excepciones.SinSonidoException;
 import concierto.instrumentos.Instrumento;
+import concierto.instrumentos.InstrumentoInterface;
 import concierto.musicos.HombreOrquesta;
 
 public class ConciertoHombreOrquesta {
 
 	public static void main(String[] args) {
-		Instrumento[] instrumentos= {
-				new Instrumento(new InstrumentoBean("pom,pom,pom")),
-				new Instrumento(new InstrumentoBean("tuuu,tuuu,tuuu")),
-				new Instrumento(new InstrumentoBean("nada"))
-				};
+		
+		Set<InstrumentoInterface> instrumentos= new HashSet <>();
+		InstrumentoInterface tambor=new Instrumento(new InstrumentoBean("cpom,pom,pom"));
+		InstrumentoInterface trompeta=new Instrumento(new InstrumentoBean("atuuu, tuuu, tuuu"));
+		InstrumentoInterface guitarra=new Instrumento(new InstrumentoBean("cpom,pom,pom"));
+		
+		instrumentos.add(tambor);
+		instrumentos.add(trompeta);
+		instrumentos.add(guitarra);
+		instrumentos.add(tambor);
+		instrumentos.add(trompeta);
+		instrumentos.add(guitarra);
+		instrumentos.add(tambor);
+		instrumentos.add(trompeta);
+		instrumentos.add(guitarra);
+		instrumentos.add(tambor);
+		instrumentos.add(trompeta);
+		instrumentos.add(guitarra);
+		instrumentos.add(tambor);
+		instrumentos.add(trompeta);
+		instrumentos.add(guitarra);
+		instrumentos.add(tambor);
+		instrumentos.add(trompeta);
+		instrumentos.add(guitarra);
+		
 		
 		HombreOrquesta hombreOrquesta= new HombreOrquesta(instrumentos);
 		try {
 			hombreOrquesta.tocar();
 		} catch (SinSonidoException e) {
-			System.out.println("Señores el instrumento se ha roto y lo voy a arreglar");
-			e.instrumentoRoto();
-			for (Instrumento instrumento : instrumentos) {
-				if(instrumento.getInstrumentoBean().getSonido().equals("nada"))
-					instrumento.getInstrumentoBean().setSonido("pin, pin,  pion");
-			}
-			System.out.println("señores reanudamos el concierto");
-			try {
-				hombreOrquesta.tocar();
-			} catch (SinSonidoException e1) {
-				
-			}
+			
 			
 		}
 		finally {
