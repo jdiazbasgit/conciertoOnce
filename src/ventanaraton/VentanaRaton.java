@@ -20,7 +20,7 @@ public class VentanaRaton extends Frame {
 		this.addMouseListener(new ElQueSabeLoQueHayQueHacerConElRaton(this));
 		this.addMouseMotionListener(new ElQueSabeLoQueHayQueHacerConElRaton(this));
 		this.addWindowListener(new ElQuesabeLoQueHayQueHacerConLaVentana());
-
+		
 	}
 
 	@Override
