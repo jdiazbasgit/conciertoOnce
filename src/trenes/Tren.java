@@ -1,6 +1,6 @@
 package trenes;
 
-public class Tren {
+public class Tren implements Comparable<Tren>{
 	
 	private String origen;
 	private String destino;
@@ -37,6 +37,24 @@ public class Tren {
 	public String toString() {
 		return "Tren [origen=" + getOrigen() + ", destino=" + getDestino() + ", pasajeros=" + getPasajeros() + "]";
 	}
+
+	@Override
+	public int compareTo(Tren o) {
+		
+		return this.getDestino().compareTo(o.getDestino());
+	}
+
+	@Override
+	public int hashCode() {
+		// TODO Auto-generated method stub
+		return this.getDestino().hashCode();
+	}
+
+	public boolean equals(Tren obj) {
+		
+		return this.getDestino().equals(obj.getDestino());
+	}
+
 
 
 }
