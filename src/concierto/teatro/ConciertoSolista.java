@@ -1,10 +1,9 @@
-package concierto.teatro;
+/*package concierto.teatro;
 
 import concierto.beans.InstrumentoBean;
 import concierto.excepciones.SinSonidoException;
 import concierto.instrumentos.Instrumento;
 import concierto.instrumentos.InstrumentoInterface;
-import concierto.instrumentos.InstrumentoSara;
 import concierto.musicos.MusicoInterface;
 import concierto.musicos.MusicoSara;
 import concierto.musicos.Solista;
@@ -37,7 +36,7 @@ public class ConciertoSolista {
 	
 	}
 
-	}
+	}*/
 
 
 

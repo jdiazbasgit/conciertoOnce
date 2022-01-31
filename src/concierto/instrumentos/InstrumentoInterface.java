@@ -13,6 +13,8 @@ public interface InstrumentoInterface {
 
 	InstrumentoBean getInstrumentoBean();
 
+	public void add(InstrumentoInterface tambor);
+
 	
 
 

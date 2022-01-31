@@ -1,4 +1,4 @@
-package concierto.musicos;
+/*package concierto.musicos;
 
 import java.util.List;
 
@@ -10,12 +10,12 @@ public class HombreOrquestaEjercicioFuncional extends Musico {
 
 	
 
-	public HombreOrquestaEjercicioFuncional(InstrumentoInterface[] instrumentos) {
+	public HombreOrquestaEjercicioFuncional(InstrumentoInterface instrumentos) {
 		super(instrumentos);
 		
 	}
 
-	public HombreOrquestaEjercicioFuncional(Instrumento[] instrumentos) {
+	public HombreOrquestaEjercicioFuncional(InstrumentoInterface instrumentos) {
 		super(instrumentos);
 	
 	}
@@ -41,4 +41,4 @@ public class HombreOrquestaEjercicioFuncional extends Musico {
 			
 			e.printStackTrace();
 		} });
-	}}
+	}}*/

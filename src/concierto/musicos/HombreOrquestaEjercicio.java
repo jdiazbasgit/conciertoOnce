@@ -1,4 +1,4 @@
-package concierto.musicos;
+/*package concierto.musicos;
 import concierto.excepciones.SinSonidoException;
 import concierto.instrumentos.InstrumentoInterface;
 
@@ -6,7 +6,7 @@ public class HombreOrquestaEjercicio extends Musico {
 
 	
 
-	public HombreOrquestaEjercicio(InstrumentoInterface[] instrumentosInterface) {
+	public HombreOrquestaEjercicio(InstrumentoInterface instrumentosInterface) {
 		super(instrumentosInterface);
 		
 	}
@@ -22,4 +22,4 @@ public class HombreOrquestaEjercicio extends Musico {
 
 	}
 
-}
+}*/

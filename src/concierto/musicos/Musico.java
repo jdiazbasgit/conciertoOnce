@@ -1,11 +1,13 @@
 package concierto.musicos;
 
+import java.util.Set;
+
 import concierto.excepciones.SinSonidoException;
 import concierto.instrumentos.InstrumentoInterface;
 
 public abstract class Musico implements MusicoInterface {
 
-	private InstrumentoInterface[] instrumentosInterface;
+	private Set<InstrumentoInterface> instrumetosInterface;
 
 	private InstrumentoInterface instrumentoInterface;
 
@@ -14,9 +16,9 @@ public abstract class Musico implements MusicoInterface {
 		this.instrumentoInterface = instrumentoInterface;
 	}
 	
-	public Musico(InstrumentoInterface[] instrumentosInterface) {
+	public Musico() {
 		super();
-		this.instrumentosInterface = instrumentosInterface;
+		this.instrumentoInterface = instrumentoInterface;
 	}
 
 	public abstract void tocar() throws SinSonidoException ;
@@ -29,13 +31,14 @@ public abstract class Musico implements MusicoInterface {
 		this.instrumentoInterface = instrumentoInterface;
 	}
 
-	public InstrumentoInterface[] getInstrumentosInterface() {
-		return instrumentosInterface;
+	public Set<InstrumentoInterface> getInstrumentosInterface() {
+		return instrumetosInterface;
 	}
 
-	public void setInstrumentosInterface(InstrumentoInterface[] instrumentosInterface) {
-		this.instrumentosInterface = instrumentosInterface;
+	public void setInstrumentosInterface(Set<InstrumentoInterface> instrumentosInterface) {
+		this.instrumetosInterface = instrumentosInterface;
 	}
+
 
 }
 

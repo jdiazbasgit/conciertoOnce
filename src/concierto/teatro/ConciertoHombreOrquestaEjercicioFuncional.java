@@ -1,4 +1,4 @@
-package concierto.teatro;
+/*package concierto.teatro;
 
 import concierto.beans.InstrumentoBean;
 import concierto.instrumentos.Instrumento;
@@ -21,4 +21,4 @@ public class ConciertoHombreOrquestaEjercicioFuncional {
 
 		new HombreOrquestaEjercicioFuncional(instrumentos).tocar();
 	}
-}
+}*/
