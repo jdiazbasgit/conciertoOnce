@@ -3,11 +3,12 @@ package concierto.musicos;
 import java.util.Set;
 
 import concierto.excepciones.SinSonidoException;
+import concierto.instrumentos.Instrumento;
 import concierto.instrumentos.InstrumentoInterface;
 
 public abstract class Musico implements MusicoInterface {
 
-	private Set<InstrumentoInterface> instrumentosInterface;
+	private Set<Instrumento> instrumentosInterface;
 
 	private InstrumentoInterface instrumentoInterface;
 
@@ -16,7 +17,7 @@ public abstract class Musico implements MusicoInterface {
 		this.instrumentoInterface = instrumentoInterface;
 	}
 	
-	public Musico(Set<InstrumentoInterface> instrumentosInterface) {
+	public Musico(Set<Instrumento> instrumentosInterface) {
 		super();
 		this.setInstrumentosInterface(instrumentosInterface);
 	}
@@ -31,13 +32,15 @@ public abstract class Musico implements MusicoInterface {
 		this.instrumentoInterface = instrumentoInterface;
 	}
 
-	public Set<InstrumentoInterface> getInstrumentosInterface() {
+	public Set<Instrumento> getInstrumentosInterface() {
 		return instrumentosInterface;
 	}
 
-	public void setInstrumentosInterface(Set<InstrumentoInterface> instrumentosInterface) {
+	public void setInstrumentosInterface(Set<Instrumento> instrumentosInterface) {
 		this.instrumentosInterface = instrumentosInterface;
 	}
+
+	
 
 	
 
