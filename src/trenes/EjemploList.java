@@ -3,6 +3,8 @@ package trenes;
 import java.util.ArrayList;
 import java.util.List;
 
+import trenes.Tren;
+
 public class EjemploList {
 
 	public static void main(String[] args) {
