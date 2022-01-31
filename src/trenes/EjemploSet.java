@@ -1,6 +1,7 @@
 package trenes;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -18,17 +19,21 @@ public class EjemploSet {
 
 		Set<Tren> trenesJuntos = juntarTrenes("pepe",5,t1, t2, t3,t4,t5,t6);
 		
-		for (Tren tren : trenesJuntos) {
+		/*for (Tren tren : trenesJuntos) {
+			System.out.println(tren.toString());
+		}*/
+		
+		Set<Tren> trenes =  new HashSet<>(trenesJuntos);
+		
+		for (Tren tren : trenes) {
 			System.out.println(tren.toString());
 		}
-		
-		
 		
 
 	}
 
 	private static Set<Tren> juntarTrenes(String texto, int numero, Tren... trenes) {
-		Set<Tren> trenesList = (Set<Tren>) new ArrayList<Tren>();
+		Set<Tren> trenesList =  new HashSet<Tren>();
 		
 		for (int i = 0; i < trenes.length; i++) {
 			trenesList.add(trenes[i]);
