@@ -37,7 +37,7 @@ public class Tren implements Comparable<Tren>{
 	public String toString() {
 		return "Tren [origen=" + getOrigen() + ", destino=" + getDestino() + ", pasajeros=" + getPasajeros()  +"]"+ hashCode();
 	}
-
+/*
 	@SuppressWarnings("removal")
 	public int compareTo(Integer o) {
 		
@@ -46,17 +46,17 @@ public class Tren implements Comparable<Tren>{
 		return pasajeros.compareTo(pasajerosObject);
 	}
 	
-
-	
+*/
+/*	
 	@SuppressWarnings("removal")
 	public int hashCode() {
 		Integer pasajeros = new Integer(this.getPasajeros());
 		return pasajeros.hashCode();
 	}
-
+*/
 	public boolean equals(Tren obj) {
 		
-		return this.getPasajeros() == obj.getPasajeros();
+		return this.getDestino().equals(obj.getDestino());
 	}
 
 	@Override
@@ -64,13 +64,13 @@ public class Tren implements Comparable<Tren>{
 		
 		return this.getDestino().compareTo(o.getDestino());
 	}
-
+/*
 	@Override
 	public boolean equals(Object obj) {
 		// TODO Auto-generated method stub
 		return this.getDestino().equals(((Tren) obj).getDestino());
 	}
-
+*/
 	
 
 
