@@ -81,15 +81,7 @@ public class EjemploList {
 		System.out.println("3.- Comparar por pasajeros");
 		System.out.println("4.- Salir");
 	}
-/*
-	@SuppressWarnings("unused")
-	private static void comparar(Tren trenesList) {
-		System.out.println("Introduce criterio de comparación");
-		int tipo = Integer.parseInt(leerTeclado());
 
-	}
-
-*/
 	private static String leerTeclado() {
 
 		try {
