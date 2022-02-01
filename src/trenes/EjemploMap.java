@@ -12,8 +12,8 @@ public class EjemploMap {
 		coleccion.put("Viaje3", new Tren("Madrid", "Sevilla", 100));
 
 		for (String nombre : coleccion.keySet()) {
-			System.out
-					.println(nombre + "-" + coleccion.get(nombre).getOrigen() + "-" + coleccion.get(nombre).getDestino()
+			System.out.println(nombre + "-" + coleccion.get(nombre).getOrigen() + 
+					"-" + coleccion.get(nombre).getDestino()
 							+ "-" + coleccion.get(nombre).getPasajeros() + " - " + "Pasajeros");
 		}
 
