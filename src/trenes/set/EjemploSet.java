@@ -2,11 +2,17 @@ package trenes.set;
 
 import java.util.HashSet;
 import java.util.Set;
+
 import trenes.list.Tren;
 
 public class EjemploSet {
 
 	public static void main(String[] args) {
+		
+		CompararTrenes compararTrenes = new CompararTrenes();
+		String obj = "t1,t2,t3,t4,t5,t6";
+		System.out.println(compararTrenes.equals(obj));
+		System.out.println(compararTrenes.hashCode());
 
 		Set<Tren> trenesJuntos = new HashSet<Tren>();
 
@@ -28,13 +34,18 @@ public class EjemploSet {
 		for (Tren tren : trenesJuntos) {
 			System.out.println(tren.toString());
 		}
-
+		
+		
+		
+		
+		
+		
 	}
 
 
 
 			
-		
+	
 
 		
 	}
