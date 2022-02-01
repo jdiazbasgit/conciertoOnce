@@ -1,7 +1,6 @@
 package trenes.comparar;
 
 import java.util.TreeSet;
-
 import trenes.list.Tren;
 
 public class CompararTrenes {
