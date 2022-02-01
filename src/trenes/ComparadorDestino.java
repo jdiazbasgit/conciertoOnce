@@ -1,5 +1,5 @@
 package trenes;
-
+		
 import java.util.Comparator;
 
 public class ComparadorDestino implements Comparator<Tren> {
@@ -9,6 +9,4 @@ public class ComparadorDestino implements Comparator<Tren> {
 		// TODO Auto-generated method stub
 		return o1.getDestino().compareTo(o2.getDestino());
 	}
-
-
 }
