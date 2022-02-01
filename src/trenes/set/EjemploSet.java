@@ -10,8 +10,7 @@ public class EjemploSet {
 	public static void main(String[] args) {
 		
 		CompararTrenes compararTrenes = new CompararTrenes();
-		String obj = "t1,t2,t3,t4,t5,t6";
-		System.out.println(compararTrenes.equals(obj));
+		
 		
 
 		Set<Tren> trenes = new HashSet<Tren>();

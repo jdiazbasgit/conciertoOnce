@@ -1,6 +1,6 @@
 package trenes.list;
 
-public class Tren {
+public class Tren implements Comparable<Tren> {
 	
 	private String origen;
 	private String destino;
@@ -36,6 +36,11 @@ public class Tren {
 	@Override
 	public String toString() {
 		return "Tren [origen=" + getOrigen() + ", destino=" + getDestino() + ", pasajeros=" + getPasajeros() + "]"+hashCode();
+	}
+
+	public int compareTo(Tren otro) {
+		
+		return this.getDestino().compareTo(otro.getDestino());
 	}
 
 
