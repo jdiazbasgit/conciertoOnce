@@ -9,7 +9,7 @@ public class EjemploSet {
 
 	public static void main(String[] args) {
 		
-		CompararTrenes compararTrenes = new CompararTrenes();
+		
 		
 		
 
