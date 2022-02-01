@@ -35,7 +35,7 @@ public class Tren {
 
 	@Override
 	public String toString() {
-		return "Tren [origen=" + getOrigen() + ", destino=" + getDestino() + ", pasajeros=" + getPasajeros() + "]";
+		return "Tren [origen=" + getOrigen() + ", destino=" + getDestino() + ", pasajeros=" + getPasajeros() + "]"+hashCode();
 	}
 
 

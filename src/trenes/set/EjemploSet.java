@@ -12,9 +12,9 @@ public class EjemploSet {
 		CompararTrenes compararTrenes = new CompararTrenes();
 		String obj = "t1,t2,t3,t4,t5,t6";
 		System.out.println(compararTrenes.equals(obj));
-		System.out.println(compararTrenes.hashCode());
+		
 
-		Set<Tren> trenesJuntos = new HashSet<Tren>();
+		Set<Tren> trenes = new HashSet<Tren>();
 
 
 		Tren t1 = new Tren("Madrid", "Barcelona", 180);
@@ -24,14 +24,14 @@ public class EjemploSet {
 		Tren t5 = new Tren("Madrid", "Sevilla", 120);
 		Tren t6 = new Tren("Madrid", "Sevilla", 120);
 		
-		trenesJuntos.add(t1);
-		trenesJuntos.add(t2);
-		trenesJuntos.add(t3);
-		trenesJuntos.add(t4);
-		trenesJuntos.add(t5);
-		trenesJuntos.add(t6);
+		trenes.add(t1);
+		trenes.add(t2);
+		trenes.add(t3);
+		trenes.add(t4);
+		trenes.add(t5);
+		trenes.add(t6);
 		
-		for (Tren tren : trenesJuntos) {
+		for (Tren tren : trenes) {
 			System.out.println(tren.toString());
 		}
 		

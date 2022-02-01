@@ -19,7 +19,7 @@ public class EjemploMap {
 		ejemploMap.put("t6", new Tren("Madrid", "Sevilla", 120));
 
 		for (String nombre : ejemploMap.keySet()) {
-			System.out.println("origen" + "  " + ejemploMap.get(nombre).getOrigen() +" "+ "destino"+ "  "
+			System.out.println( "origen" + "  " + ejemploMap.get(nombre).getOrigen() +" "+ "destino"+ "  "
 					+ ejemploMap.get(nombre).getDestino() +" "+ "pasajeros" +" "+ ejemploMap.get(nombre).getPasajeros());
 		}
 
