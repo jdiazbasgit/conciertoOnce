@@ -1,4 +1,4 @@
-package trenes.set;
+package trenes.comparar;
 
 import java.util.TreeSet;
 
