@@ -8,7 +8,8 @@ public class EjemploSet {
 
 	public static void main(String[] args) {
 
-		Set<Tren> trenesJuntos = todosLosTrenes();
+		Set<Tren> trenesJuntos = new HashSet<Tren>();
+
 
 		Tren t1 = new Tren("Madrid", "Barcelona", 180);
 		Tren t2 = new Tren("Zaragoza", "Barcelona", 235);
@@ -17,22 +18,25 @@ public class EjemploSet {
 		Tren t5 = new Tren("Madrid", "Sevilla", 120);
 		Tren t6 = new Tren("Madrid", "Sevilla", 120);
 		
+		trenesJuntos.add(t1);
+		trenesJuntos.add(t2);
+		trenesJuntos.add(t3);
+		trenesJuntos.add(t4);
+		trenesJuntos.add(t5);
+		trenesJuntos.add(t6);
+		
 		for (Tren tren : trenesJuntos) {
 			System.out.println(tren.toString());
 		}
 
 	}
 
-	private static Set<Tren> todosLosTrenes(Tren... trenes) {
-		Set<Tren> trenesSet = new HashSet();
 
-		for (int i = 0; i < trenes.length; i++) {
-			trenesSet.add(trenes[i]);
 
 			
-		}
+		
 
-		return trenesSet;
+		
 	}
 
-}
+
