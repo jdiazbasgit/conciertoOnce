@@ -37,7 +37,8 @@ public class Tren implements Comparable<Tren> {
 	public String toString() {
 		return "Tren [origen=" + getOrigen() + ", destino=" + getDestino() + ", pasajeros=" + getPasajeros() + "]"+hashCode();
 	}
-
+	
+	@Override
 	public int compareTo(Tren otro) {
 		
 		return this.getDestino().compareTo(otro.getDestino());
