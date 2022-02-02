@@ -20,20 +20,17 @@ public class Menu {
 			case 1:
 
 				ListadoYOperaciones.trenesList = new TreeSet<Tren>(new ComparadorOrigen());
-				ListadoYOperaciones.pintaJuntos();
 
 				break;
 
 			case 2:
 
 				ListadoYOperaciones.trenesList = new TreeSet<Tren>(new ComparadorDestino());
-				ListadoYOperaciones.pintaJuntos();
 
 				break;
 
 			case 3:
 				ListadoYOperaciones.trenesList = new TreeSet<Tren>(new ComparadorPasajeros());
-				ListadoYOperaciones.pintaJuntos();
 
 				break;
 
@@ -45,7 +42,7 @@ public class Menu {
 
 				System.out.println("Opción no válida.");
 			}
-
+			ListadoYOperaciones.pintaJuntos();
 		}
 
 	}
