@@ -61,7 +61,6 @@ public class EjemploComparator {
 			}
 
 		} while (tipo != 0);
-
 	}
 	private static Set<Tren> juntarTrenes(Tren... trenes) {
 		
@@ -72,8 +71,8 @@ public class EjemploComparator {
 
 		return trenesList;
 	}
-private static void listaTrenes(TreeSet<Tren> trenes) {
-	for (Tren tren : trenes)
- System.out.println(tren.toString());
-}
+	private static void listaTrenes(TreeSet<Tren> trenes) {
+		for (Tren tren : trenes)
+		System.out.println(tren.toString());
+	}
 }
