@@ -1,4 +1,5 @@
 package trenes;
+import.trenes.tren;
 import trenes.ComparadorDestino;
 import trenes.ComparadorOrigen;
 import trenes.ComparadorPasajeros;
@@ -26,11 +27,14 @@ public class EjemploComparator {
 	
 		int tipo;
 		do {
-
+            System.out.println("*****************************************************");
 			System.out.println("Introduce 1 para Comparar por origen");
 			System.out.println("Introduce 2 para Comparar por destino");
 			System.out.println("Introduce 3 para Comparar por pasajeros");
 			System.out.println("Introduce 0 para salir");
+			System.out.println("*****************************************************");
+			System.out.println("Teclea opcion: ");
+			System.out.println("****************************************************");
            
 			try (Scanner reader = new Scanner(System.in)) {
 				tipo = reader.nextInt();
@@ -39,22 +43,15 @@ public class EjemploComparator {
 			switch (tipo) {
 			case 1:
 				trenesJuntos = new TreeSet<Tren>(new ComparadorOrigen());
-
-				for (Tren tren : trenesJuntos) {
-					System.out.println(tren.toString());
-				}
+                pintaTrenes(trenesJuntos);
 				break;
 			case 2:
 				trenesJuntos = new TreeSet<Tren>(new ComparadorDestino());
-				for (Tren tren : trenesJuntos) {
-					System.out.println(tren.toString());
-				}
+				 pintaTrenes(trenesJuntos);
 				break;
 			case 3:
 				trenesJuntos = new TreeSet<Tren>(new ComparadorPasajeros());
-				for (Tren tren : trenesJuntos) {
-					System.out.println(tren.toString());
-				}
+				 pintaTrenes(trenesJuntos);
 				break;
 			case 0:
 				System.exit(0);
@@ -75,5 +72,8 @@ public class EjemploComparator {
 
 		return trenesList;
 	}
-
+private static pintaTrenes(TreeSet<Tren> trenes) {
+	for (Tren tren : trenes)
+ System.out.println(tren.toString());
+}
 }
