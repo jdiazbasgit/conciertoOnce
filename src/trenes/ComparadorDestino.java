@@ -10,6 +10,4 @@ public class ComparadorDestino implements Comparator<Tren> {
 		return o1.getDestino().compareTo(o2.getDestino());
 	}
 
-	
-
 }

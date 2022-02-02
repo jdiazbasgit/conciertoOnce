@@ -10,6 +10,4 @@ public class ComparadorOrigen implements Comparator<Tren> {
 		return o1.getOrigen().compareTo(o2.getOrigen());
 	}
 
-	
-
 }
