@@ -3,8 +3,6 @@ package trenes.list;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -37,8 +35,9 @@ public class EjemploList {
 		Set<Tren> trenesList = null;
 
 		while (true) {
-
+			
 			menu();
+			
 			try {
 			int tipo = Integer.parseInt(leerTeclado());
 			switch (tipo) {
@@ -74,7 +73,7 @@ public class EjemploList {
 }
 	public static void menu() {
 
-		System.out.println("Elige una opciÃ³n");
+		System.out.println("Elige una opción");
 		System.out.println("==================");
 		System.out.println("1.- Comparar por origen");
 		System.out.println("2.- Comparar por destino");
