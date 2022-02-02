@@ -43,15 +43,15 @@ public class EjemploComparator {
 			switch (tipo) {
 			case 1:
 				trenesJuntos = new TreeSet<Tren>(new ComparadorOrigen());
-                pintaTrenes(trenesJuntos);
+                listaTrenes(trenesJuntos);
 				break;
 			case 2:
 				trenesJuntos = new TreeSet<Tren>(new ComparadorDestino());
-				 pintaTrenes(trenesJuntos);
+				 listaTrenes(trenesJuntos);
 				break;
 			case 3:
 				trenesJuntos = new TreeSet<Tren>(new ComparadorPasajeros());
-				 pintaTrenes(trenesJuntos);
+				 listaTrenes(trenesJuntos);
 				break;
 			case 0:
 				System.exit(0);
@@ -72,7 +72,7 @@ public class EjemploComparator {
 
 		return trenesList;
 	}
-private static pintaTrenes(TreeSet<Tren> trenes) {
+private static void listaTrenes(TreeSet<Tren> trenes) {
 	for (Tren tren : trenes)
  System.out.println(tren.toString());
 }
