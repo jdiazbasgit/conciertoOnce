@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.TreeSet;
 
-public class EjemploSet {
+public class Menu {
 
 	public static void main(String[] args) {
 
@@ -19,21 +19,21 @@ public class EjemploSet {
 
 			case 1:
 
-				ListadoDeTrenes.trenesList = new TreeSet<Tren>(new ComparadorOrigen());
-				ListadoDeTrenes.pintaJuntos();
+				ListadoYOperaciones.trenesList = new TreeSet<Tren>(new ComparadorOrigen());
+				ListadoYOperaciones.pintaJuntos();
 
 				break;
 
 			case 2:
 
-				ListadoDeTrenes.trenesList = new TreeSet<Tren>(new ComparadorDestino());
-				ListadoDeTrenes.pintaJuntos();
+				ListadoYOperaciones.trenesList = new TreeSet<Tren>(new ComparadorDestino());
+				ListadoYOperaciones.pintaJuntos();
 
 				break;
 
 			case 3:
-				ListadoDeTrenes.trenesList = new TreeSet<Tren>(new ComparadorPasajeros());
-				ListadoDeTrenes.pintaJuntos();
+				ListadoYOperaciones.trenesList = new TreeSet<Tren>(new ComparadorPasajeros());
+				ListadoYOperaciones.pintaJuntos();
 
 				break;
 

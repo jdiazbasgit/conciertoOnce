@@ -2,7 +2,7 @@ package trenes;
 
 import java.util.TreeSet;
 
-public class ListadoDeTrenes {
+public class ListadoYOperaciones {
 
 	static Tren t1 = new Tren("Madrid", "Barcelona", 180);
 	static Tren t2 = new Tren("Zaragoza", "Barcelona", 235);
