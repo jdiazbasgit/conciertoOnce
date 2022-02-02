@@ -18,7 +18,9 @@ public class EjemploList {
 		Tren t4 = new Tren("Madrid", "Sevilla", 120);
 		Tren t5 = new Tren("Madrid", "Sevilla", 120);
 		Tren t6 = new Tren("Madrid", "Sevilla", 120);
+
 		while (true) {
+			menu();
 
 			TreeSet<Tren> trenesJuntos = juntarTrenes(t1, t2, t3, t4, t5, t6);
 
@@ -30,12 +32,11 @@ public class EjemploList {
 
 	}
 
-	private static TreeSet<Tren> juntarTrenes(Tren... trenes) {
+	private static  TreeSet<Tren> juntarTrenes(Tren... trenes) {
 
 		TreeSet<Tren> trenesList = null;
 
-		menu();
-
+		
 		try {
 			int tipo = Integer.parseInt(leerTeclado());
 			switch (tipo) {
@@ -82,6 +83,7 @@ public class EjemploList {
 		System.out.println("2.- Comparar por destino");
 		System.out.println("3.- Comparar por pasajeros");
 		System.out.println("4.- Salir");
+	
 	}
 
 	private static String leerTeclado() {
