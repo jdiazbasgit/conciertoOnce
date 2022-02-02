@@ -1,35 +1,74 @@
 package trenes;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.TreeSet;
 
 public class EjemploSet {
 
 	public static void main(String[] args) {
-		Tren t1 = new Tren("Madrid", "Barcelona", 180);
-		Tren t2 = new Tren("Zaragoza", "Barcelona", 235);
-		Tren t3 = new Tren("Madrid", "Sevilla", 120);
-		Tren t4 = new Tren("Madrid", "Sevilla", 120);
-		Tren t5 = new Tren("Madrid", "Sevilla", 120);
-		Tren t6 = new Tren("Madrid", "Sevilla", 120);
 
-		Set<Tren> trenesJuntos = juntarTrenes("pepe", 5, t1, t2, t3, t4, t5, t6);
+		while (true) {
 
-		for (Tren tren : trenesJuntos) {
-			System.out.println(tren.toString());
+			menu();
+
+			int opcion = Integer.parseInt(leerTeclado());
+
+			switch (opcion) {
+
+			case 1:
+
+				ListadoDeTrenes.trenesList = new TreeSet<Tren>(new ComparadorOrigen());
+				ListadoDeTrenes.pintaJuntos();
+
+				break;
+
+			case 2:
+
+				ListadoDeTrenes.trenesList = new TreeSet<Tren>(new ComparadorDestino());
+				ListadoDeTrenes.pintaJuntos();
+
+				break;
+
+			case 3:
+				ListadoDeTrenes.trenesList = new TreeSet<Tren>(new ComparadorPasajeros());
+				ListadoDeTrenes.pintaJuntos();
+
+				break;
+
+			case 4:
+
+				System.exit(0);
+
+			default:
+
+				System.out.println("Opción no válida.");
+			}
+
 		}
 
 	}
 
-	private static Set<Tren> juntarTrenes(String texto, int numero, Tren... trenes) {
-		Set<Tren> trenesSet = new HashSet<Tren>();
-
-		for (int i = 0; i < trenes.length; i++) {
-			trenesSet.add(trenes[i]);
-		}
-
-		return trenesSet;
-
+	public static void menu() {
+		System.out.println("==================");
+		System.out.println("Menu de trenes");
+		System.out.println("==================");
+		System.out.println("1.- Comparar por ORIGEN");
+		System.out.println("2.- Comparar por DESTINO");
+		System.out.println("3.- Comparar por PASAJEROS");
+		System.out.println("4.- Terminar");
+		System.out.println("Teclea opcion:");
 	}
 
+	private static String leerTeclado() {
+
+		try {
+			return new BufferedReader(new InputStreamReader(System.in)).readLine();
+
+		} catch (IOException e) {
+			return null;
+
+		}
+	}
 }

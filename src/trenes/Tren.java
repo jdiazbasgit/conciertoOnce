@@ -13,6 +13,11 @@ public class Tren {
 		this.pasajeros = pasajeros;
 	}
 
+	@Override
+	public String toString() {
+		return "Tren [Origen= " + getOrigen() + ", Destino= " + getDestino() + ", Pasajeros= " + getPasajeros() + "]";
+	}
+
 	public String getOrigen() {
 		return origen;
 	}
@@ -35,11 +40,6 @@ public class Tren {
 
 	public void setPasajeros(int pasajeros) {
 		this.pasajeros = pasajeros;
-	}
-
-	@Override
-	public String toString() {
-		return "Tren [origen=" + getOrigen() + ", destino=" + getDestino() + ", pasajeros=" + getPasajeros() + "]";
 	}
 
 }
