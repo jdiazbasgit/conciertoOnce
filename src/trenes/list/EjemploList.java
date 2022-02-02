@@ -3,9 +3,7 @@ package trenes.list;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Set;
 import java.util.TreeSet;
-
 import trenes.comparar.CompararDestino;
 import trenes.comparar.CompararOrigen;
 import trenes.comparar.CompararPasajeros;
@@ -20,36 +18,39 @@ public class EjemploList {
 		Tren t4 = new Tren("Madrid", "Sevilla", 120);
 		Tren t5 = new Tren("Madrid", "Sevilla", 120);
 		Tren t6 = new Tren("Madrid", "Sevilla", 120);
+		while (true) {
 
-		Set<Tren> trenesJuntos = juntarTrenes(t1, t2, t3, t4, t5, t6);
+			TreeSet<Tren> trenesJuntos = juntarTrenes(t1, t2, t3, t4, t5, t6);
 
-		for (Tren tren : trenesJuntos) {
-			System.out.println(tren.toString());
+			for (Tren tren : trenesJuntos) {
+				System.out.println(tren.toString());
+
+			}
 		}
 
 	}
 
-	private static Set<Tren> juntarTrenes(Tren... trenes) {
-		
+	private static TreeSet<Tren> juntarTrenes(Tren... trenes) {
 
-		Set<Tren> trenesList = null;
+		TreeSet<Tren> trenesList = null;
 
-		while (true) {
-			
-			menu();
-			
-			try {
+		menu();
+
+		try {
 			int tipo = Integer.parseInt(leerTeclado());
 			switch (tipo) {
 
 			case 1:
 				trenesList = new TreeSet<Tren>(new CompararOrigen());
+
 				break;
 			case 2:
 				trenesList = new TreeSet<Tren>(new CompararDestino());
+
 				break;
 			case 3:
 				trenesList = new TreeSet<Tren>(new CompararPasajeros());
+
 				break;
 
 			case 4:
@@ -60,17 +61,19 @@ public class EjemploList {
 				System.out.println("opcion no valida");
 				break;
 			}
-			}catch(NumberFormatException e) {
-				System.out.println("debes escribir un numero");
-			}
-			for (int i = 0; i < trenes.length; i++) {
-				trenesList.add(trenes[i]);
-			}
-			return trenesList;
-		
+		} catch (NumberFormatException e) {
+			System.out.println("debes escribir un numero");
+		}
+
+		for (int i = 0; i < trenes.length; i++) {
+			trenesList.add(trenes[i]);
+
+		}
+
+		return (TreeSet<Tren>) trenesList;
 
 	}
-}
+
 	public static void menu() {
 
 		System.out.println("Elige una opción");
@@ -84,13 +87,13 @@ public class EjemploList {
 	private static String leerTeclado() {
 
 		try {
-			InputStreamReader inputStreamReader= new InputStreamReader(System.in);
-			BufferedReader bufferedReader= new BufferedReader(inputStreamReader);
+			InputStreamReader inputStreamReader = new InputStreamReader(System.in);
+			BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
 			return bufferedReader.readLine();
-			
+
 		} catch (IOException e) {
 			return null;
 		}
 	}
-	
+
 }
