@@ -1,46 +1,61 @@
 package trenes;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.TreeSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.SortedSet;
 
 public class EjemploList {
 
-	public static void main(String[] args) {
-
-		Tren t1 = new Tren("Madrid", "Barcelona", 180);
-		Tren t2 = new Tren("Zaragoza", "Barcelona", 235);
-		Tren t3 = new Tren("Madrid", "Sevilla", 120);
-		Tren t4 = new Tren("Madrid", "Sevilla", 120);
-		Tren t5 = new Tren("Madrid", "Sevilla", 120);
-		Tren t6 = new Tren("Madrid", "Sevilla", 120);
-
-		Set<Tren> trenesJuntos = juntarTrenes(t1, t2, t3, t4, t5, t6);
-
-		for (Tren tren : trenesJuntos) {
-			System.out.println(tren.toString());
+	public static void main(String[] args) {			
+		
+		System.out.println ("\n\t====   List<Tren>   ====");
+		
+		List<Tren> trenesList = Arrays.asList(
+				new Tren("Madrid","Barcelona",180),
+				new Tren("Zaragoza","Barcelona",235),
+				new Tren("Madrid","Sevilla",120),
+				new Tren("Madrid","Sevilla",120),
+				new Tren("Madrid","Sevilla",120),
+				new Tren("Madrid","Sevilla",120)
+		);
+		
+		for (Tren tren : trenesList) {
+			System.out.println(tren);
 		}
-
-	}
-
-	private static Set<Tren> juntarTrenes(Tren... trenes) {
-
-		int tipo = 3;
-
-		Set<Tren> trenesList = null;
-		if (tipo == 1)
-			trenesList = new TreeSet<Tren>(new ComparadorOrigen());
-		if (tipo == 2)
-			trenesList = new TreeSet<Tren>(new ComparadorDestino());
-		if (tipo == 3)
-			trenesList = new TreeSet<Tren>(new ComparadorPasajeros());
-
-		for (int i = 0; i < trenes.length; i++) {
-			trenesList.add(trenes[i]);
+		
+		System.out.println ("\n\t====   HashSet<Tren>   ====");
+		
+		Set<Tren> trenesHashSet= new HashSet<Tren>(trenesList);		
+		
+		for (Tren tren : trenesHashSet) {
+			System.out.println(tren);
 		}
-
-		return trenesList;
+		System.out.println ("\n\t====   SortedSet<Tren>   ====");
+		
+		SortedSet<Tren> trenesSortedSet= new TreeSet<Tren>(trenesList);		
+		
+		for (Tren tren : trenesSortedSet) {
+			System.out.println(tren);
+		}
+		
+		System.out.println ("\n\t====   HashMap<Tren>   ====");
+		
+		Map<String,Tren> trenesHashMap= new HashMap<String,Tren>();	
+		
+		for (int i=0; i<trenesList.size(); i++) {
+			trenesHashMap.put("Tren_" + (i+1), trenesList.get(i));
+		}
+			
+		for (String nombreTren : trenesHashMap.keySet())
+			System.out.println (nombreTren + " => " + trenesHashMap.get(nombreTren));
+		
+		System.out.println ("\n\t=== print trenesHashMap por defecto   ====\n" + trenesHashMap);
+		
 	}
 
 }
