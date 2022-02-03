@@ -1,6 +1,8 @@
 package trenes;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
@@ -16,31 +18,40 @@ public class EjemploList {
 		Tren t5 = new Tren("Madrid", "Sevilla", 120);
 		Tren t6 = new Tren("Madrid", "Sevilla", 120);
 
-		Set<Tren> trenesJuntos = juntarTrenes(t1, t2, t3, t4, t5, t6);
-
-		for (Tren tren : trenesJuntos) {
-			System.out.println(tren.toString());
-		}
-
-	}
-
-	private static Set<Tren> juntarTrenes(Tren... trenes) {
-
+		List<Tren> trenes = Arrays.asList(t1, t2, t3, t4, t5,t6);
+		//HashSet<Tren> trenesSet= new HashSet<>(trenes);
 		int tipo = 3;
 
-		Set<Tren> trenesList = null;
-		if (tipo == 1)
-			trenesList = new TreeSet<Tren>(new ComparadorOrigen());
-		if (tipo == 2)
-			trenesList = new TreeSet<Tren>(new ComparadorDestino());
-		if (tipo == 3)
-			trenesList = new TreeSet<Tren>(new ComparadorPasajeros());
+		if (tipo == 1)// Origen
+			trenes.stream().sorted((o1,o2)->o1.getOrigen().compareTo(o2.getOrigen())).forEach(tren -> System.out.println(tren));
 
-		for (int i = 0; i < trenes.length; i++) {
-			trenesList.add(trenes[i]);
-		}
+		if (tipo == 2)// destino")
+			trenes.stream().sorted((o1,o2)->o1.getDestino().compareTo(o2.getDestino())).forEach(tren -> System.out.println(tren));
+		if (tipo == 3)// pasajewros
+			trenes.stream().sorted((o1,o2)->o1.getPasajeros()-o2.getPasajeros()).forEach(t -> System.out.println(t));
 
-		return trenesList;
+		// trenesJuntos.stream().sorted(new
+		// ComparadorPasajeros()).filter(tren->tren.getPasajeros()>150).forEach(tren->System.out.println(tren));
+
+		/*
+		 * for (Tren tren : trenesJuntos) { System.out.println(tren.toString()); }
+		 */
+
 	}
+
+	/*
+	 * private static Set<Tren> juntarTrenes(Tren... trenes) {
+	 * 
+	 * int tipo = 3;
+	 * 
+	 * Set<Tren> trenesList = null; if (tipo == 1) trenesList = new
+	 * TreeSet<Tren>(new ComparadorOrigen()); if (tipo == 2) trenesList = new
+	 * TreeSet<Tren>(new ComparadorDestino()); if (tipo == 3) trenesList = new
+	 * TreeSet<Tren>(new ComparadorPasajeros());
+	 * 
+	 * for (int i = 0; i < trenes.length; i++) { trenesList.add(trenes[i]); }
+	 * 
+	 * return trenesList; }
+	 */
 
 }
