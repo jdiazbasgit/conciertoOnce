@@ -89,9 +89,8 @@ public class EjemploList {
 	private static String leerTeclado() {
 
 		try {
-			InputStreamReader inputStreamReader = new InputStreamReader(System.in);
-			BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-			return bufferedReader.readLine();
+			
+			return new BufferedReader(new InputStreamReader(System.in)).readLine();
 
 		} catch (IOException e) {
 			
