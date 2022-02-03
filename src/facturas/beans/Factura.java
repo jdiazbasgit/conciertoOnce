@@ -17,6 +17,22 @@ public class Factura {
 		this.vendedor = vendedor;
 	}
 	
+	
+
+	
+
+
+
+	public Factura(String string, String string2, int i) {
+		// TODO Auto-generated constructor stub
+	}
+
+
+
+
+
+
+
 	@Override
 	public String toString() {
 		return "Factura [baseImponible=" + baseImponible + ", numeroFactura=" + numeroFactura + ", fecha=" + fecha
@@ -46,6 +62,11 @@ public class Factura {
 	}
 	public void setVendedor(Vendedor vendedor) {
 		this.vendedor = vendedor;
+	}
+
+	public static void add(Factura factura) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
