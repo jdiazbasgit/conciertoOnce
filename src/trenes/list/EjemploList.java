@@ -94,6 +94,7 @@ public class EjemploList {
 			return bufferedReader.readLine();
 
 		} catch (IOException e) {
+			
 			return null;
 		}
 	}
