@@ -67,26 +67,7 @@ public class MostrarResultadoComparadores {
 
 	}
 
-	@SuppressWarnings("unused")
-	private static Set<Tren> juntarTrenes(Tren... trenes) {
-
-		int tipo = 3;
-
-		Set<Tren> trenesList = null;
-		if (tipo == 1)
-			trenesList = new TreeSet<Tren>(new ComparadorOrigen());
-		if (tipo == 2)
-			trenesList = new TreeSet<Tren>(new ComparadorDestino());
-		if (tipo == 3)
-			trenesList = new TreeSet<Tren>(new ComparadorPasajeros());
-
-		for (int i = 0; i < trenes.length; i++) {
-			trenesList.add(trenes[i]);
-		}
-
-		return trenesList;
-	}
-
+	
 	private static String leerTeclado() {
 		try {
 			InputStreamReader inputStreamReader = new InputStreamReader(System.in);
