@@ -3,6 +3,7 @@ package trenes;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Comparator;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -16,13 +17,9 @@ public class Menu {
 		Tren t4 = new Tren("Madrid", "Sevilla", 120);
 		Tren t5 = new Tren("Madrid", "Sevilla", 120);
 		Tren t6 = new Tren("Madrid", "Sevilla", 120);
-
-		/*Set<Tren> trenesJuntos = juntarTrenes(t1, t2, t3, t4, t5, t6);
-
-		for (Tren tren : trenesJuntos) {
-			System.out.println(tren.toString());
-		}*/
 		
+		TreeSet<Tren> trenesJuntos = null;
+		Comparator<Tren> comparadorTrenes = null;
 		
 		Set<Tren> trenesList = null;
 		// TODO Auto-generated method stub
@@ -33,32 +30,15 @@ public class Menu {
 				int opcion = Integer.parseInt(leerTeclado());
 				switch (opcion) {
 				case 1:
-					Set<Tren> trenesJuntos = juntarTrenes(t1, t2, t3, t4, t5, t6);
-
-					for (Tren tren : trenesJuntos) {
-						System.out.println(tren.toString());
-					}
-					
-					
-
+					comparadorTrenes = new ComparadorOrigen();
 					break;
 				case 2:
-					
-					Set<Tren> trenesJuntos2 = juntarTrenes2(t1, t2, t3, t4, t5, t6);
-
-					for (Tren tren : trenesJuntos2) {
-						System.out.println(tren.toString());
-					}
-					
+					comparadorTrenes = new ComparadorDestino();
 					break;
-
 				case 3:
-					Set<Tren> trenesJuntos3 = juntarTrenes3(t1, t2, t3, t4, t5, t6);
-
-					for (Tren tren : trenesJuntos3) {
-						System.out.println(tren.toString());
-					}
+					comparadorTrenes = new ComparadorPasajeros();
 					break;
+					
 				case 4:
 
 					System.exit(0);
@@ -68,6 +48,10 @@ public class Menu {
 				}
 			} catch (NumberFormatException e) {
 				System.out.println("debes escribir un numero");
+			}
+			trenesJuntos = juntarTrenes(comparadorTrenes,t1,t2,t3,t4,t5,t6);
+			for(Tren tren:trenesJuntos) {
+				System.out.println(tren.toString());
 			}
 		}
 
@@ -84,48 +68,11 @@ public class Menu {
 		System.out.println("Teclea opción:");
 	}
 
-	private static Set<Tren> juntarTrenes(Tren... trenes) {
-		int tipo = 1;
-
-		Set<Tren> trenesList = null;
-		if (tipo == 1)
-			trenesList = new TreeSet<Tren>(new ComparadorOrigen());
-		if (tipo == 2)
-			trenesList = new TreeSet<Tren>(new ComparadorDestino());
-		if (tipo == 3)
-			trenesList = new TreeSet<Tren>(new ComparadorPasajeros());
-
-		for (int i = 0; i < trenes.length; i++) {
-			trenesList.add(trenes[i]);
-		}
-
-		return trenesList;
-	}
-	private static Set<Tren> juntarTrenes2(Tren... trenes) {
+private static TreeSet<Tren> juntarTrenes(Comparator<Tren> comparadorTrenes, Tren...trenes) {
 		
-
-		Set<Tren> trenesList = null;
-		
-		
-			trenesList = new TreeSet<Tren>(new ComparadorDestino());
-		
-		for (int i = 0; i < trenes.length; i++) {
-			trenesList.add(trenes[i]);
-		}
-
-		return trenesList;
-	}
-	private static Set<Tren> juntarTrenes3(Tren... trenes) {
-		
-		Set<Tren> trenesList = null;
-		
-			trenesList = new TreeSet<Tren>(new ComparadorPasajeros());
-
-		for (int i = 0; i < trenes.length; i++) {
-			trenesList.add(trenes[i]);
-		}
-
-		return trenesList;
+		TreeSet<Tren> trenesTreeSet = new TreeSet<Tren>(comparadorTrenes);
+		for(int i=0;i<trenes.length;i++) trenesTreeSet.add(trenes[i]);
+		return trenesTreeSet;
 	}
 
 	private static String leerTeclado() {
