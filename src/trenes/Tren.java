@@ -1,16 +1,9 @@
 package trenes;
-/*
- 1.-hacer colección set y meter trenes. 
-2- Crear criterio igualdad donde todos los trenes con el mismo destino los consideramos iguales
-3.-Listar los trenes del Set ordenados por número de pasajeros Con Hashset?
-
-4.- Map = nombre del tren(tren1,tren2..) como key y el objeto tren como value
-
- */
+ 
 import java.util.Objects;
 
 public class Tren implements Comparable<Tren>{
- 
+	
 	private String origen;
 	private String destino;
 	private int pasajeros;

@@ -9,53 +9,80 @@ import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
-
 public class OrdenarTrenesMain {
 
+	private static final String MENSAJE_ORIGEN = "\t**  Por Origen : **";
+	private static final String MENSAJE_DESTINO = "\t**  Por destino : **";
+	private static final String MENSAJE_PASAJEROS = "\t**  Por pasajeros : **";
+	private static final String MENSAJE_FIN = "\t===  FIN  ===";
+	private static final String MENSAJE_ERROR_OPCION = "Error => Opción no válida";
+	private static final String MENSAJE_ERROR_NUMERO = "Error => Debes escribir un número";
+
+	private static final String[] TEXTO_OPCIONES_MENU = { 	"\tOrdenar Trenes Por...",
+															"\t\t==================",
+															"\t1.- Origen",
+															"\t2.- Destino",
+															"\t3.- Pasajeros",
+															"\t4.- Terminar",
+															"Teclea opción:"    };
+
+	
 	public static void main(String[] args) {
-		Comparator<Tren> comparadorTrenes=null;
-		Set<Tren> trenesTreeSet = null;		
-		List<Tren> trenesList = Arrays.asList(	new Tren("Madrid","Barcelona",180),
-												new Tren("Zaragoza","Barcelona",235),
-												new Tren("Madrid","Sevilla",120),
-												new Tren("Madrid","Sevilla",120),
-												new Tren("Madrid","Sevilla",120),
-												new Tren("Madrid","Sevilla",120)   );
 		
+		String mensaje = "";
+		Comparator<Tren> comparadorTrenes = null;
+		Set<Tren> trenesTreeSet = null;
+		List<Tren> trenesList = Arrays.asList(  new Tren("Madrid", "Barcelona", 180),
+												new Tren("Barcelona", "Sevilla", 200), 
+												new Tren("Zaragoza", "Barcelona", 235),
+												new Tren("Madrid", "Sevilla", 120), 
+												new Tren("Madrid", "Sevilla", 120),
+												new Tren("Madrid", "Sevilla", 120), 
+												new Tren("Madrid", "Sevilla", 120)  );
+
 		while (true) {
-			menu();
+			
+			mostrarMenu(TEXTO_OPCIONES_MENU);
+			
 			try {
 				int opcion = Integer.parseInt(leerTeclado());
 				switch (opcion) {
-					case 1:
-						System.out.println("\t**  Por Origen : **");
-						comparadorTrenes= (tren01,tren02)->tren01.getOrigen().compareTo(tren02.getOrigen());												
-						break;
-					case 2:
-						System.out.println("\t**  Por destino : **");
-						comparadorTrenes= (tren01,tren02)->tren01.getDestino().compareTo(tren02.getDestino());
-						break;
-					case 3:
-						System.out.println("\t**  Por pasajeros : **");
-						comparadorTrenes= (tren01,tren02)->tren01.getPasajeros()-tren02.getPasajeros();
-						break;
-					case 4:
-						System.out.println("\t===  FIN  ===");
-						System.exit(0);
-					default:
-						System.out.println("Error => Opción no válida");
-					}
+				case 1:
+					mensaje = MENSAJE_ORIGEN;
+					comparadorTrenes = (tren01, tren02) -> tren01.getOrigen().compareTo(tren02.getOrigen());
+					break;
+				case 2:
+					mensaje = MENSAJE_DESTINO;
+					comparadorTrenes = (tren01, tren02) -> tren01.getDestino().compareTo(tren02.getDestino());
+					break;
+				case 3:
+					mensaje = MENSAJE_PASAJEROS;
+					comparadorTrenes = (tren01, tren02) -> tren01.getPasajeros() - tren02.getPasajeros();
+					break;
+				case 4:
+					mensaje = MENSAJE_FIN;
+					System.exit(0);
+				default:
+					mensaje = MENSAJE_ERROR_OPCION;
+					// continue; Se salta el resto de la ejecución de las instrucciones contenidas en el bucle while
+					// y pasa directamente a ejecutar la condición del bucle while en la línea 42 
+					// Es decir no ejecuta el código contenido entre las líneas 72 y 82
+					continue;  
+				}
 			} catch (NumberFormatException e) {
-				System.out.println("Error => Debes escribir un número");
+				mensaje = MENSAJE_ERROR_NUMERO;
+				continue;
+			} finally {
+				System.out.println(mensaje);
 			}
-			
+
 			trenesTreeSet = new TreeSet<Tren>(comparadorTrenes);
-			trenesTreeSet.addAll ( trenesList);
-			
+			trenesTreeSet.addAll(trenesList);
+
 			for (Tren tren : trenesTreeSet) {
-				System.out.println(tren.toString());
+				System.out.println(tren);
 			}
-			System.out.println();
+			System.out.println();   //salto de línea
 		}
 	}
 
@@ -68,16 +95,11 @@ public class OrdenarTrenesMain {
 		}
 	}
 
-	public static void menu() {
+	public static void mostrarMenu(String... texto_opciones_Menu) {
 
-		System.out.println("\tOrdenar Trenes Por...");
-		System.out.println("\t\t==================");
-		System.out.println("\t1.- Origen");
-		System.out.println("\t2.- Destino");
-		System.out.println("\t3.- Pasajeros");
-		System.out.println("\t4.- Terminar");
-		System.out.println("Teclea opción:");
+		for (String texto_opcion : texto_opciones_Menu) {
+			System.out.println(texto_opcion);
+		}
 	}
 
 }
-
