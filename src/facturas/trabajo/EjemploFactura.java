@@ -20,7 +20,10 @@ public class EjemploFactura {
 			String fechaTexto = factura.getFecha().get(Calendar.DAY_OF_MONTH) + " de "
 					+ factura.getFecha().getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.getDefault()) + " de "
 					+ factura.getFecha().get(Calendar.YEAR);
-			System.out.println("número factura "+ factura.getNumeroFactura() + "   " + "Fecha " + fechaTexto + "   " + "Base Imponible " + factura.getBaseImponible());
+
+			// System.out.println("número factura "+ factura.getNumeroFactura() + " " +
+			// "Fecha " + fechaTexto + " " + "Base Imponible " +
+			// factura.getBaseImponible());
 
 		}
 	}
