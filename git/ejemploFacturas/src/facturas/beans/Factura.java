@@ -2,14 +2,16 @@ package facturas.beans;
 
 import java.util.GregorianCalendar;
 
+import facturas.fechas.Fecha;
+
 public class Factura {
 
 	private int baseImponible;
 	private int numeroFactura;
-	private GregorianCalendar fecha;
+	private Fecha fecha;
 	private Vendedor vendedor;
 
-	public Factura(int baseImponible, int numeroFactura, GregorianCalendar fecha, Vendedor vendedor) {
+	public Factura(int baseImponible, int numeroFactura, Fecha fecha, Vendedor vendedor) {
 		super();
 		this.baseImponible = baseImponible;
 		this.numeroFactura = numeroFactura;
@@ -43,9 +45,7 @@ public class Factura {
 		return fecha;
 	}
 
-	public void setFecha(GregorianCalendar fecha) {
-		this.fecha = fecha;
-	}
+	
 
 	public Vendedor getVendedor() {
 		return vendedor;
