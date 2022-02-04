@@ -3,6 +3,8 @@ package trenes;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -10,7 +12,7 @@ public class MenuDeOpciones {
 
 	
 
-	@SuppressWarnings({ "unused" })
+	@SuppressWarnings({ })
 	public static void main(String[] args) {
 
 		Tren t1 = new Tren("Madrid", "Barcelona", 180);
@@ -19,7 +21,11 @@ public class MenuDeOpciones {
 		Tren t4 = new Tren("Madrid", "Sevilla", 120);
 		Tren t5 = new Tren("Madrid", "Sevilla", 120);
 		Tren t6 = new Tren("Madrid", "Sevilla", 120);
-
+		
+		
+	
+	
+			
 		TreeSet<Tren> trenesJuntos = null;
 
 		while (true) {
