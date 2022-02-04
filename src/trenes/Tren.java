@@ -37,6 +37,9 @@ public class Tren {
 	public String toString() {
 		return "Tren [origen=" + getOrigen() + ", destino=" + getDestino() + ", pasajeros=" + getPasajeros() + "]";
 	}
-
+	
+	
+	
+	
 
 }

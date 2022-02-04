@@ -18,7 +18,8 @@ public class EjemploList {
 		Tren t5 = new Tren("Madrid", "Sevilla", 120);
 		Tren t6 = new Tren("Madrid", "Sevilla", 120);
 
-		List<Tren> trenes = Arrays.asList(t1, t2, t3, t4, t5,t6);
+		//List<Tren> trenes = Arrays.asList(t1, t2, t3, t4, t5,t6);
+		Set<Tren> trenes= Set.of(t1,t2,t3,t4,t5,t6);
 		//HashSet<Tren> trenesSet= new HashSet<>(trenes);
 		int tipo = 3;
 
