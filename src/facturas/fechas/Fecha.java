@@ -9,7 +9,7 @@ public class Fecha extends GregorianCalendar {
 
 	@Override
 	public String toString() {
-		String salida = this.get(Calendar.DAY_OF_MONTH)+ " de "+ this.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.getDefault())+
+		String salida = this.get( Calendar.DAY_OF_MONTH)+ " de "+ this.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.getDefault())+
 				" de "+ this.get(Calendar.YEAR);
 		return salida;
 	}
