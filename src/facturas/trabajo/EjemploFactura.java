@@ -1,13 +1,12 @@
 package facturas.trabajo;
 
 import java.util.Calendar;
-import java.util.GregorianCalendar;
 import java.util.HashSet;
-import java.util.Locale;
 import java.util.Random;
 import java.util.Set;
 import java.util.TreeSet;
 
+import factura.fechas.Fecha;
 import facturas.beans.Factura;
 import facturas.beans.Vendedor;
 
@@ -18,14 +17,10 @@ public class EjemploFactura {
 		Set<Vendedor> vendedores=cargaVendedores();
 		Set<Factura> facturas=cargaFacturas(vendedores);
 		for (Factura factura : facturas) {
-			String fechaTexto=factura.getFecha().get(Calendar.DAY_OF_MONTH)+ "de" +
-		factura.getFecha().getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.getDefault())+ "de" +
-					factura.getFecha().get(Calendar.YEAR);
 			
-			System.out.println(factura.getNumeroFactura()+"-"+fechaTexto+"-"+factura.getBaseImponible());
+			System.out.println(factura.getNumeroFactura()+ " - " + factura.getFecha() + " - " + factura.getBaseImponible());
 			
 		}
-
 	}
 
 	private static Set<Factura> cargaFacturas(Set<Vendedor> vendedores) {
@@ -39,7 +34,7 @@ public class EjemploFactura {
 	for (Vendedor vendedor: vendedores) {
 		for(int i=0; i<10; i++) {
 			int importe=(int)(random.nextFloat()*10000);
-			GregorianCalendar fecha = new GregorianCalendar();
+			Fecha fecha = new Fecha();
 			fecha.add(Calendar.DAY_OF_MONTH, numeroFactura);
 			Factura factura= new Factura(importe, numeroFactura, fecha, vendedor);
 			salida.add(factura);
@@ -61,4 +56,4 @@ public class EjemploFactura {
 		return salida;
 	}
 }
-/*crear array de facturas*/
+
