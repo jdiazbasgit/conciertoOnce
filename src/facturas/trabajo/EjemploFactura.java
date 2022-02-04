@@ -21,6 +21,7 @@ public class EjemploFactura {
 		return null;
 	}
 
+	
 	private static Set<Vendedor> cargaVendedores() {
 		Set<Vendedor> salida=new HashSet<>();
 		for(int i=0;i<20;i++) {
@@ -28,5 +29,5 @@ public class EjemploFactura {
 		}
 		return salida;
 	}
-
 }
+/*crear array de facturas*/
