@@ -16,12 +16,22 @@ public class EjemploFactura {
 		
 		Set<Vendedor> vendedores=cargaVendedores();
 		Set<Factura> facturas=cargaFacturas(vendedores);
+		int resultado=0;
+		
+		
+		
+		//Programacion sin funcional
 		for (Factura factura : facturas) {
-			
+			resultado=resultado+factura.getBaseImponible();
 			System.out.println(factura.getNumeroFactura()+ " - " + factura.getFecha() + " - " + factura.getBaseImponible());
-			
 		}
+		//Programacion Funcional
+		System.out.println(facturas.stream().sorted().mapToInt(fac->fac.getBaseImponible()).filter(n->n>=5000).sum());
+		System.out.println(facturas.stream().mapToInt(fac->fac.getBaseImponible()).filter(n->n>=5000).sum());
 	}
+	
+	
+	
 
 	private static Set<Factura> cargaFacturas(Set<Vendedor> vendedores) {
 		TreeSet<Factura> salida= new TreeSet<>((f1,f2)->f1.getFecha().compareTo(f2.getFecha()));
@@ -51,7 +61,7 @@ public class EjemploFactura {
 	private static Set<Vendedor> cargaVendedores() {
 		Set<Vendedor> salida=new HashSet<>();
 		for(int i=0;i<20;i++) {
-			salida.add(new Vendedor("nombre"+i, "dni"+i, "9191919"+1));
+			salida.add(new Vendedor("nombre"+i, "dni"+i, "9191919"+i));
 		}
 		return salida;
 	}
