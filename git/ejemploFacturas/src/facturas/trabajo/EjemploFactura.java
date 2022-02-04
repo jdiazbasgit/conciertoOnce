@@ -17,15 +17,34 @@ public class EjemploFactura {
 
 		Set<Vendedor> vendedores = cargaVendedores();
 		Set<Factura> facturas = cargaFacturas(vendedores);
+		int resultado = 0;
 		for (Factura factura : facturas) {
-			
-			System.out.println(factura.getNumeroFactura()+ " - " +factura.getFecha()+ " - "
-					+factura.getBaseImponible());
+			resultado = resultado + factura.getBaseImponible();
+		}
+
+		System.err.println(resultado);
+		// System.out.println(facturas.stream().mapToInt(fac->fac.getBaseImponible()).sum());//baseImponible
+		// System.out.println(facturas.stream().mapToDouble(fac->fac.getBaseImponible()*1.21).sum());/*iva
+		// funcional*/
+		// System.out.println(facturas.stream().mapToDouble(fac->fac.getBaseImponible()*1.21).max().getAsDouble());//iva
+		// maximo
+		// System.out.println(facturas.stream().mapToDouble(fac->fac.getBaseImponible()*1.21).min().getAsDouble());//minimo
+		// System.out.println(facturas.stream().mapToDouble(fac->fac.getBaseImponible()*1.21).limit(10)).sum());//iva
+		// del 5 por ciento de las facturas
+		// System.out.println(facturas.stream().mapToInt(fac->fac.getBaseImponible()).min().filter(numero->numero<5000).sum());//si
+		// es menor a 5.0000
+		// System.out.println(facturas.stream().mapToInt(fac->fac.getBaseImponible()).min().filter(n->n>=5000).sum());//si
+		// es mayor o igual a 5.000 en funcional.
+
+		for (Factura factura : facturas) {
+
+			System.out.println(
+					factura.getNumeroFactura() + " - " + factura.getFecha() + " - " + factura.getBaseImponible());
 
 			String fechaTexto = factura.getFecha().get(Calendar.DAY_OF_MONTH) + " de "
 					+ factura.getFecha().getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.getDefault()) + " de "
 					+ factura.getFecha().get(Calendar.YEAR);
- 
+
 			System.out.println(factura.getNumeroFactura() + " - " + fechaTexto + " - " + factura.getBaseImponible());
 		}
 	}
@@ -40,14 +59,14 @@ public class EjemploFactura {
 		for (Vendedor vendedor : vendedores) {
 			for (int i = 0; i < 10; i++) {
 
-			int importe = (int) (random.nextFloat() * 10000);
-			Fecha fecha = new Fecha();
-			fecha.add(Calendar.DAY_OF_MONTH, numeroFactura);
-			Factura factura = new Factura(importe, numeroFactura, fecha, vendedor);
-			salida.add(factura);
-			numeroFactura++;
-		}
-			
+				int importe = (int) (random.nextFloat() * 10000);
+				Fecha fecha = new Fecha();
+				fecha.add(Calendar.DAY_OF_MONTH, numeroFactura);
+				Factura factura = new Factura(importe, numeroFactura, fecha, vendedor);
+				salida.add(factura);
+				numeroFactura++;
+			}
+
 		}
 		return salida;
 
