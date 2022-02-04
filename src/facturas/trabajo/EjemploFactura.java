@@ -9,6 +9,7 @@ import java.util.Set;
 import java.util.TreeSet;
 import facturas.beans.Factura;
 import facturas.beans.Vendedor;
+import facturas.fechas.Fecha;
 
 public class EjemploFactura {
 
@@ -17,9 +18,19 @@ public class EjemploFactura {
 		Set<Vendedor> vendedores = cargaVendedores();
 		Set<Factura> facturas = cargaFacturas(vendedores);
 		for (Factura factura : facturas) {
-			String fechaTexto = factura.getFecha().get(Calendar.DAY_OF_MONTH) + " de "
+			
+			System.out.println(factura.getNumeroFactura()+ "- " + factura.getFecha()+ " - " + factura.getBaseImponible());
+			
+			
+			
+			
+			
+			
+			/*String fechaTexto = factura.getFecha().get(Calendar.DAY_OF_MONTH) + " de "
 					+ factura.getFecha().getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.getDefault()) + " de "
-					+ factura.getFecha().get(Calendar.YEAR);
+					+ factura.getFecha().get(Calendar.YEAR);*/
+			
+			
 
 			// System.out.println("número factura "+ factura.getNumeroFactura() + " " +
 			// "Fecha " + fechaTexto + " " + "Base Imponible " +
@@ -38,7 +49,7 @@ public class EjemploFactura {
 			for (int i = 0; i < 10; i++) {
 
 				int importe = (int) (random.nextFloat() * 10000);
-				GregorianCalendar fecha = new GregorianCalendar();
+				Fecha fecha = new Fecha();
 				fecha.add(Calendar.DAY_OF_MONTH, numeroFactura);
 				Factura factura = new Factura(importe, numeroFactura, fecha, vendedor);
 				salida.add(factura);
