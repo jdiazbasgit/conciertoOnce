@@ -61,18 +61,22 @@ public class EjemploFactura {
 	private static Set<Vendedor> cargaVendedores() {
 		TreeSet<Vendedor> salida=new TreeSet<>();
 		for(int i=0;i<20;i++) {
+			
 			Random random = new Random();
 			int nombre=(int)(random.nextInt());
 			int dni=(int)(random.nextInt());
 			int telefono=(int)(random.nextInt());
 			Vendedor vendedor= new Vendedor( nombre,telefono, dni);
+			
+			
 			salida.add(vendedor);
 			salida.add(new Vendedor(nombre+i, dni+i, telefono+i));
-			System.out.println("vendedor: " + vendedor.getNombre() +"   " + "dni: " + vendedor.getDni() +"   " + "teléfono: " + vendedor.getTelefono()+ "   " );
+			System.out.println("vendedor: " + vendedor.getNombre() +"   " + "dni: " + vendedor.getDni() +"   " + "teléfono: " + vendedor.getTelefono()+ "   " );//Borrando linea 75 saca TreeSet correcto de 20 vendedores
+			System.out.println(cargaVendedores.filter(c->c.getTelefono()).filter(x => {x % 2 == 0});//Prueba con error
 		}
 		return salida;
 		
-	
+		
 	}
 }
 
