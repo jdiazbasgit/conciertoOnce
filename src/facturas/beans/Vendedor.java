@@ -1,16 +1,21 @@
 package facturas.beans;
 
-public class Vendedor {
+public class Vendedor implements Comparable<Vendedor> {
 
-	private String nombre;
-	private String dni;
-	private String telefono;
+	public static Object getNombre;
+	private int nombre;
+	private int dni;
+	private int telefono;
 
-	public Vendedor(String nombre, String dni, String telefono) {
+	public Vendedor(int string, int telefono2, int dni2) {
 		super();
-		this.nombre = nombre;
-		this.dni = dni;
-		this.telefono = telefono;
+		this.nombre = string;
+		this.dni = telefono2;
+		this.telefono = dni2;
+	}
+
+	public Vendedor(String string) {
+		// TODO Auto-generated constructor stub
 	}
 
 	@Override
@@ -18,29 +23,34 @@ public class Vendedor {
 		return "Vendedor [nombre=" + nombre + ", dni=" + dni + ", telefono=" + telefono + "]";
 	}
 
-	public String getNombre() {
+	public int getNombre() {
 		return nombre;
 	}
 
-	public void setNombre(String nombre) {
+	public void setNombre(int nombre) {
 		this.nombre = nombre;
 	}
 
-	public String getDni() {
+	public int getDni() {
 		return dni;
 	}
 
-	public void setDni(String dni) {
+	public void setDni(int dni) {
 		this.dni = dni;
 	}
 
-	public String getTelefono() {
+	public int getTelefono() {
 		return telefono;
 	}
 
-	public void setTelefono(String telefono) {
+	public void setTelefono(int telefono) {
 		this.telefono = telefono;
 	}
 
+	@Override
+	public int compareTo(Vendedor o) {
+		
+		return 0;
+	}
 	
 }
