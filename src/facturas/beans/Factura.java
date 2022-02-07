@@ -4,7 +4,7 @@ import java.util.GregorianCalendar;
 
 import factura.fechas.Fecha;
 
-public class Factura {
+public class Factura implements Comparable<Factura> {
 	
 	private int baseImponible;
 	private int numeroFactura;
@@ -50,6 +50,12 @@ public class Factura {
 
 	public void setFecha(Fecha fecha) {
 		this.fecha = fecha;
+	}
+
+	@Override
+	public int compareTo(Factura o) {
+		
+		return this.getFecha().compareTo(o.getFecha());
 	}
 
 }

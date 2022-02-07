@@ -1,6 +1,7 @@
 package facturas.trabajo;
 
 import java.util.Calendar;
+import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 import java.util.TreeSet;
@@ -17,9 +18,13 @@ public class EjemploFactura {
 		Set<Factura> facturas=cargaFacturas(vendedores);
 		int resultado=0;
 		
+		vendedores.stream().filter( v->Integer.parseInt(v.getTelefono())%2==0).sorted((v1,v2)->Integer.parseInt(v1
+				.getTelefono())-Integer.parseInt(v2.getTelefono())).forEach(v->System.out.println(v.getTelefono()));
 	}
 		
-	/*	//Programacion sin funcional
+	
+		
+		/*//Programacion sin funcional
 		for (Factura factura : facturas) {
 			resultado=resultado+factura.getBaseImponible();
 			System.out.println(factura.getNumeroFactura()+ " - " + factura.getFecha() + " - " + factura.getBaseImponible());
@@ -27,8 +32,8 @@ public class EjemploFactura {
 		//Programacion Funcional
 		System.out.println(facturas.stream().sorted().mapToInt(fac->fac.getBaseImponible()).filter(n->n>=5000).sum());//Da error de casteo pero compila
 		System.out.println(facturas.stream().mapToInt(fac->fac.getBaseImponible()).filter(n->n>=5000).sum());
-	}
-	*/
+	}*/
+	
 	
 	
 
@@ -59,20 +64,18 @@ public class EjemploFactura {
 
 	
 	private static Set<Vendedor> cargaVendedores() {
-		TreeSet<Vendedor> salida=new TreeSet<>();
+		Set<Vendedor> salida=new HashSet<>();
 		for(int i=0;i<20;i++) {
 			
 			Random random = new Random();
-			int nombre=(int)(random.nextInt());
-			int dni=(int)(random.nextInt());
-			int telefono=(int)(random.nextInt());
+			String nombre="pepe" +i;
+			String dni= "1234556" +i;
+			String telefono= "919191" +i;
 			Vendedor vendedor= new Vendedor( nombre,telefono, dni);
-			
-			
 			salida.add(vendedor);
-			salida.add(new Vendedor(nombre+i, dni+i, telefono+i));
-			System.out.println("vendedor: " + vendedor.getNombre() +"   " + "dni: " + vendedor.getDni() +"   " + "teléfono: " + vendedor.getTelefono()+ "   " );//Borrando linea 75 saca TreeSet correcto de 20 vendedores
-			System.out.println(cargaVendedores.filter(c->c.getTelefono()).filter(x => {x % 2 == 0});//Prueba con error
+			
+			//System.out.println("vendedor: " + vendedor.getNombre() +"   " + "dni: " + vendedor.getDni() +"   " + "teléfono: " + vendedor.getTelefono()+ "   " );//Borrando linea 75 saca TreeSet correcto de 20 vendedores
+			
 		}
 		return salida;
 		
