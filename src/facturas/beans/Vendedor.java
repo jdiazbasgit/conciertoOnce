@@ -1,6 +1,8 @@
 package facturas.beans;
 
-public class Vendedor implements Comparable<Vendedor> {
+import java.util.stream.Stream;
+
+public class Vendedor implements Comparable <Vendedor>  {
 
 	public static Object getNombre;
 	private int nombre;
@@ -47,10 +49,14 @@ public class Vendedor implements Comparable<Vendedor> {
 		this.telefono = telefono;
 	}
 
-	@Override
 	public int compareTo(Vendedor o) {
 		
-		return 0;
+		return this.getDni()-o.getDni();
+	}
+
+	public static Stream<Vendedor> stream() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }
