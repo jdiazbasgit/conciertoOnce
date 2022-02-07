@@ -17,6 +17,7 @@ public Bola(int posicionX, int posicionY, int sentidoX, int sentidoY, int increm
 	this.dimension = dimension;
 }
 
+
 public int getPosicionX() {
 	return posicionX;
 }
