@@ -1,6 +1,6 @@
 package facturas.beans;
 
-public class Vendedor {
+public class Vendedor implements Comparable<Vendedor> {
 
 	private String nombre;
 	private String dni;
@@ -40,6 +40,12 @@ public class Vendedor {
 
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
+	}
+
+	@Override
+	public int compareTo(Vendedor o) {
+	
+		return 0;
 	}
 
 	
