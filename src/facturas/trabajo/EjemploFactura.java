@@ -30,9 +30,7 @@ public class EjemploFactura {
 		// System.out.println(facturas.stream().mapToInt(fac->fac.getBaseImponible()).filter(n
 		// -> n < 5000).sum());
 		System.out.println(facturas.stream().mapToInt(fac -> fac.getBaseImponible()).filter(n -> n % 2 == 0).sum());
-		vendedores.stream().filter(n -> Integer.parseInt(n.getTelefono()) % 2 == 0)
-				.sorted((n1, n2) -> n1.getTelefono().compareTo(n2.getTelefono()))
-				.forEach(n -> System.out.println(n.getTelefono()));
+		vendedores.stream().filter(n -> Integer.parseInt(n.getTelefono()) % 2 == 0).sorted((n1, n2) -> n1.getTelefono().compareTo(n2.getTelefono())).forEach(n -> System.out.println(n.getTelefono()));
 
 	}
 
@@ -42,8 +40,8 @@ public class EjemploFactura {
 	 * System.out.println("número factura " + "- " + factura.getNumeroFactura() +
 	 * " - " + "fecha " + factura.getFecha() + " - " + "base imponible " + "- " +
 	 * factura.getBaseImponible());
-	 */
-	/*
+	 *
+	 *
 	 * sin hacer la clase Fecha String fechaTexto =
 	 * factura.getFecha().get(Calendar.DAY_OF_MONTH) + " de " +
 	 * factura.getFecha().getDisplayName(Calendar.MONTH, Calendar.LONG,
