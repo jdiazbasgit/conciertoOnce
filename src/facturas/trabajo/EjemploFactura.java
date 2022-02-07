@@ -15,25 +15,30 @@ public class EjemploFactura {
 	int a = 0;
 
 	public static void main(String[] args) throws FileNotFoundException {
-		
 
 		Set<Vendedor> vendedores = cargaVendedores();
 		Set<Factura> facturas = cargaFacturas(vendedores);
 		int resultado = 0;
+		vendedores.stream().filter(v -> Integer.parseInt(v.getTelefono()) % 2 == 0)
+				.sorted((v1, v2) -> v1.getTelefono().compareTo(v2.getTelefono()))
+				.forEach(v -> System.out.println(v.getTelefono()));
 		for (Factura factura : facturas) {
 			resultado = resultado + factura.getBaseImponible();
 
 		}
 
 		System.err.println(resultado);
-		//System.out.println(facturas.stream().sorted().mapToInt(fac -> fac.getBaseImponible()).filter(n -> n < 5000)
-			//	.filter(n -> n < 200).sum());
-		
-		System.out.println(vendedores.stream().mapToInt(tel -> Integer.parseInt(tel.getTelefono())).filter(n -> n % 2 ==0).sum());
-		//System.out.println(cargaVendedores().stream().filter(n -> n % 2 ==0));
-		System.out.println(cargaVendedores());
+		// System.out.println(facturas.stream().sorted().mapToInt(fac ->
+		// fac.getBaseImponible()).filter(n -> n < 5000)
+		// .filter(n -> n < 200).sum());
 
-		System.out.println(facturas.stream().mapToInt(fac -> fac.getBaseImponible()).filter(n -> n >= 5000));
+		System.out.println(
+				vendedores.stream().mapToInt(tel -> Integer.parseInt(tel.getTelefono())).filter(n -> n % 2 == 0).sum());
+		// System.out.println(cargaVendedores().stream().filter(n -> n % 2 ==0));
+		// System.out.println(cargaVendedores());
+
+		// System.out.println(facturas.stream().mapToInt(fac ->
+		// fac.getBaseImponible()).filter(n -> n >= 5000));
 //suma de todas las facturas de todos los vendedores que cuyo telefono acabe en nombre par
 	}
 
@@ -60,13 +65,16 @@ public class EjemploFactura {
 
 	private static Set<Vendedor> cargaVendedores() {
 		Set<Vendedor> salida = new HashSet<>();
-		
+
 		for (int i = 0; i < 20; i++) {
-			if (i%2 ==0) {
-				salida.add(new Vendedor("\n" +"nombre" + i, "dni" + i, "9191919" + i ));
-			}
-			
-			
+			// if (i%2 ==0) {
+			String nombre = "pepe" + i;
+			String dni = "123456" + i;
+			String telefono = "7896689" + i;
+			Vendedor vendedor = new Vendedor(nombre, dni, telefono);
+			salida.add(vendedor);
+
+			// }
 
 		}
 		return salida;

@@ -5,7 +5,7 @@ public class Vendedor {
 	private String nombre;
 	private String dni;
 	private String telefono;
-	private int telefono2;
+	
 
 	
 
@@ -15,10 +15,7 @@ public class Vendedor {
 		this.dni = dni;
 		this.telefono = telefono;
 	}
-	public Vendedor(int telefono2) {
-		this.setTelefono2(telefono2);
-	}
-
+	
 	@Override
 	public String toString() {
 		return "Vendedor [nombre=" + nombre + ", dni=" + dni + ", telefono=" + telefono + "]";
@@ -47,12 +44,9 @@ public class Vendedor {
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
-	public int getTelefono2() {
-		return telefono2;
-	}
-	public void setTelefono2(int telefono2) {
-		this.telefono2 = telefono2;
-	}
+
+	
+	
 	
 	
 }

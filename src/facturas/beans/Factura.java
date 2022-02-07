@@ -1,8 +1,10 @@
 package facturas.beans;
 
+import java.util.Comparator;
+
 import facturas.fecha.Fecha;
 
-public class Factura {
+public class Factura implements Comparator<Factura> {
 
 	private int baseImponible;
 	private int numeroFactura;
@@ -64,6 +66,14 @@ public class Factura {
 
 	public void setVendedor(Vendedor vendedor) {
 		this.vendedor = vendedor;
+	}
+
+
+
+	@Override
+	public int compare(Factura o1, Factura o2) {
+		
+		return this.getFecha().compareTo(o1.getFecha());
 	}
 
 }
