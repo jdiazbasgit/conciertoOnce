@@ -51,7 +51,14 @@ public class Bola extends Thread {
 			{
 				setSentidoY(getSentidoY()*-1);
 			}
-			
+			getVentanaBolas().getBolas().stream().filter(b->! this.equals(b)).forEach(b->{
+				if(miraChoque(b)) {
+					setSentidoX(getSentidoX()*-1);
+					setSentidoY(getSentidoY()*-1);
+					b.setSentidoX(getSentidoX()*-1);
+					b.setSentidoY(getSentidoY()*-1);
+				}
+			});
 			setPosicionX(getPosicionX()+(getIncrementoX()*getSentidoX()));
 			setPosicionY(getPosicionY()+(getIncrementoY()*getSentidoY()));
 			try {

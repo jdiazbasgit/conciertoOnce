@@ -3,13 +3,10 @@ package ventanas;
 import java.awt.Frame;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.swing.plaf.basic.BasicGraphicsUtils;
-import ventanaraton.ElQuesabeLoQueHayQueHacerConLaVentana;
+import ventanas.eventos.ElQuesabeLoQueHayQueHacerConLaVentana;
 import ventanas.eventos.EventosRaton;
 import ventanas.hilos.Bola;
 import ventanas.hilos.Pintor;
