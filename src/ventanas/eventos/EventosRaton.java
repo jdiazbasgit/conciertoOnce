@@ -2,8 +2,6 @@ package ventanas.eventos;
 
 import java.awt.event.MouseEvent;
 
-import ventanaraton.ElQueSabeLoQueHayQueHacerConElRaton;
-import ventanaraton.VentanaRaton;
 import ventanas.VentanaBolas;
 import ventanas.hilos.Bola;
 

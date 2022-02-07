@@ -1,6 +1,9 @@
 package ventanas.hilos;
 
 import ventanas.VentanaBolas;
+import java.awt.Graphics2D;
+import java.awt.geom.Rectangle2D;
+import java.awt.geom.Rectangle2D.Double;
 
 public class Bola extends Thread {
 	
@@ -48,6 +51,14 @@ public class Bola extends Thread {
 			{
 				setSentidoY(getSentidoY()*-1);
 			}
+			getVentanaBolas().getBolas().stream().filter(b->! this.equals(b)).forEach(b->{
+				if(miraChoque(b)) {
+					setSentidoX(getSentidoX()*-1);
+					setSentidoY(getSentidoY()*-1);
+					b.setSentidoX(getSentidoX()*-1);
+					b.setSentidoY(getSentidoY()*-1);
+				}
+			});
 			setPosicionX(getPosicionX()+(getIncrementoX()*getSentidoX()));
 			setPosicionY(getPosicionY()+(getIncrementoY()*getSentidoY()));
 			try {
@@ -57,9 +68,14 @@ public class Bola extends Thread {
 				e.printStackTrace();
 			}
 		}
+		
+		
 	}
 
-
+	private boolean miraChoque(Bola bola) {
+		Rectangle2D.Double miRectangulo=new Rectangle2D.Double(this.getPosicionX(),this.getPosicionY(),this.getDimension(),this.getDimension());
+		return miRectangulo.intersects((double)bola.getPosicionX(),(double)bola.getPosicionY(),(double)bola.getDimension(),(double)bola.getDimension());
+	}
 
 
 	public int getPosicionX() {
