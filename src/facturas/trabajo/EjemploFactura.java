@@ -29,7 +29,7 @@ public class EjemploFactura {
 		// System.out.println(facturas.stream().mapToDouble(fac->fac.getBaseImponible()).max().getAsDouble());
 		// System.out.println(facturas.stream().mapToInt(fac->fac.getBaseImponible()).filter(n
 		// -> n < 5000).sum());
-		System.out.println(facturas.stream().mapToInt(fac -> fac.getBaseImponible()).filter(n -> n % 2 == 0).sum());
+		//System.out.println(facturas.stream().mapToInt(fac -> fac.getBaseImponible()).filter(n -> Integer.parseInt(n.getTelefono()) % 2 == 0).sum());
 		vendedores.stream().filter(n -> Integer.parseInt(n.getTelefono()) % 2 == 0).sorted((n1, n2) -> n1.getTelefono().compareTo(n2.getTelefono())).forEach(n -> System.out.println(n.getTelefono()));
 
 	}
