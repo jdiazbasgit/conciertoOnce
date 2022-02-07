@@ -20,15 +20,20 @@ public class EjemploFactura {
 		for (Factura factura : facturas) {
 
 			resultado = resultado + factura.getBaseImponible();
-			
+
 		}
-		//Integer.parseInt()
-		// System.out.println(resultado);
+
+		System.out.println(resultado);
 		// System.out.println(facturas.stream().mapToInt(fac->fac.getBaseImponible()).sum());
 		// System.out.println(facturas.stream().mapToDouble(fac->fac.getBaseImponible()).min().getAsDouble());
 		// System.out.println(facturas.stream().mapToDouble(fac->fac.getBaseImponible()).max().getAsDouble());
-		//System.out.println(facturas.stream().mapToInt(fac ->fac.getBaseImponible()).filter(n -> n < 5000).sum());
-          System.out.println(facturas.stream().mapToInt(fac ->fac.getBaseImponible()).filter(n -> n %2==0 ).sum());
+		// System.out.println(facturas.stream().mapToInt(fac->fac.getBaseImponible()).filter(n
+		// -> n < 5000).sum());
+		System.out.println(facturas.stream().mapToInt(fac -> fac.getBaseImponible()).filter(n -> n % 2 == 0).sum());
+		vendedores.stream().filter(n -> Integer.parseInt(n.getTelefono()) % 2 == 0)
+				.sorted((n1, n2) -> n1.getTelefono().compareTo(n2.getTelefono()))
+				.forEach(n -> System.out.println(n.getTelefono()));
+
 	}
 
 	/*
@@ -77,12 +82,12 @@ public class EjemploFactura {
 		Set<Vendedor> salida = new HashSet<>();
 		for (int i = 0; i < 20; i++) {
 			salida.add(new Vendedor("nombre" + i, "dni" + i, "9191919" + i));
-
 			int dniEntero = Integer.parseInt("9191919" + i);
 
-		//	if (dniEntero % 2 == 0)
-			//	System.out.println(dniEntero);
-
+			/*
+			 * if (dniEntero % 2 == 0) { int suma = dniEntero +i; System.out.println(suma);
+			 * }
+			 */
 		}
 		return salida;
 	}

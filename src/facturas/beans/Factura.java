@@ -4,7 +4,7 @@ import java.util.GregorianCalendar;
 
 import facturas.fechas.Fecha;
 
-public class Factura {
+public class Factura  {
 	
 	private int baseImponible;
 	private int numeroFactura;
