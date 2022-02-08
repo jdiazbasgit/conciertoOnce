@@ -6,19 +6,74 @@ import java.awt.Image;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
+import ventanaraton.ElQueSabeLoQueHayQueHacerConLaVentana;
+import ventanas.eventos.EventosRaton;
+import ventanas.hilos.Bola;
+import ventanas.hilos.Pintor;
 @SuppressWarnings("serial")
-public class VentanaBolas extends Frame implements WindowListener{
+public class VentanaBolas extends Frame {
 	private int fin;
-
+    private Image imagen;
+    private Graphics externo;
+    private boolean primeraVez= true;
+    
+    
+    
 	public VentanaBolas() {
 		this.setSize(500, 500);
-		this.addWindowListener(this);
+		this.addWindowListener(new ElQueSabeLoQueHayQueHacerConLaVentana());
+		this.addMouseListener(new EventosRaton(this));
 	}
+	
+	public Image getImagen() {
+		return imagen;
+	}
+
+	public void setImagen(Image imagen) {
+		this.imagen = imagen;
+	}
+
+	public Graphics getExterno() {
+		return externo;
+	}
+
+	public void setExterno(Graphics externo) {
+		this.externo = externo;
+	}
+
+	
+	
+	
 
 	@Override
 	public void paint(Graphics g) {
+		
+		if (isPrimeraVez()) {
+			setImagen(this.createImage(2000, 2000));
+			setExterno(getImagen().getGraphics());
+			setPrimeraVez(false);
+			new Pintor(this).start();
+			setBolas(new HashSet<>());
+		}
+		getExterno().clearRect(0,0,2000,2000);
+		getBolas().stream().forEach(
+				b -> getExterno().fillOval(b.getPosicionX(), b.getPosicionY(),b.getDimension(),b.getDimension()));
 
-		Image imagen = this.createImage(2000, 2000);
+		g.drawImage(getImagen(), 0, 0, 2000, 2000, this);
+		
+
+	}
+
+	@Override
+	public void update(Graphics g) {
+		paint(g);
+	}
+
+	
+		
+		
+
+		/*Image imagen = this.createImage(2000, 2000);
 		Graphics externo = imagen.getGraphics();
 		Bola bola=new Bola(200,200, 1,1,2,1,50);
 		
@@ -70,14 +125,12 @@ public class VentanaBolas extends Frame implements WindowListener{
 			
 		}
 		
-}
+}*/
  
 
-	public void update(Graphics g) {
-		paint(g);
-	}
+	
 
-	@Override
+	/*@Override
 	public void windowOpened(WindowEvent e) {
 		// TODO Auto-generated method stub
 		
@@ -118,7 +171,7 @@ public class VentanaBolas extends Frame implements WindowListener{
 	public void windowDeactivated(WindowEvent e) {
 		// TODO Auto-generated method stub
 		
-	}
+	}*/
 
 	public int getFin() {
 		return fin;
@@ -126,6 +179,62 @@ public class VentanaBolas extends Frame implements WindowListener{
 
 	public void setFin(int fin) {
 		this.fin = fin;
+	}
+
+	public Object getBolas() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+	public boolean isPrimeraVez() {
+		return primeraVez;
+	}
+
+	public void setPrimeraVez(boolean primeraVez) {
+		this.primeraVez = primeraVez;
+	}
+
+	@Override
+	public void windowOpened(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowClosing(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowClosed(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowIconified(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowDeiconified(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowActivated(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowDeactivated(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

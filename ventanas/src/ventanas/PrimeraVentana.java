@@ -32,4 +32,21 @@ public void paint(Graphics g) {
 	
 	
 
+package ventanas;
+public class PrimeraVentana {
 
+	public PrimeraVentana(String string) {
+		// TODO Auto-generated constructor stub
+	}
+
+	public static void main(String[] args) {
+		PrimeraVentana primeraVentana= new PrimeraVentana("Titulo de la primera ventana");
+		primeraVentana.setVisible(true);
+		
+	}
+
+	private void setVisible(boolean b) {
+		// TODO Auto-generated method stub
+		
+	}
+}

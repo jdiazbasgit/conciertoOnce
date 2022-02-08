@@ -1,16 +1,39 @@
 package ventanaraton;
 
 
-import java.awt.Color;
-import java.awt.Font;
 import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+
+import ventanas.VentanaBolas;
 
 
 public class ElQueSabeLoQueHayQueHacerConElRaton extends MouseAdapter  {
 	
 	
-	private VentanaRaton ventanaRaton;
+private VentanaBolas ventanaBolas;
+	
+	
+
+	public ElQueSabeLoQueHayQueHacerConElRaton() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public ElQueSabeLoQueHayQueHacerConElRaton(VentanaBolas ventanaBolas) {
+		this.setVentanaBolas(ventanaBolas);
+	}
+
+	public VentanaBolas getVentanaBolas() {
+		return ventanaBolas;
+	}
+
+	public void setVentanaBolas(VentanaBolas ventanaBolas) {
+		this.ventanaBolas = ventanaBolas;
+	}}
+	
+	
+	
+	
+	/*private VentanaRaton ventanaRaton;
 
 	public ElQueSabeLoQueHayQueHacerConElRaton(VentanaRaton ventanaRaton) {
 		this.ventanaRaton=ventanaRaton;
@@ -57,4 +80,4 @@ public class ElQueSabeLoQueHayQueHacerConElRaton extends MouseAdapter  {
 		this.ventanaRaton = ventanaRaton;
 	}
 
-}
+}*/
