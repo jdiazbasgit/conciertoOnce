@@ -12,7 +12,9 @@ public class ElQueSabeLoQueHayQueHacerConElRaton extends MouseAdapter  {
 private VentanaBolas ventanaBolas;
 	
 	
-
+public ElQueSabeLoQueHayQueHacerConElRaton() {
+	// TODO Auto-generated constructor stub
+}
 	
 
 	public ElQueSabeLoQueHayQueHacerConElRaton(VentanaBolas ventanaBolas) {

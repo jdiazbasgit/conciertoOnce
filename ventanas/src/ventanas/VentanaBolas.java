@@ -3,8 +3,8 @@ package ventanas;
 import java.awt.Frame;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.event.WindowEvent;
 import java.util.HashSet;
+import java.util.Set;
 
 import ventanaraton.ElQueSabeLoQueHayQueHacerConLaVentana;
 import ventanas.hilos.Pintor;
@@ -14,9 +14,11 @@ public class VentanaBolas extends Frame {
     private Image imagen;
     private Graphics externo;
     private boolean primeraVez= true;
+    private Set<Bola> bolas;
     
     
-    
+
+
 	public VentanaBolas() {
 		this.setSize(500, 500);
 		this.addWindowListener(new ElQueSabeLoQueHayQueHacerConLaVentana());
@@ -54,7 +56,7 @@ public class VentanaBolas extends Frame {
 			setBolas(new HashSet<>());
 		}
 		getExterno().clearRect(0,0,2000,2000);
-	try {	getBolas().stream().forEach(
+		getBolas().stream().forEach(
 				b -> getExterno().fillOval(b.getPosicionX(), b.getPosicionY(),b.getDimension(),b.getDimension()));
 	
 		g.drawImage(getImagen(), 0, 0, 2000, 2000, this);
@@ -62,11 +64,7 @@ public class VentanaBolas extends Frame {
 
 	}
 
-	@SuppressWarnings("rawtypes")
-	private void setBolas(HashSet hashSet) {
-		
-		
-	}
+
 
 	@Override
 	public void update(Graphics g) {
@@ -185,10 +183,8 @@ public class VentanaBolas extends Frame {
 		this.fin = fin;
 	}
 
-	public Object getBolas() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
+
 
 	
 	public boolean isPrimeraVez() {
@@ -197,6 +193,14 @@ public class VentanaBolas extends Frame {
 
 	public void setPrimeraVez(boolean primeraVez) {
 		this.primeraVez = primeraVez;
+	}
+
+	public Set<Bola> getBolas() {
+		return bolas;
+	}
+
+	public void setBolas(Set<Bola> bolas) {
+		this.bolas = bolas;
 	}
 
 	
