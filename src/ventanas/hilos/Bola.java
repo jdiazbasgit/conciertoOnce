@@ -4,25 +4,21 @@ import ventanas.VentanaBolas;
 import java.awt.Graphics2D;
 import java.awt.geom.Rectangle2D;
 import java.awt.geom.Rectangle2D.Double;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Bola extends Thread {
-	
-	private int posicionX,posicionY,sentidoX,sentidoY,incrementoX,incrementoY,dimension;
+
+	private int posicionX, posicionY, sentidoX, sentidoY, incrementoX, incrementoY, dimension;
 	private VentanaBolas ventanaBolas;
 
 	public VentanaBolas getVentanaBolas() {
 		return ventanaBolas;
 	}
 
-
-
-
 	public void setVentanaBolas(VentanaBolas ventanaBolas) {
 		this.ventanaBolas = ventanaBolas;
 	}
-
-
-
 
 	public Bola(int posicionX, int posicionY, int sentidoX, int sentidoY, int incrementoX, int incrementoY,
 			int dimension, VentanaBolas ventanaBolas) {
@@ -33,34 +29,35 @@ public class Bola extends Thread {
 		this.incrementoX = incrementoX;
 		this.incrementoY = incrementoY;
 		this.dimension = dimension;
-		this.ventanaBolas=ventanaBolas;
+		this.ventanaBolas = ventanaBolas;
 	}
 
-	
-	
-	
 	@Override
 	public void run() {
-		while(true) {
-			
-			if(getPosicionX()<0 || (getPosicionX()+getDimension())>getVentanaBolas().getWidth())
-			{
-				setSentidoX(getSentidoX()*-1);
+		while (true) {
+
+			if (getPosicionX() < 0 || (getPosicionX() + getDimension()) > getVentanaBolas().getWidth()) {
+				setSentidoX(getSentidoX() * -1);
 			}
-			if(getPosicionY()<0 || (getPosicionY()+getDimension())>getVentanaBolas().getHeight())
-			{
-				setSentidoY(getSentidoY()*-1);
+			if (getPosicionY() < 0 || (getPosicionY() + getDimension()) > getVentanaBolas().getHeight()) {
+				setSentidoY(getSentidoY() * -1);
 			}
-			getVentanaBolas().getBolas().stream().filter(b->! this.equals(b)).forEach(b->{
-				if(miraChoque(b)) {
-					setSentidoX(getSentidoX()*-1);
-					setSentidoY(getSentidoY()*-1);
-					b.setSentidoX(getSentidoX()*-1);
-					b.setSentidoY(getSentidoY()*-1);
+
+			getVentanaBolas().getBolas().stream().filter(b -> !this.equals(b)).forEach(b -> {
+				if (miraChoque(b)) {
+					setSentidoX(getSentidoX() * -1);
+					setSentidoY(getSentidoY() * -1);
+					b.setSentidoX(getSentidoX() * -1);
+					b.setSentidoY(getSentidoY() * -1);
 				}
 			});
-			setPosicionX(getPosicionX()+(getIncrementoX()*getSentidoX()));
-			setPosicionY(getPosicionY()+(getIncrementoY()*getSentidoY()));
+			Set<Bola>bolas = new HashSet<>();
+			bolas.stream().forEach(b->this.miraChoque(b));
+			//if (miraChoque(this)) {
+
+				setPosicionX(getPosicionX() + (getIncrementoX() * getSentidoX()));
+				setPosicionY(getPosicionY() + (getIncrementoY() * getSentidoY()));
+			//}
 			try {
 				Thread.sleep(2);
 			} catch (InterruptedException e) {
@@ -68,19 +65,20 @@ public class Bola extends Thread {
 				e.printStackTrace();
 			}
 		}
-		
-		
+
 	}
 
 	private boolean miraChoque(Bola bola) {
-		Rectangle2D.Double miRectangulo=new Rectangle2D.Double(this.getPosicionX(),this.getPosicionY(),this.getDimension(),this.getDimension());
-		return miRectangulo.intersects((double)bola.getPosicionX(),(double)bola.getPosicionY(),(double)bola.getDimension(),(double)bola.getDimension());
+		Rectangle2D.Double miRectangulo = new Rectangle2D.Double(this.getPosicionX(), this.getPosicionY(),
+				this.getDimension(), this.getDimension());
+		return miRectangulo.intersects((double) bola.getPosicionX(), (double) bola.getPosicionY(),
+				(double) bola.getDimension(), (double) bola.getDimension());
 	}
-
 
 	public int getPosicionX() {
 		return posicionX;
 	}
+
 	public void setPosicionX(int posicionX) {
 		this.posicionX = posicionX;
 	}
