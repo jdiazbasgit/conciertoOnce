@@ -7,8 +7,6 @@ import ventanas.VentanaBolas;
 public class ElQueSabeLoQueHayQueHacerConElRaton extends MouseAdapter {
 
 	private VentanaBolas ventanaBolas;
-	
-	
 
 	public ElQueSabeLoQueHayQueHacerConElRaton() {
 		super();
@@ -26,15 +24,5 @@ public class ElQueSabeLoQueHayQueHacerConElRaton extends MouseAdapter {
 	public void setVentanaBolas(VentanaBolas ventanaBolas) {
 		this.ventanaBolas = ventanaBolas;
 	}
-
-	
-
-	
-	
-	
-
-	
-
-	
 
 }

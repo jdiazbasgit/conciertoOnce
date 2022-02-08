@@ -12,6 +12,7 @@ import ventanas.eventos.EventosRaton;
 import ventanas.hilos.Bola;
 import ventanas.hilos.Pintor;
 
+@SuppressWarnings("serial")
 public class VentanaBolas extends Frame  {
 
 	private int fin;
