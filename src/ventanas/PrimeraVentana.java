@@ -12,7 +12,7 @@ public class PrimeraVentana extends Frame {
 		super(titulo);
 		this.setSize(500, 500);
 		this.setLocation(100,100);
-		this.setSize(500, 500);
+		
 		Color color= new Color(50,80,120);
 		this.setBackground(color);
 	}
