@@ -13,7 +13,7 @@ import ventanas.hilos.Bola;
 import ventanas.hilos.Pintor;
 
 @SuppressWarnings("serial")
-public class VentanaBolas extends Frame  {
+public class VentanaBolas extends Frame {
 
 	private int fin;
 
@@ -21,11 +21,11 @@ public class VentanaBolas extends Frame  {
 	private Graphics externo;
 
 	private boolean primeraVez = true;
-	
+
 	private Set<Bola> bolas;
-	
+
 	public VentanaBolas() {
-		this.setSize(500, 500);
+		this.setSize(1000, 1000);
 		this.addWindowListener(new ElQuesabeLoQueHayQueHacerConLaVentana());
 		this.addMouseListener(new EventosRaton(this));
 
@@ -47,8 +47,6 @@ public class VentanaBolas extends Frame  {
 		this.externo = externo;
 	}
 
-	
-
 	@Override
 	public void paint(Graphics g) {
 
@@ -59,21 +57,22 @@ public class VentanaBolas extends Frame  {
 			new Pintor(this).start();
 			setBolas(new HashSet<>());
 		}
-		getExterno().clearRect(0,0,2000,2000);
-		Image ovni=Toolkit.getDefaultToolkit().getImage("ovni.png");
+		getExterno().clearRect(0, 0, 2000, 2000);
+		Image ovni = Toolkit.getDefaultToolkit().getImage("ovni.png");
 		try {
 			getBolas().stream().forEach(
-					//b -> getExterno().drawImage(ovni,b.getPosicionX(), b.getPosicionY(),b.getDimension(),b.getDimension(),this));
-					b ->{
-						getExterno().drawOval(b.getPosicionX(), b.getPosicionY(),b.getDimension(),b.getDimension());
-						getExterno().drawString(String.valueOf(b.getImpactos()),b.getPosicionX()+b.getDimension()/2,b.getPosicionY()+b.getDimension()/2);
+					// b -> getExterno().drawImage(ovni,b.getPosicionX(),
+					// b.getPosicionY(),b.getDimension(),b.getDimension(),this));
+					b -> {
+						getExterno().drawImage(ovni,b.getPosicionX(), b.getPosicionY(), b.getDimension(), b.getDimension(),this);
+//						getExterno().drawString(String.valueOf(b.getImpactos()),
+//								b.getPosicionX() + b.getDimension() / 2, b.getPosicionY() + b.getDimension() / 2);
 					});
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			//e.printStackTrace();
+			// e.printStackTrace();
 		}
 		g.drawImage(getImagen(), 0, 0, 2000, 2000, this);
-		
 
 	}
 
@@ -81,8 +80,6 @@ public class VentanaBolas extends Frame  {
 	public void update(Graphics g) {
 		paint(g);
 	}
-
-	
 
 	public int getFin() {
 		return fin;
