@@ -23,7 +23,7 @@ public class EventosRaton extends ElQueSabeLoQueHayQueHacerConElRaton {
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		Bola bola= new Bola(e.getX(), e.getY(), dameSentido(), dameSentido(), dameIncremento(), dameIncremento(), 50, getVentanaBolas());
+		Bola bola= new Bola(e.getX(), e.getY(), dameSentido(), dameSentido(), dameIncremento(), dameIncremento(), 50, getVentanaBolas(),0);
 		getVentanaBolas().getBolas().add(bola);
 		bola.start();
 	}

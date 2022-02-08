@@ -9,6 +9,36 @@ public class Bola extends Thread {
 	
 	private int posicionX,posicionY,sentidoX,sentidoY,incrementoX,incrementoY,dimension;
 	private VentanaBolas ventanaBolas;
+	private int impactos;
+
+	
+
+	public Bola(int posicionX, int posicionY, int sentidoX, int sentidoY, int incrementoX, int incrementoY,
+			int dimension, VentanaBolas ventanaBolas, int impactos) {
+		this.posicionX = posicionX;
+		this.posicionY = posicionY;
+		this.sentidoX = sentidoX;
+		this.sentidoY = sentidoY;
+		this.incrementoX = incrementoX;
+		this.incrementoY = incrementoY;
+		this.dimension = dimension;
+		this.ventanaBolas=ventanaBolas;
+		this.impactos=impactos;
+	}
+
+	public int getImpactos() {
+		return impactos;
+	}
+
+
+
+
+	public void setImpactos(int impactos) {
+		this.impactos = impactos;
+	}
+
+
+
 
 	public VentanaBolas getVentanaBolas() {
 		return ventanaBolas;
@@ -23,20 +53,6 @@ public class Bola extends Thread {
 
 
 
-
-	public Bola(int posicionX, int posicionY, int sentidoX, int sentidoY, int incrementoX, int incrementoY,
-			int dimension, VentanaBolas ventanaBolas) {
-		this.posicionX = posicionX;
-		this.posicionY = posicionY;
-		this.sentidoX = sentidoX;
-		this.sentidoY = sentidoY;
-		this.incrementoX = incrementoX;
-		this.incrementoY = incrementoY;
-		this.dimension = dimension;
-		this.ventanaBolas=ventanaBolas;
-	}
-
-	
 	
 	
 	@Override
@@ -57,6 +73,8 @@ public class Bola extends Thread {
 					setSentidoY(getSentidoY()*-1);
 					b.setSentidoX(getSentidoX()*-1);
 					b.setSentidoY(getSentidoY()*-1);
+					this.setImpactos(getImpactos()+1);
+					b.setImpactos(b.getImpactos()+1);
 				}
 			});
 			setPosicionX(getPosicionX()+(getIncrementoX()*getSentidoX()));
