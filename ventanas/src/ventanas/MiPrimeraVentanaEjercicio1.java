@@ -1,4 +1,4 @@
-package ventanas;
+/*package ventanas;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -26,4 +26,4 @@ public class MiPrimeraVentanaEjercicio1 extends Frame {
 		g.drawLine(175, 425, 725, 225);
 	}
 
-	}
+	}*/

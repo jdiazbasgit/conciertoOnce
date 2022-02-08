@@ -1,6 +1,17 @@
 package ventanas;
 
-public class Bola {
+import java.awt.geom.Rectangle2D;
+import java.awt.geom.RectangularShape;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
+@SuppressWarnings("unused")
+@Data
+@EqualsAndHashCode(callSuper=false)
+@AllArgsConstructor
+public class Bola<getPosicionX> {
 	private int posicionX, posicionY, sentidoX, sentidoY, incrementoX, incrementoY, dimension;
 
 	public Bola(int posicionX, int posicionY, int sentidoX, int sentidoY, int incrementoX, int incrementoY,
@@ -15,7 +26,6 @@ public class Bola {
 		this.dimension = dimension;
 	}
 
-	@Override
 	public void run() {
 		while (true) {
 
@@ -39,14 +49,22 @@ public class Bola {
 			try {
 				Thread.sleep(2);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
+			
 				e.printStackTrace();
 			}
 		}
 
 	}
 
-	private boolean miraChoque(Bola bola) {
+	
+
+	private RectangularShape getVentanaBolas() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@SuppressWarnings({ "unused", "rawtypes", "hiding" })
+	private <getPosicionX> boolean miraChoque(Bola bola) {
 		Rectangle2D.Double miRectangulo = new Rectangle2D.Double(this.getPosicionX(), this.getPosicionY(),
 				this.getDimension(), this.getDimension());
 		return miRectangulo.intersects((double) bola.getPosicionX(), (double) bola.getPosicionY(),
@@ -107,6 +125,11 @@ public class Bola {
 
 	public void setDimension(int dimension) {
 		this.dimension = dimension;
+	}
+
+	public void start() {
+
+		
 	}
 
 }

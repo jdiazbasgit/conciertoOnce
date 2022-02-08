@@ -4,11 +4,9 @@ import java.awt.Frame;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
+import java.util.HashSet;
 
 import ventanaraton.ElQueSabeLoQueHayQueHacerConLaVentana;
-import ventanas.eventos.EventosRaton;
-import ventanas.hilos.Bola;
 import ventanas.hilos.Pintor;
 @SuppressWarnings("serial")
 public class VentanaBolas extends Frame {
@@ -22,7 +20,7 @@ public class VentanaBolas extends Frame {
 	public VentanaBolas() {
 		this.setSize(500, 500);
 		this.addWindowListener(new ElQueSabeLoQueHayQueHacerConLaVentana());
-		this.addMouseListener(new EventosRaton(this));
+		this.addMouseListener(new ventanaraton.EventosRaton(this));
 	}
 	
 	public Image getImagen() {
@@ -56,12 +54,18 @@ public class VentanaBolas extends Frame {
 			setBolas(new HashSet<>());
 		}
 		getExterno().clearRect(0,0,2000,2000);
-		getBolas().stream().forEach(
+	try {	getBolas().stream().forEach(
 				b -> getExterno().fillOval(b.getPosicionX(), b.getPosicionY(),b.getDimension(),b.getDimension()));
-
+	
 		g.drawImage(getImagen(), 0, 0, 2000, 2000, this);
 		
 
+	}
+
+	@SuppressWarnings("rawtypes")
+	private void setBolas(HashSet hashSet) {
+		
+		
 	}
 
 	@Override
@@ -195,46 +199,5 @@ public class VentanaBolas extends Frame {
 		this.primeraVez = primeraVez;
 	}
 
-	@Override
-	public void windowOpened(WindowEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void windowClosing(WindowEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void windowClosed(WindowEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void windowIconified(WindowEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void windowDeiconified(WindowEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void windowActivated(WindowEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void windowDeactivated(WindowEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
+	
 }

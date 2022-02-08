@@ -1,4 +1,4 @@
-package ventanas;
+/*package ventanas;
 
 public class VerMiVentanaEjercicio1  {
 	
@@ -11,7 +11,7 @@ public class VerMiVentanaEjercicio1  {
 	   
 		
 		
-	}
+	}*/
 
 
 	
@@ -26,6 +26,6 @@ public class VerMiVentanaEjercicio1  {
 
 	
 
-}
+
 
 

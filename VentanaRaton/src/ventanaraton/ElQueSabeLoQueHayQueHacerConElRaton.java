@@ -13,10 +13,7 @@ private VentanaBolas ventanaBolas;
 	
 	
 
-	public ElQueSabeLoQueHayQueHacerConElRaton() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+	
 
 	public ElQueSabeLoQueHayQueHacerConElRaton(VentanaBolas ventanaBolas) {
 		this.setVentanaBolas(ventanaBolas);
