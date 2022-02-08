@@ -18,7 +18,7 @@ public class Pintor extends Thread {
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			System.out.println(getVentanaBolas().getBolas().size());
+			
 		}
 	}
 	public VentanaBolas getVentanaBolas() {

@@ -9,8 +9,8 @@ import lombok.Getter;
 import lombok.Setter;
 import ventanas.VentanaBolas;
 
-@Data
-@EqualsAndHashCode(callSuper=false)
+@Setter
+@Getter
 @AllArgsConstructor
 public class Bola extends Thread {
 	
@@ -19,34 +19,47 @@ public class Bola extends Thread {
 
 	@Override
 	public void run() {
-		while(true) {
-			
-			if(getPosicionX()<0 || (getPosicionX()+getDimension())>getVentanaBolas().getWidth())
-			{
-				setSentidoX(getSentidoX()*-1);
-			}
-			if(getPosicionY()<0 || (getPosicionY()+getDimension())>getVentanaBolas().getHeight())
-			{
-				setSentidoY(getSentidoY()*-1);
-			}
-			getVentanaBolas().getBolas().stream().filter(b->! this.equals(b)).forEach(b->{
-				if(miraChoque(b)) {
+		boolean fin=false;
+		try {
+			while(!fin) {
+				
+				if(getPosicionX()<0 || (getPosicionX()+getDimension())>getVentanaBolas().getWidth())
+				{
 					setSentidoX(getSentidoX()*-1);
-					setSentidoY(getSentidoY()*-1);
-					b.setSentidoX(getSentidoX()*-1);
-					b.setSentidoY(getSentidoY()*-1);
-					setImpactos(getImpactos()+1);
-					b.setImpactos(b.getImpactos()+1);
 				}
-			});
-			setPosicionX(getPosicionX()+(getIncrementoX()*getSentidoX()));
-			setPosicionY(getPosicionY()+(getIncrementoY()*getSentidoY()));
-			try {
-				Thread.sleep(2);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				if(getPosicionY()<0 || (getPosicionY()+getDimension())>getVentanaBolas().getHeight())
+				{
+					setSentidoY(getSentidoY()*-1);
+				}
+				getVentanaBolas().getBolas().stream().filter(b->! this.equals(b)).forEach(b->{
+					if(miraChoque(b)) {
+						setSentidoX(getSentidoX()*-1);
+						setSentidoY(getSentidoY()*-1);
+						b.setSentidoX(getSentidoX()*-1);
+						b.setSentidoY(getSentidoY()*-1);
+						setImpactos(getImpactos()+1);
+						b.setImpactos(b.getImpactos()+1);
+					}
+				});
+				setPosicionX(getPosicionX()+(getIncrementoX()*getSentidoX()));
+				setPosicionY(getPosicionY()+(getIncrementoY()*getSentidoY()));
+				try {
+					Thread.sleep(2);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				if(getImpactos()>1000) {
+					//getVentanaBolas().getBolas().remove(this);
+					fin=true;
+				}
 			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			//e.printStackTrace();
+		}
+		finally {
+			getVentanaBolas().getBolas().remove(this);
 		}
 		
 		
