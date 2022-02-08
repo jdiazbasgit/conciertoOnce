@@ -57,7 +57,8 @@ public class Bola extends Thread {
 	
 	@Override
 	public void run() {
-		while(true) {
+		boolean fin = false;
+		while(!fin) {
 			
 			if(getPosicionX()<0 || (getPosicionX()+getDimension())>getVentanaBolas().getWidth())
 			{
@@ -79,6 +80,11 @@ public class Bola extends Thread {
 			});
 			setPosicionX(getPosicionX()+(getIncrementoX()*getSentidoX()));
 			setPosicionY(getPosicionY()+(getIncrementoY()*getSentidoY()));
+			if(getImpactos()>1000) {
+				
+				getVentanaBolas().getBolas().remove(this);
+				fin=true;
+			}
 			try {
 				Thread.sleep(2);
 			} catch (InterruptedException e) {

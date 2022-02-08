@@ -60,11 +60,17 @@ public class VentanaBolas extends Frame  {
 		getExterno().clearRect(0,0,2000,2000);
 		//Para hacer una captura de una imagen del disco tenemos:
 		Image ovni=Toolkit.getDefaultToolkit().getImage("logo.jpg");
-		
-		getBolas().stream().forEach(
-			//	b -> getExterno().fillOval(b.getPosicionX(), b.getPosicionY(),b.getDimension(),b.getDimension()));
-		    b -> getExterno().drawImage(ovni,b.getPosicionX(), b.getPosicionY(),b.getDimension(),b.getDimension(),this));
-
+		try {
+			getBolas().stream().forEach(
+					//b -> getExterno().drawImage(ovni,b.getPosicionX(), b.getPosicionY(),b.getDimension(),b.getDimension(),this));
+					b ->{
+						getExterno().drawOval(b.getPosicionX(), b.getPosicionY(),b.getDimension(),b.getDimension());
+						getExterno().drawString(String.valueOf(b.getImpactos()),b.getPosicionX()+b.getDimension()/2,b.getPosicionY()+b.getDimension()/2);
+					});
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		    
 		g.drawImage(getImagen(), 0, 0, 2000, 2000, this);
 		
 
