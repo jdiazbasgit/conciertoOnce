@@ -11,6 +11,7 @@ import ventanas.eventos.ElQuesabeLoQueHayQueHacerConLaVentana;
 import ventanas.eventos.EventosRaton;
 import ventanas.hilos.Bola;
 import ventanas.hilos.Pintor;
+
 public class VentanaBolas extends Frame  {
 
 	private int fin;

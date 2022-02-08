@@ -1,44 +1,22 @@
 package ventanas.hilos;
 
-import ventanas.VentanaBolas;
-import java.awt.Graphics2D;
 import java.awt.geom.Rectangle2D;
-import java.awt.geom.Rectangle2D.Double;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import ventanas.VentanaBolas;
+
+@Data
+@EqualsAndHashCode(callSuper=false)
+@AllArgsConstructor
 public class Bola extends Thread {
 	
 	private int posicionX,posicionY,sentidoX,sentidoY,incrementoX,incrementoY,dimension,impactos;
 	private VentanaBolas ventanaBolas;
 
-	public VentanaBolas getVentanaBolas() {
-		return ventanaBolas;
-	}
-
-
-
-
-	public void setVentanaBolas(VentanaBolas ventanaBolas) {
-		this.ventanaBolas = ventanaBolas;
-	}
-
-
-
-
-	public Bola(int posicionX, int posicionY, int sentidoX, int sentidoY, int incrementoX, int incrementoY,
-			int dimension, VentanaBolas ventanaBolas) {
-		this.posicionX = posicionX;
-		this.posicionY = posicionY;
-		this.sentidoX = sentidoX;
-		this.sentidoY = sentidoY;
-		this.incrementoX = incrementoX;
-		this.incrementoY = incrementoY;
-		this.dimension = dimension;
-		this.ventanaBolas=ventanaBolas;
-	}
-
-	
-	
-	
 	@Override
 	public void run() {
 		while(true) {
@@ -78,79 +56,6 @@ public class Bola extends Thread {
 		Rectangle2D.Double miRectangulo=new Rectangle2D.Double(this.getPosicionX(),this.getPosicionY(),this.getDimension(),this.getDimension());
 		return miRectangulo.intersects((double)bola.getPosicionX(),(double)bola.getPosicionY(),(double)bola.getDimension(),(double)bola.getDimension());
 	}
-
-
-	public int getPosicionX() {
-		return posicionX;
-	}
-	public void setPosicionX(int posicionX) {
-		this.posicionX = posicionX;
-	}
-
-	public int getPosicionY() {
-		return posicionY;
-	}
-
-	public void setPosicionY(int posicionY) {
-		this.posicionY = posicionY;
-	}
-
-	public int getSentidoX() {
-		return sentidoX;
-	}
-
-	public void setSentidoX(int sentidoX) {
-		this.sentidoX = sentidoX;
-	}
-
-	public int getSentidoY() {
-		return sentidoY;
-	}
-
-	public void setSentidoY(int sentidoY) {
-		this.sentidoY = sentidoY;
-	}
-
-	public int getIncrementoX() {
-		return incrementoX;
-	}
-
-	public void setIncrementoX(int incrementoX) {
-		this.incrementoX = incrementoX;
-	}
-
-	public int getIncrementoY() {
-		return incrementoY;
-	}
-
-	public void setIncrementoY(int incrementoY) {
-		this.incrementoY = incrementoY;
-	}
-
-	public int getDimension() {
-		return dimension;
-	}
-
-	public void setDimension(int dimension) {
-		this.dimension = dimension;
-	}
-
-
-
-
-	public int getImpactos() {
-		return impactos;
-	}
-
-
-
-
-	public void setImpactos(int impactos) {
-		this.impactos = impactos;
-	}
-
-
-
 
 	
 
