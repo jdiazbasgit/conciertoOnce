@@ -7,7 +7,7 @@ import java.awt.geom.Rectangle2D.Double;
 
 public class Bola extends Thread {
 	
-	private int posicionX,posicionY,sentidoX,sentidoY,incrementoX,incrementoY,dimension;
+	private int posicionX,posicionY,sentidoX,sentidoY,incrementoX,incrementoY,dimension,impactos;
 	private VentanaBolas ventanaBolas;
 
 	public VentanaBolas getVentanaBolas() {
@@ -57,6 +57,8 @@ public class Bola extends Thread {
 					setSentidoY(getSentidoY()*-1);
 					b.setSentidoX(getSentidoX()*-1);
 					b.setSentidoY(getSentidoY()*-1);
+					setImpactos(getImpactos()+1);
+					b.setImpactos(b.getImpactos()+1);
 				}
 			});
 			setPosicionX(getPosicionX()+(getIncrementoX()*getSentidoX()));
@@ -132,5 +134,24 @@ public class Bola extends Thread {
 	public void setDimension(int dimension) {
 		this.dimension = dimension;
 	}
+
+
+
+
+	public int getImpactos() {
+		return impactos;
+	}
+
+
+
+
+	public void setImpactos(int impactos) {
+		this.impactos = impactos;
+	}
+
+
+
+
+	
 
 }

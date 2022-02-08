@@ -1,6 +1,5 @@
 package ventanas;
 
-import java.awt.Color;
 public class VerPrimeraVentana {
 
 	public static void main(String[] args) {

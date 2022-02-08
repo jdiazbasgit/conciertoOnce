@@ -3,6 +3,7 @@ package ventanas;
 import java.awt.Frame;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.Toolkit;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -57,8 +58,9 @@ public class VentanaBolas extends Frame  {
 			setBolas(new HashSet<>());
 		}
 		getExterno().clearRect(0,0,2000,2000);
+		Image ovni=Toolkit.getDefaultToolkit().getImage("ovni.png");
 		getBolas().stream().forEach(
-				b -> getExterno().fillOval(b.getPosicionX(), b.getPosicionY(),b.getDimension(),b.getDimension()));
+				b -> getExterno().drawImage(ovni,b.getPosicionX(), b.getPosicionY(),b.getDimension(),b.getDimension(),this));
 
 		g.drawImage(getImagen(), 0, 0, 2000, 2000, this);
 		
