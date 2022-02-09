@@ -1,4 +1,4 @@
-package ventanas.eventos;
+package arkanoid.eventos;
 
 import java.awt.event.MouseEvent;
 

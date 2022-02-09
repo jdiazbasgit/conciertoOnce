@@ -7,11 +7,14 @@ import java.io.InputStreamReader;
 import java.util.Collection;
 import java.util.Properties;
 import java.util.Set;
+
+import arkanoid.eventos.ElQueSabeLoQueHayQueHacerConArkanoid;
+import arkanoid.eventos.ElQueSabeLoQueHayQueHacerConElEvento;
+
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
-import ventanas.eventos.ElQueSabeLoQueHayQueHacerConArkanoid;
-import ventanas.eventos.ElQueSabeLoQueHayQueHacerConElEvento ;
+
 import lombok.Data;
 
 @SuppressWarnings({ "serial", "unused" })
