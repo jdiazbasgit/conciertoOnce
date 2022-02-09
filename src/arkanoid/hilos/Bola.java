@@ -1,4 +1,4 @@
-package ventanas.hilos;
+package arkanoid.hilos;
 
 import java.awt.geom.Rectangle2D;
 
