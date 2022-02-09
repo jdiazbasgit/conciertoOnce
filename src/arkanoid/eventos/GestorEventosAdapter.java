@@ -1,5 +1,8 @@
 package arkanoid.eventos;
-import java.awt.event.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 
 public class GestorEventosAdapter implements MouseListener,WindowListener {
 

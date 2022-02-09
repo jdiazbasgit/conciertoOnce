@@ -1,24 +1,20 @@
 package arkanoid.ventanas;
 
 import java.awt.Frame;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.geom.Rectangle2D;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.HashSet;
 import java.util.Properties;
 import java.util.Set;
-import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.ForkJoinWorkerThread;
 
 import arkanoid.eventos.EventosMio;
-import arkanoid.eventos.GestorEventosAdapter;
 import arkanoid.hilos.Bola;
 import arkanoid.hilos.Pintor;
-
-import java.awt.Graphics;
-import java.awt.Image;
 import lombok.Data;
-import java.awt.geom.Rectangle2D;
 
 @Data
 public class VentanaArkanoid extends Frame {

@@ -20,7 +20,7 @@ public class Bola extends Thread {
 	public void run() {
 
 		while (true) {
-
+			
 			try {
 				if (getPosicionX() < 0 || (getPosicionX() + getDimension()) > getVentanaArkanoid().getWidth()) {
 					setSentidoX(getSentidoX() * -1);
