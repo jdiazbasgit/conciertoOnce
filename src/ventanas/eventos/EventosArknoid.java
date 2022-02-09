@@ -2,6 +2,7 @@ package ventanas.eventos;
 
 import java.awt.event.MouseEvent;
 
+import arkanoid.ventanas.Bloque;
 import arkanoid.ventanas.VentanaArkanoid;
 
 
@@ -23,9 +24,7 @@ public class EventosArknoid extends ElQueSabeLoQueHayQueHacerConArkanoid {
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		Bloque bloque= new Bloque(e.getX(), e.getY(), dameSentido(), dameSentido(), dameIncremento(), dameIncremento(), 50,0, getVentanaArkanoid());
-		getVentanaArkanoid().getBloque().add(bloque);
-		bloque.start();
+		
 	}
 
 	public int dameIncremento() {// 1 o2
