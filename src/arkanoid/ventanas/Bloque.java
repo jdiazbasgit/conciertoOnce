@@ -10,6 +10,7 @@ import lombok.Setter;
 @Setter
 @Getter
 @AllArgsConstructor
+
 public class Bloque {
 
 	private int ancho;
