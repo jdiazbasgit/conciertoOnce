@@ -4,81 +4,87 @@ import java.awt.Frame;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Collection;
+import java.util.HashSet;
 import java.util.Properties;
 import java.util.Set;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.ForkJoinWorkerThread;
+import java.util.concurrent.atomic.AtomicInteger;
 
-import arkanoid.eventos.ElQueSabeLoQueHayQueHacerConArkanoid;
-import arkanoid.eventos.ElQueSabeLoQueHayQueHacerConElEvento;
-
+import arkanoid.eventos.EventosMio;
+import arkanoid.eventos.GestorEventosAdapter;
+import arkanoid.hilos.Bola;
+import arkanoid.hilos.Pintor;
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.Toolkit;
-
 import lombok.Data;
+import java.awt.geom.Rectangle2D;
 
-@SuppressWarnings({ "serial", "unused" })
 @Data
 public class VentanaArkanoid extends Frame {
 
 	private Set<Bloque> cuadrados;
-	int ancho;
-	int alto;
-	int golpes;
-	int numeroBloques;
+	private int ancho;
+	private int alto;
+	private int golpes;
+	private int numeroBloques;
 	private Graphics externo;
 	private Image imagen;
-	private boolean primeraVez=true;
-	
-    
-	VentanaArkanoid(){
-		Properties properties= new Properties();
+	private boolean primeraVez = true;
+	private Bola bola;
+	private int velocidad;
+	private int dimensionBola;
+
+	VentanaArkanoid() {
+		Properties properties = new Properties();
 		try {
 			properties.load(new InputStreamReader(new FileInputStream("arkanoid.properties")));
 			setAlto(Integer.parseInt(properties.getProperty("alto")));
 			setAncho(Integer.parseInt(properties.getProperty("ancho")));
 			setNumeroBloques(Integer.parseInt(properties.getProperty("bloques")));
 			setGolpes(Integer.parseInt(properties.getProperty("golpes")));
+			setVelocidad(Integer.parseInt(properties.getProperty("velocidad")));
+			setDimensionBola(Integer.parseInt(properties.getProperty("dimensionBola")));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		this.addWindowListener(new EventosMio(this));
+		this.addMouseListener(new EventosMio(this));
 	}
 
-	@SuppressWarnings("unused")
 	@Override
 	public void paint(Graphics g) {
-		if(isPrimeraVez()) {
+		if (isPrimeraVez()) {
 			setImagen(createImage(2000, 2000));
 			setExterno(getImagen().getGraphics());
+			TonteriasDeBloques tonterias= new TonteriasDeBloques(this);
+			tonterias.cargaBloques();
+			Pintor pintor = new Pintor(this);
+			pintor.start();
 			setPrimeraVez(false);
 		}
+		getExterno().clearRect(0,0,2000,2000);
+		for (Bloque bloque : cuadrados) {
+			getExterno().setColor(bloque.getColor());
+			getExterno().fillRect(bloque.getPosicionX(), bloque.getPosicionY(), bloque.getAncho(), bloque.getAlto());
+			getExterno().setColor(Color.BLACK);
+			getExterno().drawRect(bloque.getPosicionX(), bloque.getPosicionY(), bloque.getAncho(), bloque.getAlto());
+			getExterno().drawString(String.valueOf(bloque.getGolpes()),bloque.getPosicionX()+bloque.getAncho()/2, bloque.getPosicionY()+bloque.getAlto()/2);
+		}
+		if (getBola() != null)
+			getExterno().fillOval(getBola().getPosicionX(), getBola().getPosicionY(), getBola().getDimension(),
+					getBola().getDimension());
+		g.drawImage(getImagen(),0,0,this);
 		
-		
-	
-	
-	getExterno().clearRect(0,0,2000,2000);
-	Image ovni=Toolkit.getDefaultToolkit().getImage("ovni.png");
-	try {
-		getBloque().stream().forEach(
-				
-				b ->{
-					getExterno().drawOval(b.getPosicionX(), b.getPosicionY(),b.getAncho(),b.getAlto());
-					getExterno().drawString(String.valueOf(b.getGolpes()),b.getPosicionX()+b.getPosicionY()/2,b.getAlto()+b.getAncho()/2);
-				});
-	} catch (Exception e) {
-		
-		//e.printStackTrace();
 	}
-	g.drawImage(getImagen(), 0, 0, 2000, 2000, this);
 	
+	@Override
+	public void update(Graphics g) {
+		paint(g);
+	}
+
 	
-	
+
 }
-
-	public Collection<Bloque> getBloque() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	}
