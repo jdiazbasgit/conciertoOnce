@@ -1,5 +1,6 @@
 package arkanoid.hilos;
 
+import java.awt.Color;
 import java.awt.geom.Rectangle2D;
 
 import arkanoid.ventanas.Bloque;
@@ -60,10 +61,24 @@ public class Bola extends Thread {
 										(int) (c.getPosicionY() + c.getAlto()))) {
 							this.setSentidoX(this.getSentidoX() * -1);
 						}
+						
+						
 						c.setGolpes(c.getGolpes()-1);
 						if(c.getGolpes()==0)
-						getVentanaArkanoid().getCuadrados().remove(c);
+							
+							
+							
+							
+							c.setGolpes(c.getGolpes()+1);
+						if(c.getGolpes()<2)
+							c.setColor(Color.CYAN);
+						
+						
+						//getVentanaArkanoid().getCuadrados().remove(c);
 					}
+					
+
+				
 				});
 				this.setPosicionX(this.getPosicionX() + this.getIncrementoX() * this.getSentidoX());
 				this.setPosicionY(this.getPosicionY() + this.getIncrementoY() * this.getSentidoY());
