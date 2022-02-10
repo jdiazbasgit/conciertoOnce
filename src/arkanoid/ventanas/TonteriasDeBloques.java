@@ -3,14 +3,15 @@ package arkanoid.ventanas;
 import java.awt.geom.Rectangle2D;
 import java.util.HashSet;
 import java.awt.Color;
+
 public class TonteriasDeBloques {
-	
+
 	private VentanaArkanoid ventanaArkanoid;
-	
+
 	public TonteriasDeBloques(VentanaArkanoid ventanaArkanoid) {
-		this.ventanaArkanoid= ventanaArkanoid;
+		this.ventanaArkanoid = ventanaArkanoid;
 	}
-	
+
 	public void cargaBloques() {
 		if (getVentanaArkanoid().getCuadrados() == null) {
 			getVentanaArkanoid().setCuadrados(new HashSet<>());
@@ -36,16 +37,17 @@ public class TonteriasDeBloques {
 					fin = true;
 
 					for (Bloque b : getVentanaArkanoid().getCuadrados()) {
-						Rectangle2D.Double r1 = new Rectangle2D.Double(aleatorioX, aleatorioY, getVentanaArkanoid().getAncho(), getVentanaArkanoid().getAlto());
+						Rectangle2D.Double r1 = new Rectangle2D.Double(aleatorioX, aleatorioY,
+								getVentanaArkanoid().getAncho(), getVentanaArkanoid().getAlto());
 						if (r1.intersects(b.getPosicionX(), b.getPosicionY(), b.getAncho(), b.getAlto())) {
 							fin = false;
 							break;
 						}
 					}
-					
+
 					if (fin) {
-						bloque = new Bloque(getVentanaArkanoid().getAncho(), getVentanaArkanoid().getAlto(), aleatorioX, aleatorioY,
-								getVentanaArkanoid().getGolpes(),Color.GREEN);
+						bloque = new Bloque(getVentanaArkanoid().getAncho(), getVentanaArkanoid().getAlto(), aleatorioX,
+								aleatorioY, getVentanaArkanoid().getGolpes(), Color.BLACK);
 
 					}
 
