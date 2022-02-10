@@ -10,8 +10,21 @@ import lombok.Setter;
 
 @Setter
 @Getter
-@AllArgsConstructor
+//@AllArgsConstructor
 public class Bola extends Thread {
+
+	public Bola(int posicionX, int posicionY, int sentidoX, int sentidoY, int incrementoX, int incrementoY,
+			int dimension, VentanaArkanoid ventanaArkanoid) {
+		super();
+		this.posicionX = posicionX;
+		this.posicionY = posicionY;
+		this.sentidoX = sentidoX;
+		this.sentidoY = sentidoY;
+		this.incrementoX = incrementoX;
+		this.incrementoY = incrementoY;
+		this.dimension = dimension;
+		this.ventanaArkanoid = ventanaArkanoid;
+	}
 
 	private int posicionX, posicionY, sentidoX, sentidoY, incrementoX, incrementoY, dimension;
 	private VentanaArkanoid ventanaArkanoid;
@@ -19,7 +32,7 @@ public class Bola extends Thread {
 	@Override
 	public void run() {
 
-		while (true) {
+		while (getVentanaArkanoid().getCuadrados().size() > 0) {
 
 			try {
 				if (getPosicionX() < 0 || (getPosicionX() + getDimension()) > getVentanaArkanoid().getWidth()) {
@@ -28,21 +41,36 @@ public class Bola extends Thread {
 				if (getPosicionY() < 0 || (getPosicionY() + getDimension()) > getVentanaArkanoid().getHeight()) {
 					setSentidoY(getSentidoY() * -1);
 				}
-				getVentanaArkanoid().getCuadrados().forEach(c->{
-					if(miraChoque(c)) {
+				getVentanaArkanoid().getCuadrados().forEach(c -> {
+					if (miraChoque(c)) {
+						Rectangle2D.Double miRectangulo = new Rectangle2D.Double(this.getPosicionX(),
+								this.getPosicionY(), this.getDimension(), this.getDimension());
+						if (miRectangulo.intersectsLine((int) (c.getPosicionX()), (int) (c.getPosicionY()),
+								(int) (c.getPosicionX() + c.getAncho()), (int) (c.getPosicionY()))
+								|| miRectangulo.intersectsLine((int) (c.getPosicionX()),
+										(int) (c.getPosicionY() + c.getAlto()), (int) (c.getPosicionX() + c.getAncho()),
+										(int) (c.getPosicionY() + c.getAlto()))) {
+							this.setSentidoY(this.getSentidoY() * -1);
+						}
+
+						if (miRectangulo.intersectsLine((int) (c.getPosicionX()), (int) (c.getPosicionY()),
+								(int) (c.getPosicionX()), (int) (c.getPosicionY() + c.getAlto()))
+								|| miRectangulo.intersectsLine((int) (c.getPosicionX() + c.getAncho()),
+										(int) (c.getPosicionY()), (int) (c.getPosicionX() + c.getAncho()),
+										(int) (c.getPosicionY() + c.getAlto()))) {
+							this.setSentidoX(this.getSentidoX() * -1);
+						}
+						c.setGolpes(c.getGolpes()-1);
+						if(c.getGolpes()==0)
 						getVentanaArkanoid().getCuadrados().remove(c);
-						i
-						this.setSentidoX(getSentidoX()*-1);
-						this.setSentidoY(getSentidoY()*-1);
-						
 					}
 				});
-				this.setPosicionX(this.getPosicionX()+this.getIncrementoX()*this.getSentidoX());;
-				this.setPosicionY(this.getPosicionY()+this.getIncrementoY()*this.getSentidoY());;
-			Thread.sleep(1);
+				this.setPosicionX(this.getPosicionX() + this.getIncrementoX() * this.getSentidoX());
+				this.setPosicionY(this.getPosicionY() + this.getIncrementoY() * this.getSentidoY());
+				Thread.sleep(getVentanaArkanoid().getVelocidad());
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
-				//e.printStackTrace();
+				// e.printStackTrace();
 			}
 		}
 

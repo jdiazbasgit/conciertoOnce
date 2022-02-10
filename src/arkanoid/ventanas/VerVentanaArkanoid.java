@@ -10,6 +10,7 @@ public class VerVentanaArkanoid {
 		ventanaArkanoid.setResizable(false);
 		
 		ventanaArkanoid.setVisible(true);
+		
 
 	}
 
