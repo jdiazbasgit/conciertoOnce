@@ -42,8 +42,10 @@ public class TonteriasDeBloques {
 							break;
 						}
 					}
+					
 					if (fin) {
-						bloque = new Bloque(getVentanaArkanoid().getAncho(), getVentanaArkanoid().getAlto(), aleatorioX, aleatorioY, getVentanaArkanoid().getGolpes(),Color.PINK);
+						bloque = new Bloque(getVentanaArkanoid().getAncho(), getVentanaArkanoid().getAlto(), aleatorioX, aleatorioY,
+								getVentanaArkanoid().getGolpes(),Color.GREEN);
 
 					}
 

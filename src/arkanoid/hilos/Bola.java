@@ -61,6 +61,7 @@ public class Bola extends Thread {
 							this.setSentidoX(this.getSentidoX() * -1);
 						}
 						c.setGolpes(c.getGolpes()-1);
+						
 						if(c.getGolpes()==0)
 						getVentanaArkanoid().getCuadrados().remove(c);
 					}
@@ -69,7 +70,7 @@ public class Bola extends Thread {
 				this.setPosicionY(this.getPosicionY() + this.getIncrementoY() * this.getSentidoY());
 				Thread.sleep(getVentanaArkanoid().getVelocidad());
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
+				
 				// e.printStackTrace();
 			}
 		}

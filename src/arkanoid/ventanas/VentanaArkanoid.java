@@ -69,7 +69,7 @@ public class VentanaArkanoid extends Frame {
 		for (Bloque bloque : cuadrados) {
 			getExterno().setColor(bloque.getColor());
 			getExterno().fillRect(bloque.getPosicionX(), bloque.getPosicionY(), bloque.getAncho(), bloque.getAlto());
-			getExterno().setColor(Color.BLACK);
+			getExterno().setColor(Color.GREEN);
 			getExterno().drawRect(bloque.getPosicionX(), bloque.getPosicionY(), bloque.getAncho(), bloque.getAlto());
 			getExterno().drawString(String.valueOf(bloque.getGolpes()),bloque.getPosicionX()+bloque.getAncho()/2, bloque.getPosicionY()+bloque.getAlto()/2);
 		}
