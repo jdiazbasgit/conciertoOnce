@@ -10,6 +10,23 @@ public class Pintor extends Thread {
 	private VentanaArkanoid ventanaArkanoid;
 	
 	
+	
+	public Pintor(VentanaArkanoid ventanaArkanoid) {
+		this.ventanaArkanoid = ventanaArkanoid;
+	}
+
+
+
+	public VentanaArkanoid getVentanaArkanoid() {
+		return ventanaArkanoid;
+	}
+
+
+	public void setVentanaArkanoid(VentanaArkanoid ventanaArkanoid) {
+		this.ventanaArkanoid = ventanaArkanoid;
+	}
+
+
 	@Override
 	public void run() {
 		while(true) {

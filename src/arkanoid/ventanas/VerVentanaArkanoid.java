@@ -8,9 +8,7 @@ public class VerVentanaArkanoid {
 		ventanaArkanoid.setSize((int)(Toolkit.getDefaultToolkit().getScreenSize().getWidth()),
 				(int)(Toolkit.getDefaultToolkit().getScreenSize().getHeight()));
 		ventanaArkanoid.setResizable(false);
-		
 		ventanaArkanoid.setVisible(true);
-
 	}
 
 }

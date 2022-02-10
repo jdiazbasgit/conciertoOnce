@@ -19,7 +19,7 @@ public class Bola extends Thread {
 	@Override
 	public void run() {
 
-		while (true) {
+		while (this.getVentanaArkanoid().getCuadrados().size()>0) {
 
 			try {
 				if (getPosicionX() < 0 || (getPosicionX() + getDimension()) > getVentanaArkanoid().getWidth()) {
@@ -29,17 +29,47 @@ public class Bola extends Thread {
 					setSentidoY(getSentidoY() * -1);
 				}
 				getVentanaArkanoid().getCuadrados().forEach(c->{
-					if(miraChoque(c)) {
+					if(miraChoque(c)) {  //Cuando choca una bola con un bloque
+						
+						//Pillamos una linea
+						Rectangle2D.Double miRectangulo = new Rectangle2D.Double(this.getPosicionX(), this.getPosicionY(),
+								this.getDimension(), this.getDimension());
+						
+						if(miRectangulo.intersectsLine((int)(c.getPosicionX()),(int)(c.getPosicionY()), 
+								(int)(c.getPosicionX()+c.getAncho()),(int) (c.getPosicionY()))
+								
+							|| miRectangulo.intersectsLine((int)(c.getPosicionX()),(int)(c.getPosicionY()+c.getAlto())    
+							,(int)(c.getPosicionX()+c.getAncho()) ,(int)(c.getPosicionY()+c.getAlto()))) {
+							
+							this.setSentidoY(getSentidoY()*-1);
+						}
+						
+						
+						if(miRectangulo.intersectsLine((int)(c.getPosicionX()),(int)(c.getPosicionY()), 
+								(int)(c.getPosicionX()),(int) (c.getPosicionY()+c.getAlto()))
+								
+							|| miRectangulo.intersectsLine((int)(c.getPosicionX()+ c.getAncho()),(int)(c.getPosicionY()+c.getAlto())    
+							,(int)(c.getPosicionX()+c.getAncho()) ,(int)(c.getPosicionY()+c.getAlto()))) {
+							
+							this.setSentidoX(getSentidoX()*-1);
+						}
+						
+						
+						
+						
+						
+						
+						//this.setSentidoX(getSentidoX()*-1);
+						//this.setSentidoY(getSentidoY()*-1);
+						
+						c.setGolpes(c.getGolpes()-1);
 						getVentanaArkanoid().getCuadrados().remove(c);
-						i
-						this.setSentidoX(getSentidoX()*-1);
-						this.setSentidoY(getSentidoY()*-1);
 						
 					}
 				});
 				this.setPosicionX(this.getPosicionX()+this.getIncrementoX()*this.getSentidoX());;
 				this.setPosicionY(this.getPosicionY()+this.getIncrementoY()*this.getSentidoY());;
-			Thread.sleep(1);
+			Thread.sleep(getVentanaArkanoid().getVelocidad());
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				//e.printStackTrace();
@@ -48,11 +78,91 @@ public class Bola extends Thread {
 
 	}
 
+	
 	private synchronized boolean miraChoque(Bloque bloque) {
 		Rectangle2D.Double miRectangulo = new Rectangle2D.Double(this.getPosicionX(), this.getPosicionY(),
 				this.getDimension(), this.getDimension());
 		return miRectangulo.intersects((double) bloque.getPosicionX(), (double) bloque.getPosicionY(),
 				(double) bloque.getAncho(), (double) bloque.getAlto());
 	}
+	
+	
+	public Bola(int posicionX, int posicionY, int sentidoX, int sentidoY, int incrementoX, int incrementoY,
+			int dimension, VentanaArkanoid ventanaArkanoid) {
+		this.posicionX = posicionX;
+		this.posicionY = posicionY;
+		this.sentidoX = sentidoX;
+		this.sentidoY = sentidoY;
+		this.incrementoX = incrementoX;
+		this.incrementoY = incrementoY;
+		this.dimension = dimension;
+		this.ventanaArkanoid = ventanaArkanoid;
+	}
+
+	public int getPosicionX() {
+		return posicionX;
+	}
+
+	public void setPosicionX(int posicionX) {
+		this.posicionX = posicionX;
+	}
+
+	public int getPosicionY() {
+		return posicionY;
+	}
+
+	public void setPosicionY(int posicionY) {
+		this.posicionY = posicionY;
+	}
+
+	public int getSentidoX() {
+		return sentidoX;
+	}
+
+	public void setSentidoX(int sentidoX) {
+		this.sentidoX = sentidoX;
+	}
+
+	public int getSentidoY() {
+		return sentidoY;
+	}
+
+	public void setSentidoY(int sentidoY) {
+		this.sentidoY = sentidoY;
+	}
+
+	public int getIncrementoX() {
+		return incrementoX;
+	}
+
+	public void setIncrementoX(int incrementoX) {
+		this.incrementoX = incrementoX;
+	}
+
+	public int getIncrementoY() {
+		return incrementoY;
+	}
+
+	public void setIncrementoY(int incrementoY) {
+		this.incrementoY = incrementoY;
+	}
+
+	public int getDimension() {
+		return dimension;
+	}
+
+	public void setDimension(int dimension) {
+		this.dimension = dimension;
+	}
+
+	public VentanaArkanoid getVentanaArkanoid() {
+		return ventanaArkanoid;
+	}
+
+	public void setVentanaArkanoid(VentanaArkanoid ventanaArkanoid) {
+		this.ventanaArkanoid = ventanaArkanoid;
+	}
+	
+	
 
 }
