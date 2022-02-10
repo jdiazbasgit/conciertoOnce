@@ -7,7 +7,7 @@ import arkanoid.ventanas.VentanaArkanoid;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
-
+import java.awt.Color;
 @Setter
 @Getter
 //@AllArgsConstructor
@@ -61,6 +61,14 @@ public class Bola extends Thread {
 							this.setSentidoX(this.getSentidoX() * -1);
 						}
 						c.setGolpes(c.getGolpes()-1);
+						switch(c.getGolpes()) {
+						case 2:
+							c.setColor(Color.YELLOW);
+							break;
+						case 1:
+							c.setColor(Color.GRAY);
+							break;
+						}
 						if(c.getGolpes()==0)
 						getVentanaArkanoid().getCuadrados().remove(c);
 					}
