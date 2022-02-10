@@ -7,8 +7,11 @@ import arkanoid.hilos.Bola;
 import arkanoid.ventanas.VentanaArkanoid;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 @Data
+@EqualsAndHashCode(callSuper=false)
+
 @AllArgsConstructor
 public class EventosMio extends GestorEventosAdapter {
 
