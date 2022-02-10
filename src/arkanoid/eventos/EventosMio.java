@@ -26,7 +26,5 @@ public class EventosMio extends GestorEventosAdapter {
 		bola.start();
 				
 	}
-
-	
 	
 }

@@ -31,7 +31,6 @@ public class Bola extends Thread {
 				getVentanaArkanoid().getCuadrados().forEach(c->{
 					if(miraChoque(c)) {
 						getVentanaArkanoid().getCuadrados().remove(c);
-						i
 						this.setSentidoX(getSentidoX()*-1);
 						this.setSentidoY(getSentidoY()*-1);
 						
