@@ -2,10 +2,8 @@ package arkanoid.hilos;
 
 import java.awt.Color;
 import java.awt.geom.Rectangle2D;
-
 import arkanoid.ventanas.Bloque;
 import arkanoid.ventanas.VentanaArkanoid;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
