@@ -43,6 +43,7 @@ public class TonteriasDeBloques {
 							fin = false;
 							break;
 						}
+						
 					}
 
 					if (fin) {
@@ -50,6 +51,7 @@ public class TonteriasDeBloques {
 								aleatorioY, getVentanaArkanoid().getGolpes(), Color.BLACK);
 
 					}
+					
 
 				}
 			}
@@ -57,6 +59,7 @@ public class TonteriasDeBloques {
 
 		return bloque;
 	}
+	
 
 	public VentanaArkanoid getVentanaArkanoid() {
 		return ventanaArkanoid;
