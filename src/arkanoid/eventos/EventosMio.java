@@ -27,6 +27,10 @@ public class EventosMio extends GestorEventosAdapter {
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		
+
+		//fdsgfdgdf
+		
+		
 		Bola bola=new Bola(e.getX(),getVentanaArkanoid().getHeight()-60,1,1,1,1,getVentanaArkanoid().getDimensionBola(),getVentanaArkanoid());
 		getVentanaArkanoid().setBola(bola);
 		bola.start();
