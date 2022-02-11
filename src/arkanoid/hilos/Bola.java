@@ -13,7 +13,13 @@ import lombok.Setter;
 @AllArgsConstructor
 public class Bola extends Thread {
 
-	private int posicionX, posicionY, sentidoX, sentidoY, incrementoX, incrementoY, dimension;
+	private int posicionX;
+	private int posicionY;
+	private int sentidoX;
+	private int sentidoY;
+	private int incrementoX;
+	private int incrementoY;
+	private int dimension;
 	private VentanaArkanoid ventanaArkanoid;
 
 	@Override

@@ -50,6 +50,12 @@ public class VentanaArkanoid extends Frame {
 	}
 
 	@Override
+	protected Object clone() throws CloneNotSupportedException {
+		// TODO Auto-generated method stub
+		return super.clone();
+	}
+
+	@Override
 	public void paint(Graphics g) {
 		if (isPrimeraVez()) {
 			setImagen(createImage(2000, 2000));
