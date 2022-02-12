@@ -67,14 +67,14 @@ public class Bola extends Thread {
 						if(c.getGolpes()==0)
 							
 						c.setGolpes(c.getGolpes());
-						if(c.getGolpes()==2) 
+						if(c.getGolpes()<3) 
 							c.setColor(Color.GREEN);
-						if(c.getGolpes()==1) 
+						if(c.getGolpes()<2) 
 							c.setColor(Color.CYAN);
-						if(c.getGolpes()==0) 
+						if(c.getGolpes()<1) 
 							c.setColor(Color.YELLOW);
 						
-						if(c.getGolpes()==-1) 
+						if(c.getGolpes()<0) 
 							getVentanaArkanoid().getCuadrados().remove(c);
 						
 						//getVentanaArkanoid().getCuadrados().remove(c);
