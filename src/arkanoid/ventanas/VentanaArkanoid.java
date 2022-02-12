@@ -18,6 +18,8 @@ import arkanoid.hilos.Pintor;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.Toolkit;
+
 import lombok.Data;
 import java.awt.geom.Rectangle2D;
 
@@ -54,6 +56,7 @@ public class VentanaArkanoid extends Frame {
 		this.addMouseListener(new EventosMio(this));
 	}
 
+	@SuppressWarnings("unused")
 	@Override
 	public void paint(Graphics g) {
 		if (isPrimeraVez()) {
@@ -64,6 +67,8 @@ public class VentanaArkanoid extends Frame {
 			Pintor pintor = new Pintor(this);
 			pintor.start();
 			setPrimeraVez(false);
+
+
 		}
 		getExterno().clearRect(0,0,2000,2000);
 		for (Bloque bloque : cuadrados) {
@@ -74,9 +79,14 @@ public class VentanaArkanoid extends Frame {
 			getExterno().drawString(String.valueOf(bloque.getGolpes()),bloque.getPosicionX()+bloque.getAncho()/2, bloque.getPosicionY()+bloque.getAlto()/2);
 	        
 		}
+	
+
 		if (getBola() != null)
 			getExterno().fillOval(getBola().getPosicionX(), getBola().getPosicionY(), getBola().getDimension(),
 					getBola().getDimension());
+	
+
+
 		g.drawImage(getImagen(),0,0,this);
 		
 	}
