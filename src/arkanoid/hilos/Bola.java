@@ -6,7 +6,6 @@ import java.awt.geom.Rectangle2D;
 import arkanoid.ventanas.Bloque;
 import arkanoid.ventanas.VentanaArkanoid;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -67,15 +66,13 @@ public class Bola extends Thread {
 						c.setGolpes(c.getGolpes()-1);
 						if(c.getGolpes()==0)
 							
-						
-							c.setGolpes(c.getGolpes());
 						c.setGolpes(c.getGolpes());
 						if(c.getGolpes()==2) 
 							c.setColor(Color.GREEN);
 						if(c.getGolpes()==1) 
 							c.setColor(Color.CYAN);
 						if(c.getGolpes()==0) 
-							c.setColor(Color.BLUE);
+							c.setColor(Color.YELLOW);
 						
 						if(c.getGolpes()==-1) 
 							getVentanaArkanoid().getCuadrados().remove(c);
