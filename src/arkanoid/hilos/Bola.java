@@ -5,15 +5,14 @@ import java.awt.geom.Rectangle2D;
 
 import arkanoid.ventanas.Bloque;
 import arkanoid.ventanas.VentanaArkanoid;
-import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
 @Setter
 @Getter
 @Data
-@AllArgsConstructor
 public class Bola extends Thread {
 
 	public Bola(int posicionX, int posicionY, int sentidoX, int sentidoY, int incrementoX, int incrementoY,
@@ -69,17 +68,22 @@ public class Bola extends Thread {
 						if(c.getGolpes()==0)
 							
 						
-							c.setGolpes(c.getGolpes()+1);
-						if(c.getGolpes()<2)
-							c.setColor(Color.CYAN);
-						c.setGolpes(c.getGolpes()-1);
-						if(c.getGolpes()>1) 
+							c.setGolpes(c.getGolpes());
+						c.setGolpes(c.getGolpes());
+						if(c.getGolpes()==2) 
 							c.setColor(Color.GREEN);
+						if(c.getGolpes()==1) 
+							c.setColor(Color.CYAN);
+						if(c.getGolpes()==0) 
+							c.setColor(Color.BLUE);
+						
+						if(c.getGolpes()==-1) 
+							getVentanaArkanoid().getCuadrados().remove(c);
 						
 						//getVentanaArkanoid().getCuadrados().remove(c);
 					}
 					
-
+					
 				
 				});
 				this.setPosicionX(this.getPosicionX() + this.getIncrementoX() * this.getSentidoX());
