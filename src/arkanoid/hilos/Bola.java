@@ -6,12 +6,14 @@ import java.awt.geom.Rectangle2D;
 import arkanoid.ventanas.Bloque;
 import arkanoid.ventanas.VentanaArkanoid;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
 @Setter
 @Getter
-//@AllArgsConstructor
+@Data
+@AllArgsConstructor
 public class Bola extends Thread {
 
 	public Bola(int posicionX, int posicionY, int sentidoX, int sentidoY, int incrementoX, int incrementoY,

@@ -2,7 +2,16 @@ package arkanoid.ventanas;
 
 import java.awt.geom.Rectangle2D;
 import java.util.HashSet;
+
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.awt.Color;
+
+@Data
+@Setter
+@Getter
 public class TonteriasDeBloques {
 	
 	private VentanaArkanoid ventanaArkanoid;
