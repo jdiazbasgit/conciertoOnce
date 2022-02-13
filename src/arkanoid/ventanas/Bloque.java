@@ -18,5 +18,5 @@ public class Bloque {
 	private int posicionY;
 	private int golpes;
 	private Color color;
-	
+
 }
