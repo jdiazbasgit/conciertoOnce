@@ -67,7 +67,7 @@ public class Chat extends Frame{
 		getPCentral().add(getPCentralIzquierda(),BorderLayout.WEST);
 		getPCentral().add(getTaMensajes(),BorderLayout.CENTER);
 		
-		
+		 
 		
 		getPGlobal().setLayout(new BorderLayout());
 		getPGlobal().add(getPSuperior(),BorderLayout.NORTH);
