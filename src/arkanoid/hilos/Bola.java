@@ -2,16 +2,14 @@ package arkanoid.hilos;
 
 import java.awt.Color;
 import java.awt.geom.Rectangle2D;
-import java.util.Properties;
 
 import arkanoid.ventanas.Bloque;
 import arkanoid.ventanas.VentanaArkanoid;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
-@Setter
-@Getter
+@Data
+@EqualsAndHashCode(callSuper=false)
 //@AllArgsConstructor
 public class Bola extends Thread {
 

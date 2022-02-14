@@ -1,31 +1,30 @@
 package arkanoid.ventanas;
 
-import java.awt.Frame;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.HashSet;
-import java.util.Properties;
-import java.util.Set;
-import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.ForkJoinWorkerThread;
-import java.util.concurrent.atomic.AtomicInteger;
-
-import arkanoid.eventos.EventosMio;
-import arkanoid.eventos.GestorEventosAdapter;
-import arkanoid.hilos.Bola;
-import arkanoid.hilos.Pintor;
 import java.awt.Color;
+import java.awt.Frame;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Properties;
+import java.util.Set;
 
+import arkanoid.eventos.EventosMio;
+import arkanoid.hilos.Bola;
+import arkanoid.hilos.Pintor;
 import lombok.Data;
-import java.awt.geom.Rectangle2D;
+import lombok.EqualsAndHashCode;
 
 @Data
+@EqualsAndHashCode(callSuper=false)
 public class VentanaArkanoid extends Frame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Set<Bloque> cuadrados;
 	private int ancho;
 	private int alto;

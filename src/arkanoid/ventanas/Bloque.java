@@ -3,12 +3,10 @@ package arkanoid.ventanas;
 import java.awt.Color;
 
 import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-//@Data
-@Setter
-@Getter
+@Data
+
 @AllArgsConstructor
 public class Bloque {
 

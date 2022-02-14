@@ -5,8 +5,6 @@ import java.awt.event.WindowEvent;
 
 import arkanoid.hilos.Bola;
 import arkanoid.ventanas.VentanaArkanoid;
-import lombok.AllArgsConstructor;
-import lombok.Data;
 
 
 public class EventosMio extends GestorEventosAdapter {
