@@ -2,6 +2,7 @@ package arkanoid.hilos;
 
 import java.awt.Color;
 import java.awt.geom.Rectangle2D;
+import java.util.Objects;
 
 import arkanoid.ventanas.Bloque;
 import arkanoid.ventanas.VentanaArkanoid;
@@ -69,7 +70,7 @@ public class Bola extends Thread {
 						if(c.getGolpes()<2)
 							c.setColor(Color.MAGENTA);
 						
-						if(c.getGolpes()<0)
+						if(c.getGolpes()<1)
 						
 						
 					
@@ -97,6 +98,21 @@ public class Bola extends Thread {
 		return miRectangulo.intersects((double) bloque.getPosicionX(), (double) bloque.getPosicionY(),
 				(double) bloque.getAncho(), (double) bloque.getAlto());
 	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Bola other = (Bola) obj;
+		return dimension == other.dimension && incrementoX == other.incrementoX && incrementoY == other.incrementoY
+				&& posicionX == other.posicionX && posicionY == other.posicionY && sentidoX == other.sentidoX
+				&& sentidoY == other.sentidoY && Objects.equals(ventanaArkanoid, other.ventanaArkanoid);
+	}
+
 
 
 

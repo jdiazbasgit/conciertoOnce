@@ -66,6 +66,7 @@ public class VentanaArkanoid extends Frame {
 			Pintor pintor = new Pintor(this);
 			pintor.start();
 			setPrimeraVez(false);
+			setBackground(Color.LIGHT_GRAY);
             setImagenBola(Toolkit.getDefaultToolkit().getImage("red.png"));
 
 		}
@@ -96,6 +97,8 @@ public class VentanaArkanoid extends Frame {
 	public void update(Graphics g) {
 		paint(g);
 	}
+
+
 
 	
 
