@@ -1,6 +1,5 @@
 package ventanas;
-//bhjl
-//gjkhg
+
 import lombok.Data;
 import java.awt.Panel;
 import java.awt.Label;
