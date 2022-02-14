@@ -44,7 +44,6 @@ public class VentanaArkanoid extends Frame {
 			setVelocidad(Integer.parseInt(properties.getProperty("velocidad")));
 			setDimensionBola(Integer.parseInt(properties.getProperty("dimensionBola")));
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		this.addWindowListener(new EventosMio(this));
@@ -54,7 +53,7 @@ public class VentanaArkanoid extends Frame {
 	@Override
 	public void paint(Graphics g) {
 		if (isPrimeraVez()) {
-			setImagen(createImage(2500, 2500));
+			setImagen(createImage(2000, 2000));
 			setExterno(getImagen().getGraphics());
 			TonteriasDeBloques tonterias = new TonteriasDeBloques(this);
 			tonterias.cargaBloques();
