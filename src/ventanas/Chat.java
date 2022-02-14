@@ -1,6 +1,8 @@
 package ventanas;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+
 import java.awt.Panel;
 import java.awt.Label;
 import java.awt.TextField;
@@ -11,9 +13,13 @@ import java.awt.Color;
 import java.awt.BorderLayout;
 import java.awt.Frame;
 
-@SuppressWarnings("serial")
 @Data
+@EqualsAndHashCode(callSuper=false)
 public class Chat extends Frame{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Panel pGlobal,pSuperior,pCentral,pInferior,pCentralIzquierda,pCentralIzquierdaSuperior,pCentralIzquierdaInferior;
 	private Label lNick, lUsuarios, lMensaje;
 	private Button bRegistrar,bEnviar;
