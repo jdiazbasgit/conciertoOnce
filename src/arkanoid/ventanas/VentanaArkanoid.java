@@ -52,7 +52,7 @@ public class VentanaArkanoid extends Frame {
 	@Override
 	public void paint(Graphics g) {
 		if (isPrimeraVez()) {
-			setImagen(createImage(2000, 2000));
+			setImagen(createImage(2500, 2500));
 			setExterno(getImagen().getGraphics());
 			TonteriasDeBloques tonterias = new TonteriasDeBloques(this);
 			tonterias.cargaBloques();
