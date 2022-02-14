@@ -54,6 +54,14 @@ public class Chat extends Frame {
 		getPInferior().add(getBEnviar());
 		getPInferior().setBackground(Color.PINK);
 
+		getPCentralIzquierdaSuperior().setLayout(new FlowLayout());
+		getPCentralIzquierdaInferior().add(getLUsuarios());
+
+		getPCentralIzquierda().setLayout(new BorderLayout());
+		getPCentralIzquierda().add(getTaUsuarios());
+
+		getPCentralIzquierdaInferior().setLayout(new BorderLayout());
+
 		getPGlobal().setLayout(new BorderLayout());
 		getPGlobal().add(getPSuperior(), BorderLayout.NORTH);
 		getPGlobal().add(getPInferior(), BorderLayout.SOUTH);
