@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Frame;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.Toolkit;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -17,7 +18,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 @SuppressWarnings("serial")
-@EqualsAndHashCode(callSuper=false)
+@EqualsAndHashCode(callSuper = false)
 @Data
 public class VentanaArkanoid extends Frame {
 
@@ -32,6 +33,8 @@ public class VentanaArkanoid extends Frame {
 	private Bola bola;
 	private int velocidad;
 	private int dimensionBola;
+	private Image imagenBola;
+	private Image imagenFondo;
 
 	VentanaArkanoid() {
 		Properties properties = new Properties();
@@ -54,15 +57,19 @@ public class VentanaArkanoid extends Frame {
 	public void paint(Graphics g) {
 		if (isPrimeraVez()) {
 			setImagen(createImage(2000, 2000));
+			setBackground(Color.GRAY);
 			setExterno(getImagen().getGraphics());
+			
+			
+			
 			TonteriasDeBloques tonterias = new TonteriasDeBloques(this);
 			tonterias.cargaBloques();
 			Pintor pintor = new Pintor(this);
 			pintor.start();
 			setPrimeraVez(false);
+			setImagenBola(Toolkit.getDefaultToolkit().getImage("javiBola.png"));
 		}
 		getExterno().clearRect(0, 0, 2000, 2000);
-		
 
 		for (Bloque bloque : cuadrados) {
 			getExterno().setColor(bloque.getColor());
@@ -75,11 +82,17 @@ public class VentanaArkanoid extends Frame {
 		}
 		if (getBola() != null)
 
-			getExterno().fillOval(getBola().getPosicionX(), getBola().getPosicionY(), getBola().getDimension(),
-					getBola().getDimension());
+			// getExterno().fillOval(getBola().getPosicionX(), getBola().getPosicionY(),
+			// getBola().getDimension(),
+			// getBola().getDimension());
+
+			getExterno().drawImage(getImagenBola(), getBola().getPosicionX(), getBola().getPosicionY(),
+					getBola().getDimension(), getBola().getDimension(), this);
 		g.drawImage(getImagen(), 0, 0, this);
 
 	}
+
+	
 
 	@Override
 	public void update(Graphics g) {
