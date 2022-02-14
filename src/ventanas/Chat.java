@@ -11,9 +11,15 @@ import java.awt.TextArea;
 import java.awt.TextField;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+
+//test guardar cambios
+
+
 
 @SuppressWarnings("serial")
 @Data
+@EqualsAndHashCode(callSuper=false)
 public class Chat extends Frame{
 	private Panel pGlobal,pSuperior,pCentral,pInferior,pCentralIzquierda,pCentralIzquierdaSuperior,pCentralIzquierdaInferior;
 	private Label lNick, lUsuarios, lMensaje;
