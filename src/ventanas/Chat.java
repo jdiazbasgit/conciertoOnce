@@ -17,6 +17,7 @@ public class Chat {
 	private TextArea taUsuarios,taMensajes;
 	
 	
+	
 	public Chat() {
 		setPGlobal(new Panel());
 		setPSuperior(new Panel());
