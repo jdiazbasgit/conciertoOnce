@@ -1,5 +1,5 @@
 package ventanas;
-//Reyyyyy
+
 import lombok.Data;
 import java.awt.Panel;
 import java.awt.Label;
@@ -13,7 +13,7 @@ public class Chat {
 	private Button bRegistrar,bEnviar;
 	private TextField tNick,tMensaje;
 	private TextArea taUsuarios,taMensajes;
-	//cambio cosas
+
 	
 	
 	public Chat() {
