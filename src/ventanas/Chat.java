@@ -19,8 +19,8 @@ public class Chat extends Frame{
 	private Button bRegistrar,bEnviar;
 	private TextField tNick,tMensaje;
 	private TextArea taUsuarios,taMensajes;
-	//cambio cosas
 	
+	 
 	
 	public Chat() {
 		setPGlobal(new Panel());
