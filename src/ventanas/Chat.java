@@ -67,7 +67,7 @@ public class Chat extends Frame{
 		getPCentral().add(getTaMensajes(),BorderLayout.CENTER);
 		
 		
-		
+		//cambios
 		
 		
 		
