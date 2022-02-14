@@ -1,15 +1,16 @@
 package ventanas;
 
-import lombok.Data;
-import java.awt.Panel;
-import java.awt.Label;
-import java.awt.TextField;
-import java.awt.TextArea;
-import java.awt.Button;
-import java.awt.FlowLayout;
-import java.awt.Color;
 import java.awt.BorderLayout;
+import java.awt.Button;
+import java.awt.Color;
+import java.awt.FlowLayout;
 import java.awt.Frame;
+import java.awt.Label;
+import java.awt.Panel;
+import java.awt.TextArea;
+import java.awt.TextField;
+
+import lombok.Data;
 
 @SuppressWarnings("serial")
 @Data
@@ -19,7 +20,6 @@ public class Chat extends Frame{
 	private Button bRegistrar,bEnviar;
 	private TextField tNick,tMensaje;
 	private TextArea taUsuarios,taMensajes;
-	//cambio cosas
 	
 	
 	public Chat() {
@@ -62,10 +62,11 @@ public class Chat extends Frame{
 		
 	}
 	
+
+	
 	public static void main(String[] args) {
 		Chat chat= new Chat();
 		chat.setSize(500,500);
 		chat.setVisible(true);
 	}
-
 }
