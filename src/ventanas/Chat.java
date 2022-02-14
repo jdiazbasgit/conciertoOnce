@@ -44,13 +44,13 @@ public class Chat extends Frame{
 		getPSuperior().add(getLNick());
 		getPSuperior().add(getTNick());
 		getPSuperior().add(getBRegistrar());
-		getPSuperior().setBackground(Color.GRAY);
+		getPSuperior().setBackground(Color.BLUE);
 		
 		getPInferior().setLayout(new FlowLayout());
 		getPInferior().add(getLMensaje());
 		getPInferior().add(getTMensaje());
 		getPInferior().add(getBEnviar());
-		getPInferior().setBackground(Color.PINK);
+		getPInferior().setBackground(Color.GREEN);
 		
 		getPGlobal().setLayout(new BorderLayout());
 		getPGlobal().add(getPSuperior(),BorderLayout.NORTH);
@@ -59,7 +59,7 @@ public class Chat extends Frame{
 		this.setLayout(new BorderLayout());
 		this.add(getPGlobal(),BorderLayout.CENTER);
 		
-		
+
 	}
 	
 	public static void main(String[] args) {
