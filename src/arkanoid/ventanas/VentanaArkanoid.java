@@ -37,6 +37,7 @@ public class VentanaArkanoid extends Frame {
 	private Bola bola;
 	private int velocidad;
 	private int dimensionBola;
+	private Image imagenBola;
 
 	VentanaArkanoid() {
 		Properties properties = new Properties();
@@ -56,7 +57,7 @@ public class VentanaArkanoid extends Frame {
 		this.addMouseListener(new EventosMio(this));
 	}
 
-	@SuppressWarnings("unused")
+
 	@Override
 	public void paint(Graphics g) {
 		if (isPrimeraVez()) {
@@ -67,7 +68,7 @@ public class VentanaArkanoid extends Frame {
 			Pintor pintor = new Pintor(this);
 			pintor.start();
 			setPrimeraVez(false);
-
+            setImagenBola(Toolkit.getDefaultToolkit().getImage(""));
 
 		}
 		getExterno().clearRect(0,0,2000,2000);
@@ -82,10 +83,10 @@ public class VentanaArkanoid extends Frame {
 	
 
 		if (getBola() != null)
-			getExterno().fillOval(getBola().getPosicionX(), getBola().getPosicionY(), getBola().getDimension(),
-					getBola().getDimension());
+			//getExterno().fillOval(getBola().getPosicionX(), getBola().getPosicionY(), getBola().getDimension(),
+					//getBola().getDimension());
 	
-
+    getExterno().drawImage(getImagenBola(), getBola().getPosicionX(),getBola().getPosicionY(),getBola().getDimension(),getBola().getDimension(),this);
 
 		g.drawImage(getImagen(),0,0,this);
 		
