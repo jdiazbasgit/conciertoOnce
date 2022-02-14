@@ -1,24 +1,19 @@
 package ventanas;
 
 import lombok.Data;
-import lombok.EqualsAndHashCode;
-
 import java.awt.Panel;
 import java.awt.Label;
 import java.awt.TextField;
 import java.awt.TextArea;
-import java.awt.BorderLayout;
 import java.awt.Button;
-import java.awt.Color;
 import java.awt.FlowLayout;
+import java.awt.Color;
+import java.awt.BorderLayout;
 import java.awt.Frame;
+
+@SuppressWarnings("serial")
 @Data
-@EqualsAndHashCode(callSuper=false)
 public class Chat extends Frame{
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	private Panel pGlobal,pSuperior,pCentral,pInferior,pCentralIzquierda,pCentralIzquierdaSuperior,pCentralIzquierdaInferior;
 	private Label lNick, lUsuarios, lMensaje;
 	private Button bRegistrar,bEnviar;
@@ -49,7 +44,7 @@ public class Chat extends Frame{
 		getPSuperior().add(getLNick());
 		getPSuperior().add(getTNick());
 		getPSuperior().add(getBRegistrar());
-		getPSuperior().setBackground(Color.LIGHT_GRAY);
+		getPSuperior().setBackground(Color.GRAY);
 		
 		getPInferior().setLayout(new FlowLayout());
 		getPInferior().add(getLMensaje());
@@ -57,21 +52,18 @@ public class Chat extends Frame{
 		getPInferior().add(getBEnviar());
 		getPInferior().setBackground(Color.PINK);
 		
-		
 		getPGlobal().setLayout(new BorderLayout());
 		getPGlobal().add(getPSuperior(),BorderLayout.NORTH);
 		getPGlobal().add(getPInferior(),BorderLayout.SOUTH);
-		
 		
 		this.setLayout(new BorderLayout());
 		this.add(getPGlobal(),BorderLayout.CENTER);
 		
 		
-		
 	}
-
-	public static void main(String[]args) {
-		Chat chat=new Chat();
+	
+	public static void main(String[] args) {
+		Chat chat= new Chat();
 		chat.setSize(500,500);
 		chat.setVisible(true);
 	}
