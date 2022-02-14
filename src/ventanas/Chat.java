@@ -6,6 +6,8 @@ import java.awt.Label;
 import java.awt.TextField;
 import java.awt.TextArea;
 import java.awt.Button;
+
+
 @Data
 public class Chat {
 	private Panel pGlobal,pSuperior,pCentral,pInferior,pCentralIzquierda,pCentralIzquierdaSuperior,pCentralIzquierdaInferior;
