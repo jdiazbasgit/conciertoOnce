@@ -77,7 +77,7 @@ public class Chat extends Frame{
 		this.setLayout(new BorderLayout());
 		this.add(getPGlobal(),BorderLayout.CENTER);
 		
-		  
+		   
 	}
 	
 	public static void main(String[] args) {
