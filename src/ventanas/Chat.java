@@ -13,9 +13,9 @@ import java.awt.TextField;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+@SuppressWarnings("serial")
 @Data
 @EqualsAndHashCode(callSuper = false)
-@SuppressWarnings("serial")
 public class Chat extends Frame {
 	private Panel pGlobal, pSuperior, pCentral, pInferior, pCentralIzquierda, pCentralIzquierdaSuperior,
 			pCentralIzquierdaInferior;
@@ -23,7 +23,7 @@ public class Chat extends Frame {
 	private Button bRegistrar, bEnviar;
 	private TextField tNick, tMensaje;
 	private TextArea taUsuarios, taMensajes;
-	asldñhjfklñasjdhfklajdlkgjaldjglajdg´la
+
 	public Chat() {
 		setPGlobal(new Panel());
 		setPSuperior(new Panel());
