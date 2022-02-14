@@ -21,7 +21,7 @@ public class Chat extends Frame{
 	private TextArea taUsuarios,taMensajes;
 	
 	 //fgfdg
-	// soy el profe
+	// soy el profe repitohfg
 	public Chat() {
 		setPGlobal(new Panel());
 		setPSuperior(new Panel());
