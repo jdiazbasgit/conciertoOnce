@@ -1,16 +1,17 @@
 package ventanas;
 
-import java.awt.Button;
-import java.awt.Color;
-import java.awt.FlowLayout;
-import java.awt.Label;
+import lombok.Data;
 import java.awt.Panel;
-import java.awt.TextArea;
+import java.awt.Label;
 import java.awt.TextField;
+import java.awt.TextArea;
+import java.awt.Button;
+import java.awt.FlowLayout;
+import java.awt.Color;
 import java.awt.BorderLayout;
 import java.awt.Frame;
 
-import lombok.Data;
+@SuppressWarnings("serial")
 @Data
 public class Chat extends Frame{
 	private Panel pGlobal,pSuperior,pCentral,pInferior,pCentralIzquierda,pCentralIzquierdaSuperior,pCentralIzquierdaInferior;
@@ -18,7 +19,7 @@ public class Chat extends Frame{
 	private Button bRegistrar,bEnviar;
 	private TextField tNick,tMensaje;
 	private TextArea taUsuarios,taMensajes;
-	
+	//cambio cosas
 	
 	
 	public Chat() {
@@ -44,7 +45,7 @@ public class Chat extends Frame{
 		getPSuperior().add(getTNick());
 		getPSuperior().add(getBRegistrar());
 		getPSuperior().setBackground(Color.GRAY);
-
+		
 		getPInferior().setLayout(new FlowLayout());
 		getPInferior().add(getLMensaje());
 		getPInferior().add(getTMensaje());
@@ -57,15 +58,14 @@ public class Chat extends Frame{
 		getPCentralIzquierdaInferior().setLayout(new BorderLayout());
 		getPCentralIzquierdaInferior().add(getTaUsuarios(),BorderLayout.CENTER);
 		
-		
 		getPCentralIzquierda().setLayout(new BorderLayout());
 		getPCentralIzquierda().add(getPCentralIzquierdaSuperior(),BorderLayout.NORTH);
 		getPCentralIzquierda().add(getPCentralIzquierdaInferior(),BorderLayout.CENTER);
 		
-		
 		getPCentral().setLayout(new BorderLayout());
 		getPCentral().add(getPCentralIzquierda(),BorderLayout.WEST);
 		getPCentral().add(getTaMensajes(),BorderLayout.CENTER);
+		
 		
 		
 		getPGlobal().setLayout(new BorderLayout());
@@ -74,15 +74,15 @@ public class Chat extends Frame{
 		getPGlobal().add(getPCentral(),BorderLayout.CENTER);
 		
 		this.setLayout(new BorderLayout());
-		
+		this.add(getPGlobal(),BorderLayout.CENTER);
 		
 		
 	}
+	
 	public static void main(String[] args) {
-		Chat chat = new Chat();
+		Chat chat= new Chat();
 		chat.setSize(500,500);
 		chat.setVisible(true);
-		
 	}
 
 }
