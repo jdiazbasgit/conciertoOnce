@@ -14,14 +14,14 @@ import lombok.Data;
 
 @SuppressWarnings("serial")
 @Data
-public class Chat extends Frame {
-	private Panel pGlobal, pSuperior, pCentral, pInferior, pCentralIzquierda, pCentralIzquierdaSuperior,
-			pCentralIzquierdaInferior;
+public class Chat extends Frame{
+	private Panel pGlobal,pSuperior,pCentral,pInferior,pCentralIzquierda,pCentralIzquierdaSuperior,pCentralIzquierdaInferior;
 	private Label lNick, lUsuarios, lMensaje;
 	private Button bRegistrar, bEnviar;
 	private TextField tNick, tMensaje;
 	private TextArea taUsuarios, taMensajes;
-
+	
+	
 	public Chat() {
 		setPGlobal(new Panel());
 		setPSuperior(new Panel());
@@ -36,6 +36,7 @@ public class Chat extends Frame {
 		setBEnviar(new Button("ENVIAR"));
 		setBRegistrar(new Button("REGISTRAR"));
 		setTNick(new TextField(15));
+		setTNick(new TextField(20));
 		setTMensaje(new TextField(80));
 		setTaMensajes(new TextArea(2, 20));
 		setTaUsuarios(new TextArea());
@@ -76,11 +77,12 @@ public class Chat extends Frame {
 
 	}
 
-	public static void main(String[] args) {
-		Chat chat = new Chat();
-		chat.setSize(500, 500);
-		chat.setVisible(true);
 
+	
+	public static void main(String[] args) {
+		Chat chat= new Chat();
+		chat.setSize(500,500);
+		chat.setVisible(true);
 	}
 
 }
