@@ -1,9 +1,6 @@
 package ventanas;
 
-import java.awt.BorderLayout;
 import java.awt.Button;
-import java.awt.Color;
-import java.awt.FlowLayout;
 import java.awt.Frame;
 import java.awt.Label;
 import java.awt.Panel;
