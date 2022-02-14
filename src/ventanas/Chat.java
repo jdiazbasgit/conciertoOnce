@@ -39,7 +39,7 @@ public class Chat extends Frame{
 		setTNick(new TextField(20));
 		setTMensaje(new TextField(80));
 		setTaMensajes(new TextArea(2, 20));
-		setTaUsuarios(new TextArea());
+		setTaUsuarios(new TextArea(2,20));
 
 		getPSuperior().setLayout(new FlowLayout());
 		getPSuperior().add(getLNick());
