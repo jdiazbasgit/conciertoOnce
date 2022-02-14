@@ -6,10 +6,8 @@ import java.awt.geom.Rectangle2D;
 import arkanoid.ventanas.Bloque;
 import arkanoid.ventanas.VentanaArkanoid;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 
 @Data
-@EqualsAndHashCode(callSuper=false)
 //@AllArgsConstructor
 public class Bola extends Thread {
 
@@ -71,7 +69,7 @@ public class Bola extends Thread {
 						if(c.getGolpes()<2)
 							c.setColor(Color.MAGENTA);
 						
-						if(c.getGolpes()<1)
+						if(c.getGolpes()<0)
 						
 						
 					

@@ -15,10 +15,9 @@ import arkanoid.eventos.EventosMio;
 import arkanoid.hilos.Bola;
 import arkanoid.hilos.Pintor;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 
 @Data
-@EqualsAndHashCode(callSuper=false)
+
 public class VentanaArkanoid extends Frame {
 
 	/**
@@ -67,7 +66,7 @@ public class VentanaArkanoid extends Frame {
 			Pintor pintor = new Pintor(this);
 			pintor.start();
 			setPrimeraVez(false);
-            setImagenBola(Toolkit.getDefaultToolkit().getImage("totoro.png"));
+            setImagenBola(Toolkit.getDefaultToolkit().getImage("red.png"));
 
 		}
 		getExterno().clearRect(0,0,2000,2000);
