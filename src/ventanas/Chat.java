@@ -3,6 +3,8 @@ package ventanas;
 import java.awt.BorderLayout;
 import java.awt.Button;
 import java.awt.Color;
+import java.awt.Component;
+import java.awt.Container;
 import java.awt.FlowLayout;
 import java.awt.Frame;
 import java.awt.Label;
@@ -83,5 +85,167 @@ public class Chat extends Frame {
 		chat.setSize(500, 500);
 		chat.setVisible(true);
 	}
+	
+	private Container getPGlobal() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	private Component getTaMensajes() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	private Container getPCentral() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	private Container getPCentralIzquierda() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	private Component getTaUsuarios() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	private Container getPCentralIzquierdaInferior() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	private Component getLUsuarios() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	private Container getPCentralIzquierdaSuperior() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	private Component getBEnviar() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	private Component getTMensaje() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	private Component getLMensaje() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	private Container getPInferior() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	private Component getBRegistrar() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	private Component getTNick() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	private Component getLNick() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	private Container getPSuperior() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	private void setTaUsuarios(TextArea textArea) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void setTaMensajes(TextArea textArea) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void setTMensaje(TextField textField) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void setTNick(TextField textField) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void setBRegistrar(Button button) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void setBEnviar(Button button) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void setLMensaje(Label label) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void setLUsuarios(Label label) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void setLNick(Label label) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void setPCentralIzquierdaInferior(Panel panel) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void setPCentralIzquierdaSuperior(Panel panel) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void setPCentralIzquierda(Panel panel) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void setPInferior(Panel panel) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void setPCentral(Panel panel) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void setPSuperior(Panel panel) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void setPGlobal(Panel panel) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
 
 }
