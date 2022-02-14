@@ -8,7 +8,11 @@ import arkanoid.ventanas.VentanaArkanoid;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+<<<<<<< HEAD
 
+=======
+@EqualsAndHashCode(callSuper=false)
+>>>>>>> branch 'arkanoid/Pedro' of https://github.com/jdiazbasgit/conciertoOnce.git
 @Data
 @EqualsAndHashCode(callSuper=false)
 public class Bola extends Thread {
