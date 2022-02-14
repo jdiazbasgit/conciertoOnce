@@ -5,14 +5,12 @@ import java.awt.event.WindowEvent;
 
 import arkanoid.hilos.Bola;
 import arkanoid.ventanas.VentanaArkanoid;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.EqualsAndHashCode;
 
 @Data
-@Setter
-@Getter
+@EqualsAndHashCode(callSuper=false)
+
 public class EventosMio extends GestorEventosAdapter {
 
 	private VentanaArkanoid ventanaArkanoid;

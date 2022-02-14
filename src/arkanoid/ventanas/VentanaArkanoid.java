@@ -15,8 +15,11 @@ import arkanoid.eventos.EventosMio;
 import arkanoid.hilos.Bola;
 import arkanoid.hilos.Pintor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
+@SuppressWarnings("serial")
 @Data
+@EqualsAndHashCode(callSuper=false)
 public class VentanaArkanoid extends Frame {
 
 	private Set<Bloque> cuadrados;
@@ -61,7 +64,7 @@ public class VentanaArkanoid extends Frame {
 			setPrimeraVez(false);
 		}
 		getExterno().clearRect(0, 0, 2000, 2000);
-		Image javier = Toolkit.getDefaultToolkit().getImage("javiBola.jpg");
+		
 
 		for (Bloque bloque : cuadrados) {
 			getExterno().setColor(bloque.getColor());
