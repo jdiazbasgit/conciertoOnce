@@ -20,7 +20,7 @@ public class Chat extends Frame{
 	private TextField tNick,tMensaje;
 	private TextArea taUsuarios,taMensajes;
 	
-	 
+	 //fgfdg
 	
 	public Chat() {
 		setPGlobal(new Panel());
