@@ -23,6 +23,7 @@ public class Chat extends JFrame{
 	
 	
 	public Chat() {
+		setLocation(500,200);
 		setPGlobal(new Panel());
 		setPSuperior(new Panel());
 		setPCentral(new Panel());
@@ -40,22 +41,26 @@ public class Chat extends JFrame{
 		setTaMensajes(new TextArea());
 		setTaUsuarios(new TextArea());
 		
+		//add el panel de arriva
 		getPSuperior().setLayout(new FlowLayout());
 		getPSuperior().add(getLNick());
 		getPSuperior().add(getTNick());
 		getPSuperior().add(getBRegistrar());
 		getPSuperior().setBackground(Color.GRAY);
 		
+		//add el panel de abajo
 		getPInferior().setLayout(new FlowLayout());
 		getPInferior().add(getLMensaje());
 		getPInferior().add(getTMensaje());
 		getPInferior().add(getBEnviar());
 		getPInferior().setBackground(Color.PINK);
 		
+		//coloco los paneles con borderLayout
 		getPGlobal().setLayout(new BorderLayout());
 		getPGlobal().add(getPSuperior(),BorderLayout.NORTH);
 		getPGlobal().add(getPInferior(),BorderLayout.SOUTH);
 		
+		//creo el panel global
 		this.setLayout(new BorderLayout());
 		this.add(getPGlobal(),BorderLayout.CENTER);
 		
