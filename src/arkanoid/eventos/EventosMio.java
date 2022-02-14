@@ -17,7 +17,7 @@ public class EventosMio extends GestorEventosAdapter {
 	
 	@Override
 	public void windowClosing(WindowEvent e) {
-		System.out.println("propiedad" + getVentanaArkanoid());
+		System.out.println();
 		System.exit(0);
 	}
 
