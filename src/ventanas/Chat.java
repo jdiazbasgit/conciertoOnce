@@ -1,6 +1,8 @@
 package ventanas;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+
 import java.awt.Panel;
 import java.awt.Label;
 import java.awt.TextField;
@@ -11,9 +13,14 @@ import java.awt.Color;
 import java.awt.BorderLayout;
 import java.awt.Frame;
 
-@SuppressWarnings("serial")
+
 @Data
+@EqualsAndHashCode(callSuper=false)
 public class Chat extends Frame{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Panel pGlobal,pSuperior,pCentral,pInferior,pCentralIzquierda,pCentralIzquierdaSuperior,pCentralIzquierdaInferior;
 	private Label lNick, lUsuarios, lMensaje;
 	private Button bRegistrar,bEnviar;
@@ -30,15 +37,18 @@ public class Chat extends Frame{
 		setPCentralIzquierda(new Panel());
 		setPCentralIzquierdaSuperior(new Panel());
 		setPCentralIzquierdaInferior(new Panel());
+		
 		setLNick(new Label("NICK:"));
 		setLUsuarios(new Label("USUARIOS"));
 		setLMensaje(new Label("MENSAJE:"));
+		//creamos el boton
 		setBEnviar(new Button("ENVIAR"));
 		setBRegistrar(new Button("REGISTRAR"));
+		//hacemos el campo de texto
 		setTNick(new TextField(20));
 		setTMensaje(new TextField(80));
 		setTaMensajes(new TextArea());
-		setTaUsuarios(new TextArea());
+		setTaUsuarios(new TextArea(2,20));
 		
 		getPSuperior().setLayout(new FlowLayout());
 		getPSuperior().add(getLNick());
@@ -51,6 +61,27 @@ public class Chat extends Frame{
 		getPInferior().add(getTMensaje());
 		getPInferior().add(getBEnviar());
 		getPInferior().setBackground(Color.PINK);
+		
+		
+		getPCentralIzquierdaSuperior().setLayout(new FlowLayout());
+		getPCentralIzquierdaSuperior().add(getLUsuarios());
+		
+		getPCentralIzquierdaInferior().setLayout(new BorderLayout());
+		getPCentralIzquierdaInferior().add(getTaUsuarios());
+		
+		getPCentralIzquierda().setLayout(new BorderLayout());
+		getPCentralIzquierda().add(getPCentralIzquierdaSuperior(),BorderLayout.NORTH);
+		getPCentralIzquierda().add(getPCentralIzquierdaInferior(),BorderLayout.CENTER);
+		
+		getPCentral().setLayout(new BorderLayout());
+	
+		
+		
+		
+		
+		
+		
+		
 		
 		getPGlobal().setLayout(new BorderLayout());
 		getPGlobal().add(getPSuperior(),BorderLayout.NORTH);
