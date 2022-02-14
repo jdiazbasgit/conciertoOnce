@@ -1,11 +1,12 @@
 package ventanas;
 
-import lombok.Data;
-import java.awt.Panel;
-import java.awt.Label;
-import java.awt.TextField;
-import java.awt.TextArea;
 import java.awt.Button;
+import java.awt.Label;
+import java.awt.Panel;
+import java.awt.TextArea;
+import java.awt.TextField;
+
+import lombok.Data;
 @Data
 public class Chat {
 	private Panel pGlobal,pSuperior,pCentral,pInferior,pCentralIzquierda,pCentralIzquierdaSuperior,pCentralIzquierdaInferior;
@@ -14,7 +15,7 @@ public class Chat {
 	private TextField tNick,tMensaje;
 	private TextArea taUsuarios,taMensajes;
 	
-	
+	 
 	public Chat() {
 		setPGlobal(new Panel());
 		setPSuperior(new Panel());
@@ -36,5 +37,6 @@ public class Chat {
 		
 		
 	}
+
 
 }
