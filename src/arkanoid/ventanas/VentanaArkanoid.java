@@ -16,15 +16,10 @@ import arkanoid.hilos.Bola;
 import arkanoid.hilos.Pintor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-<<<<<<< HEAD
 
 @SuppressWarnings("serial")
-=======
-@SuppressWarnings("serial")
 @EqualsAndHashCode(callSuper=false)
->>>>>>> branch 'arkanoid/Pedro' of https://github.com/jdiazbasgit/conciertoOnce.git
 @Data
-@EqualsAndHashCode(callSuper=false)
 public class VentanaArkanoid extends Frame {
 
 	private Set<Bloque> cuadrados;
