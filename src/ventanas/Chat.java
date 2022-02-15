@@ -9,7 +9,6 @@ import java.awt.Label;
 import java.awt.Panel;
 import java.awt.TextArea;
 import java.awt.TextField;
-import java.awt.event.WindowEvent;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -123,11 +122,9 @@ public class Chat extends GestorVentanaChatAdapter {
 		Chat chat = new Chat();
 		chat.setSize(1000, 1000);
 		chat.setVisible(true);
+		chat.addWindowListener(new GestorVentanaChatAdapter());
 	}
 
-	@Override
-	public void windowClosing(WindowEvent e) {
-		System.exit(0);
-	}
+	
 
 }
