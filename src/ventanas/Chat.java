@@ -91,16 +91,17 @@ public class Chat extends Frame {
 				GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
 		getPGlobal().add(getBRegistrar(), gbBRegister);
 
-		
-		
-		GridBagConstraints gbLUsuarios= new GridBagConstraints(0,0,2,1,0,0,GridBagConstraints.CENTER,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
-		getPSuperior().add(getLUsuarios(),gbLUsuarios);
-		
-		GridBagConstraints gbaTaMensajes= new GridBagConstraints(0,0,2,1,0,0,GridBagConstraints.CENTER,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
-		getPSuperior().add(getTaMensajes(),gbaTaMensajes);
-		
-		GridBagConstraints gbaTaUsuarios= new GridBagConstraints(0,0,2,1,0,0,GridBagConstraints.CENTER,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
-		getPSuperior().add(getTaUsuarios(),gbaTaUsuarios);
+		GridBagConstraints gbLUsuarios = new GridBagConstraints(0, 0, 2, 1, 0, 0, GridBagConstraints.CENTER,
+				GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
+		getPSuperior().add(getLUsuarios(), gbLUsuarios);
+
+		GridBagConstraints gbaTaMensajes = new GridBagConstraints(0, 0, 2, 1, 0, 0, GridBagConstraints.CENTER,
+				GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
+		getPSuperior().add(getTaMensajes(), gbaTaMensajes);
+
+		GridBagConstraints gbaTaUsuarios = new GridBagConstraints(0, 0, 2, 1, 0, 0, GridBagConstraints.CENTER,
+				GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
+		getPSuperior().add(getTaUsuarios(), gbaTaUsuarios);
 
 	}
 
@@ -112,3 +113,10 @@ public class Chat extends Frame {
 
 }
 
+GridBagConstraints gbLMensaje = new GridBagConstraints(0, 3, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
+
+getPGlobal().add(getLMensaje(), gbLMensaje);
+GridBagConstraints gbTMensaje = new GridBagConstraints(0, 3, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
+getPGlobal().add(getTMensaje(), gbTMensaje);
+GridBagConstraints gbBEnviar = new GridBagConstraints(0, 3, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
+getPGlobal().add(getBEnviar(), gbBEnviar);
