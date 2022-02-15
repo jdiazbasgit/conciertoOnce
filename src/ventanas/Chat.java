@@ -11,6 +11,7 @@ import java.awt.Color;
 import java.awt.BorderLayout;
 import java.awt.Frame;
 import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.Insets;
 
 @SuppressWarnings("serial")
@@ -77,12 +78,16 @@ public class Chat extends Frame{
 		 * this.setLayout(new BorderLayout());
 		 * this.add(getPGlobal(),BorderLayout.CENTER);
 		 */
-		GridBagConstraints gbLNick= new GridBagConstraints(0,0,2,1,1,1,GridBagConstraints.CENTER,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
-		getPSuperior().add(gbLNick);
-		GridBagConstraints gbTNick= new GridBagConstraints(2,0,1,1,1,1,GridBagConstraints.CENTER,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
-		GridBagConstraints gbBRegister= new GridBagConstraints(2,0,1,1,1,1,GridBagConstraints.CENTER,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
-		GridBagConstraints gbLMensaje= new GridBagConstraints(2,0,1,1,1,1,GridBagConstraints.CENTER,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
-		GridBagConstraints gbTaMensaje= new GridBagConstraints(1,1,3,2,1,1,GridBagConstraints.BOTH,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
+		
+		GridBagConstraints gbLNick= new GridBagConstraints(0,0,2,1,0,0,GridBagConstraints.CENTER,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
+		getPSuperior().add(getLNick(),gbLNick);
+		getPSuperior().setLayout(new GridBagLayout());
+		GridBagConstraints gbTNick= new GridBagConstraints(2,0,1,1,0,0,GridBagConstraints.CENTER,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
+		getPSuperior().add(getTNick(),gbTNick);
+		GridBagConstraints gbBRegister= new GridBagConstraints(2,0,1,1,0,0,GridBagConstraints.CENTER,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
+		getPSuperior().add(getBRegistrar(),gbBRegister);
+		GridBagConstraints gbLMensaje= new GridBagConstraints(2,0,1,1,0,0,GridBagConstraints.CENTER,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
+		GridBagConstraints gbTaMensaje= new GridBagConstraints(1,1,3,2,0,0,GridBagConstraints.BOTH,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
 		
 		
 		
