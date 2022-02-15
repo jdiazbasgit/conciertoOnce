@@ -17,7 +17,7 @@ public class Pintor extends Thread {
 		while(true) {
 			getVentanaArkanoid().repaint();
 			try {
-				Thread.sleep(10);
+				Thread.sleep(8);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

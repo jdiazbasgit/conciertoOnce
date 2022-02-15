@@ -55,9 +55,11 @@ public class VentanaArkanoid extends Frame {
 
 	@Override
 	public void paint(Graphics g) {
+		Color color = new Color(153,182,229);
+		//Image image = new Image("fondoArkanoid.png");//
 		if (isPrimeraVez()) {
 			setImagen(createImage(2000, 2000));
-			setBackground(Color.GRAY);
+			setBackground(color);
 			setExterno(getImagen().getGraphics());
 			
 			
@@ -74,7 +76,7 @@ public class VentanaArkanoid extends Frame {
 		for (Bloque bloque : cuadrados) {
 			getExterno().setColor(bloque.getColor());
 			getExterno().fillRect(bloque.getPosicionX(), bloque.getPosicionY(), bloque.getAncho(), bloque.getAlto());
-			getExterno().setColor(Color.BLACK);
+			getExterno().setColor(Color.BLUE);
 			getExterno().drawRect(bloque.getPosicionX(), bloque.getPosicionY(), bloque.getAncho(), bloque.getAlto());
 			getExterno().drawString(String.valueOf(bloque.getGolpes()), bloque.getPosicionX() + bloque.getAncho() / 2,
 					bloque.getPosicionY() + bloque.getAlto() / 2);
