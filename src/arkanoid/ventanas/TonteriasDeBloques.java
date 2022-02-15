@@ -25,15 +25,16 @@ public class TonteriasDeBloques {
 			getVentanaArkanoid().setCuadrados(new HashSet<>());
 			while (getVentanaArkanoid().getCuadrados().size() < getVentanaArkanoid().getNumeroBloques()) {
 
-				int superior = 150;
-				int inferior = getVentanaArkanoid().getHeight() - 350;
-				getVentanaArkanoid().getCuadrados().add(dameBloque(inferior, superior));
+				int superior = 300;
+				int inferior = getVentanaArkanoid().getHeight() - 300;
+				int lateral = getVentanaArkanoid().getAncho() - 1000;
+				getVentanaArkanoid().getCuadrados().add(dameBloque(inferior, superior, lateral));
 			}
 		}
 
 	}
 
-	private Bloque dameBloque(int inferior, int superior) {
+	private Bloque dameBloque(int inferior, int superior, int lateral) {
 		Bloque bloque = null;
 
 		boolean fin = false;
