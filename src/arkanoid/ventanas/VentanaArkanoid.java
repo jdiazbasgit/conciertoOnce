@@ -15,8 +15,11 @@ import arkanoid.eventos.EventosMio;
 import arkanoid.hilos.Bola;
 import arkanoid.hilos.Pintor;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Setter
+@Getter
 
 public class VentanaArkanoid extends Frame {
 
@@ -36,6 +39,7 @@ public class VentanaArkanoid extends Frame {
 	private int velocidad;
 	private int dimensionBola;
 	private Image imagenBola;
+	private Image ImagenFondo;
 
 	VentanaArkanoid() {
 		Properties properties = new Properties();
@@ -66,7 +70,6 @@ public class VentanaArkanoid extends Frame {
 			Pintor pintor = new Pintor(this);
 			pintor.start();
 			setPrimeraVez(false);
-			setBackground(Color.LIGHT_GRAY);
             setImagenBola(Toolkit.getDefaultToolkit().getImage("red.png"));
 
 		}

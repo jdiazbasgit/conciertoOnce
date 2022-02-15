@@ -2,13 +2,15 @@ package arkanoid.hilos;
 
 import java.awt.Color;
 import java.awt.geom.Rectangle2D;
-import java.util.Objects;
 
 import arkanoid.ventanas.Bloque;
 import arkanoid.ventanas.VentanaArkanoid;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Setter
+@Getter
 //@AllArgsConstructor
 public class Bola extends Thread {
 
@@ -59,33 +61,26 @@ public class Bola extends Thread {
 										(int) (c.getPosicionY() + c.getAlto()))) {
 							this.setSentidoX(this.getSentidoX() * -1);
 						}
-						
-						
+
 						c.setGolpes(c.getGolpes()-1);
-						if(c.getGolpes()<3)
-							c.setColor(Color.GREEN);
-						
-							
-						c.setGolpes(c.getGolpes());
-						if(c.getGolpes()<2)
-							c.setColor(Color.MAGENTA);
-						
-						if(c.getGolpes()<1)
-						
-						
-					
-							
+						switch(c.getGolpes()) {
+						case 2:
+							c.setColor(Color.YELLOW);
+							break;
+						case 1:
+							c.setColor(Color.GRAY);
+							break;
+						}
+						if(c.getGolpes()==0)
 						getVentanaArkanoid().getCuadrados().remove(c);
 					}
-					
 
-				
 				});
 				this.setPosicionX(this.getPosicionX() + this.getIncrementoX() * this.getSentidoX());
 				this.setPosicionY(this.getPosicionY() + this.getIncrementoY() * this.getSentidoY());
 				Thread.sleep(getVentanaArkanoid().getVelocidad());
 			} catch (Exception e) {
-			
+
 				// e.printStackTrace();
 			}
 		}
@@ -98,22 +93,5 @@ public class Bola extends Thread {
 		return miRectangulo.intersects((double) bloque.getPosicionX(), (double) bloque.getPosicionY(),
 				(double) bloque.getAncho(), (double) bloque.getAlto());
 	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Bola other = (Bola) obj;
-		return dimension == other.dimension && incrementoX == other.incrementoX && incrementoY == other.incrementoY
-				&& posicionX == other.posicionX && posicionY == other.posicionY && sentidoX == other.sentidoX
-				&& sentidoY == other.sentidoY && Objects.equals(ventanaArkanoid, other.ventanaArkanoid);
-	}
-
-
-
 
 }
