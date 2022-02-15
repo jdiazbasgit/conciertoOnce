@@ -34,50 +34,16 @@ public class Chat extends Frame{
 		setPCentralIzquierdaSuperior(new Panel());
 		setPCentralIzquierdaInferior(new Panel());
 		setLNick(new Label("NICK:"));
-		setLUsuarios(new Label("USUARIOS"));
+		setLUsuarios(new Label("USUARIOS"));   //ark4no
 		setLMensaje(new Label("MENSAJE:"));
 		setBEnviar(new Button("ENVIAR"));
 		setBRegistrar(new Button("REGISTRAR"));
 		setTNick(new TextField(20));
 		setTMensaje(new TextField(80));
-		setTaMensajes(new TextArea());
-		setTaUsuarios(new TextArea(2,20));
+		setTaMensajes(new TextArea());  //ark4no
+		setTaUsuarios(new TextArea(2,20)); //ark4no
 		
-		/*
-		 * getPSuperior().setLayout(new FlowLayout()); getPSuperior().add(getLNick());
-		 * getPSuperior().add(getTNick()); getPSuperior().add(getBRegistrar());
-		 * getPSuperior().setBackground(Color.GRAY);
-		 * 
-		 * getPInferior().setLayout(new FlowLayout());
-		 * getPInferior().add(getLMensaje()); getPInferior().add(getTMensaje());
-		 * getPInferior().add(getBEnviar()); getPInferior().setBackground(Color.PINK);
-		 * 
-		 * getPCentralIzquierdaSuperior().setLayout(new FlowLayout());
-		 * getPCentralIzquierdaSuperior().add(getLUsuarios());
-		 * 
-		 * getPCentralIzquierdaInferior().setLayout(new BorderLayout());
-		 * getPCentralIzquierdaInferior().add(getTaUsuarios(),BorderLayout.CENTER);
-		 * 
-		 * getPCentralIzquierda().setLayout(new BorderLayout());
-		 * getPCentralIzquierda().add(getPCentralIzquierdaSuperior(),BorderLayout.NORTH)
-		 * ;
-		 * getPCentralIzquierda().add(getPCentralIzquierdaInferior(),BorderLayout.CENTER
-		 * );
-		 * 
-		 * getPCentral().setLayout(new BorderLayout());
-		 * getPCentral().add(getPCentralIzquierda(),BorderLayout.WEST);
-		 * getPCentral().add(getTaMensajes(),BorderLayout.CENTER);
-		 * 
-		 * 
-		 * 
-		 * getPGlobal().setLayout(new BorderLayout());
-		 * getPGlobal().add(getPSuperior(),BorderLayout.NORTH);
-		 * getPGlobal().add(getPInferior(),BorderLayout.SOUTH);
-		 * getPGlobal().add(getPCentral(),BorderLayout.CENTER);
-		 * 
-		 * this.setLayout(new BorderLayout());
-		 * this.add(getPGlobal(),BorderLayout.CENTER);
-		 */
+	
 		
 		GridBagConstraints gbLNick= new GridBagConstraints(0,0,2,1,0,0,GridBagConstraints.CENTER,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
 		getPSuperior().add(getLNick(),gbLNick);
@@ -88,6 +54,15 @@ public class Chat extends Frame{
 		getPSuperior().add(getBRegistrar(),gbBRegister);
 		GridBagConstraints gbLMensaje= new GridBagConstraints(2,0,1,1,0,0,GridBagConstraints.CENTER,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
 		GridBagConstraints gbTaMensaje= new GridBagConstraints(1,1,3,2,0,0,GridBagConstraints.BOTH,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
+		
+		GridBagConstraints gbLUsuarios= new GridBagConstraints(0,0,2,1,0,0,GridBagConstraints.CENTER,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
+		getPSuperior().add(getLNick(),gbLUsuarios);
+		
+		GridBagConstraints gbaMensajes= new GridBagConstraints(0,0,2,1,0,0,GridBagConstraints.CENTER,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
+		getPSuperior().add(getLNick(),gbaMensajes);
+		
+		GridBagConstraints gbaUsuarios= new GridBagConstraints(0,0,2,1,0,0,GridBagConstraints.CENTER,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
+		getPSuperior().add(getLNick(),gbaUsuarios);
 		
 		
 		
