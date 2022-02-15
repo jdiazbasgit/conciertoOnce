@@ -10,8 +10,12 @@ import java.awt.TextArea;
 import java.awt.Button;
 import java.awt.FlowLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.BorderLayout;
 import java.awt.Frame;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
 
 @Data
 @EqualsAndHashCode(callSuper=false)
@@ -28,6 +32,7 @@ public class Chat extends Frame{
 
 	
 	
+	@SuppressWarnings("unused")
 	public Chat() {
 		setPGlobal(new Panel());
 		setPSuperior(new Panel());
@@ -81,6 +86,18 @@ public class Chat extends Frame{
 		 * this.setLayout(new BorderLayout());
 		 * this.add(getPGlobal(),BorderLayout.CENTER);
 		 */
+		getPGlobal().setLayout(new GridBagLayout());
+		this.add(pGlobal);
+		GridBagConstraints gbclnic= new GridBagConstraints(0, 0, 1, 1, 1, 1, GridBagConstraints.NORTHWEST,GridBagConstraints.NONE , new Insets(0,0,0,0),0,0);
+		getPGlobal().add(lNick,gbclnic);
+		
+		GridBagConstraints gbtNick= new GridBagConstraints(0, 0, 0, 2, 1, 1, GridBagConstraints.NORTHWEST,GridBagConstraints.NONE , new Insets(0,0,0,0),0,0);
+		getPGlobal().add(tNick,gbtNick);
+		
+	
+		GridBagConstraints gbbRegistrar= new GridBagConstraints( 1, 3, 0, 3, 3 ,3 ,GridBagConstraints.,GridBagConstraints.NORTH, new Insets(0,0,0,0),0,0);
+		getPGlobal().add(bRegistrar,gbbRegistrar);
+		
 		
 	}
 	
