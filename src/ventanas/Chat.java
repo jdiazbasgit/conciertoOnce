@@ -1,21 +1,21 @@
 package ventanas;
 
-import lombok.Data;
-import java.awt.Panel;
-import java.awt.Label;
-import java.awt.TextField;
-import java.awt.TextArea;
 import java.awt.Button;
-import java.awt.FlowLayout;
-import java.awt.Color;
-import java.awt.BorderLayout;
 import java.awt.Frame;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.Label;
+import java.awt.Panel;
+import java.awt.TextArea;
+import java.awt.TextField;
+
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 @SuppressWarnings("serial")
 @Data
+@EqualsAndHashCode(callSuper = false)
 public class Chat extends Frame {
 	private Panel pGlobal, pSuperior, pCentral, pInferior, pCentralIzquierda, pCentralIzquierdaSuperior,
 			pCentralIzquierdaInferior;
@@ -23,7 +23,6 @@ public class Chat extends Frame {
 	private Button bRegistrar, bEnviar;
 	private TextField tNick, tMensaje;
 	private TextArea taUsuarios, taMensajes;
-	// cambio cosas
 
 	public Chat() {
 		setPGlobal(new Panel());
@@ -41,8 +40,8 @@ public class Chat extends Frame {
 		setTNick(new TextField(20));
 		setTMensaje(new TextField(80));
 		setTaMensajes(new TextArea());
-		setTaUsuarios(new TextArea(2,20));
-		
+		setTaUsuarios(new TextArea(2, 20));
+
 		/*
 		 * getPSuperior().setLayout(new FlowLayout()); getPSuperior().add(getLNick());
 		 * getPSuperior().add(getTNick()); getPSuperior().add(getBRegistrar());
@@ -78,19 +77,26 @@ public class Chat extends Frame {
 		 * this.setLayout(new BorderLayout());
 		 * this.add(getPGlobal(),BorderLayout.CENTER);
 		 */
-		
-		GridBagConstraints gbLNick= new GridBagConstraints(SOMEBITS, PROPERTIES, WIDTH, HEIGHT, HEIGHT, HEIGHT, FRAMEBITS, ERROR, getInsets(), ALLBITS, ABORT)
-		getPSuperior().add(getLNick(),gbLNick);
-		getPSuperior().setLayout(new GridBagLayout());
-		GridBagConstraints gbTNick= new GridBagConstraints(2,0,1,1,0,0,GridBagConstraints.CENTER,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
-		getPSuperior().add(getTNick(),gbTNick);
-		GridBagConstraints gbBRegister= new GridBagConstraints(2,0,1,1,0,0,GridBagConstraints.CENTER,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
-		getPSuperior().add(getBRegistrar(),gbBRegister);
-		GridBagConstraints gbLMensaje= new GridBagConstraints(2,0,1,1,0,0,GridBagConstraints.CENTER,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
-		GridBagConstraints gbTaMensaje= new GridBagConstraints(1,1,3,2,0,0,GridBagConstraints.BOTH,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
-		
-		
-		
+
+		this.add(getPGlobal());
+		getPGlobal().setLayout(new GridBagLayout());
+		GridBagConstraints gbLNick = new GridBagConstraints(0, 0, 2, 1, 0, 0, GridBagConstraints.CENTER,
+				GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
+		getPGlobal().add(getLNick(), gbLNick);
+
+		GridBagConstraints gbTNick = new GridBagConstraints(2, 0, 1, 1, 0, 0, GridBagConstraints.CENTER,
+				GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
+		getPGlobal().add(getTNick(), gbTNick);
+		GridBagConstraints gbBRegister = new GridBagConstraints(2, 4, 1, 1, 0, 0, GridBagConstraints.CENTER,
+				GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
+		getPGlobal().add(getBRegistrar(), gbBRegister);
+		// GridBagConstraints gbLMensaje= new
+		// GridBagConstraints(2,0,1,1,0,0,GridBagConstraints.CENTER,GridBagConstraints.NONE,new
+		// Insets(0,0,0,0),0,0);
+		// GridBagConstraints gbTaMensaje= new
+		// GridBagConstraints(1,1,3,2,0,0,GridBagConstraints.BOTH,GridBagConstraints.NONE,new
+		// Insets(0,0,0,0),0,0);
+
 	}
 
 	public static void main(String[] args) {
