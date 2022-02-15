@@ -1,3 +1,5 @@
+package ventanas;
+
 import java.awt.Button;
 import java.awt.Frame;
 import java.awt.GridBagConstraints;
@@ -92,13 +94,13 @@ public class Chat extends Frame {
 		
 		
 		GridBagConstraints gbLUsuarios= new GridBagConstraints(0,0,2,1,0,0,GridBagConstraints.CENTER,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
-		getPSuperior().add(getLNick(),gbLUsuarios);
+		getPSuperior().add(getLUsuarios(),gbLUsuarios);
 		
-		GridBagConstraints gbaMensajes= new GridBagConstraints(0,0,2,1,0,0,GridBagConstraints.CENTER,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
-		getPSuperior().add(getLNick(),gbaMensajes);
+		GridBagConstraints gbaTaMensajes= new GridBagConstraints(0,0,2,1,0,0,GridBagConstraints.CENTER,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
+		getPSuperior().add(getTaMensajes(),gbaTaMensajes);
 		
-		GridBagConstraints gbaUsuarios= new GridBagConstraints(0,0,2,1,0,0,GridBagConstraints.CENTER,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
-		getPSuperior().add(getLNick(),gbaUsuarios);
+		GridBagConstraints gbaTaUsuarios= new GridBagConstraints(0,0,2,1,0,0,GridBagConstraints.CENTER,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
+		getPSuperior().add(getTaUsuarios(),gbaTaUsuarios);
 
 	}
 
