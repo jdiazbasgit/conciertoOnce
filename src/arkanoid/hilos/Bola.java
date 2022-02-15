@@ -5,7 +5,6 @@ import java.awt.geom.Rectangle2D;
 
 import arkanoid.ventanas.Bloque;
 import arkanoid.ventanas.VentanaArkanoid;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 

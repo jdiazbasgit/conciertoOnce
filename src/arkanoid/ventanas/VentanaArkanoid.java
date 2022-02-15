@@ -14,7 +14,6 @@ import java.util.Set;
 import arkanoid.eventos.EventosMio;
 import arkanoid.hilos.Bola;
 import arkanoid.hilos.Pintor;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
