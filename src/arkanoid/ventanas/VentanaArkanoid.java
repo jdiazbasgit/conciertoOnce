@@ -39,7 +39,8 @@ public class VentanaArkanoid extends Frame {
 	private int dimensionBola;
 	private Image imagenBola;
 	private Image ImagenFondo;
-
+	private Image ImagenBloque;
+   
 	VentanaArkanoid() {
 		Properties properties = new Properties();
 		try {
@@ -69,14 +70,17 @@ public class VentanaArkanoid extends Frame {
 			Pintor pintor = new Pintor(this);
 			pintor.start();
 			setPrimeraVez(false);
+			
             setImagenBola(Toolkit.getDefaultToolkit().getImage("red.png"));
+            setImagenFondo(Toolkit.getDefaultToolkit().getImage("ar.jpg"));
 
 		}
 		getExterno().clearRect(0,0,2000,2000);
+		getExterno().drawImage(getImagenFondo(), 0, 0, this.getWidth(), this.getHeight(), this);
 		for (Bloque bloque : cuadrados) {
 			getExterno().setColor(bloque.getColor());
 			getExterno().fillRect(bloque.getPosicionX(), bloque.getPosicionY(), bloque.getAncho(), bloque.getAlto());
-			getExterno().setColor(Color.BLACK);
+			getExterno().setColor(Color.WHITE);
 			getExterno().drawRect(bloque.getPosicionX(), bloque.getPosicionY(), bloque.getAncho(), bloque.getAlto());
 			getExterno().drawString(String.valueOf(bloque.getGolpes()),bloque.getPosicionX()+bloque.getAncho()/2, bloque.getPosicionY()+bloque.getAlto()/2);
 	        
