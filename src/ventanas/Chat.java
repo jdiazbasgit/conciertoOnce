@@ -39,8 +39,8 @@ public class Chat extends GestorVentanaChatAdapter {
 		setLMensaje(new Label("MENSAJE:"));
 		setBEnviar(new Button("ENVIAR"));
 		setBRegistrar(new Button("REGISTRAR"));
-		setTNick(new TextField(40));
-		setTMensaje(new TextField(80));
+		setTNick(new TextField(10));
+		setTMensaje(new TextField(250));
 		setTaMensajes(new TextArea());
 		setTaUsuarios(new TextArea(20, 1));
 
@@ -124,7 +124,5 @@ public class Chat extends GestorVentanaChatAdapter {
 		chat.setVisible(true);
 		chat.addWindowListener(new GestorVentanaChatAdapter());
 	}
-
-	
 
 }

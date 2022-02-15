@@ -4,7 +4,6 @@ import java.awt.Frame;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
-
 @SuppressWarnings("serial")
 public class GestorVentanaChatAdapter extends Frame implements WindowListener {
 
@@ -15,7 +14,6 @@ public class GestorVentanaChatAdapter extends Frame implements WindowListener {
 
 	@Override
 	public void windowClosing(WindowEvent e) {
-		System.out.println("CIERRA");
 		System.exit(0);
 	}
 
