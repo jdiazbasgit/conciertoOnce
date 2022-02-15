@@ -11,6 +11,8 @@ import java.awt.FlowLayout;
 import java.awt.Color;
 import java.awt.BorderLayout;
 import java.awt.Frame;
+import java.awt.GridBagConstraints;
+import java.awt.Insets;
  
 @SuppressWarnings("serial")
 @Data
@@ -41,41 +43,48 @@ public class Chat extends Frame{
 		setTaMensajes(new TextArea());
 		setTaUsuarios(new TextArea(2,20));
 		
-		getPSuperior().setLayout(new FlowLayout());
-		getPSuperior().add(getLNick());
-		getPSuperior().add(getTNick());
-		getPSuperior().add(getBRegistrar());
-		getPSuperior().setBackground(Color.GRAY);
+		/*
+		 * getPSuperior().setLayout(new FlowLayout()); getPSuperior().add(getLNick());
+		 * getPSuperior().add(getTNick()); getPSuperior().add(getBRegistrar());
+		 * getPSuperior().setBackground(Color.GRAY);
+		 * 
+		 * getPInferior().setLayout(new FlowLayout());
+		 * getPInferior().add(getLMensaje()); getPInferior().add(getTMensaje());
+		 * getPInferior().add(getBEnviar()); getPInferior().setBackground(Color.PINK);
+		 * 
+		 * getPCentralIzquierdaSuperior().setLayout(new FlowLayout());
+		 * getPCentralIzquierdaSuperior().add(getLUsuarios());
+		 * 
+		 * getPCentralIzquierdaInferior().setLayout(new BorderLayout());
+		 * getPCentralIzquierdaInferior().add(getTaUsuarios(),BorderLayout.CENTER);
+		 * 
+		 * getPCentralIzquierda().setLayout(new BorderLayout());
+		 * getPCentralIzquierda().add(getPCentralIzquierdaSuperior(),BorderLayout.NORTH)
+		 * ;
+		 * getPCentralIzquierda().add(getPCentralIzquierdaInferior(),BorderLayout.CENTER
+		 * );
+		 * 
+		 * getPCentral().setLayout(new BorderLayout());
+		 * getPCentral().add(getPCentralIzquierda(),BorderLayout.WEST);
+		 * getPCentral().add(getTaMensajes(),BorderLayout.CENTER);
+		 * 
+		 * 
+		 * 
+		 * getPGlobal().setLayout(new BorderLayout());
+		 * getPGlobal().add(getPSuperior(),BorderLayout.NORTH);
+		 * getPGlobal().add(getPInferior(),BorderLayout.SOUTH);
+		 * getPGlobal().add(getPCentral(),BorderLayout.CENTER);
+		 * 
+		 * this.setLayout(new BorderLayout());
+		 * this.add(getPGlobal(),BorderLayout.CENTER);
+		 */
 		
-		getPInferior().setLayout(new FlowLayout());
-		getPInferior().add(getLMensaje());
-		getPInferior().add(getTMensaje());
-		getPInferior().add(getBEnviar());
-		getPInferior().setBackground(Color.PINK);
+		GridBagConstraints gb1 = new GridBagConstraints(0,0,2,1,0,0,GridBagConstraints.CENTER,GridBagConstraints.BOTH,new Insets(0,0,0,0),0,0);
 		
-		getPCentralIzquierdaSuperior().setLayout(new FlowLayout());
-		getPCentralIzquierdaSuperior().add(getLUsuarios());
 		
-		getPCentralIzquierdaInferior().setLayout(new BorderLayout());
-		getPCentralIzquierdaInferior().add(getTaUsuarios(),BorderLayout.CENTER);
 		
-		getPCentralIzquierda().setLayout(new BorderLayout());
-		getPCentralIzquierda().add(getPCentralIzquierdaSuperior(),BorderLayout.NORTH);
-		getPCentralIzquierda().add(getPCentralIzquierdaInferior(),BorderLayout.CENTER);
 		
-		getPCentral().setLayout(new BorderLayout());
-		getPCentral().add(getPCentralIzquierda(),BorderLayout.WEST);
-		getPCentral().add(getTaMensajes(),BorderLayout.CENTER);
 		
-		 
-		
-		getPGlobal().setLayout(new BorderLayout());
-		getPGlobal().add(getPSuperior(),BorderLayout.NORTH);
-		getPGlobal().add(getPInferior(),BorderLayout.SOUTH);
-		getPGlobal().add(getPCentral(),BorderLayout.CENTER);
-		
-		this.setLayout(new BorderLayout());
-		this.add(getPGlobal(),BorderLayout.CENTER);
 		
 		   
 	}
