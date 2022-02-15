@@ -85,7 +85,7 @@ public class Chat extends Frame{
 				GridBagConstraints.NONE, new Insets(0,0,0,0),0,0);
 		pGlobal.add(lNick,gb_LNick);
 		GridBagConstraints gb_TNick = new GridBagConstraints (0,2,1,1,1,1,GridBagConstraints.CENTER,
-				GridBagConstraints.HORIZONTAL, new Insets(0,0,0,0),0,0);
+				GridBagConstraints.BOTH, new Insets(0,0,0,0),0,0);
 		pGlobal.add(tNick,gb_TNick);
 
 		GridBagConstraints gb_BRegistrar= new GridBagConstraints (0,3,1,1,1,1,GridBagConstraints.EAST,
