@@ -45,10 +45,10 @@ public class Bola extends Thread {
 					if (miraChoque(c)) {
 						Rectangle2D.Double miRectangulo = new Rectangle2D.Double(this.getPosicionX(),
 								this.getPosicionY(), this.getDimension(), this.getDimension());
-						if (miRectangulo.intersectsLine((int) (c.getPosicionX()), (int) (c.getPosicionY()),
-								(int) (c.getPosicionX() + c.getAncho()), (int) (c.getPosicionY()))
-								|| miRectangulo.intersectsLine((int) (c.getPosicionX()),
-										(int) (c.getPosicionY() + c.getAlto()), (int) (c.getPosicionX() + c.getAncho()),
+						if (miRectangulo.intersectsLine((int) (c.getPosicionX()+this.getDimension()), (int) (c.getPosicionY()),
+								(int) (c.getPosicionX() + c.getAncho()+this.getDimension()), (int) (c.getPosicionY()))
+								|| miRectangulo.intersectsLine((int) (c.getPosicionX()+this.getDimension()),
+										(int) (c.getPosicionY() + c.getAlto()), (int) (c.getPosicionX() + c.getAncho()+this.getDimension()),
 										(int) (c.getPosicionY() + c.getAlto()))) {
 							this.setSentidoY(this.getSentidoY() * -1);
 						}
