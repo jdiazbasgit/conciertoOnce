@@ -9,6 +9,7 @@ import java.awt.Label;
 import java.awt.Panel;
 import java.awt.TextArea;
 import java.awt.TextField;
+import java.awt.Color;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -23,7 +24,7 @@ public class Chat extends Frame {
 	private Button bRegistrar, bEnviar;
 	private TextField tNick, tMensaje;
 	private TextArea taUsuarios, taMensajes;
-
+	private Color color;
 	public Chat() {
 		setPGlobal(new Panel());
 //		setPSuperior(new Panel());
@@ -37,7 +38,7 @@ public class Chat extends Frame {
 		setLMensaje(new Label("MENSAJE:"));
 		setBEnviar(new Button("ENVIAR"));
 		setBRegistrar(new Button("REGISTRAR"));
-		setTNick(new TextField(20));
+		setTNick(new TextField(40));
 		setTMensaje(new TextField(80));
 		setTaMensajes(new TextArea());
 		setTaUsuarios(new TextArea(2, 20));
@@ -81,38 +82,41 @@ public class Chat extends Frame {
 		this.add(getPGlobal());
 		getPGlobal().setLayout(new GridBagLayout());
 //Superior
-		GridBagConstraints gbLNick = new GridBagConstraints(0, 0, 1, 1, 25, 10, GridBagConstraints.CENTER,
-				GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0);
+		
+		GridBagConstraints gbLNick = new GridBagConstraints(0, 0, 1, 1, 30, 10, GridBagConstraints.CENTER,
+				GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
 		getPGlobal().add(getLNick(), gbLNick);
+		setColor(Color.PINK);
+		
 
-		GridBagConstraints gbTNick = new GridBagConstraints(1, 0, 1, 1, 25, 10, GridBagConstraints.NORTHWEST,
-				GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0);
+		GridBagConstraints gbTNick = new GridBagConstraints(1, 0, 1, 1, 40, 10, GridBagConstraints.CENTER,
+				GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
 		getPGlobal().add(getTNick(), gbTNick);
-		GridBagConstraints gbBRegister = new GridBagConstraints(2, 0, 1, 1, 25, 10, GridBagConstraints.NORTHWEST,
+		GridBagConstraints gbBRegister = new GridBagConstraints(2, 0, 1, 1, 30, 10, GridBagConstraints.CENTER,
 				GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0);
 		getPGlobal().add(getBRegistrar(), gbBRegister);
 //Centro
-		GridBagConstraints gbLUsuarios = new GridBagConstraints(0, 1, 2, 1, 25, 10, GridBagConstraints.NORTHWEST,
+		GridBagConstraints gbLUsuarios = new GridBagConstraints(0, 1, 1, 1, 10, 10, GridBagConstraints.CENTER,
 				GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
 		getPGlobal().add(getLUsuarios(), gbLUsuarios);
-		GridBagConstraints gbaTaUsuarios = new GridBagConstraints(0, 2, 2, 1, 25, 70, GridBagConstraints.SOUTHWEST,
+		GridBagConstraints gbaTaUsuarios = new GridBagConstraints(0, 2, 1, 1, 10, 70, GridBagConstraints.SOUTHWEST,
 				GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0);
 		getPGlobal().add(getTaUsuarios(), gbaTaUsuarios);
 
-		GridBagConstraints gbaTaMensajes = new GridBagConstraints(1, 1, 2, 1, 75, 80, GridBagConstraints.NORTHWEST,
+		GridBagConstraints gbaTaMensajes = new GridBagConstraints(1, 1, 2, 2, 90, 80, GridBagConstraints.NORTHWEST,
 				GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0);
 		getPGlobal().add(getTaMensajes(), gbaTaMensajes);
 
 		
 //Inferior
-		GridBagConstraints gbLMensaje = new GridBagConstraints(0, 3, 1, 1, 25, 10, GridBagConstraints.NORTHWEST,
-				GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0);
+		GridBagConstraints gbLMensaje = new GridBagConstraints(0, 3, 1, 1, 10, 10, GridBagConstraints.CENTER,
+				GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
 
 		getPGlobal().add(getLMensaje(), gbLMensaje);
-		GridBagConstraints gbTMensaje = new GridBagConstraints(1, 3, 1, 1, 25, 10, GridBagConstraints.NORTHWEST,
+		GridBagConstraints gbTMensaje = new GridBagConstraints(1, 3, 1, 1, 80, 10, GridBagConstraints.NORTHWEST,
 				GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0);
 		getPGlobal().add(getTMensaje(), gbTMensaje);
-		GridBagConstraints gbBEnviar = new GridBagConstraints(2, 3, 1, 1, 25, 10, GridBagConstraints.NORTHWEST,
+		GridBagConstraints gbBEnviar = new GridBagConstraints(2, 3, 1, 1, 10, 10, GridBagConstraints.CENTER,
 				GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0);
 		getPGlobal().add(getBEnviar(), gbBEnviar);
 
