@@ -87,14 +87,21 @@ public class Chat extends GestorVentanaChatAdapter {
 		getPGlobal().add(getLNick(), gbLNick);
 		setColor(Color.PINK);
 
+//Superior
+
+		GridBagConstraints gbLNick = new GridBagConstraints(0, 0, 1, 1, 0, 10, GridBagConstraints.CENTER,
+				GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
+		getPGlobal().add(getLNick(), gbLNick);
+		setColor(Color.PINK);
 		GridBagConstraints gbTNick = new GridBagConstraints(1, 0, 1, 1, 40, 10, GridBagConstraints.CENTER,
 				GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0);
 		getPGlobal().add(getTNick(), gbTNick);
 		GridBagConstraints gbBRegister = new GridBagConstraints(2, 0, 1, 1, 30, 10, GridBagConstraints.CENTER,
 				GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
 		getPGlobal().add(getBRegistrar(), gbBRegister);
-
 //Center
+
+//Centro
 
 		GridBagConstraints gbLUsuarios = new GridBagConstraints(0, 1, 1, 1, 80, 10, GridBagConstraints.CENTER,
 				GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
