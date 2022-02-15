@@ -81,18 +81,18 @@ public class Chat extends Frame{
 		
 */	
 		pGlobal.setLayout(new GridBagLayout());
-		GridBagConstraints gb_LNick = new GridBagConstraints (0,0,2,1,1,1,GridBagConstraints.CENTER,
+		GridBagConstraints gb_LNick = new GridBagConstraints (0,0,2,1,1,1,GridBagConstraints.WEST,
 				GridBagConstraints.NONE, new Insets(0,0,0,0),0,0);
 		pGlobal.add(lNick,gb_LNick);
 		GridBagConstraints gb_TNick = new GridBagConstraints (0,2,1,1,1,1,GridBagConstraints.CENTER,
 				GridBagConstraints.HORIZONTAL, new Insets(0,0,0,0),0,0);
 		pGlobal.add(tNick,gb_TNick);
 
-		GridBagConstraints gb_BRegistrar= new GridBagConstraints (0,3,1,1,1,1,GridBagConstraints.CENTER,
+		GridBagConstraints gb_BRegistrar= new GridBagConstraints (0,3,1,1,1,1,GridBagConstraints.EAST,
 				GridBagConstraints.CENTER, new Insets(0,0,0,0),0,0);
 		pGlobal.add(bRegistrar,gb_BRegistrar);
 		
-		GridBagConstraints gb_LUsuarios = new GridBagConstraints (1,0,1,1,1,1,GridBagConstraints.CENTER,
+		GridBagConstraints gb_LUsuarios = new GridBagConstraints (1,0,1,1,1,1,GridBagConstraints.WEST,
 				GridBagConstraints.CENTER, new Insets(0,0,0,0),0,0);
 		pGlobal.add(lUsuarios,gb_LUsuarios);
 		
@@ -100,7 +100,7 @@ public class Chat extends Frame{
 				GridBagConstraints.CENTER, new Insets(0,0,0,0),0,0);
 		pGlobal.add(taUsuarios,gb_TaUsuarios);
 		
-		GridBagConstraints gb_LMensaje = new GridBagConstraints (3,0,1,1,1,1,GridBagConstraints.CENTER,
+		GridBagConstraints gb_LMensaje = new GridBagConstraints (3,0,1,1,1,1,GridBagConstraints.WEST,
 				GridBagConstraints.CENTER, new Insets(0,0,0,0),0,0);
 		pGlobal.add(lMensaje,gb_LMensaje);
 		
@@ -108,7 +108,7 @@ public class Chat extends Frame{
 				GridBagConstraints.CENTER, new Insets(0,0,0,0),0,0);
 		pGlobal.add(tMensaje,gb_TMensaje);
 		
-		GridBagConstraints gb_BEnviar = new GridBagConstraints (3,3,1,1,1,1,GridBagConstraints.CENTER,
+		GridBagConstraints gb_BEnviar = new GridBagConstraints (3,3,1,1,1,1,GridBagConstraints.EAST,
 				GridBagConstraints.CENTER, new Insets(0,0,0,0),0,0);
 		pGlobal.add(bEnviar,gb_BEnviar);
 		
