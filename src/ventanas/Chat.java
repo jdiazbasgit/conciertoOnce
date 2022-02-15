@@ -32,7 +32,6 @@ public class Chat extends Frame{
 
 	
 	
-	@SuppressWarnings("unused")
 	public Chat() {
 		setPGlobal(new Panel());
 		setPSuperior(new Panel());
