@@ -56,7 +56,6 @@ public class VentanaArkanoid extends Frame {
 	@Override
 	public void paint(Graphics g) {
 		Color color = new Color(153,182,229);
-		//Image image = new Image("fondoArkanoid.png");//
 		if (isPrimeraVez()) {
 			setImagen(createImage(2000, 2000));
 			setBackground(color);
