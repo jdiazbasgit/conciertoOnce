@@ -36,7 +36,7 @@ public class Chat extends GestorVentanaChatAdapter {
 //		setPCentralIzquierdaSuperior(new Panel());
 //		setPCentralIzquierdaInferior(new Panel());
 		setLNick(new Label("NICK:"));
-		setLUsuarios(new Label("USUARIOS"));
+		setLUsuarios(new Label("USUARIOS:"));
 		setLMensaje(new Label("MENSAJE:"));
 		setBEnviar(new Button("ENVIAR"));
 		setBRegistrar(new Button("REGISTRAR"));
@@ -101,7 +101,6 @@ public class Chat extends GestorVentanaChatAdapter {
 		GridBagConstraints gbaTaUsuarios = new GridBagConstraints(0, 2, 1, 1, 0, 70, GridBagConstraints.SOUTHWEST,
 				GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0);
 		getPGlobal().add(getTaUsuarios(), gbaTaUsuarios);
-
 		GridBagConstraints gbaTaMensajes = new GridBagConstraints(1, 1, 2, 2, 90, 80, GridBagConstraints.NORTHWEST,
 				GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0);
 		getPGlobal().add(getTaMensajes(), gbaTaMensajes);
@@ -110,7 +109,6 @@ public class Chat extends GestorVentanaChatAdapter {
 
 		GridBagConstraints gbLMensaje = new GridBagConstraints(0, 3, 1, 1, 0, 10, GridBagConstraints.CENTER,
 				GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
-
 		getPGlobal().add(getLMensaje(), gbLMensaje);
 		GridBagConstraints gbTMensaje = new GridBagConstraints(1, 3, 1, 1, 80, 10, GridBagConstraints.CENTER,
 				GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0);
