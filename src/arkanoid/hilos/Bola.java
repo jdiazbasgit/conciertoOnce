@@ -2,14 +2,13 @@ package arkanoid.hilos;
 
 import java.awt.Color;
 import java.awt.geom.Rectangle2D;
+import java.util.Objects;
 
 import arkanoid.ventanas.Bloque;
 import arkanoid.ventanas.VentanaArkanoid;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 
 @Data
-@EqualsAndHashCode(callSuper=false)
 //@AllArgsConstructor
 public class Bola extends Thread {
 
@@ -99,6 +98,21 @@ public class Bola extends Thread {
 		return miRectangulo.intersects((double) bloque.getPosicionX(), (double) bloque.getPosicionY(),
 				(double) bloque.getAncho(), (double) bloque.getAlto());
 	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Bola other = (Bola) obj;
+		return dimension == other.dimension && incrementoX == other.incrementoX && incrementoY == other.incrementoY
+				&& posicionX == other.posicionX && posicionY == other.posicionY && sentidoX == other.sentidoX
+				&& sentidoY == other.sentidoY && Objects.equals(ventanaArkanoid, other.ventanaArkanoid);
+	}
+
 
 
 
