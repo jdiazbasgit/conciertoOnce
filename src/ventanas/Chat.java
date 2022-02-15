@@ -27,12 +27,12 @@ public class Chat extends Frame{
 	
 	public Chat() {
 		setPGlobal(new Panel());
-		setPSuperior(new Panel());
-		setPCentral(new Panel());
-		setPInferior(new Panel());
-		setPCentralIzquierda(new Panel());
-		setPCentralIzquierdaSuperior(new Panel());
-		setPCentralIzquierdaInferior(new Panel());
+		//setPSuperior(new Panel());
+		//setPCentral(new Panel());
+		//setPInferior(new Panel());
+		//setPCentralIzquierda(new Panel());
+//		setPCentralIzquierdaSuperior(new Panel());
+//		setPCentralIzquierdaInferior(new Panel());
 		setLNick(new Label("NICK:"));
 		setLUsuarios(new Label("USUARIOS"));
 		setLMensaje(new Label("MENSAJE:"));
@@ -78,16 +78,17 @@ public class Chat extends Frame{
 		 * this.setLayout(new BorderLayout());
 		 * this.add(getPGlobal(),BorderLayout.CENTER);
 		 */
-		
+		this.add(getPGlobal());
+		getPGlobal().setLayout(new GridBagLayout());
 		GridBagConstraints gbLNick= new GridBagConstraints(0,0,2,1,0,0,GridBagConstraints.CENTER,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
-		getPSuperior().add(getLNick(),gbLNick);
-		getPSuperior().setLayout(new GridBagLayout());
+		getPGlobal().add(getLNick(),gbLNick);
+		
 		GridBagConstraints gbTNick= new GridBagConstraints(2,0,1,1,0,0,GridBagConstraints.CENTER,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
-		getPSuperior().add(getTNick(),gbTNick);
-		GridBagConstraints gbBRegister= new GridBagConstraints(2,0,1,1,0,0,GridBagConstraints.CENTER,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
-		getPSuperior().add(getBRegistrar(),gbBRegister);
-		GridBagConstraints gbLMensaje= new GridBagConstraints(2,0,1,1,0,0,GridBagConstraints.CENTER,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
-		GridBagConstraints gbTaMensaje= new GridBagConstraints(1,1,3,2,0,0,GridBagConstraints.BOTH,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
+		getPGlobal().add(getTNick(),gbTNick);
+		GridBagConstraints gbBRegister= new GridBagConstraints(2,4,1,1,0,0,GridBagConstraints.CENTER,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
+		getPGlobal().add(getBRegistrar(),gbBRegister);
+		//GridBagConstraints gbLMensaje= new GridBagConstraints(2,0,1,1,0,0,GridBagConstraints.CENTER,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
+		//GridBagConstraints gbTaMensaje= new GridBagConstraints(1,1,3,2,0,0,GridBagConstraints.BOTH,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
 		
 		
 		
