@@ -80,38 +80,40 @@ public class Chat extends Frame {
 
 		this.add(getPGlobal());
 		getPGlobal().setLayout(new GridBagLayout());
-		GridBagConstraints gbLNick = new GridBagConstraints(0, 0, 2, 1, 0, 0, GridBagConstraints.CENTER,
-				GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
+//Superior
+		GridBagConstraints gbLNick = new GridBagConstraints(0, 0, 1, 1, 25, 10, GridBagConstraints.CENTER,
+				GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0);
 		getPGlobal().add(getLNick(), gbLNick);
 
-		GridBagConstraints gbTNick = new GridBagConstraints(2, 0, 1, 1, 0, 0, GridBagConstraints.CENTER,
-				GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
+		GridBagConstraints gbTNick = new GridBagConstraints(1, 0, 1, 1, 25, 10, GridBagConstraints.NORTHWEST,
+				GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0);
 		getPGlobal().add(getTNick(), gbTNick);
-		GridBagConstraints gbBRegister = new GridBagConstraints(2, 4, 1, 1, 0, 0, GridBagConstraints.CENTER,
-				GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
+		GridBagConstraints gbBRegister = new GridBagConstraints(2, 0, 1, 1, 25, 10, GridBagConstraints.NORTHWEST,
+				GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0);
 		getPGlobal().add(getBRegistrar(), gbBRegister);
-
-		GridBagConstraints gbLUsuarios = new GridBagConstraints(0, 0, 2, 1, 0, 0, GridBagConstraints.CENTER,
+//Centro
+		GridBagConstraints gbLUsuarios = new GridBagConstraints(0, 1, 2, 1, 25, 10, GridBagConstraints.NORTHWEST,
 				GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
 		getPGlobal().add(getLUsuarios(), gbLUsuarios);
-
-		GridBagConstraints gbaTaMensajes = new GridBagConstraints(0, 0, 2, 1, 0, 0, GridBagConstraints.CENTER,
-				GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
-		getPGlobal().add(getTaMensajes(), gbaTaMensajes);
-
-		GridBagConstraints gbaTaUsuarios = new GridBagConstraints(0, 0, 2, 1, 0, 0, GridBagConstraints.CENTER,
-				GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
+		GridBagConstraints gbaTaUsuarios = new GridBagConstraints(0, 2, 2, 1, 25, 70, GridBagConstraints.SOUTHWEST,
+				GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0);
 		getPGlobal().add(getTaUsuarios(), gbaTaUsuarios);
 
-		GridBagConstraints gbLMensaje = new GridBagConstraints(0, 3, 1, 1, 0, 0, GridBagConstraints.CENTER,
-				GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
+		GridBagConstraints gbaTaMensajes = new GridBagConstraints(1, 1, 2, 1, 75, 80, GridBagConstraints.NORTHWEST,
+				GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0);
+		getPGlobal().add(getTaMensajes(), gbaTaMensajes);
+
+		
+//Inferior
+		GridBagConstraints gbLMensaje = new GridBagConstraints(0, 3, 1, 1, 25, 10, GridBagConstraints.NORTHWEST,
+				GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0);
 
 		getPGlobal().add(getLMensaje(), gbLMensaje);
-		GridBagConstraints gbTMensaje = new GridBagConstraints(0, 3, 1, 1, 0, 0, GridBagConstraints.CENTER,
-				GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
+		GridBagConstraints gbTMensaje = new GridBagConstraints(1, 3, 1, 1, 25, 10, GridBagConstraints.NORTHWEST,
+				GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0);
 		getPGlobal().add(getTMensaje(), gbTMensaje);
-		GridBagConstraints gbBEnviar = new GridBagConstraints(0, 3, 1, 1, 0, 0, GridBagConstraints.CENTER,
-				GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
+		GridBagConstraints gbBEnviar = new GridBagConstraints(2, 3, 1, 1, 25, 10, GridBagConstraints.NORTHWEST,
+				GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0);
 		getPGlobal().add(getBEnviar(), gbBEnviar);
 
 	}
