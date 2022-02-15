@@ -55,13 +55,12 @@ public class VentanaArkanoid extends Frame {
 
 	@Override
 	public void paint(Graphics g) {
-		Color color = new Color(153,182,229);
+		//Color color = new Color(153,182,229);
 		if (isPrimeraVez()) {
 			setImagen(createImage(2000, 2000));
-			setBackground(color);
+			
+			//setBackground(color);
 			setExterno(getImagen().getGraphics());
-			
-			
 			
 			TonteriasDeBloques tonterias = new TonteriasDeBloques(this);
 			tonterias.cargaBloques();
@@ -69,6 +68,8 @@ public class VentanaArkanoid extends Frame {
 			pintor.start();
 			setPrimeraVez(false);
 			setImagenBola(Toolkit.getDefaultToolkit().getImage("javiBola.png"));
+			setImagenFondo(Toolkit.getDefaultToolkit().getImage("fondoArkanoid.png"));
+			
 		}
 		getExterno().clearRect(0, 0, 2000, 2000);
 
