@@ -41,7 +41,7 @@ public class Chat extends Frame {
 		setTaUsuarios(new TextArea(2, 20));
 
 		
-		GridBagConstraints gbLNick = new GridBagConstraints(0, 0, 1, 1, 1, 1, CENTER_ALIGNMENT, , getInsets(), ALLBITS, ABORT)
+		GridBagConstraints gbLNick = new GridBagConstraints(SOMEBITS, PROPERTIES, WIDTH, HEIGHT, HEIGHT, HEIGHT, FRAMEBITS, ERROR, getInsets(), ALLBITS, ABORT)
 		GridBagConstraints gbTNick
 		GridBagConstraints gbBRegister
 		GridBagConstraints gbLMensaje
