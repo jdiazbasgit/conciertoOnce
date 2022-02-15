@@ -16,23 +16,23 @@ import java.awt.Insets;
 
 @SuppressWarnings("serial")
 @Data
-public class Chat extends Frame{
-	private Panel pGlobal,pSuperior,pCentral,pInferior,pCentralIzquierda,pCentralIzquierdaSuperior,pCentralIzquierdaInferior;
+public class Chat extends Frame {
+	private Panel pGlobal, pSuperior, pCentral, pInferior, pCentralIzquierda, pCentralIzquierdaSuperior,
+			pCentralIzquierdaInferior;
 	private Label lNick, lUsuarios, lMensaje;
-	private Button bRegistrar,bEnviar;
-	private TextField tNick,tMensaje;
-	private TextArea taUsuarios,taMensajes;
-	//cambio cosas
-	
-	
+	private Button bRegistrar, bEnviar;
+	private TextField tNick, tMensaje;
+	private TextArea taUsuarios, taMensajes;
+	// cambio cosas
+
 	public Chat() {
 		setPGlobal(new Panel());
-		setPSuperior(new Panel());
-		setPCentral(new Panel());
-		setPInferior(new Panel());
-		setPCentralIzquierda(new Panel());
-		setPCentralIzquierdaSuperior(new Panel());
-		setPCentralIzquierdaInferior(new Panel());
+//		setPSuperior(new Panel());
+//		setPCentral(new Panel());
+//		setPInferior(new Panel());
+//		setPCentralIzquierda(new Panel());
+//		setPCentralIzquierdaSuperior(new Panel());
+//		setPCentralIzquierdaInferior(new Panel());
 		setLNick(new Label("NICK:"));
 		setLUsuarios(new Label("USUARIOS"));
 		setLMensaje(new Label("MENSAJE:"));
@@ -79,7 +79,7 @@ public class Chat extends Frame{
 		 * this.add(getPGlobal(),BorderLayout.CENTER);
 		 */
 		
-		GridBagConstraints gbLNick= new GridBagConstraints(0,0,2,1,0,0,GridBagConstraints.CENTER,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
+		GridBagConstraints gbLNick= new GridBagConstraints(SOMEBITS, PROPERTIES, WIDTH, HEIGHT, HEIGHT, HEIGHT, FRAMEBITS, ERROR, getInsets(), ALLBITS, ABORT)
 		getPSuperior().add(getLNick(),gbLNick);
 		getPSuperior().setLayout(new GridBagLayout());
 		GridBagConstraints gbTNick= new GridBagConstraints(2,0,1,1,0,0,GridBagConstraints.CENTER,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
@@ -92,10 +92,10 @@ public class Chat extends Frame{
 		
 		
 	}
-	
+
 	public static void main(String[] args) {
-		Chat chat= new Chat();
-		chat.setSize(500,500);
+		Chat chat = new Chat();
+		chat.setSize(500, 500);
 		chat.setVisible(true);
 	}
 
