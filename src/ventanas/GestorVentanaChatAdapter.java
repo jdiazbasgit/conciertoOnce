@@ -14,7 +14,7 @@ public class GestorVentanaChatAdapter extends Frame implements WindowListener {
 
 	@Override
 	public void windowClosing(WindowEvent e) {
-		System.exit(0);
+
 	}
 
 	@Override
