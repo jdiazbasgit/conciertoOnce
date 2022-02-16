@@ -11,8 +11,6 @@ import java.awt.TextArea;
 import java.awt.TextField;
 
 import lombok.Data;
-<<<<<<< HEAD
-=======
 import java.awt.FlowLayout;
 import java.awt.Color;
 import java.awt.BorderLayout;
@@ -20,7 +18,6 @@ import java.awt.Frame;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
->>>>>>> branch 'chat/grupo4' of https://github.com/jdiazbasgit/conciertoOnce.git
  
 @SuppressWarnings("serial")
 @Data
@@ -54,7 +51,7 @@ public class Chat extends Frame{
 		setTaMensajes(new TextArea());
 		setTaUsuarios(new TextArea(2,20));
 		
-<<<<<<< HEAD
+
 	/*	getPSuperior().setLayout(new FlowLayout());
 		getPSuperior().add(getLNick());
 		getPSuperior().add(getTNick());
@@ -96,49 +93,12 @@ public class Chat extends Frame{
 		 * this.setLayout(new BorderLayout());
 		 * this.add(getPGlobal(),BorderLayout.CENTER);
 		 */
->>>>>>> branch 'chat/grupo4' of https://github.com/jdiazbasgit/conciertoOnce.git
-		
-		getPGlobal().setLayout(new GridBagLayout());
-		this.add(pGlobal);
-		GridBagConstraints gbclnic= new GridBagConstraints(0, 0, 2, 1, 1, 1, GridBagConstraints.EAST,GridBagConstraints.NONE , new Insets(0,0,0,0),0,0);
-		getPGlobal().add(lNick,gbclnic);
-		
-		GridBagConstraints gbtNick= new GridBagConstraints(2, 0, 1, 1, 1, 1, GridBagConstraints.CENTER,GridBagConstraints.HORIZONTAL, new Insets(0,0,0,0),0,0);
-		getPGlobal().add(tNick,gbtNick);
-		
 	
-		GridBagConstraints gbbRegistrar= new GridBagConstraints( 3, 0,1, 1, 1,1,GridBagConstraints.CENTER,GridBagConstraints.NONE, new Insets(0,0,0,0),0,0);
-		getPGlobal().add(bRegistrar,gbbRegistrar);
-		
-		
-		GridBagConstraints gbbLUsuarios= new GridBagConstraints( 0, 1,1, 1, 1,1,GridBagConstraints.CENTER,GridBagConstraints.NONE, new Insets(0,0,0,0),0,0);
-		getPGlobal().add(lUsuarios,gbbLUsuarios);
-		
-		
-		
-		GridBagConstraints gbbtAMensajes= new GridBagConstraints( 1, 1,3, 2, 1,1,GridBagConstraints.CENTER,GridBagConstraints.BOTH, new Insets(0,0,0,0),0,0);
-			getPGlobal().add(taMensajes,gbbtAMensajes);
-			
-			
-			GridBagConstraints gbtAUsuarios= new GridBagConstraints( 0, 2,1, 1, 1,1,GridBagConstraints.CENTER,GridBagConstraints.BOTH, new Insets(0,0,0,0),0,0);
-			getPGlobal().add(taUsuarios,gbtAUsuarios);
-				
-		
-		GridBagConstraints gbbLMensaje= new GridBagConstraints( 0, 3,1, 1, 1,1,GridBagConstraints.CENTER,GridBagConstraints.NONE, new Insets(0,0,0,0),0,0);
-		getPGlobal().add(lMensaje,gbbLMensaje);
-		
-
-		GridBagConstraints gbbTMensaje= new GridBagConstraints( 1, 3,1, 1, 1,1,GridBagConstraints.CENTER,GridBagConstraints.NONE, new Insets(0,0,0,0),0,0);
-		getPGlobal().add(tMensaje,gbbTMensaje);
-		
-		GridBagConstraints gbbBEnviar= new GridBagConstraints( 3, 3,2, 2, 1,1,GridBagConstraints.CENTER,GridBagConstraints.NONE, new Insets(0,0,0,0),0,0);
-		getPGlobal().add(bEnviar,gbbBEnviar);
 		
 		
 		
 		
 		
-*/	
 		getPGlobal().setLayout(new GridBagLayout());
 		this.add(pGlobal);
 		getPGlobal().setBackground(Color.PINK);
