@@ -115,7 +115,7 @@ public class Chat extends Frame{
 		getPGlobal().add(lMensaje,gbbLMensaje);
 		
 
-		GridBagConstraints gbbTMensaje= new GridBagConstraints( 1, 3,1, 1, 0,0,GridBagConstraints.CENTER,GridBagConstraints.BOTH, new Insets(0,0,0,0),0,0);
+		GridBagConstraints gbbTMensaje= new GridBagConstraints( 1, 3,1, 1, 0,0,GridBagConstraints.CENTER,GridBagConstraints.HORIZONTAL, new Insets(0,0,0,0),0,0);
 		getPGlobal().add(tMensaje,gbbTMensaje);
 		
 		GridBagConstraints gbbBEnviar= new GridBagConstraints( 3, 3,2, 2, 0,0,GridBagConstraints.WEST,GridBagConstraints.NONE, new Insets(0,0,0,0),0,0);
