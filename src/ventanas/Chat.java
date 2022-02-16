@@ -90,18 +90,18 @@ public class Chat extends GestorVentanaChatAdapter {
 				GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0);
 		getPGlobal().add(getTNick(), gbTNick);
 		GridBagConstraints gbBRegister = new GridBagConstraints(2, 0, 1, 1, 30, 10, GridBagConstraints.WEST,
-				GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
+				GridBagConstraints.NONE, new Insets(0, 20, 0, 0), 0, 0);
 		getPGlobal().add(getBRegistrar(), gbBRegister);
 
 //Center
 
-		GridBagConstraints gbLUsuarios = new GridBagConstraints(0, 1, 1, 1, 80, 10, GridBagConstraints.CENTER,
+		GridBagConstraints gbLUsuarios = new GridBagConstraints(0, 1, 1, 1, 20, 1, GridBagConstraints.CENTER,
 				GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
 		getPGlobal().add(getLUsuarios(), gbLUsuarios);
 		GridBagConstraints gbaTaUsuarios = new GridBagConstraints(0, 2, 1, 1, 0, 70, GridBagConstraints.EAST,
 				GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0);
 		getPGlobal().add(getTaUsuarios(), gbaTaUsuarios);
-		GridBagConstraints gbaTaMensajes = new GridBagConstraints(1, 1, 1, 2, 90, 80, GridBagConstraints.WEST,
+		GridBagConstraints gbaTaMensajes = new GridBagConstraints(1, 1, 2, 2, 90, 80, GridBagConstraints.WEST,
 				GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0);
 		getPGlobal().add(getTaMensajes(), gbaTaMensajes);
 
@@ -114,7 +114,7 @@ public class Chat extends GestorVentanaChatAdapter {
 				GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0);
 		getPGlobal().add(getTMensaje(), gbTMensaje);
 		GridBagConstraints gbBEnviar = new GridBagConstraints(2, 3, 1, 1, 10, 10, GridBagConstraints.WEST,
-				GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
+				GridBagConstraints.NONE, new Insets(0, 20, 0, 0), 0, 0);
 		getPGlobal().add(getBEnviar(), gbBEnviar);
 
 	}
