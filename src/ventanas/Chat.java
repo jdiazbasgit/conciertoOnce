@@ -1,21 +1,18 @@
 package ventanas;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-
-import java.awt.Panel;
-import java.awt.Label;
-import java.awt.TextField;
-import java.awt.TextArea;
 import java.awt.Button;
-import java.awt.FlowLayout;
 import java.awt.Color;
-import java.awt.Component;
-import java.awt.BorderLayout;
 import java.awt.Frame;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.Label;
+import java.awt.Panel;
+import java.awt.TextArea;
+import java.awt.TextField;
+
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper=false)
