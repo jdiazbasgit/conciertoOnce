@@ -1,14 +1,15 @@
 package ventanas;
-
+import java.awt.Color;
 import java.awt.Button;
 import java.awt.Frame;
+import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.Label;
 import java.awt.Panel;
 import java.awt.TextArea;
 import java.awt.TextField;
-import java.awt.GridBagConstraints;
+
 import lombok.Data;
  
 @SuppressWarnings("serial")
@@ -82,6 +83,7 @@ public class Chat extends Frame{
 */	
 		getPGlobal().setLayout(new GridBagLayout());
 		this.add(pGlobal);
+		getPGlobal().setBackground(Color.YELLOW);
 		GridBagConstraints gb_LNick = new GridBagConstraints (0,0,2,1,1,1,GridBagConstraints.EAST,
 				GridBagConstraints.NONE, new Insets(0,0,0,0),0,0);
 		getPGlobal().add(lNick,gb_LNick);
@@ -101,7 +103,7 @@ public class Chat extends Frame{
 				GridBagConstraints.BOTH, new Insets(0,0,0,0),0,0);
 		getPGlobal().add(taUsuarios,gb_TaUsuarios);
 		
-		GridBagConstraints gb_LMensaje = new GridBagConstraints (0,3,1,1,1,1,GridBagConstraints.WEST,
+		GridBagConstraints gb_LMensaje = new GridBagConstraints (0,3,1,1,1,1,GridBagConstraints.CENTER,
 				GridBagConstraints.CENTER, new Insets(0,0,0,0),0,0);
 		getPGlobal().add(lMensaje,gb_LMensaje);
 		
@@ -109,7 +111,7 @@ public class Chat extends Frame{
 				GridBagConstraints.CENTER, new Insets(0,0,0,0),0,0);
 		getPGlobal().add(tMensaje,gb_TMensaje);
 		
-		GridBagConstraints gb_BEnviar = new GridBagConstraints (3,3,1,1,1,1,GridBagConstraints.EAST,
+		GridBagConstraints gb_BEnviar = new GridBagConstraints (3,3,1,1,1,1,GridBagConstraints.CENTER,
 				GridBagConstraints.CENTER, new Insets(0,0,0,0),0,0);
 		getPGlobal().add(bEnviar,gb_BEnviar);
 		
