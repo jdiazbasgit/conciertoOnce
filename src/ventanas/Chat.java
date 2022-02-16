@@ -28,8 +28,8 @@ public class Chat extends JFrame {
 	private TextArea taUsuarios, taMensajes;
 
 	public Chat() {
-		setLocation(300, 100);
-		setTitle("Chat de Antonio");
+		setLocation(100, 100);
+		setTitle("Chat del equipo 3");
 		setPGlobal(new Panel());
 		setPSuperior(new Panel());
 		setPCentral(new Panel());
@@ -42,19 +42,19 @@ public class Chat extends JFrame {
 		setLMensaje(new Label("MENSAJE:"));
 		setBEnviar(new Button("ENVIAR"));
 		setBRegistrar(new Button("REGISTRAR"));
-		setTNick(new TextField(20));
+		setTNick(new TextField(40));
 		setTMensaje(new TextField(80));
 		setTaMensajes(new TextArea());
-		setTaUsuarios(new TextArea(2, 20));
+		setTaUsuarios(new TextArea(30, 20));
 		
 		
 		
-		//Panel pGlobal =new Panel();
+		
 		Panel panel = new Panel();
 		
 		panel.setLayout(new GridBagLayout());
 		
-		GridBagConstraints gbclNick = new GridBagConstraints(0,0,2,1,1,1,GridBagConstraints.EAST,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
+		GridBagConstraints gbclNick = new GridBagConstraints(0,0,2,1,1,1,GridBagConstraints.CENTER,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
 		panel.add(lNick,gbclNick);
 		
 		GridBagConstraints gbctNick = new GridBagConstraints(2,0,1,1,2,1,GridBagConstraints.CENTER,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
@@ -64,16 +64,16 @@ public class Chat extends JFrame {
 		panel.add(bRegistrar,gbcbRegistrar);
 		this.add(panel);
 		
-		GridBagConstraints gbctMensaje = new GridBagConstraints(2,3,1,1,1,1,GridBagConstraints.SOUTH,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
+		GridBagConstraints gbctMensaje = new GridBagConstraints(2,3,1,1,1,1,GridBagConstraints.CENTER,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
 		panel.add(tMensaje,gbctMensaje);
 		
 		
 		
 		
-		GridBagConstraints gbclMensaje = new GridBagConstraints(0,3,2,1,1,1,GridBagConstraints.EAST,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
+		GridBagConstraints gbclMensaje = new GridBagConstraints(0,3,1,1,1,1,GridBagConstraints.EAST,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
 		panel.add(lMensaje,gbclMensaje);
 		
-		GridBagConstraints gbctaMensajes = new GridBagConstraints(1,2,1,1,1,1,GridBagConstraints.EAST,GridBagConstraints.BOTH,new Insets(0,0,0,0),0,0);
+		GridBagConstraints gbctaMensajes = new GridBagConstraints(2,2,1,1,1,1,GridBagConstraints.CENTER,GridBagConstraints.BOTH,new Insets(0,0,0,0),0,0);
 		panel.add(taMensajes,gbctaMensajes);
 		
 		
@@ -83,9 +83,11 @@ public class Chat extends JFrame {
 		
 		
 		
-		GridBagConstraints gbclUsuarios = new GridBagConstraints(1,1,1,1,1,1,GridBagConstraints.WEST,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
+		GridBagConstraints gbclUsuarios = new GridBagConstraints(0,1,1,1,1,1,GridBagConstraints.CENTER,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
 		panel.add(lUsuarios,gbclUsuarios);
 		
+		GridBagConstraints gbctAUsuarios = new GridBagConstraints(0,2,1,1,2,2,GridBagConstraints.CENTER,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
+		panel.add(taUsuarios,gbctAUsuarios);
 		
 		
 		
