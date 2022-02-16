@@ -31,12 +31,6 @@ public class Chat extends GestorVentanaChatAdapter {
 
 	public Chat() {
 		setPGlobal(new Panel());
-//		setPSuperior(new Panel());
-//		setPCentral(new Panel());
-//		setPInferior(new Panel());
-//		setPCentralIzquierda(new Panel());
-//		setPCentralIzquierdaSuperior(new Panel());
-//		setPCentralIzquierdaInferior(new Panel());
 		setLNick(new Label("NICK:"));
 		setLUsuarios(new Label("USUARIOS:"));
 		setLMensaje(new Label("MENSAJE:"));
@@ -46,38 +40,6 @@ public class Chat extends GestorVentanaChatAdapter {
 		setTMensaje(new TextField(80));
 		setTaMensajes(new TextArea());
 		setTaUsuarios(new TextArea(20, 1));
-
-//		  getPSuperior().setLayout(new FlowLayout()); getPSuperior().add(getLNick());
-//		 getPSuperior().add(getTNick()); getPSuperior().add(getBRegistrar());
-//		 getPSuperior().setBackground(Color.GRAY);
-//		 
-//		  getPInferior().setLayout(new FlowLayout());
-//		  getPInferior().add(getLMensaje()); getPInferior().add(getTMensaje());
-//		  getPInferior().add(getBEnviar()); getPInferior().setBackground(Color.PINK);
-//		  
-//		  getPCentralIzquierdaSuperior().setLayout(new FlowLayout());
-//		  getPCentralIzquierdaSuperior().add(getLUsuarios());
-//		  
-//		  getPCentralIzquierdaInferior().setLayout(new BorderLayout());
-//		  getPCentralIzquierdaInferior().add(getTaUsuarios(),BorderLayout.CENTER);
-//		  
-//		  getPCentralIzquierda().setLayout(new BorderLayout());
-//		  getPCentralIzquierda().add(getPCentralIzquierdaSuperior(),BorderLayout.NORTH);
-//		  getPCentralIzquierda().add(getPCentralIzquierdaInferior(),BorderLayout.CENTER);
-//		  
-//		  getPCentral().setLayout(new BorderLayout());
-//		  getPCentral().add(getPCentralIzquierda(),BorderLayout.WEST);
-//		  getPCentral().add(getTaMensajes(),BorderLayout.CENTER);
-//		  
-//		  
-//		  
-//		  getPGlobal().setLayout(new BorderLayout());
-//		  getPGlobal().add(getPSuperior(),BorderLayout.NORTH);
-//		  getPGlobal().add(getPInferior(),BorderLayout.SOUTH);
-//		  getPGlobal().add(getPCentral(),BorderLayout.CENTER);
-//		  
-//		  this.setLayout(new BorderLayout());
-//		  this.add(getPGlobal(),BorderLayout.CENTER);
 
 		this.add(getPGlobal());
 		getPGlobal().setLayout(new GridBagLayout());
