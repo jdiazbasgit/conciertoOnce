@@ -56,11 +56,11 @@ public class Chat extends Frame {
 		panel.add(getLUsuarios(), gb4);
 
 		GridBagConstraints gb5 = new GridBagConstraints(0, 2, 3, 1, 0, 0.4, GridBagConstraints.CENTER,
-				GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0);
+				GridBagConstraints.BOTH, new Insets(0, 30, 0, 50), 0, 0);
 		panel.add(getTaUsuarios(), gb5);
 
 		GridBagConstraints gb6 = new GridBagConstraints(4, 1, 7, 8, 0, 0, GridBagConstraints.CENTER,
-				GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0);
+				GridBagConstraints.BOTH, new Insets(0, 0, 0, 150), 0, 0);
 		panel.add(getTaMensajes(), gb6);
 
 		GridBagConstraints gb7 = new GridBagConstraints(0, 9, 8, 1, 0, 0.1, GridBagConstraints.EAST,
