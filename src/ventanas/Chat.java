@@ -10,6 +10,7 @@ import java.awt.Panel;
 import java.awt.TextArea;
 import java.awt.TextField;
 import java.awt.event.WindowEvent;
+import java.awt.Font;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -26,6 +27,7 @@ public class Chat extends GestorVentanaChatAdapter {
 	private TextField tNick, tMensaje;
 	private TextArea taUsuarios, taMensajes;
 	private Color color = new Color(0, 150, 175);
+	Font fuente=new Font("Arial", Font.ITALIC, 15);
 
 	public Chat() {
 		setPGlobal(new Panel());
@@ -80,6 +82,7 @@ public class Chat extends GestorVentanaChatAdapter {
 		this.add(getPGlobal());
 		getPGlobal().setLayout(new GridBagLayout());
 		getPGlobal().setBackground(color);
+		getPGlobal().setFont(fuente);
 //Superior
 
 		GridBagConstraints gbLNick = new GridBagConstraints(0, 0, 1, 1, 0, 10, GridBagConstraints.EAST,
@@ -98,10 +101,10 @@ public class Chat extends GestorVentanaChatAdapter {
 		GridBagConstraints gbLUsuarios = new GridBagConstraints(0, 1, 1, 1, 30, 1, GridBagConstraints.CENTER,
 				GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
 		getPGlobal().add(getLUsuarios(), gbLUsuarios);
-		GridBagConstraints gbaTaUsuarios = new GridBagConstraints(0, 2, 1, 1, 0, 70, GridBagConstraints.CENTER,
+		GridBagConstraints gbaTaUsuarios = new GridBagConstraints(0, 2, 1, 1, 0, 10, GridBagConstraints.CENTER,
 				GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0);
 		getPGlobal().add(getTaUsuarios(), gbaTaUsuarios);
-		GridBagConstraints gbaTaMensajes = new GridBagConstraints(1, 1, 2, 2, 90, 80, GridBagConstraints.EAST,
+		GridBagConstraints gbaTaMensajes = new GridBagConstraints(1, 1, 2, 2, 90, 10, GridBagConstraints.EAST,
 				GridBagConstraints.BOTH, new Insets(0, 20, 0, 0), 0, 0);
 		getPGlobal().add(getTaMensajes(), gbaTaMensajes);
 
