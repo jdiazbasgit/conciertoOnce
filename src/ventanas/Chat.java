@@ -5,11 +5,17 @@ import java.awt.Panel;
 import java.awt.Label;
 import java.awt.TextField;
 import javax.swing.JFrame;
+import javax.swing.plaf.InsetsUIResource;
+
 import java.awt.TextArea;
 import java.awt.Button;
-import java.awt.FlowLayout;
 import java.awt.Color;
-import java.awt.BorderLayout;
+//import java.awt.FlowLayout;
+//import java.awt.Color;
+//import java.awt.BorderLayout;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+import java.awt.GridBagConstraints;
 
 @SuppressWarnings("serial")
 @Data
@@ -22,7 +28,7 @@ public class Chat extends JFrame {
 	private TextArea taUsuarios, taMensajes;
 
 	public Chat() {
-		setLocation(500, 200);
+		setLocation(300, 100);
 		setTitle("Chat de Antonio");
 		setPGlobal(new Panel());
 		setPSuperior(new Panel());
@@ -40,41 +46,105 @@ public class Chat extends JFrame {
 		setTMensaje(new TextField(80));
 		setTaMensajes(new TextArea());
 		setTaUsuarios(new TextArea(2, 20));
-
+		
+		
+		
+		//Panel pGlobal =new Panel();
+		Panel panel = new Panel();
+		
+		panel.setLayout(new GridBagLayout());
+		
+		GridBagConstraints gbclNick = new GridBagConstraints(0,0,2,1,1,1,GridBagConstraints.EAST,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
+		panel.add(lNick,gbclNick);
+		
+		GridBagConstraints gbctNick = new GridBagConstraints(2,0,1,1,2,1,GridBagConstraints.CENTER,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
+		panel.add(tNick,gbctNick);
+		
+		GridBagConstraints gbcbRegistrar = new GridBagConstraints(3,0,1,1,1,1,GridBagConstraints.WEST,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
+		panel.add(bRegistrar,gbcbRegistrar);
+		this.add(panel);
+		
+		GridBagConstraints gbctMensaje = new GridBagConstraints(2,3,1,1,1,1,GridBagConstraints.SOUTH,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
+		panel.add(tMensaje,gbctMensaje);
+		
+		
+		
+		
+		GridBagConstraints gbclMensaje = new GridBagConstraints(0,3,2,1,1,1,GridBagConstraints.EAST,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
+		panel.add(lMensaje,gbclMensaje);
+		
+		GridBagConstraints gbctaMensajes = new GridBagConstraints(1,2,1,1,1,1,GridBagConstraints.EAST,GridBagConstraints.BOTH,new Insets(0,0,0,0),0,0);
+		panel.add(taMensajes,gbctaMensajes);
+		
+		
+		
+		GridBagConstraints gbcbEnviar = new GridBagConstraints(3,3,1,1,1,1,GridBagConstraints.WEST,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
+		panel.add(bEnviar,gbcbEnviar);
+		
+		
+		
+		GridBagConstraints gbclUsuarios = new GridBagConstraints(1,1,1,1,1,1,GridBagConstraints.WEST,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
+		panel.add(lUsuarios,gbclUsuarios);
+		
+		
+		
+		
+		
+		
+		
+		/*
+		
+	*/	
 		// add el panel de arriva
 		/*
 		 * getPSuperior().setLayout(new FlowLayout()); getPSuperior().add(getLNick());
 		 * getPSuperior().add(getTNick()); getPSuperior().add(getBRegistrar());
 		 * getPSuperior().setBackground(Color.GRAY);
 		 * 
-		 * // add el panel de abajo getPInferior().setLayout(new FlowLayout());
+		 * // add el panel de abajo 
+		 * 
+		 * 
+		 * getPInferior().setLayout(new FlowLayout());
 		 * getPInferior().add(getLMensaje()); getPInferior().add(getTMensaje());
 		 * getPInferior().add(getBEnviar()); getPInferior().setBackground(Color.GREEN);
 		 * 
-		 * // lateral izquierda superior getPCentralIzquierdaSuperior().setLayout(new
+		 * // lateral izquierda superior 
+		 * 
+		 * getPCentralIzquierdaSuperior().setLayout(new
 		 * FlowLayout()); getPCentralIzquierdaSuperior().add(getLUsuarios());
 		 * 
-		 * // lateral izquierda inferior getPCentralIzquierdaInferior().setLayout(new
+		 * // lateral izquierda inferior
+		 * 
+		 *  getPCentralIzquierdaInferior().setLayout(new
 		 * BorderLayout()); getPCentralIzquierdaInferior().add(getTaUsuarios(),
 		 * BorderLayout.CENTER);
 		 * 
 		 * // pegar lateral izquierda arriba y abajo al panel izquierdo
+		 * 
+		 * 
 		 * getPCentralIzquierda().setLayout(new BorderLayout());
 		 * getPCentralIzquierda().add(getPCentralIzquierdaSuperior(),
 		 * BorderLayout.NORTH);
 		 * getPCentralIzquierda().add(getPCentralIzquierdaInferior(),
 		 * BorderLayout.CENTER);
 		 * 
-		 * // colocar el panel central izquierda al oeste getPCentral().setLayout(new
-		 * BorderLayout()); getPCentral().add(getPCentralIzquierda(),
-		 * BorderLayout.WEST); getPCentral().add(getTaMensajes(), BorderLayout.CENTER);
+		 * // colocar el panel central izquierda al oeste 
 		 * 
-		 * // coloco los paneles con borderLayout getPGlobal().setLayout(new
-		 * BorderLayout()); getPGlobal().add(getPSuperior(), BorderLayout.NORTH);
+		 * getPCentral().setLayout(new BorderLayout()); getPCentral().add(getPCentralIzquierda(),
+		 * BorderLayout.WEST); getPCentral().add(getTaMensajes(), BorderLayout.CENTER);
+		 *
+		 * 
+		 * 
+		 * // coloco los paneles con borderLayout
+		 * 
+		 *  getPGlobal().setLayout(new BorderLayout()); getPGlobal().add(getPSuperior(), BorderLayout.NORTH);
 		 * getPGlobal().add(getPInferior(), BorderLayout.SOUTH);
 		 * getPGlobal().add(getPCentral(), BorderLayout.CENTER);
 		 * 
-		 * // creo el panel global this.setLayout(new BorderLayout());
+		 * 
+		 * // creo el panel global 
+		 * 
+		 * this.setLayout(new BorderLayout());
 		 * this.add(getPGlobal(), BorderLayout.CENTER);
 		 */
 		
@@ -84,7 +154,7 @@ public class Chat extends JFrame {
 
 	public static void main(String[] args) {
 		Chat chat = new Chat();
-		chat.setSize(900, 500);
+		chat.setSize(1200, 700);
 		chat.setVisible(true);
 		chat.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
