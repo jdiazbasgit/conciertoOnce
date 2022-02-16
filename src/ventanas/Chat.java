@@ -39,7 +39,7 @@ public class Chat extends Frame {
 
 		panel.setLayout(new GridBagLayout());
 
-		GridBagConstraints gb1 = new GridBagConstraints(0, 0, 5, 1, 0.2, 0.1, GridBagConstraints.EAST,
+		GridBagConstraints gb1 = new GridBagConstraints(0, 0, 5, 1, 0.1, 0.1, GridBagConstraints.EAST,
 				GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
 		panel.add(getLNick(), gb1);
 
@@ -48,7 +48,7 @@ public class Chat extends Frame {
 		panel.add(getTNick(), gb2);
 
 		GridBagConstraints gb3 = new GridBagConstraints(9, 0, 2, 1, 0.4, 0, GridBagConstraints.CENTER,
-				GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 50, 50);
+				GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
 		panel.add(getBRegistrar(), gb3);
 
 		GridBagConstraints gb4 = new GridBagConstraints(0, 1, 3, 1, 0, 0, GridBagConstraints.CENTER,
@@ -56,15 +56,15 @@ public class Chat extends Frame {
 		panel.add(getLUsuarios(), gb4);
 
 		GridBagConstraints gb5 = new GridBagConstraints(0, 2, 3, 1, 0, 0.4, GridBagConstraints.CENTER,
-				GridBagConstraints.BOTH, new Insets(0, 30, 0, 50), 0, 0);
+				GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0);
 		panel.add(getTaUsuarios(), gb5);
 
 		GridBagConstraints gb6 = new GridBagConstraints(4, 1, 7, 8, 0, 0, GridBagConstraints.CENTER,
-				GridBagConstraints.BOTH, new Insets(0, 0, 0, 150), 0, 0);
+				GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0);
 		panel.add(getTaMensajes(), gb6);
 
 		GridBagConstraints gb7 = new GridBagConstraints(0, 9, 8, 1, 0, 0.1, GridBagConstraints.EAST,
-				GridBagConstraints.NONE, new Insets(0, 800, 0, 0), 0, 0);
+				GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
 		panel.add(getLMensaje(), gb7);
 
 		GridBagConstraints gb8 = new GridBagConstraints(8, 9, 1, 1, 0, 0, GridBagConstraints.WEST,
@@ -72,7 +72,7 @@ public class Chat extends Frame {
 		panel.add(getTMensaje(), gb8);
 
 		GridBagConstraints gb9 = new GridBagConstraints(9, 9, 1, 1, 0, 0, GridBagConstraints.WEST,
-				GridBagConstraints.NONE, new Insets(0, 0, 0, 800), 50, 50);
+				GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
 		panel.add(getBEnviar(), gb9);
 
 	}
