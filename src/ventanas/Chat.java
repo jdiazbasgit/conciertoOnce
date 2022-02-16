@@ -9,6 +9,7 @@ import java.awt.Label;
 import java.awt.Panel;
 import java.awt.TextArea;
 import java.awt.TextField;
+import java.awt.event.WindowEvent;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -81,38 +82,38 @@ public class Chat extends GestorVentanaChatAdapter {
 
 //Superior
 
-		GridBagConstraints gbLNick = new GridBagConstraints(0, 0, 1, 1, 0, 10, GridBagConstraints.CENTER,
+		GridBagConstraints gbLNick = new GridBagConstraints(0, 0, 1, 1, 0, 10, GridBagConstraints.EAST,
 				GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
 		getPGlobal().add(getLNick(), gbLNick);
-		setColor(Color.PINK);
+//		getLNick().setBackground(Color.PINK);
 		GridBagConstraints gbTNick = new GridBagConstraints(1, 0, 1, 1, 40, 10, GridBagConstraints.CENTER,
 				GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0);
 		getPGlobal().add(getTNick(), gbTNick);
-		GridBagConstraints gbBRegister = new GridBagConstraints(2, 0, 1, 1, 30, 10, GridBagConstraints.CENTER,
+		GridBagConstraints gbBRegister = new GridBagConstraints(2, 0, 1, 1, 30, 10, GridBagConstraints.WEST,
 				GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
 		getPGlobal().add(getBRegistrar(), gbBRegister);
 
 //Center
 
-		GridBagConstraints gbLUsuarios = new GridBagConstraints(0, 1, 1, 1, 80, 10, GridBagConstraints.CENTER,
+		GridBagConstraints gbLUsuarios = new GridBagConstraints(0, 1, 1, 1, 80, 10, GridBagConstraints.EAST,
 				GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
 		getPGlobal().add(getLUsuarios(), gbLUsuarios);
-		GridBagConstraints gbaTaUsuarios = new GridBagConstraints(0, 2, 1, 1, 0, 70, GridBagConstraints.SOUTHWEST,
+		GridBagConstraints gbaTaUsuarios = new GridBagConstraints(0, 2, 1, 1, 0, 70, GridBagConstraints.EAST,
 				GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0);
 		getPGlobal().add(getTaUsuarios(), gbaTaUsuarios);
-		GridBagConstraints gbaTaMensajes = new GridBagConstraints(1, 1, 2, 2, 90, 80, GridBagConstraints.NORTHWEST,
+		GridBagConstraints gbaTaMensajes = new GridBagConstraints(1, 1, 1, 2, 90, 80, GridBagConstraints.WEST,
 				GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0);
 		getPGlobal().add(getTaMensajes(), gbaTaMensajes);
 
 //Inferior
 
-		GridBagConstraints gbLMensaje = new GridBagConstraints(0, 3, 1, 1, 0, 10, GridBagConstraints.CENTER,
+		GridBagConstraints gbLMensaje = new GridBagConstraints(0, 3, 1, 1, 0, 10, GridBagConstraints.EAST,
 				GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
 		getPGlobal().add(getLMensaje(), gbLMensaje);
 		GridBagConstraints gbTMensaje = new GridBagConstraints(1, 3, 1, 1, 80, 10, GridBagConstraints.CENTER,
 				GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0);
 		getPGlobal().add(getTMensaje(), gbTMensaje);
-		GridBagConstraints gbBEnviar = new GridBagConstraints(2, 3, 1, 1, 10, 10, GridBagConstraints.CENTER,
+		GridBagConstraints gbBEnviar = new GridBagConstraints(2, 3, 1, 1, 10, 10, GridBagConstraints.WEST,
 				GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
 		getPGlobal().add(getBEnviar(), gbBEnviar);
 
@@ -122,9 +123,12 @@ public class Chat extends GestorVentanaChatAdapter {
 		Chat chat = new Chat();
 		chat.setSize(1000, 1000);
 		chat.setVisible(true);
-		chat.addWindowListener(new GestorVentanaChatAdapter());
+		chat.addWindowListener(chat);
 	}
 
-	
+	@Override
+	public void windowClosing(WindowEvent e) {
+		System.exit(0);
+	}
 
 }
