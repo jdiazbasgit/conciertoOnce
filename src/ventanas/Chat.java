@@ -30,7 +30,7 @@ public class Chat extends JFrame  {
 	private TextArea taUsuarios, taMensajes;
 
 	public Chat() {
-		//setLocation(100, 100);
+		setLocation(100, 100);
 		setTitle("   CHAT DEL EQUIPO 3 - ANNA Y ANTONIO");
 		setPGlobal(new Panel());
 		setPSuperior(new Panel());
@@ -53,8 +53,9 @@ public class Chat extends JFrame  {
 		
 		
 		Panel panel = new Panel();
-		panel.setBackground(Color.LIGHT_GRAY);
 		this.add(panel);
+		panel.setBackground(Color.LIGHT_GRAY);
+		
 		panel.setLayout(new GridBagLayout());
 		
 		GridBagConstraints gbclNick = new GridBagConstraints(0,0,2,1,2,1,GridBagConstraints.EAST,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
@@ -159,7 +160,8 @@ public class Chat extends JFrame  {
 
 	public static void main(String[] args) {
 		Chat chat = new Chat();
-		chat.setSize(1560, 840);
+		//chat.setSize(1560, 840);
+		chat.setSize(1050, 700);
 		chat.setVisible(true);
 		chat.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
