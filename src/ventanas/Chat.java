@@ -54,7 +54,7 @@ public class Chat extends JFrame {
 		
 		panel.setLayout(new GridBagLayout());
 		
-		GridBagConstraints gbclNick = new GridBagConstraints(0,0,2,1,1,1,GridBagConstraints.CENTER,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
+		GridBagConstraints gbclNick = new GridBagConstraints(0,0,2,1,1,1,GridBagConstraints.EAST,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
 		panel.add(lNick,gbclNick);
 		
 		GridBagConstraints gbctNick = new GridBagConstraints(2,0,1,1,2,1,GridBagConstraints.CENTER,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
@@ -156,7 +156,7 @@ public class Chat extends JFrame {
 
 	public static void main(String[] args) {
 		Chat chat = new Chat();
-		chat.setSize(1200, 700);
+		chat.setSize(1000, 700);
 		chat.setVisible(true);
 		chat.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
