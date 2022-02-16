@@ -2,6 +2,7 @@ package ventanas;
 
 import java.awt.Button;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -26,6 +27,7 @@ public class Chat extends GestorVentanaChatAdapter {
 	private TextField tNick, tMensaje;
 	private TextArea taUsuarios, taMensajes;
 	private Color color = new Color(0, 150, 175);
+	Font fuente = new Font("Arial", Font.ITALIC, 15);
 
 	public Chat() {
 		setPGlobal(new Panel());
@@ -80,6 +82,8 @@ public class Chat extends GestorVentanaChatAdapter {
 		this.add(getPGlobal());
 		getPGlobal().setLayout(new GridBagLayout());
 		getPGlobal().setBackground(color);
+		getPGlobal().setFont(fuente);
+
 //Superior
 
 		GridBagConstraints gbLNick = new GridBagConstraints(0, 0, 33, 20, 0, 0, GridBagConstraints.CENTER,
