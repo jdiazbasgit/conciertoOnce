@@ -87,7 +87,7 @@ public class Chat extends Frame{
 		 */
 		getPGlobal().setLayout(new GridBagLayout());
 		this.add(pGlobal);
-		pGlobal.setBackground(Color.PINK);
+		pGlobal.setBackground(new Color(93,193,185));
 		GridBagConstraints gbclnic= new GridBagConstraints(0, 0, 2, 1, 0, 0, GridBagConstraints.EAST,GridBagConstraints.NONE , new Insets(0,0,0,0),0,0);
 		getPGlobal().add(lNick,gbclnic);
 		
