@@ -87,38 +87,38 @@ public class Chat extends Frame{
 		 */
 		getPGlobal().setLayout(new GridBagLayout());
 		this.add(pGlobal);
-		GridBagConstraints gbclnic= new GridBagConstraints(0, 0, 2, 1, 1, 1, GridBagConstraints.EAST,GridBagConstraints.NONE , new Insets(0,0,0,0),0,0);
+		GridBagConstraints gbclnic= new GridBagConstraints(0, 0, 2, 1, 0.4, 0, GridBagConstraints.EAST,GridBagConstraints.NONE , new Insets(0,0,0,0),0,0);
 		getPGlobal().add(lNick,gbclnic);
 		
-		GridBagConstraints gbtNick= new GridBagConstraints(2, 0, 1, 1, 1, 1, GridBagConstraints.CENTER,GridBagConstraints.HORIZONTAL, new Insets(0,0,0,0),0,0);
+		GridBagConstraints gbtNick= new GridBagConstraints(2, 0, 1, 1, 0.7, 0, GridBagConstraints.CENTER,GridBagConstraints.HORIZONTAL, new Insets(0,0,0,0),0,0);
 		getPGlobal().add(tNick,gbtNick);
 		
 	
-		GridBagConstraints gbbRegistrar= new GridBagConstraints( 3, 0,1, 1, 1,1,GridBagConstraints.CENTER,GridBagConstraints.NONE, new Insets(0,0,0,0),0,0);
+		GridBagConstraints gbbRegistrar= new GridBagConstraints( 3, 0,1, 1, 0.2,0,GridBagConstraints.CENTER,GridBagConstraints.NONE, new Insets(0,0,0,0),0,0);
 		getPGlobal().add(bRegistrar,gbbRegistrar);
 		
 		
-		GridBagConstraints gbbLUsuarios= new GridBagConstraints( 0, 1,1, 1, 1,1,GridBagConstraints.CENTER,GridBagConstraints.NONE, new Insets(0,0,0,0),0,0);
+		GridBagConstraints gbbLUsuarios= new GridBagConstraints( 0, 1,1, 1, 0,0,GridBagConstraints.CENTER,GridBagConstraints.NONE, new Insets(0,0,0,0),0,0);
 		getPGlobal().add(lUsuarios,gbbLUsuarios);
 		
 		
 		
-		GridBagConstraints gbbtAMensajes= new GridBagConstraints( 1, 1,3, 2, 1,1,GridBagConstraints.CENTER,GridBagConstraints.BOTH, new Insets(0,0,0,0),0,0);
+		GridBagConstraints gbbtAMensajes= new GridBagConstraints( 1, 1,3, 2, 0,0.4,GridBagConstraints.CENTER,GridBagConstraints.BOTH, new Insets(0,0,0,0),0,0);
 			getPGlobal().add(taMensajes,gbbtAMensajes);
 			
 			
-			GridBagConstraints gbtAUsuarios= new GridBagConstraints( 0, 2,1, 1, 1,1,GridBagConstraints.CENTER,GridBagConstraints.BOTH, new Insets(0,0,0,0),0,0);
+			GridBagConstraints gbtAUsuarios= new GridBagConstraints( 0, 2,1, 1, 0,0,GridBagConstraints.CENTER,GridBagConstraints.BOTH, new Insets(0,0,0,0),0,0);
 			getPGlobal().add(taUsuarios,gbtAUsuarios);
 				
 		
-		GridBagConstraints gbbLMensaje= new GridBagConstraints( 0, 3,1, 1, 1,1,GridBagConstraints.CENTER,GridBagConstraints.NONE, new Insets(0,0,0,0),0,0);
+		GridBagConstraints gbbLMensaje= new GridBagConstraints( 0, 3,1, 1, 0,0,GridBagConstraints.CENTER,GridBagConstraints.NONE, new Insets(0,0,0,0),0,0);
 		getPGlobal().add(lMensaje,gbbLMensaje);
 		
 
-		GridBagConstraints gbbTMensaje= new GridBagConstraints( 1, 3,1, 1, 1,1,GridBagConstraints.CENTER,GridBagConstraints.NONE, new Insets(0,0,0,0),0,0);
+		GridBagConstraints gbbTMensaje= new GridBagConstraints( 1, 3,1, 1, 0,0,GridBagConstraints.CENTER,GridBagConstraints.NONE, new Insets(0,0,0,0),0,0);
 		getPGlobal().add(tMensaje,gbbTMensaje);
 		
-		GridBagConstraints gbbBEnviar= new GridBagConstraints( 3, 3,2, 2, 1,1,GridBagConstraints.CENTER,GridBagConstraints.NONE, new Insets(0,0,0,0),0,0);
+		GridBagConstraints gbbBEnviar= new GridBagConstraints( 3, 3,2, 2, 0,0,GridBagConstraints.CENTER,GridBagConstraints.NONE, new Insets(0,0,0,0),0,0);
 		getPGlobal().add(bEnviar,gbbBEnviar);
 		
 		
