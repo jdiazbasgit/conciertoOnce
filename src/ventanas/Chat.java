@@ -11,6 +11,13 @@ import java.awt.Panel;
 import java.awt.TextArea;
 import java.awt.TextField;
 
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
 import lombok.Data;
 import java.awt.FlowLayout;
 import java.awt.Color;
@@ -22,35 +29,35 @@ import java.awt.Insets;
 
 @SuppressWarnings({ "serial", "unused" })
 @Data
-public class Chat extends Frame {
-	private Panel pGlobal, pSuperior, pCentral, pInferior, pCentralIzquierda, pCentralIzquierdaSuperior,
+public class Chat extends JFrame {
+	private JPanel pGlobal, pSuperior, pCentral, pInferior, pCentralIzquierda, pCentralIzquierdaSuperior,
 			pCentralIzquierdaInferior;
-	private Label lNick, lUsuarios, lMensaje;
-	private Button bRegistrar, bEnviar;
-	private TextField tNick, tMensaje;
-	private TextArea taUsuarios, taMensajes;
+	private JLabel lNick, lUsuarios, lMensaje;
+	private JButton bRegistrar, bEnviar;
+	private JTextField tNick, tMensaje;
+	private JTextArea taUsuarios, taMensajes;
 	// cambio cosas
 
 	/**
 	 * 
 	 */
 	public Chat() {
-		setPGlobal(new Panel());
-		setPSuperior(new Panel());
-		setPCentral(new Panel());
-		setPInferior(new Panel());
-		setPCentralIzquierda(new Panel());
-		setPCentralIzquierdaSuperior(new Panel());
-		setPCentralIzquierdaInferior(new Panel());
-		setLNick(new Label("NICK:"));
-		setLUsuarios(new Label("USUARIOS"));
-		setLMensaje(new Label("MENSAJE:"));
-		setBEnviar(new Button("ENVIAR"));
-		setBRegistrar(new Button("REGISTRAR"));
-		setTNick(new TextField(20));
-		setTMensaje(new TextField(80));
-		setTaMensajes(new TextArea());
-		setTaUsuarios(new TextArea(2, 20));
+		setPGlobal(new JPanel());
+		setPSuperior(new JPanel());
+		setPCentral(new JPanel());
+		setPInferior(new JPanel());
+		setPCentralIzquierda(new JPanel());
+		setPCentralIzquierdaSuperior(new JPanel());
+		setPCentralIzquierdaInferior(new JPanel());
+		setLNick(new JLabel("NICK:"));
+		setLUsuarios(new JLabel("USUARIOS"));
+		setLMensaje(new JLabel("MENSAJE:"));
+		setBEnviar(new JButton("ENVIAR"));
+		setBRegistrar(new JButton("REGISTRAR"));
+		setTNick(new JTextField(20));
+		setTMensaje(new JTextField(80));
+		setTaMensajes(new JTextArea());
+		setTaUsuarios(new JTextArea(2, 20));
 		getTaUsuarios().setEditable(false);
         getTaMensajes().setEditable(false);
 		/*
