@@ -6,7 +6,7 @@ import concierto.excepciones.SinSonidoException;
 import concierto.instrumentos.Instrumento;
 import concierto.instrumentos.InstrumentoInterface;
 
-public abstract class Musico implements MusicoInterface {
+public abstract  class Musico implements MusicoInterface {
 
 	private Set<Instrumento> instrumentosInterface;
 
@@ -22,7 +22,7 @@ public abstract class Musico implements MusicoInterface {
 		this.setInstrumentosInterface(instrumentosInterface);
 	}
 
-	public abstract void tocar() throws SinSonidoException ;
+	public abstract  void tocar() throws SinSonidoException ;
 
 	public InstrumentoInterface getInstrumentoInterface() {
 		return instrumentoInterface;

@@ -3,6 +3,8 @@ package concierto.teatros;
 import concierto.beans.InstrumentoBean;
 import concierto.excepciones.SinSonidoException;
 import concierto.instrumentos.Instrumento;
+import concierto.musicos.Musico;
+import concierto.musicos.MusicoInterface;
 import concierto.musicos.Solista;
 
 public class ConciertoSolista {
@@ -15,7 +17,7 @@ public class ConciertoSolista {
 		
 		
 		
-		Solista solista= new Solista(new Instrumento(new InstrumentoBean("nada")));
+		Musico solista= new Solista(new Instrumento(new InstrumentoBean("nada")));
 		try {
 			solista.tocar();
 		} catch (SinSonidoException e) {
