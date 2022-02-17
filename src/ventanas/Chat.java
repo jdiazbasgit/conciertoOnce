@@ -51,6 +51,7 @@ public class Chat extends Frame {
 		setTMensaje(new TextField(80));
 		setTaMensajes(new TextArea());
 		setTaUsuarios(new TextArea(2, 20));
+		getTaUsuarios().setEditable(false);
 
 		/*
 		 * getPSuperior().setLayout(new FlowLayout()); getPSuperior().add(getLNick());
