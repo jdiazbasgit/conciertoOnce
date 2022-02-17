@@ -78,7 +78,6 @@ public class Chat extends Frame{
 		 * this.add(getPGlobal(),BorderLayout.CENTER);
 		 */
 		
-<<<<<<< HEAD
 	/*	getPSuperior().setLayout(new FlowLayout());
 		getPSuperior().add(getLNick());
 		getPSuperior().add(getTNick());
@@ -149,10 +148,6 @@ public class Chat extends Frame{
 		pGlobal.add(bEnviar,gb_BEnviar);
 		
 		
-		
-=======
-
->>>>>>> branch 'chat/ricardo' of https://github.com/jdiazbasgit/conciertoOnce.git
 	}
 	
 	public static void main(String[] args) {
