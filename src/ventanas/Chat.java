@@ -43,6 +43,7 @@ public class Chat extends Frame {
 		setTaMensajes(new TextArea());
 		setTaUsuarios(new TextArea(2, 20));
 		getTaUsuarios().setEditable(false);
+		getTaMensajes().setEditable(false);
 
 		panel.setLayout(new GridBagLayout());
 		Color colorFondo = new Color(145, 244, 133);
