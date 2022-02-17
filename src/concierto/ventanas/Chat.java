@@ -10,12 +10,14 @@ import java.awt.Label;
 import java.awt.Panel;
 import java.awt.TextArea;
 import java.awt.TextField;
+
+import lombok.Data;
 //import javax.swing.JFrame;
 import lombok.Getter;
 import lombok.Setter;
 
-@Setter
-@Getter
+@Data
+
 @SuppressWarnings("serial")
 public class Chat extends EventosVentana {
 	private Panel pGlobal, pSuperior, pInferior, pCentral, pCentralIzquierda, pCentralIzquierdaSuperior,
