@@ -46,6 +46,7 @@ public class Chat extends GestorVentanaChatAdapter {
 		setTMensaje(new TextField(80));
 		setTaMensajes(new TextArea());
 		setTaUsuarios(new TextArea(20, 1));
+		getTaUsuarios().setEditable(false);
 
 //		  getPSuperior().setLayout(new FlowLayout()); getPSuperior().add(getLNick());
 //		 getPSuperior().add(getTNick()); getPSuperior().add(getBRegistrar());
@@ -105,7 +106,7 @@ public class Chat extends GestorVentanaChatAdapter {
 				GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0);
 		getPGlobal().add(getTaUsuarios(), gbaTaUsuarios);
 		GridBagConstraints gbaTaMensajes = new GridBagConstraints(1, 1, 2, 2, 90, 10, GridBagConstraints.EAST,
-				GridBagConstraints.BOTH, new Insets(0, 20, 0, 0), 0, 0);
+				GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0);
 		getPGlobal().add(getTaMensajes(), gbaTaMensajes);
 
 //Inferior
