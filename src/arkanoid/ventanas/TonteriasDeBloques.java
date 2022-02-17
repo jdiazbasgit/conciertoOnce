@@ -3,9 +3,13 @@ package arkanoid.ventanas;
 import java.awt.geom.Rectangle2D;
 import java.util.HashSet;
 import java.awt.Color;
+import java.awt.Image;
+import java.awt.Toolkit;
 public class TonteriasDeBloques {
 	
 	private VentanaArkanoid ventanaArkanoid;
+	@SuppressWarnings("unused")
+	private Image ImagenBloque;
 	
 	public TonteriasDeBloques(VentanaArkanoid ventanaArkanoid) {
 		this.ventanaArkanoid= ventanaArkanoid;
@@ -43,15 +47,39 @@ public class TonteriasDeBloques {
 						}
 					}
 					if (fin) {
-						bloque = new Bloque(getVentanaArkanoid().getAncho(), getVentanaArkanoid().getAlto(), aleatorioX, aleatorioY, getVentanaArkanoid().getGolpes(),Color.PINK);
 						
+						bloque = new Bloque(getVentanaArkanoid().getAncho(), getVentanaArkanoid().getAlto(), aleatorioX, aleatorioY, getVentanaArkanoid().getGolpes(),Color.red);
 					}
-
+			
+				
+				
 				}
 			}
 		}
 
 		return bloque;
+	}
+
+	
+
+	private void setImagenBloque(Image image) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void drawImage(Object imagenBloque2, int i, int j, TonteriasDeBloques tonteriasDeBloques) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private Object getImagenBloque() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	private Object getExterno() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	public VentanaArkanoid getVentanaArkanoid() {

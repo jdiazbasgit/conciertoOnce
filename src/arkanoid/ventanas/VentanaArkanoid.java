@@ -72,7 +72,7 @@ public class VentanaArkanoid extends Frame {
 			setPrimeraVez(false);
 			
             setImagenBola(Toolkit.getDefaultToolkit().getImage("red.png"));
-            setImagenFondo(Toolkit.getDefaultToolkit().getImage("ar.jpg"));
+            setImagenFondo(Toolkit.getDefaultToolkit().getImage("fondo.jpg"));
 
 		}
 		getExterno().clearRect(0,0,2000,2000);
