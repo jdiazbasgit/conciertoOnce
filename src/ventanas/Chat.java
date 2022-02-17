@@ -20,7 +20,7 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 
-@SuppressWarnings("serial")
+@SuppressWarnings({ "serial", "unused" })
 @Data
 public class Chat extends Frame {
 	private Panel pGlobal, pSuperior, pCentral, pInferior, pCentralIzquierda, pCentralIzquierdaSuperior,
