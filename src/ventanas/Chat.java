@@ -47,6 +47,7 @@ public class Chat extends GestorVentanaChatAdapter {
 		setTaMensajes(new TextArea());
 		setTaUsuarios(new TextArea(20, 1));
 		getTaUsuarios().setEditable(false);
+		getTaMensajes().setEditable(false);
 
 //		  getPSuperior().setLayout(new FlowLayout()); getPSuperior().add(getLNick());
 //		 getPSuperior().add(getTNick()); getPSuperior().add(getBRegistrar());
