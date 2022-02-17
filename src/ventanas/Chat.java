@@ -30,7 +30,7 @@ public class Chat extends JFrame  {
 	private TextArea taUsuarios, taMensajes;
 
 	public Chat() {
-		setLocation(100, 100);
+		setLocation(200, 20);
 		setTitle("   CHAT DEL EQUIPO 3 - ANNA Y ANTONIO");
 		setPGlobal(new Panel());
 		setPSuperior(new Panel());
@@ -161,7 +161,7 @@ public class Chat extends JFrame  {
 	public static void main(String[] args) {
 		Chat chat = new Chat();
 		//chat.setSize(1560, 840);
-		chat.setSize(1050, 700);
+		chat.setSize(1150, 800);
 		chat.setVisible(true);
 		chat.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
