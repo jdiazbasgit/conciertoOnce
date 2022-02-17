@@ -1,17 +1,14 @@
 package ventanas;
 
-import java.awt.Button;
 import java.awt.Color;
-import java.awt.Frame;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import java.awt.Image;
 import java.awt.Insets;
-import java.awt.Label;
 import java.awt.TextArea;
-import java.awt.TextField;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -22,22 +19,20 @@ import lombok.EqualsAndHashCode;
 @SuppressWarnings("serial")
 @EqualsAndHashCode(callSuper = false)
 @Data
-public class Chat extends Frame {
+public class Chat extends JFrame {
 
-	// test para equipo de trabajo
-
-	private Label JLNick, lUsuarios, lMensaje;
-	private Button bRegistrar, bEnviar;
-	private TextField tNick, tMensaje;
+	private JLabel lNick, lUsuarios, lMensaje;
+	private JButton bRegistrar, bEnviar;
+	private JTextField tNick, tMensaje;
 	private TextArea taUsuarios, taMensajes;
-	private Color color;
-	private Image image;
+	private Color Color;
+	private ImageIcon Image;
 
 	public Chat() {
 		JPanel jpanel = new JPanel();
 		this.add(jpanel);
 
-		setJLNick(new JLabel("NICK:"));
+		setLNick(new JLabel("NICK:"));
 		setLUsuarios(new JLabel("USUARIOS"));
 		setLMensaje(new JLabel("MENSAJE:"));
 		setBEnviar(new JButton("ENVIAR"));
@@ -51,10 +46,10 @@ public class Chat extends Frame {
 
 		jpanel.setLayout(new GridBagLayout());
 		Color colorFondo = new Color(215, 244, 233);
-		setBackground(colorFondo);
+		setForeground(colorFondo);
 
 		GridBagConstraints gbLNick = new GridBagConstraints(0, 0, 5, 1, 0.2, 0.05, GridBagConstraints.EAST,
-				GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
+				GridBagConstraints.NONE, new Insets(0, 0, 0, 10), 0, 0);
 		jpanel.add(getLNick(), gbLNick);
 
 		GridBagConstraints gbTNick = new GridBagConstraints(5, 0, 1, 1, 0, 0, GridBagConstraints.WEST,
@@ -66,7 +61,7 @@ public class Chat extends Frame {
 		jpanel.add(getBRegistrar(), gbBRegistrar);
 
 		GridBagConstraints gbLUsuarios = new GridBagConstraints(0, 1, 3, 1, 0, 0, GridBagConstraints.CENTER,
-				GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
+				GridBagConstraints.NONE, new Insets(0, 0, 10, 0), 0, 0);
 		jpanel.add(getLUsuarios(), gbLUsuarios);
 
 		GridBagConstraints gbTaUsuarios = new GridBagConstraints(0, 2, 3, 1, 0, 1.2, GridBagConstraints.CENTER,
@@ -78,7 +73,7 @@ public class Chat extends Frame {
 		jpanel.add(getTaMensajes(), gbTaMensajes);
 
 		GridBagConstraints gbLMensaje = new GridBagConstraints(0, 9, 4, 1, 0, 0, GridBagConstraints.EAST,
-				GridBagConstraints.NONE, new Insets(25, 0, 10, 0), 0, 0);
+				GridBagConstraints.NONE, new Insets(25, 0, 10, 10), 0, 0);
 		jpanel.add(getLMensaje(), gbLMensaje);
 
 		GridBagConstraints gbTMensaje = new GridBagConstraints(4, 9, 5, 1, 0.4, 0, GridBagConstraints.CENTER,
@@ -90,8 +85,6 @@ public class Chat extends Frame {
 		jpanel.add(getBEnviar(), gbBEnviar);
 
 	}
-
-	
 
 	public static void main(String[] args) {
 		Chat chat = new Chat();
