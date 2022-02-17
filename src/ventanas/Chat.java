@@ -8,9 +8,13 @@ import java.awt.GridBagLayout;
 import java.awt.Image;
 import java.awt.Insets;
 import java.awt.Label;
-import java.awt.Panel;
 import java.awt.TextArea;
 import java.awt.TextField;
+
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -22,7 +26,7 @@ public class Chat extends Frame {
 
 	// test para equipo de trabajo
 
-	private Label lNick, lUsuarios, lMensaje;
+	private Label JLNick, lUsuarios, lMensaje;
 	private Button bRegistrar, bEnviar;
 	private TextField tNick, tMensaje;
 	private TextArea taUsuarios, taMensajes;
@@ -30,62 +34,64 @@ public class Chat extends Frame {
 	private Image image;
 
 	public Chat() {
-		Panel panel = new Panel();
-		this.add(panel);
+		JPanel jpanel = new JPanel();
+		this.add(jpanel);
 
-		setLNick(new Label("NICK:"));
-		setLUsuarios(new Label("USUARIOS"));
-		setLMensaje(new Label("MENSAJE:"));
-		setBEnviar(new Button("ENVIAR"));
-		setBRegistrar(new Button("REGISTRAR"));
-		setTNick(new TextField(30));
-		setTMensaje(new TextField(80));
+		setJLNick(new JLabel("NICK:"));
+		setLUsuarios(new JLabel("USUARIOS"));
+		setLMensaje(new JLabel("MENSAJE:"));
+		setBEnviar(new JButton("ENVIAR"));
+		setBRegistrar(new JButton("REGISTRAR"));
+		setTNick(new JTextField(30));
+		setTMensaje(new JTextField(80));
 		setTaMensajes(new TextArea());
 		setTaUsuarios(new TextArea(2, 20));
 		getTaUsuarios().setEditable(false);
 		getTaMensajes().setEditable(false);
 
-		panel.setLayout(new GridBagLayout());
-		Color colorFondo = new Color(145, 244, 133);
+		jpanel.setLayout(new GridBagLayout());
+		Color colorFondo = new Color(215, 244, 233);
 		setBackground(colorFondo);
 
 		GridBagConstraints gbLNick = new GridBagConstraints(0, 0, 5, 1, 0.2, 0.05, GridBagConstraints.EAST,
 				GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
-		panel.add(getLNick(), gbLNick);
+		jpanel.add(getLNick(), gbLNick);
 
 		GridBagConstraints gbTNick = new GridBagConstraints(5, 0, 1, 1, 0, 0, GridBagConstraints.WEST,
 				GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0);
-		panel.add(getTNick(), gbTNick);
+		jpanel.add(getTNick(), gbTNick);
 
 		GridBagConstraints gbBRegistrar = new GridBagConstraints(6, 0, 4, 1, 0.6, 0, GridBagConstraints.WEST,
 				GridBagConstraints.NONE, new Insets(0, 10, 0, 0), 20, 20);
-		panel.add(getBRegistrar(), gbBRegistrar);
+		jpanel.add(getBRegistrar(), gbBRegistrar);
 
 		GridBagConstraints gbLUsuarios = new GridBagConstraints(0, 1, 3, 1, 0, 0, GridBagConstraints.CENTER,
 				GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
-		panel.add(getLUsuarios(), gbLUsuarios);
+		jpanel.add(getLUsuarios(), gbLUsuarios);
 
 		GridBagConstraints gbTaUsuarios = new GridBagConstraints(0, 2, 3, 1, 0, 1.2, GridBagConstraints.CENTER,
 				GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0);
-		panel.add(getTaUsuarios(), gbTaUsuarios);
+		jpanel.add(getTaUsuarios(), gbTaUsuarios);
 
 		GridBagConstraints gbTaMensajes = new GridBagConstraints(4, 1, 7, 8, 0, 0.5, GridBagConstraints.CENTER,
 				GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0);
-		panel.add(getTaMensajes(), gbTaMensajes);
+		jpanel.add(getTaMensajes(), gbTaMensajes);
 
 		GridBagConstraints gbLMensaje = new GridBagConstraints(0, 9, 4, 1, 0, 0, GridBagConstraints.EAST,
 				GridBagConstraints.NONE, new Insets(25, 0, 10, 0), 0, 0);
-		panel.add(getLMensaje(), gbLMensaje);
+		jpanel.add(getLMensaje(), gbLMensaje);
 
 		GridBagConstraints gbTMensaje = new GridBagConstraints(4, 9, 5, 1, 0.4, 0, GridBagConstraints.CENTER,
 				GridBagConstraints.HORIZONTAL, new Insets(25, 0, 10, 0), 0, 0);
-		panel.add(getTMensaje(), gbTMensaje);
+		jpanel.add(getTMensaje(), gbTMensaje);
 
 		GridBagConstraints gbBEnviar = new GridBagConstraints(9, 9, 2, 1, 0, 0, GridBagConstraints.WEST,
 				GridBagConstraints.NONE, new Insets(25, 25, 10, 0), 30, 15);
-		panel.add(getBEnviar(), gbBEnviar);
+		jpanel.add(getBEnviar(), gbBEnviar);
 
 	}
+
+	
 
 	public static void main(String[] args) {
 		Chat chat = new Chat();
