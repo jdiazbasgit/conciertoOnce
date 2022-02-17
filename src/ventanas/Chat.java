@@ -51,64 +51,64 @@ public class Chat extends JFrame {
 		
 		
 		
-		JPanel panel = new JPanel();
-		this.add(panel);
-		panel.setBackground(new Color(166, 210, 222));
+		//JPanel panel = new JPanel();
+		//this.add(panel);
+		getContentPane().setBackground(new Color(166, 210, 222));
 		
-		panel.setLayout(new GridBagLayout());
+		getContentPane().setLayout(new GridBagLayout());
 
 		// Línea de arriba--------------------------------------
 
 		// JLábel del Nick
 		GridBagConstraints gbclNick = new GridBagConstraints(0, 0, 2, 1, 2, 1, GridBagConstraints.EAST,
 				GridBagConstraints.NONE, new Insets(0, 0, 0, 4), 0, 0);
-		panel.add(lNick, gbclNick);
+		getContentPane().add(lNick, gbclNick);
 
 		// JtextField del Nick
 		GridBagConstraints gbctNick = new GridBagConstraints(2, 0, 1, 1, 3, 0, GridBagConstraints.CENTER,
 				GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0);
-		panel.add(tNick, gbctNick);
+		getContentPane().add(tNick, gbctNick);
 
 		// JBotón de registrar
 		GridBagConstraints gbcbRegistrar = new GridBagConstraints(3, 0, 1, 1, 1, 2, GridBagConstraints.WEST,
 				GridBagConstraints.NONE, new Insets(0, 30, 0, 0), 0, 0);
-		panel.add(bRegistrar, gbcbRegistrar);
+		getContentPane().add(bRegistrar, gbcbRegistrar);
 
 		// Línea Central------------------------------------------
 
 		// JTextArea del centro
 		GridBagConstraints gbctaMensajes = new GridBagConstraints(1, 1, 3, 2, 9, 0, GridBagConstraints.WEST,
 				GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0);
-		panel.add(taMensajes, gbctaMensajes);
+		getContentPane().add(taMensajes, gbctaMensajes);
 
 		// Línea de Abajo------------------------------------------------
 
 		// JLábel Mensaje
 		GridBagConstraints gbclMensaje = new GridBagConstraints(1, 3, 1, 1, 0, 0, GridBagConstraints.EAST,
 				GridBagConstraints.NONE, new Insets(0, 0, 0, 4), 0, 0);
-		panel.add(lMensaje, gbclMensaje);
+		getContentPane().add(lMensaje, gbclMensaje);
 
 		// JtextField de Mensaje
 		GridBagConstraints gbctMensaje = new GridBagConstraints(2, 3, 1, 1, 3, 0, GridBagConstraints.CENTER,
 				GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0);
-		panel.add(tMensaje, gbctMensaje);
+		getContentPane().add(tMensaje, gbctMensaje);
 
 		// JBotón de enviar
 		GridBagConstraints gbcbEnviar = new GridBagConstraints(3, 3, 1, 1, 4, 1, GridBagConstraints.WEST,
 				GridBagConstraints.NONE, new Insets(0, 30, 0, 0), 0, 0);
-		panel.add(bEnviar, gbcbEnviar);
+		getContentPane().add(bEnviar, gbcbEnviar);
 
 		// Lateral izquierdo-------------------------------------
 
 		// JLábel Usuarios
 		GridBagConstraints gbclUsuarios = new GridBagConstraints(0, 1, 1, 1, 1, 0, GridBagConstraints.CENTER,
 				GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
-		panel.add(lUsuarios, gbclUsuarios);
+		getContentPane().add(lUsuarios, gbclUsuarios);
 
 		// JTextÁrea de Usuarios
 		GridBagConstraints gbctAUsuarios = new GridBagConstraints(0, 2, 1, 1, 0, 7, GridBagConstraints.EAST,
 				GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0);
-		panel.add(taUsuarios, gbctAUsuarios);
+		getContentPane().add(taUsuarios, gbctAUsuarios);
 
 		// add el panel de arriva
 		/*
@@ -167,7 +167,7 @@ public class Chat extends JFrame {
 
 	public static void main(String[] args) {
 		Chat chat = new Chat();
-		chat.setSize(1150, 850);
+		chat.setSize(1200, 800);
 		chat.setVisible(true);
 		chat.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
