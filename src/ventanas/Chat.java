@@ -58,38 +58,48 @@ public class Chat extends JFrame  {
 		
 		panel.setLayout(new GridBagLayout());
 		
+		//Línea de arriba--------------------------------------
+		
+		//Lábel del Nick
 		GridBagConstraints gbclNick = new GridBagConstraints(0,0,2,1,2,1,GridBagConstraints.EAST,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
 		panel.add(lNick,gbclNick);
 		
+		//textField del Nick
 		GridBagConstraints gbctNick = new GridBagConstraints(2,0,1,1,3,0,GridBagConstraints.CENTER,GridBagConstraints.HORIZONTAL,new Insets(0,0,0,0),0,0);
 		panel.add(tNick,gbctNick);
 		
+		//Botón de registrar
 		GridBagConstraints gbcbRegistrar = new GridBagConstraints(3,0,1,1,1,2,GridBagConstraints.WEST,GridBagConstraints.NONE,new Insets(0,30,0,0),0,0);
 		panel.add(bRegistrar,gbcbRegistrar);
 		
-		
-		GridBagConstraints gbctMensaje = new GridBagConstraints(2,3,1,1,3,0,GridBagConstraints.CENTER,GridBagConstraints.HORIZONTAL,new Insets(0,0,0,0),0,0);
-		panel.add(tMensaje,gbctMensaje);
-		
-		
-		
-		
-		GridBagConstraints gbclMensaje = new GridBagConstraints(1,3,1,1,0,0,GridBagConstraints.EAST,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
-		panel.add(lMensaje,gbclMensaje);
-		
+		//Línea Central------------------------------------------
+		//TextArea del centro
 		GridBagConstraints gbctaMensajes = new GridBagConstraints(1,1,3,2,9,0,GridBagConstraints.WEST,GridBagConstraints.BOTH,new Insets(0,0,0,0),0,0);
 		panel.add(taMensajes,gbctaMensajes);
 		
 		
+		//Línea de Abajo------------------------------------------------
 		
+		//Lábel Mensaje
+		GridBagConstraints gbclMensaje = new GridBagConstraints(1,3,1,1,0,0,GridBagConstraints.EAST,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
+		panel.add(lMensaje,gbclMensaje);
+		
+		//textField de Mensaje
+		GridBagConstraints gbctMensaje = new GridBagConstraints(2,3,1,1,3,0,GridBagConstraints.CENTER,GridBagConstraints.HORIZONTAL,new Insets(0,0,0,0),0,0);
+		panel.add(tMensaje,gbctMensaje);
+		
+		//Botón de enviar
 		GridBagConstraints gbcbEnviar = new GridBagConstraints(3,3,1,1,4,1,GridBagConstraints.WEST,GridBagConstraints.NONE,new Insets(0,30,0,0),0,0);
 		panel.add(bEnviar,gbcbEnviar);
 		
 		
+		//Lateral izquierdo-------------------------------------
 		
+		//Lábel Usuarios
 		GridBagConstraints gbclUsuarios = new GridBagConstraints(0,1,1,1,1,0,GridBagConstraints.CENTER,GridBagConstraints.NONE,new Insets(0,0,0,0),0,0);
 		panel.add(lUsuarios,gbclUsuarios);
 		
+		//TextÁrea de Usuarios
 		GridBagConstraints gbctAUsuarios = new GridBagConstraints(0,2,1,1,0,7,GridBagConstraints.EAST,GridBagConstraints.BOTH,new Insets(0,0,0,0),0,0);
 		panel.add(taUsuarios,gbctAUsuarios);
 		
