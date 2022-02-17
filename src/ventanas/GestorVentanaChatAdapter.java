@@ -1,11 +1,12 @@
 package ventanas;
 
-import java.awt.Frame;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
+import javax.swing.JFrame;
+
 @SuppressWarnings("serial")
-public class GestorVentanaChatAdapter extends Frame implements WindowListener {
+public class GestorVentanaChatAdapter extends JFrame implements WindowListener {
 
 	@Override
 	public void windowOpened(WindowEvent e) {
