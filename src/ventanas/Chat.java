@@ -5,12 +5,20 @@ import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
-import java.awt.Label;
-import java.awt.Panel;
-import java.awt.TextArea;
-import java.awt.TextField;
+//import java.awt.Label;
+//import java.awt.Panel;
+//import java.awt.TextArea;
+//import java.awt.TextField;
 import java.awt.event.WindowEvent;
 import java.awt.Font;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+import javax.swing.JTextArea;
+import javax.swing.JPanel;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -20,32 +28,32 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = false)
 @Data
 public class Chat extends GestorVentanaChatAdapter {
-	private Panel pGlobal, pSuperior, pCentral, pInferior, pCentralIzquierda, pCentralIzquierdaSuperior,
+	private JPanel pGlobal, pSuperior, pCentral, pInferior, pCentralIzquierda, pCentralIzquierdaSuperior,
 			pCentralIzquierdaInferior;
-	private Label lNick, lUsuarios, lMensaje;
-	private Button bRegistrar, bEnviar;
-	private TextField tNick, tMensaje;
-	private TextArea taUsuarios, taMensajes;
+	private JLabel lNick, lUsuarios, lMensaje;
+	private JButton bRegistrar, bEnviar;
+	private JTextField tNick, tMensaje;
+	private JTextArea taUsuarios, taMensajes;
 	private Color color = new Color(0, 150, 175);
 	Font fuente=new Font("Arial", Font.ITALIC, 15);
 
 	public Chat() {
-		setPGlobal(new Panel());
+		setPGlobal(new JPanel());
 //		setPSuperior(new Panel());
 //		setPCentral(new Panel());
 //		setPInferior(new Panel());
 //		setPCentralIzquierda(new Panel());
 //		setPCentralIzquierdaSuperior(new Panel());
 //		setPCentralIzquierdaInferior(new Panel());
-		setLNick(new Label("NICK:"));
-		setLUsuarios(new Label("USUARIOS:"));
-		setLMensaje(new Label("MENSAJE:"));
-		setBEnviar(new Button("ENVIAR"));
-		setBRegistrar(new Button("REGISTRAR"));
-		setTNick(new TextField());
-		setTMensaje(new TextField(80));
-		setTaMensajes(new TextArea());
-		setTaUsuarios(new TextArea(20, 1));
+		setLNick(new JLabel("NICK:"));
+		setLUsuarios(new JLabel("USUARIOS:"));
+		setLMensaje(new JLabel("MENSAJE:"));
+		setBEnviar(new JButton("ENVIAR"));
+		setBRegistrar(new JButton("REGISTRAR"));
+		setTNick(new JTextField());
+		setTMensaje(new JTextField(80));
+		setTaMensajes(new JTextArea());
+		setTaUsuarios(new JTextArea(20, 1));
 		getTaUsuarios().setEditable(false);
 		getTaMensajes().setEditable(false);
 
