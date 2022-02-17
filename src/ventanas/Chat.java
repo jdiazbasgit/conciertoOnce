@@ -109,11 +109,11 @@ public class Chat extends Frame{
 			getPGlobal().add(taUsuarios,gbtAUsuarios);
 				
 		
-		GridBagConstraints gbbLMensaje= new GridBagConstraints( 1, 3,1, 1, 0.4,0,GridBagConstraints.EAST,GridBagConstraints.NONE, new Insets(0,0,0,20),0,0);
+		GridBagConstraints gbbLMensaje= new GridBagConstraints( 1, 3,1, 1, 0.4,0,GridBagConstraints.EAST,GridBagConstraints.NONE, new Insets(0,30,0,0),0,0);
 		getPGlobal().add(lMensaje,gbbLMensaje);
 		
 
-		GridBagConstraints gbbTMensaje= new GridBagConstraints( 2, 3,1, 1, 0,0,GridBagConstraints.CENTER,GridBagConstraints.HORIZONTAL, new Insets(0,0,0,0),0,0);
+		GridBagConstraints gbbTMensaje= new GridBagConstraints( 2, 3,1, 1, 0,0,GridBagConstraints.CENTER,GridBagConstraints.HORIZONTAL, new Insets(0,30,0,0),0,0);
 		getPGlobal().add(tMensaje,gbbTMensaje);
 		
 		GridBagConstraints gbbBEnviar= new GridBagConstraints( 3, 3,2, 2, 0,0,GridBagConstraints.WEST,GridBagConstraints.NONE, new Insets(0,30,0,0),0,0);
