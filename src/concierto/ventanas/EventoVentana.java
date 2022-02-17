@@ -1,10 +1,9 @@
 package concierto.ventanas;
 
-import java.awt.Frame;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
-public class EventosVentana extends Frame implements WindowListener {
+public class EventoVentana implements WindowListener {
 
 	@Override
 	public void windowOpened(WindowEvent e) {
