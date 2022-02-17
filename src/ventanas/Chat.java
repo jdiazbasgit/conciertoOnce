@@ -1,14 +1,14 @@
 package ventanas;
 
-import java.awt.Button;
+//import java.awt.Button;
 import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 //import java.awt.Label;
 //import java.awt.Panel;
-//import java.awt.TextArea;
-//import java.awt.TextField;
+import java.awt.TextArea;
+import java.awt.TextField;
 import java.awt.event.WindowEvent;
 import java.awt.Font;
 import javax.swing.JButton;
@@ -33,12 +33,12 @@ public class Chat extends GestorVentanaChatAdapter {
 	private JLabel lNick, lUsuarios, lMensaje;
 	private JButton bRegistrar, bEnviar;
 	private JTextField tNick, tMensaje;
-	private JTextArea taUsuarios, taMensajes;
+	private TextArea taUsuarios, taMensajes;
 	private Color color = new Color(0, 150, 175);
 	Font fuente=new Font("Arial", Font.ITALIC, 15);
 
 	public Chat() {
-		setPGlobal(new JPanel());
+//		setPGlobal(new JPanel());
 //		setPSuperior(new Panel());
 //		setPCentral(new Panel());
 //		setPInferior(new Panel());
@@ -52,8 +52,8 @@ public class Chat extends GestorVentanaChatAdapter {
 		setBRegistrar(new JButton("REGISTRAR"));
 		setTNick(new JTextField());
 		setTMensaje(new JTextField(80));
-		setTaMensajes(new JTextArea());
-		setTaUsuarios(new JTextArea(20, 1));
+		setTaMensajes(new TextArea());
+		setTaUsuarios(new TextArea(20, 1));
 		getTaUsuarios().setEditable(false);
 		getTaMensajes().setEditable(false);
 
@@ -81,54 +81,54 @@ public class Chat extends GestorVentanaChatAdapter {
 //		  
 //		  
 //		  
-//		  getPGlobal().setLayout(new BorderLayout());
-//		  getPGlobal().add(getPSuperior(),BorderLayout.NORTH);
-//		  getPGlobal().add(getPInferior(),BorderLayout.SOUTH);
-//		  getPGlobal().add(getPCentral(),BorderLayout.CENTER);
+//		  getContentPane().setLayout(new BorderLayout());
+//		  getContentPane().add(getPSuperior(),BorderLayout.NORTH);
+//		  getContentPane().add(getPInferior(),BorderLayout.SOUTH);
+//		  getContentPane().add(getPCentral(),BorderLayout.CENTER);
 //		  
 //		  this.setLayout(new BorderLayout());
-//		  this.add(getPGlobal(),BorderLayout.CENTER);
+//		  this.add(getContentPane(),BorderLayout.CENTER);
 		
-		this.add(getPGlobal());
-		getPGlobal().setLayout(new GridBagLayout());
-		getPGlobal().setBackground(color);
-		getPGlobal().setFont(fuente);
+		//this.add(getPGlobal());
+		getContentPane().setLayout(new GridBagLayout());
+		getContentPane().setBackground(color);
+		getContentPane().setFont(fuente);
 //Superior
 
 		GridBagConstraints gbLNick = new GridBagConstraints(0, 0, 1, 1, 0, 10, GridBagConstraints.EAST,
 				GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
-		getPGlobal().add(getLNick(), gbLNick);
+		getContentPane().add(getLNick(), gbLNick);
 //		getLNick().setBackground(Color.PINK);
 		GridBagConstraints gbTNick = new GridBagConstraints(1, 0, 1, 1, 40, 10, GridBagConstraints.CENTER,
-				GridBagConstraints.HORIZONTAL, new Insets(0, 20, 0, 0), 0, 0);
-		getPGlobal().add(getTNick(), gbTNick);
+				GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0);
+		getContentPane().add(getTNick(), gbTNick);
 		GridBagConstraints gbBRegister = new GridBagConstraints(2, 0, 1, 1, 30, 10, GridBagConstraints.WEST,
 				GridBagConstraints.NONE, new Insets(0, 20, 0, 0), 0, 0);
-		getPGlobal().add(getBRegistrar(), gbBRegister);
+		getContentPane().add(getBRegistrar(), gbBRegister);
 
 //Center
 
 		GridBagConstraints gbLUsuarios = new GridBagConstraints(0, 1, 1, 1, 30, 1, GridBagConstraints.CENTER,
 				GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
-		getPGlobal().add(getLUsuarios(), gbLUsuarios);
+		getContentPane().add(getLUsuarios(), gbLUsuarios);
 		GridBagConstraints gbaTaUsuarios = new GridBagConstraints(0, 2, 1, 1, 0, 10, GridBagConstraints.CENTER,
 				GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0);
-		getPGlobal().add(getTaUsuarios(), gbaTaUsuarios);
+		getContentPane().add(getTaUsuarios(), gbaTaUsuarios);
 		GridBagConstraints gbaTaMensajes = new GridBagConstraints(1, 1, 2, 2, 90, 10, GridBagConstraints.EAST,
 				GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0);
-		getPGlobal().add(getTaMensajes(), gbaTaMensajes);
+		getContentPane().add(getTaMensajes(), gbaTaMensajes);
 
 //Inferior
 
 		GridBagConstraints gbLMensaje = new GridBagConstraints(0, 3, 1, 1, 0, 10, GridBagConstraints.EAST,
 				GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
-		getPGlobal().add(getLMensaje(), gbLMensaje);
+		getContentPane().add(getLMensaje(), gbLMensaje);
 		GridBagConstraints gbTMensaje = new GridBagConstraints(1, 3, 1, 1, 80, 10, GridBagConstraints.CENTER,
-				GridBagConstraints.HORIZONTAL, new Insets(0, 20, 0, 0), 0, 0);
-		getPGlobal().add(getTMensaje(), gbTMensaje);
+				GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0);
+		getContentPane().add(getTMensaje(), gbTMensaje);
 		GridBagConstraints gbBEnviar = new GridBagConstraints(2, 3, 1, 1, 15, 15, GridBagConstraints.WEST,
 				GridBagConstraints.NONE, new Insets(0, 20, 0, 0), 0, 0);
-		getPGlobal().add(getBEnviar(), gbBEnviar);
+		getContentPane().add(getBEnviar(), gbBEnviar);
 
 	}
 
