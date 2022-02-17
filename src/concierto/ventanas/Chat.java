@@ -23,6 +23,8 @@ import lombok.Setter;
 @Setter
 
 
+
+
 public class Chat extends JFrame {
 	
 	private JPanel pGlobal;

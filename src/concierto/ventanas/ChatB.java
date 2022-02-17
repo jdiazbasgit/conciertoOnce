@@ -46,8 +46,14 @@ public class ChatB extends JFrame {
 
 	public ChatB() {
 		
-		List<Persona> listaUsuarios = new ArrayList<Persona>();
-		listaUsuarios = cargaUsiarios();
+		List<Persona> listaUsuarios = List.of(new Persona("Javier","11111","192.168.28.9")
+				,new Persona("Jacinto","22222","192.168.28.10"),
+				new Persona("Anna","33333","192.168.28.11"),
+				new Persona("Juan","44444","192.168.28.12"),
+				new Persona("Antonio","55555","192.168.28.13"),
+				new Persona("Sara","6666","192.168.28.14"));
+				
+		
 	 
 		System.out.println(listaUsuarios.size());
 	
@@ -128,16 +134,16 @@ public class ChatB extends JFrame {
 	
 	}
 	
-	public List<Persona>  cargaUsiarios() {
-		List<Persona> lista = new ArrayList<Persona>();
-		lista.add(new Persona("Javier","1234","192.168.28.9"));
-		lista.add(new Persona("Sara","2222","192.168.28.10"));
-		lista.add(new Persona("Jacinto","3333","192.168.28.13"));
-		lista.add(new Persona("Juan","4444","192.168.28.14"));
-		lista.add(new Persona("Anna","5555","192.168.28.15"));
-		lista.add(new Persona("Antonio","77777","192.168.28.17"));
-		return lista;
-	}
+//	public List<Persona>  cargaUsiarios() {
+//		List<Persona> lista = new ArrayList<Persona>();
+//		lista.add(new Persona("Javier","1234","192.168.28.9"));
+//		lista.add(new Persona("Sara","2222","192.168.28.10"));
+//		lista.add(new Persona("Jacinto","3333","192.168.28.13"));
+//		lista.add(new Persona("Juan","4444","192.168.28.14"));
+//		lista.add(new Persona("Anna","5555","192.168.28.15"));
+//		lista.add(new Persona("Antonio","77777","192.168.28.17"));
+//		return lista;
+//	}
 	
 	public static void main(String[] args) {
 		
