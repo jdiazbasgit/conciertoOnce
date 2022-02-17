@@ -73,6 +73,7 @@ public class Chat extends JFrame  {
 		panel.add(bRegistrar,gbcbRegistrar);
 		
 		//Línea Central------------------------------------------
+		
 		//TextArea del centro
 		GridBagConstraints gbctaMensajes = new GridBagConstraints(1,1,3,2,9,0,GridBagConstraints.WEST,GridBagConstraints.BOTH,new Insets(0,0,0,0),0,0);
 		panel.add(taMensajes,gbctaMensajes);
