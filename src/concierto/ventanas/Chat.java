@@ -6,45 +6,39 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.TextArea;
+import java.awt.TextField;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.WindowConstants;
 
 import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.Setter;
 
 @Data
-@EqualsAndHashCode(callSuper = false)
-@Setter
-
-
-
 
 public class Chat extends JFrame {
-	
-	private JPanel pGlobal;
-	private JButton bRegistrar, bEnviar;
-	private JTextField tNick, tMensaje;
+	private JPanel pGlobal, pSuperior, pInferior, pCentral, pCentralIzquierda, pCentralIzquierdaSuperior,
+			pCentralIzquierdaInferior;
 	private JLabel lNick, lUsuarios, lMensaje;
+	private JButton bRegistrar, bEnviar;
+	private TextField tNick, tMensaje;
 	private TextArea taUsuarios, taMensajes;
+
 	private Color color = new Color(32, 232, 230); 
 	Font mifuente = new Font(Font.SANS_SERIF, 1, 12);
 	
-	
 	public Chat() {
+		
+
 		setContentPane(new JPanel());
 		setLNick(new JLabel("Nick:"));
 		setLUsuarios(new JLabel("Usuarios:"));
 		setLMensaje(new JLabel("Mensaje:"));
 		setBEnviar(new JButton("Enviar"));
 		setBRegistrar(new JButton("Registrar"));
-		setTNick(new JTextField(20));
-		setTMensaje(new JTextField(200));
+		setTNick(new TextField(20));
+		setTMensaje(new TextField(200));
 		setTaMensajes(new TextArea());
 		setTaUsuarios(new TextArea(20, 1));
 
@@ -92,16 +86,12 @@ public class Chat extends JFrame {
 		 
 		
 	}
-	
-	
-	
 
-	public static void main(String[] args)  {
-		 Chat chat = new  Chat();
-		 chat.setSize(600, 600);
+	public static void main(String[] args) {
+		Chat chat = new  Chat();
+		 chat.setSize(500, 500);
 		 chat.setVisible(true);
 		 chat.setDefaultCloseOperation(EXIT_ON_CLOSE);
-		
 
 	}
 
