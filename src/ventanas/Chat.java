@@ -38,6 +38,7 @@ public class Chat extends Frame {
 		setTMensaje(new TextField(100));
 		setTaMensajes(new TextArea());
 		setTaUsuarios(new TextArea(2, 20));
+		getTaUsuarios().setEditable(false);
 
 		panel.setLayout(new GridBagLayout());
 		Color color = new Color(232, 241, 242);
@@ -52,7 +53,7 @@ public class Chat extends Frame {
 		panel.add(getTNick(), gbTNick);
 
 		GridBagConstraints gbBRegistrar = new GridBagConstraints(7, 0, 3, 1, 0.8, 0, GridBagConstraints.WEST,
-				GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
+				GridBagConstraints.NONE, new Insets(0, 20, 0, 0), 0, 0);
 		panel.add(getBRegistrar(), gbBRegistrar);
 
 		GridBagConstraints gbLUsuarios = new GridBagConstraints(0, 1, 3, 1, 0, 0, GridBagConstraints.CENTER,
@@ -76,7 +77,7 @@ public class Chat extends Frame {
 		panel.add(getTMensaje(), gbTMensaje);
 
 		GridBagConstraints gbBEnviar = new GridBagConstraints(8, 9, 3, 1, 0.8, 0, GridBagConstraints.WEST,
-				GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
+				GridBagConstraints.NONE, new Insets(0, 20, 0, 0), 0, 0);
 		panel.add(getBEnviar(), gbBEnviar);
 
 	}
