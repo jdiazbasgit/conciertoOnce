@@ -42,6 +42,7 @@ public class Chat extends Frame {
 		setTMensaje(new TextField(80));
 		setTaMensajes(new TextArea());
 		setTaUsuarios(new TextArea(2, 20));
+		getTaUsuarios().setEditable(false);
 
 		panel.setLayout(new GridBagLayout());
 		Color colorFondo = new Color(145, 244, 133);
@@ -64,11 +65,11 @@ public class Chat extends Frame {
 		panel.add(getLUsuarios(), gbLUsuarios);
 
 		GridBagConstraints gbTaUsuarios = new GridBagConstraints(0, 2, 3, 1, 0, 1.2, GridBagConstraints.CENTER,
-				GridBagConstraints.BOTH, new Insets(0, 10, 0, 25), 0, 0);
+				GridBagConstraints.BOTH, new Insets(0, 10, 0, 0), 0, 0);
 		panel.add(getTaUsuarios(), gbTaUsuarios);
 
 		GridBagConstraints gbTaMensajes = new GridBagConstraints(4, 1, 7, 8, 0, 0.5, GridBagConstraints.CENTER,
-				GridBagConstraints.BOTH, new Insets(0, 0, 0, 35), 0, 0);
+				GridBagConstraints.BOTH, new Insets(0, 0, 0, 25), 0, 0);
 		panel.add(getTaMensajes(), gbTaMensajes);
 
 		GridBagConstraints gbLMensaje = new GridBagConstraints(0, 9, 4, 1, 0, 0, GridBagConstraints.EAST,
