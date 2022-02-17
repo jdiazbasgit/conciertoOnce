@@ -46,6 +46,7 @@ public class Chat extends Frame{
 		setTMensaje(new TextField(80));
 		setTaMensajes(new TextArea());
 		setTaUsuarios(new TextArea(2,20));
+		getTaUsuarios().setEditable(false);
 		
 		/*
 		 * getPSuperior().setLayout(new FlowLayout()); getPSuperior().add(getLNick());
@@ -102,11 +103,11 @@ public class Chat extends Frame{
 		
 		
 		GridBagConstraints gbbtAMensajes= new GridBagConstraints( 1, 1,3, 2, 0,0.6,GridBagConstraints.CENTER,GridBagConstraints.BOTH, new Insets(0,0,0,0),0,0);
-			getPGlobal().add(taMensajes,gbbtAMensajes);
+	    getPGlobal().add(taMensajes,gbbtAMensajes);
 			
 			
-			GridBagConstraints gbtAUsuarios= new GridBagConstraints( 0, 2,1, 1, 0,0,GridBagConstraints.CENTER,GridBagConstraints.BOTH, new Insets(0,0,0,0),0,0);
-			getPGlobal().add(taUsuarios,gbtAUsuarios);
+		GridBagConstraints gbtAUsuarios= new GridBagConstraints( 0, 2,1, 1, 0,0,GridBagConstraints.CENTER,GridBagConstraints.BOTH, new Insets(0,0,0,0),0,0);
+		getPGlobal().add(taUsuarios,gbtAUsuarios);
 				
 		
 		GridBagConstraints gbbLMensaje= new GridBagConstraints( 1, 3,1, 1, 0.4,0,GridBagConstraints.EAST,GridBagConstraints.NONE, new Insets(0,30,0,0),0,0);
@@ -129,4 +130,4 @@ public class Chat extends Frame{
 		chat.setVisible(true);
 	}
 
-}
+}   
