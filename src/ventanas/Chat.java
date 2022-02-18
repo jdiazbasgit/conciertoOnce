@@ -17,6 +17,12 @@ import java.awt.GridBagConstraints;
 @Data
 @EqualsAndHashCode(callSuper = false)
 public class Chat extends JFrame {
+	public static final int PUERTO_ENVIO_REGISTRO_CLIENTE=5002;
+	public static final int PUERTO_ENVIO_REGISTRO_SERVIDOR=5000;
+	public static final int PUERTO_ESCUCHA_REGISTRO_CLIENTE=5003;
+	public static final int PUERTO_ESCUCHA_REGISTRO_SERVIDOR=5001;
+	public static final String IP_SERVIDOR = "192.168.10.44";
+	
 	private JPanel pGlobal, pSuperior, pCentral, pInferior, pCentralIzquierda, pCentralIzquierdaSuperior,
 			pCentralIzquierdaInferior;
 	private JLabel lNick, lUsuarios, lMensaje;
@@ -117,8 +123,7 @@ public class Chat extends JFrame {
 		Chat chat = new Chat();
 		chat.setSize(1200, 800);
 		chat.setVisible(true);
-		chat.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+		chat.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	
 	}
 
 }
