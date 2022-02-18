@@ -45,8 +45,7 @@ public class Chat extends JFrame {
 		getTaMensajes().setEditable(false);
 
 		jpanel.setLayout(new GridBagLayout());
-		Color colorFondo = new Color(215, 244, 233);
-		setBackground(colorFondo);
+		jpanel.setBackground(new Color(215, 244, 233));
 
 		GridBagConstraints gbLNick = new GridBagConstraints(0, 0, 5, 1, 0.2, 0.05, GridBagConstraints.EAST,
 				GridBagConstraints.NONE, new Insets(0, 0, 0, 10), 0, 0);
