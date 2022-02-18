@@ -90,7 +90,7 @@ public class Chat extends JFrame{
 		GridBagConstraints gbclnic= new GridBagConstraints(0, 0, 2, 1, 0, 0, GridBagConstraints.EAST,GridBagConstraints.NONE , new Insets(0,0,0,0),0,0);
 		getPGlobal().add(lNick,gbclnic);
 		
-		GridBagConstraints gbtNick= new GridBagConstraints(2, 0, 1, 1, 0, 0, GridBagConstraints.CENTER,GridBagConstraints.HORIZONTAL, new Insets(0,30,0,0),0,0);
+		GridBagConstraints gbtNick= new GridBagConstraints(2, 0, 1, 1, 0, 0, GridBagConstraints.CENTER,GridBagConstraints.HORIZONTAL, new Insets(10,30,10,0),0,0);
 		getPGlobal().add(tNick,gbtNick);
 		
 	
@@ -115,7 +115,7 @@ public class Chat extends JFrame{
 		getPGlobal().add(lMensaje,gbbLMensaje);
 		
 
-		GridBagConstraints gbbTMensaje= new GridBagConstraints( 2, 3,1, 1, 0,0,GridBagConstraints.CENTER,GridBagConstraints.HORIZONTAL, new Insets(0,30,0,0),0,0);
+		GridBagConstraints gbbTMensaje= new GridBagConstraints( 2, 3,1, 1, 0,0,GridBagConstraints.CENTER,GridBagConstraints.HORIZONTAL, new Insets(10,30,10,0),0,0);
 		getPGlobal().add(tMensaje,gbbTMensaje);
 		
 		GridBagConstraints gbbBEnviar= new GridBagConstraints( 3, 3,2, 2, 0,0,GridBagConstraints.WEST,GridBagConstraints.NONE, new Insets(0,30,0,0),0,0);
