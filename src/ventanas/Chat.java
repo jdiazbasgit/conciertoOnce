@@ -1,29 +1,37 @@
 package ventanas;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import java.awt.Color;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+import java.awt.TextArea;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import java.awt.TextArea;
-import java.awt.GridBagLayout;
-import java.awt.Insets;
-import java.awt.Color;
-import java.awt.GridBagConstraints;
+
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
 
 @SuppressWarnings("serial")
-@Data 
-@EqualsAndHashCode(callSuper = false)
-/apertura de rama grupo 4
+@EqualsAndHashCode(callSuper=false)
+@Data
 public class Chat extends JFrame {
+	@SuppressWarnings("unused")
+	private static final int PUERTO_ESCUCHA_REGISTRO_SERVIDOR=5001;
 	private JPanel pGlobal, pSuperior, pCentral, pInferior, pCentralIzquierda, pCentralIzquierdaSuperior,
 			pCentralIzquierdaInferior;
 	private JLabel lNick, lUsuarios, lMensaje;
 	private JButton bRegistrar, bEnviar;
 	private JTextField tNick, tMensaje;
 	private TextArea taUsuarios, taMensajes;
+	
+	
+	
+	
 
 	public Chat() {
 		setLocation(200, 20);
@@ -48,7 +56,7 @@ public class Chat extends JFrame {
 		//no se puede escribir en los textAreas
 		getTaUsuarios().setEditable(false);
 		getTaMensajes().setEditable(false);
-	
+		
 		
 		getContentPane().setBackground(new Color(166, 210, 222));
 		
