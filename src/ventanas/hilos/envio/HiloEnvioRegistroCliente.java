@@ -2,6 +2,10 @@ package ventanas.hilos.envio;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.net.Socket;
+import java.net.UnknownHostException;
 
 import lombok.Data;
 import ventanas.Chat;
@@ -9,22 +13,26 @@ import ventanas.Chat;
 @Data
 
 public class HiloEnvioRegistroCliente extends Thread{
-	//variables estaticas puertos
-	//PUERTO 5002
-	private static final int PUERTO_ENVIO_REGISTRO_CLIENTE = 5002;
-	private static final String IP_SERVIDOR = "192.168.10.44";
-	private String nick;
-	
 	Chat chat = new Chat();
-	chat.getBRegistrar().addActionListener(new ActionListener() {
-
-		public void actionPerformed(ActionEvent e) {
-			System.out.println("hola he pulsado el boton");
-			String nick;
-			nick = getTNick().getText();
-			System.out.println(nick);
+	socket = new Socket(IP_SERVIDOR, PUERTO_ENVIO_REGISTRO_CLIENTE);
+	Socket socket = null;
+	try {
+		socket = new Socket("192.168.10.18", 5000);
+		PrintWriter printWriter = new PrintWriter(socket.getOutputStream());
+		printWriter.println("Hola soy javi");
+		printWriter.flush();
+	} catch (UnknownHostException e) {
+		e.printStackTrace();
+	} catch (IOException e) {
+		e.printStackTrace();
+	} finally {
+		try {
+			socket.close();
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
-	});
+	}
+	
 	
 	
 

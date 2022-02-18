@@ -15,16 +15,23 @@ import java.awt.GridBagConstraints;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+
 @SuppressWarnings("serial")
 @Data
 @EqualsAndHashCode(callSuper = false)
+
 public class Chat extends JFrame implements ActionListener {
+	private static final int PUERTO_ENVIO_REGISTRO_CLIENTE = 5002;
+	private static final String IP_SERVIDOR = "192.168.10.44";
+	
 	private JPanel pGlobal, pSuperior, pCentral, pInferior, pCentralIzquierda, pCentralIzquierdaSuperior,
 			pCentralIzquierdaInferior;
 	private JLabel lNick, lUsuarios, lMensaje;
 	private JButton bRegistrar, bEnviar;
 	private JTextField tNick, tMensaje;
 	private TextArea taUsuarios, taMensajes;
+
+	
 
 	public Chat() {
 		setLocation(200, 20);
@@ -45,6 +52,7 @@ public class Chat extends JFrame implements ActionListener {
 		setTMensaje(new JTextField(80));
 		setTaMensajes(new TextArea());
 		setTaUsuarios(new TextArea(20, 2));
+		
 
 		// no se puede escribir en los textAreas
 		getTaUsuarios().setEditable(false);
