@@ -27,7 +27,7 @@ import lombok.EqualsAndHashCode;
 
 @EqualsAndHashCode(callSuper = false)
 @Data
-public class Chat extends GestorVentanaChatAdapter {
+public class Chat extends JFrame {
 	private JPanel pGlobal, pSuperior, pCentral, pInferior, pCentralIzquierda, pCentralIzquierdaSuperior,
 			pCentralIzquierdaInferior;
 	private JLabel lNick, lUsuarios, lMensaje;
@@ -136,12 +136,7 @@ public class Chat extends GestorVentanaChatAdapter {
 		Chat chat = new Chat();
 		chat.setSize(800, 800);
 		chat.setVisible(true);
-		chat.addWindowListener(chat);
-	}
-
-	@Override
-	public void windowClosing(WindowEvent e) {
-		System.exit(0);
+		chat.addWindowListener(new GestorVentanaChatAdapter());
 	}
 
 }

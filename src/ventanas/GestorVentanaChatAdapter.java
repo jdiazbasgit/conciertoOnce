@@ -1,6 +1,6 @@
 package ventanas;
 
-import java.awt.Frame;
+//import java.awt.Frame;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import javax.swing.JFrame;
@@ -15,6 +15,7 @@ public class GestorVentanaChatAdapter extends JFrame implements WindowListener {
 
 	@Override
 	public void windowClosing(WindowEvent e) {
+		System.exit(0);
 
 	}
 
