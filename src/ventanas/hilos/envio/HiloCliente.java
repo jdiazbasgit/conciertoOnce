@@ -13,9 +13,9 @@ public class HiloCliente extends Thread {
 		
 		Socket socket=null;
 		try {
-			 socket= new Socket("192.168.10.44", 5000);
+			 socket= new Socket("192.168.10.40", 5000);
 			PrintWriter printWriter= new PrintWriter(socket.getOutputStream());
-			printWriter.println("Hola soy el profe");
+			printWriter.println("Eres Arkano");
 			printWriter.flush();
 		} catch (UnknownHostException e) {
 			e.printStackTrace();
