@@ -12,11 +12,13 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.Color;
 import java.awt.GridBagConstraints;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 @SuppressWarnings("serial")
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class Chat extends JFrame {
+public class Chat extends JFrame implements ActionListener {
 	private JPanel pGlobal, pSuperior, pCentral, pInferior, pCentralIzquierda, pCentralIzquierdaSuperior,
 			pCentralIzquierdaInferior;
 	private JLabel lNick, lUsuarios, lMensaje;
@@ -43,14 +45,13 @@ public class Chat extends JFrame {
 		setTMensaje(new JTextField(80));
 		setTaMensajes(new TextArea());
 		setTaUsuarios(new TextArea(20, 2));
-		
-		//no se puede escribir en los textAreas
+
+		// no se puede escribir en los textAreas
 		getTaUsuarios().setEditable(false);
 		getTaMensajes().setEditable(false);
-	
-		
+
 		getContentPane().setBackground(new Color(166, 210, 222));
-		
+
 		getContentPane().setLayout(new GridBagLayout());
 
 		// Línea de arriba--------------------------------------
@@ -105,11 +106,16 @@ public class Chat extends JFrame {
 		GridBagConstraints gbctAUsuarios = new GridBagConstraints(0, 2, 1, 1, 0, 7, GridBagConstraints.EAST,
 				GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0);
 		getContentPane().add(taUsuarios, gbctAUsuarios);
-		
-		
-		
-		
 
+		getBRegistrar().addActionListener(new ActionListener() {
+
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("hola he pulsado el boton");
+				String nick;
+				nick = getTNick().getText();
+				System.out.println(nick);
+			}
+		});
 
 	}
 
@@ -120,5 +126,20 @@ public class Chat extends JFrame {
 		chat.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+
+	}
+
+//	@Override
+//	public void actionPerformed(ActionEvent e) {
+//		String nick;
+//		nick = getTNick().getText();
+//		setBRegistrar(System.out.println("boton"));
+//
+//		
+//	}
 
 }
