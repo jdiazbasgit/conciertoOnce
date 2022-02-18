@@ -1,32 +1,22 @@
 package ventanas;
 
 //import java.awt.Button;
-import java.awt.Color;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Insets;
-//import java.awt.Label;
-//import java.awt.Panel;
-import java.awt.TextArea;
-import java.awt.TextField;
-import java.awt.event.WindowEvent;
-import java.awt.Font;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPasswordField;
-import javax.swing.JTextField;
-import javax.swing.JTextArea;
 import javax.swing.JPanel;
-
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import javax.swing.JTextField;
+import java.awt.TextArea;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+import java.awt.Color;
+import java.awt.GridBagConstraints;
 
 @SuppressWarnings("serial")
-
-@EqualsAndHashCode(callSuper = false)
 @Data
+@EqualsAndHashCode(callSuper = false)
 public class Chat extends JFrame {
 	private JPanel pGlobal, pSuperior, pCentral, pInferior, pCentralIzquierda, pCentralIzquierdaSuperior,
 			pCentralIzquierdaInferior;
@@ -34,109 +24,102 @@ public class Chat extends JFrame {
 	private JButton bRegistrar, bEnviar;
 	private JTextField tNick, tMensaje;
 	private TextArea taUsuarios, taMensajes;
-	private Color color = new Color(0, 150, 175);
-	Font fuente=new Font("Arial", Font.ITALIC, 15);
 
 	public Chat() {
-//		setPGlobal(new JPanel());
-//		setPSuperior(new Panel());
-//		setPCentral(new Panel());
-//		setPInferior(new Panel());
-//		setPCentralIzquierda(new Panel());
-//		setPCentralIzquierdaSuperior(new Panel());
-//		setPCentralIzquierdaInferior(new Panel());
+		setLocation(200, 20);
+		setTitle("   CHAT DEL EQUIPO 3 - ANNA Y ANTONIO");
+		setPGlobal(new JPanel());
+		setPSuperior(new JPanel());
+		setPCentral(new JPanel());
+		setPInferior(new JPanel());
+		setPCentralIzquierda(new JPanel());
+		setPCentralIzquierdaSuperior(new JPanel());
+		setPCentralIzquierdaInferior(new JPanel());
 		setLNick(new JLabel("NICK:"));
-		setLUsuarios(new JLabel("USUARIOS:"));
+		setLUsuarios(new JLabel("USUARIOS"));
 		setLMensaje(new JLabel("MENSAJE:"));
 		setBEnviar(new JButton("ENVIAR"));
 		setBRegistrar(new JButton("REGISTRAR"));
-		setTNick(new JTextField());
+		setTNick(new JTextField(20));
 		setTMensaje(new JTextField(80));
 		setTaMensajes(new TextArea());
-		setTaUsuarios(new TextArea(20, 1));
+		setTaUsuarios(new TextArea(20, 2));
+		
+		//no se puede escribir en los textAreas
 		getTaUsuarios().setEditable(false);
 		getTaMensajes().setEditable(false);
-
-//		  getPSuperior().setLayout(new FlowLayout()); getPSuperior().add(getLNick());
-//		 getPSuperior().add(getTNick()); getPSuperior().add(getBRegistrar());
-//		 getPSuperior().setBackground(Color.GRAY);
-//		 
-//		  getPInferior().setLayout(new FlowLayout());
-//		  getPInferior().add(getLMensaje()); getPInferior().add(getTMensaje());
-//		  getPInferior().add(getBEnviar()); getPInferior().setBackground(Color.PINK);
-//		  
-//		  getPCentralIzquierdaSuperior().setLayout(new FlowLayout());
-//		  getPCentralIzquierdaSuperior().add(getLUsuarios());
-//		  
-//		  getPCentralIzquierdaInferior().setLayout(new BorderLayout());
-//		  getPCentralIzquierdaInferior().add(getTaUsuarios(),BorderLayout.CENTER);
-//		  
-//		  getPCentralIzquierda().setLayout(new BorderLayout());
-//		  getPCentralIzquierda().add(getPCentralIzquierdaSuperior(),BorderLayout.NORTH);
-//		  getPCentralIzquierda().add(getPCentralIzquierdaInferior(),BorderLayout.CENTER);
-//		  
-//		  getPCentral().setLayout(new BorderLayout());
-//		  getPCentral().add(getPCentralIzquierda(),BorderLayout.WEST);
-//		  getPCentral().add(getTaMensajes(),BorderLayout.CENTER);
-//		  
-//		  
-//		  
-//		  getContentPane().setLayout(new BorderLayout());
-//		  getContentPane().add(getPSuperior(),BorderLayout.NORTH);
-//		  getContentPane().add(getPInferior(),BorderLayout.SOUTH);
-//		  getContentPane().add(getPCentral(),BorderLayout.CENTER);
-//		  
-//		  this.setLayout(new BorderLayout());
-//		  this.add(getContentPane(),BorderLayout.CENTER);
+	
 		
-		//this.add(getPGlobal());
+		getContentPane().setBackground(new Color(166, 210, 222));
+		
 		getContentPane().setLayout(new GridBagLayout());
-		getContentPane().setBackground(color);
-		getContentPane().setFont(fuente);
-//Superior
 
-		GridBagConstraints gbLNick = new GridBagConstraints(0, 0, 1, 1, 0, 10, GridBagConstraints.EAST,
-				GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
-		getContentPane().add(getLNick(), gbLNick);
-//		getLNick().setBackground(Color.PINK);
-		GridBagConstraints gbTNick = new GridBagConstraints(1, 0, 1, 1, 40, 10, GridBagConstraints.CENTER,
+		// Línea de arriba--------------------------------------
+
+		// JLábel del Nick
+		GridBagConstraints gbclNick = new GridBagConstraints(0, 0, 2, 1, 2, 1, GridBagConstraints.EAST,
+				GridBagConstraints.NONE, new Insets(0, 0, 0, 4), 0, 0);
+		getContentPane().add(lNick, gbclNick);
+
+		// JtextField del Nick
+		GridBagConstraints gbctNick = new GridBagConstraints(2, 0, 1, 1, 3, 0, GridBagConstraints.CENTER,
 				GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0);
-		getContentPane().add(getTNick(), gbTNick);
-		GridBagConstraints gbBRegister = new GridBagConstraints(2, 0, 1, 1, 30, 10, GridBagConstraints.WEST,
-				GridBagConstraints.NONE, new Insets(0, 20, 0, 0), 0, 0);
-		getContentPane().add(getBRegistrar(), gbBRegister);
+		getContentPane().add(tNick, gbctNick);
 
-//Center
+		// JBotón de registrar
+		GridBagConstraints gbcbRegistrar = new GridBagConstraints(3, 0, 1, 1, 1, 2, GridBagConstraints.WEST,
+				GridBagConstraints.NONE, new Insets(0, 30, 0, 0), 0, 0);
+		getContentPane().add(bRegistrar, gbcbRegistrar);
 
-		GridBagConstraints gbLUsuarios = new GridBagConstraints(0, 1, 1, 1, 30, 1, GridBagConstraints.CENTER,
-				GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
-		getContentPane().add(getLUsuarios(), gbLUsuarios);
-		GridBagConstraints gbaTaUsuarios = new GridBagConstraints(0, 2, 1, 1, 0, 10, GridBagConstraints.CENTER,
+		// Línea Central------------------------------------------
+
+		// JTextÁrea del centro
+		GridBagConstraints gbctaMensajes = new GridBagConstraints(1, 1, 3, 2, 9, 0, GridBagConstraints.WEST,
 				GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0);
-		getContentPane().add(getTaUsuarios(), gbaTaUsuarios);
-		GridBagConstraints gbaTaMensajes = new GridBagConstraints(1, 1, 2, 2, 90, 10, GridBagConstraints.EAST,
-				GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0);
-		getContentPane().add(getTaMensajes(), gbaTaMensajes);
+		getContentPane().add(taMensajes, gbctaMensajes);
 
-//Inferior
+		// Línea de Abajo------------------------------------------------
 
-		GridBagConstraints gbLMensaje = new GridBagConstraints(0, 3, 1, 1, 0, 10, GridBagConstraints.EAST,
-				GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
-		getContentPane().add(getLMensaje(), gbLMensaje);
-		GridBagConstraints gbTMensaje = new GridBagConstraints(1, 3, 1, 1, 80, 10, GridBagConstraints.CENTER,
+		// JLábel Mensaje
+		GridBagConstraints gbclMensaje = new GridBagConstraints(1, 3, 1, 1, 0, 0, GridBagConstraints.EAST,
+				GridBagConstraints.NONE, new Insets(0, 0, 0, 4), 0, 0);
+		getContentPane().add(lMensaje, gbclMensaje);
+
+		// JtextField de Mensaje
+		GridBagConstraints gbctMensaje = new GridBagConstraints(2, 3, 1, 1, 3, 0, GridBagConstraints.CENTER,
 				GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0);
-		getContentPane().add(getTMensaje(), gbTMensaje);
-		GridBagConstraints gbBEnviar = new GridBagConstraints(2, 3, 1, 1, 15, 15, GridBagConstraints.WEST,
-				GridBagConstraints.NONE, new Insets(0, 20, 0, 0), 0, 0);
-		getContentPane().add(getBEnviar(), gbBEnviar);
+		getContentPane().add(tMensaje, gbctMensaje);
+
+		// JBotón de enviar
+		GridBagConstraints gbcbEnviar = new GridBagConstraints(3, 3, 1, 1, 4, 1, GridBagConstraints.WEST,
+				GridBagConstraints.NONE, new Insets(0, 30, 0, 0), 0, 0);
+		getContentPane().add(bEnviar, gbcbEnviar);
+
+		// Lateral izquierdo-------------------------------------
+
+		// JLábel Usuarios
+		GridBagConstraints gbclUsuarios = new GridBagConstraints(0, 1, 1, 1, 1, 0, GridBagConstraints.CENTER,
+				GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
+		getContentPane().add(lUsuarios, gbclUsuarios);
+
+		// JTextÁrea de Usuarios
+		GridBagConstraints gbctAUsuarios = new GridBagConstraints(0, 2, 1, 1, 0, 7, GridBagConstraints.EAST,
+				GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0);
+		getContentPane().add(taUsuarios, gbctAUsuarios);
+		
+		
+		
+		
+
 
 	}
 
 	public static void main(String[] args) {
 		Chat chat = new Chat();
-		chat.setSize(800, 800);
+		chat.setSize(1200, 800);
 		chat.setVisible(true);
-		chat.addWindowListener(new GestorVentanaChatAdapter());
+		chat.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
 	}
 
 }
