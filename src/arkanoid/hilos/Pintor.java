@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 @Data
+@EqualsAndHashCode(callSuper = false)
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 public class Pintor extends Thread {

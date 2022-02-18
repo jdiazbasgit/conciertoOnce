@@ -1,9 +1,14 @@
 package arkanoid.ventanas;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
+import java.awt.Color;
 
-@Data
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+
+//@Data
+@Setter
+@Getter
 @AllArgsConstructor
 public class Bloque {
 
@@ -12,4 +17,6 @@ public class Bloque {
 	private int posicionX;
 	private int posicionY;
 	private int golpes;
+	private Color color;
+
 }
