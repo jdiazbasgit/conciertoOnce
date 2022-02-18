@@ -75,7 +75,7 @@ public class Chat extends JFrame {
 
 		// LÌnea Central------------------------------------------
 
-		// JTextArea del centro
+		// JText¡rea del centro
 		GridBagConstraints gbctaMensajes = new GridBagConstraints(1, 1, 3, 2, 9, 0, GridBagConstraints.WEST,
 				GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0);
 		getContentPane().add(taMensajes, gbctaMensajes);
@@ -113,58 +113,6 @@ public class Chat extends JFrame {
 		
 		
 
-		// add el panel de arriva
-		/*
-		 * getPSuperior().setLayout(new FlowLayout()); getPSuperior().add(getLNick());
-		 * getPSuperior().add(getTNick()); getPSuperior().add(getBRegistrar());
-		 * getPSuperior().setBackground(Color.GRAY);
-		 * 
-		 * // add el panel de abajo
-		 * 
-		 * 
-		 * getPInferior().setLayout(new FlowLayout());
-		 * getPInferior().add(getLMensaje()); getPInferior().add(getTMensaje());
-		 * getPInferior().add(getBEnviar()); getPInferior().setBackground(Color.GREEN);
-		 * 
-		 * // lateral izquierda superior
-		 * 
-		 * getPCentralIzquierdaSuperior().setLayout(new FlowLayout());
-		 * getPCentralIzquierdaSuperior().add(getLUsuarios());
-		 * 
-		 * // lateral izquierda inferior
-		 * 
-		 * getPCentralIzquierdaInferior().setLayout(new BorderLayout());
-		 * getPCentralIzquierdaInferior().add(getTaUsuarios(), BorderLayout.CENTER);
-		 * 
-		 * // pegar lateral izquierda arriba y abajo al panel izquierdo
-		 * 
-		 * 
-		 * getPCentralIzquierda().setLayout(new BorderLayout());
-		 * getPCentralIzquierda().add(getPCentralIzquierdaSuperior(),
-		 * BorderLayout.NORTH);
-		 * getPCentralIzquierda().add(getPCentralIzquierdaInferior(),
-		 * BorderLayout.CENTER);
-		 * 
-		 * // colocar el panel central izquierda al oeste
-		 * 
-		 * getPCentral().setLayout(new BorderLayout());
-		 * getPCentral().add(getPCentralIzquierda(), BorderLayout.WEST);
-		 * getPCentral().add(getTaMensajes(), BorderLayout.CENTER);
-		 *
-		 * 
-		 * 
-		 * // coloco los paneles con borderLayout
-		 * 
-		 * getPGlobal().setLayout(new BorderLayout()); getPGlobal().add(getPSuperior(),
-		 * BorderLayout.NORTH); getPGlobal().add(getPInferior(), BorderLayout.SOUTH);
-		 * getPGlobal().add(getPCentral(), BorderLayout.CENTER);
-		 * 
-		 * 
-		 * // creo el panel global
-		 * 
-		 * this.setLayout(new BorderLayout()); this.add(getPGlobal(),
-		 * BorderLayout.CENTER);
-		 */
 
 	}
 
