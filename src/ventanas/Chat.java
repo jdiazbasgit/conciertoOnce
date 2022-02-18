@@ -19,6 +19,8 @@ public class Chat extends Frame{
 	private Button bRegistrar,bEnviar;
 	private TextField tNick,tMensaje;
 	private TextArea taUsuarios,taMensajes;
+	
+	//holaaaa
 
 	
 	  
