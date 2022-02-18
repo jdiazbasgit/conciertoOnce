@@ -14,8 +14,9 @@ import java.awt.Color;
 import java.awt.GridBagConstraints;
 
 @SuppressWarnings("serial")
-@Data
+@Data 
 @EqualsAndHashCode(callSuper = false)
+/apertura de rama grupo 4
 public class Chat extends JFrame {
 	private JPanel pGlobal, pSuperior, pCentral, pInferior, pCentralIzquierda, pCentralIzquierdaSuperior,
 			pCentralIzquierdaInferior;
