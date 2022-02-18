@@ -51,8 +51,7 @@ public class Chat extends JFrame {
 		
 		
 		
-		//JPanel panel = new JPanel();
-		//this.add(panel);
+	
 		getContentPane().setBackground(new Color(166, 210, 222));
 		
 		getContentPane().setLayout(new GridBagLayout());
@@ -109,6 +108,10 @@ public class Chat extends JFrame {
 		GridBagConstraints gbctAUsuarios = new GridBagConstraints(0, 2, 1, 1, 0, 7, GridBagConstraints.EAST,
 				GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0);
 		getContentPane().add(taUsuarios, gbctAUsuarios);
+		
+		
+		
+		
 
 		// add el panel de arriva
 		/*
