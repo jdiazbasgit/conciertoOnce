@@ -1,29 +1,38 @@
 package ventanas;
 
-//import java.awt.Button;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import java.awt.Color;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+import java.awt.TextArea;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import java.awt.TextArea;
-import java.awt.GridBagLayout;
-import java.awt.Insets;
-import java.awt.Color;
-import java.awt.GridBagConstraints;
+
+//import java.awt.Button;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import ventanas.hilos.envio.HiloEnvioRegistroCliente;
 
 @SuppressWarnings("serial")
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class Chat extends JFrame {
+
+public class Chat extends JFrame implements ActionListener {
+	private static final int PUERTO_ENVIO_REGISTRO_CLIENTE = 5002;
+	private static final String IP_SERVIDOR = "192.168.10.44";
 	private JPanel pGlobal, pSuperior, pCentral, pInferior, pCentralIzquierda, pCentralIzquierdaSuperior,
 			pCentralIzquierdaInferior;
 	private JLabel lNick, lUsuarios, lMensaje;
 	private JButton bRegistrar, bEnviar;
 	private JTextField tNick, tMensaje;
 	private TextArea taUsuarios, taMensajes;
+	
 
 	public Chat() {
 		setLocation(200, 20);
@@ -44,14 +53,13 @@ public class Chat extends JFrame {
 		setTMensaje(new JTextField(80));
 		setTaMensajes(new TextArea());
 		setTaUsuarios(new TextArea(20, 2));
-		
-		//no se puede escribir en los textAreas
+
+		// no se puede escribir en los textAreas
 		getTaUsuarios().setEditable(false);
 		getTaMensajes().setEditable(false);
-	
-		
+
 		getContentPane().setBackground(new Color(166, 210, 222));
-		
+
 		getContentPane().setLayout(new GridBagLayout());
 
 		// Línea de arriba--------------------------------------
@@ -106,19 +114,40 @@ public class Chat extends JFrame {
 		GridBagConstraints gbctAUsuarios = new GridBagConstraints(0, 2, 1, 1, 0, 7, GridBagConstraints.EAST,
 				GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0);
 		getContentPane().add(taUsuarios, gbctAUsuarios);
-		
-		
-		
-		
 
+		getBRegistrar().addActionListener(new ActionListener() {
+
+			public void actionPerformed(ActionEvent e) {
+				if (getTNick().getText() == "") {
+					System.out.println("Introduce algo...");
+				}
+				HiloEnvioRegistroCliente registro = new HiloEnvioRegistroCliente();
+				registro.start();
+				//System.out.println("Has pulsado el boton");
+				//System.out.println(getTNick().getText() + " ha sido registrado");
+				
+			}
+		});
 
 	}
+//	public Chat(String ip, int puerto, JTextField nick) {
+//		super();
+//		this.IP_SERVIDOR = ip;
+//		this.PUERTO_ENVIO_REGISTRO_CLIENTE= puerto;
+//		this.tNick = nick;
+//	}
 
 	public static void main(String[] args) {
 		Chat chat = new Chat();
 		chat.setSize(1200, 800);
 		chat.setVisible(true);
 		chat.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
 
 	}
 
