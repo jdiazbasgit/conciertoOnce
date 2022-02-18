@@ -49,9 +49,6 @@ public class Chat extends JFrame {
 		getTaMensajes().setEditable(false);
 	
 		
-		
-		
-	
 		getContentPane().setBackground(new Color(166, 210, 222));
 		
 		getContentPane().setLayout(new GridBagLayout());
