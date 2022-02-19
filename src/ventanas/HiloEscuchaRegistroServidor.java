@@ -29,7 +29,7 @@ public class HiloEscuchaRegistroServidor extends Thread {
 		Usuarios.put("Ricardo","192.168.10.52");
 		Usuarios.forEach((Key,Value)->System.out.println(Key+ ":" +Value));
 		
-		//System.out.println(((Usuarios) Usuarios).stream().sorted().map(e->e.getName()).filter(Key.Value).sum());
+		//System.out.println(((Object) Usuarios).stream().sorted().map(e->e.getName()).filter(Key.Value).sum());
 	}
 	
 	
