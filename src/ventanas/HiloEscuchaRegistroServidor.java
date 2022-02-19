@@ -6,11 +6,29 @@ import java.io.InputStreamReader;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.HashMap;
+import java.util.Map;
 
 public class HiloEscuchaRegistroServidor extends Thread {
 	private Chat chat;
 	private HashMap hashMap;
-
+	//Codigo nuevo hashmap.
+	public static void main(String[] args) {
+		
+		Map<String,String>Usuarios=new HashMap<String,String>();
+		Usuarios.put("direccionIp","nickDeUsuario");
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	public HiloEscuchaRegistroServidor(Chat chat) {
 		this.chat = chat;
 	}
