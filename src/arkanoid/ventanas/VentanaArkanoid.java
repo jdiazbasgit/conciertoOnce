@@ -55,11 +55,8 @@ public class VentanaArkanoid extends Frame {
 
 	@Override
 	public void paint(Graphics g) {
-		// Color color = new Color(153,182,229);
 		if (isPrimeraVez()) {
 			setImagen(createImage(2550, 1200));
-
-			// setBackground(color);
 			setExterno(getImagen().getGraphics());
 
 			TonteriasDeBloques tonterias = new TonteriasDeBloques(this);
@@ -79,8 +76,8 @@ public class VentanaArkanoid extends Frame {
 			getExterno().fillRect(bloque.getPosicionX(), bloque.getPosicionY(), bloque.getAncho(), bloque.getAlto());
 			getExterno().setColor(Color.BLUE);
 			getExterno().drawRect(bloque.getPosicionX(), bloque.getPosicionY(), bloque.getAncho(), bloque.getAlto());
-			getExterno().drawString(String.valueOf(bloque.getGolpes()), bloque.getPosicionX() + bloque.getAncho() / 2,
-					bloque.getPosicionY() + bloque.getAlto() / 2);
+			//getExterno().drawString(String.valueOf(bloque.getGolpes()), bloque.getPosicionX() + bloque.getAncho() / 2,
+					//bloque.getPosicionY() + bloque.getAlto() / 2); //////////Estas dos lineas muestran en el bloque el numero de impactos restantes para deaparecer
 
 		}
 		if (getBola() != null)

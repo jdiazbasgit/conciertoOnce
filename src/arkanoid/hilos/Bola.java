@@ -35,12 +35,19 @@ public class Bola extends Thread {
 		while (getVentanaArkanoid().getCuadrados().size() > 0) {
 
 			try {
-				if (getPosicionX() < 0 || (getPosicionX() + getDimension()) > getVentanaArkanoid().getWidth()) {
+				if (getPosicionX() < 73 || (getPosicionX() + getDimension()) > getVentanaArkanoid().getWidth()) {
 					setSentidoX(getSentidoX() * -1);
 				}
+				
+				if (getPosicionX() >2427 || (getPosicionX() + getDimension()) > getVentanaArkanoid().getWidth()) {
+					setSentidoX(getSentidoX() * -1);
+				}
+				
+				
 				if (getPosicionY() < 0 || (getPosicionY() + getDimension()) > getVentanaArkanoid().getHeight()) {
 					setSentidoY(getSentidoY() * -1);
 				}
+				
 				getVentanaArkanoid().getCuadrados().forEach(c -> {
 					if (miraChoque(c)) {
 						Rectangle2D.Double miRectangulo = new Rectangle2D.Double(this.getPosicionX(),

@@ -27,7 +27,10 @@ public class TonteriasDeBloques {
 
 				int superior = 300;
 				int inferior = getVentanaArkanoid().getHeight() - 300;
-				int lateral = getVentanaArkanoid().getAncho() - 1000;
+				int lateral = getVentanaArkanoid().getAncho() - 75;
+				
+				
+				
 				getVentanaArkanoid().getCuadrados().add(dameBloque(inferior, superior, lateral));
 			}
 		}
@@ -40,8 +43,10 @@ public class TonteriasDeBloques {
 		boolean fin = false;
 		while (!fin) {
 			int aleatorioX = (int) (Math.random() * 10000);
-			if (aleatorioX > 0 && aleatorioX < getVentanaArkanoid().getWidth() - getVentanaArkanoid().getAncho()) {
+			
+			if (aleatorioX > lateral && aleatorioX < getVentanaArkanoid().getWidth() - getVentanaArkanoid().getAncho()) {
 				int aleatorioY = (int) (Math.random() * 10000);
+				
 				if (aleatorioY > superior && aleatorioY < inferior - getVentanaArkanoid().getAlto()) {
 					fin = true;
 
@@ -52,8 +57,10 @@ public class TonteriasDeBloques {
 							break;
 						}
 					}
+					
+					
 					if (fin) {
-						bloque = new Bloque(getVentanaArkanoid().getAncho(), getVentanaArkanoid().getAlto(), aleatorioX, aleatorioY, getVentanaArkanoid().getGolpes(),Color.LIGHT_GRAY);
+						bloque = new Bloque(getVentanaArkanoid().getAncho(), getVentanaArkanoid().getAlto(), aleatorioX, aleatorioY, getVentanaArkanoid().getGolpes(),Color.YELLOW);
 						
 					}
 
