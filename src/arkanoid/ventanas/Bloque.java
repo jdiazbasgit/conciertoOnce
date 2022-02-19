@@ -1,6 +1,7 @@
 package arkanoid.ventanas;
 
 import java.awt.Color;
+import java.awt.Image;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,5 +21,5 @@ public class Bloque {
 	private int posicionY;
 	private int golpes;
 	private Color color;
-	
+
 }

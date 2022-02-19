@@ -8,27 +8,26 @@ import java.awt.Toolkit;
 public class TonteriasDeBloques {
 	
 	private VentanaArkanoid ventanaArkanoid;
-	@SuppressWarnings("unused")
-	private Image ImagenBloque;
 	
 	public TonteriasDeBloques(VentanaArkanoid ventanaArkanoid) {
 		this.ventanaArkanoid= ventanaArkanoid;
 	}
 	
+	@SuppressWarnings("unused")
 	public void cargaBloques() {
 		if (getVentanaArkanoid().getCuadrados() == null) {
 			getVentanaArkanoid().setCuadrados(new HashSet<>());
 			while (getVentanaArkanoid().getCuadrados().size() < getVentanaArkanoid().getNumeroBloques()) {
-
-				int superior = 100;
-				int inferior = getVentanaArkanoid().getHeight() - 200;
-				getVentanaArkanoid().getCuadrados().add(dameBloque(inferior, superior));
+                 int ancho= 80;
+				int superior = 200;
+				int inferior = getVentanaArkanoid().getHeight() - 100;
+				getVentanaArkanoid().getCuadrados().add(dameBloque(inferior, superior,ancho));
 			}
 		}
 
 	}
 
-	private Bloque dameBloque(int inferior, int superior) {
+	private Bloque dameBloque(int inferior, int superior,int ancho) {
 		Bloque bloque = null;
 
 		boolean fin = false;
@@ -62,25 +61,6 @@ public class TonteriasDeBloques {
 
 	
 
-	private void setImagenBloque(Image image) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	private void drawImage(Object imagenBloque2, int i, int j, TonteriasDeBloques tonteriasDeBloques) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	private Object getImagenBloque() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	private Object getExterno() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	public VentanaArkanoid getVentanaArkanoid() {
 		return ventanaArkanoid;

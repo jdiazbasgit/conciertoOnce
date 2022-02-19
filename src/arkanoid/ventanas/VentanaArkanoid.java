@@ -39,8 +39,7 @@ public class VentanaArkanoid extends Frame {
 	private int dimensionBola;
 	private Image imagenBola;
 	private Image ImagenFondo;
-	private Image ImagenBloque;
-   
+	private Image imagenBloques;
 	VentanaArkanoid() {
 		Properties properties = new Properties();
 		try {
@@ -70,7 +69,7 @@ public class VentanaArkanoid extends Frame {
 			Pintor pintor = new Pintor(this);
 			pintor.start();
 			setPrimeraVez(false);
-			
+			 setImagenBloques(Toolkit.getDefaultToolkit().getImage("naranja.jpg"));
             setImagenBola(Toolkit.getDefaultToolkit().getImage("red.png"));
             setImagenFondo(Toolkit.getDefaultToolkit().getImage("fondo.jpg"));
 
