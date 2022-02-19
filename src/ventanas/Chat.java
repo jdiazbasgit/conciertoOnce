@@ -22,8 +22,8 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = false)
 
 public class Chat extends JFrame implements ActionListener {
-	public static final Integer PUERTO_ENVIO_REGISTRO_CLIENTE = 5002;
-	public static final String IP_SERVIDOR = "192.168.10.44";
+	public static final Integer PUERTO_ENVIO_REGISTRO_CLIENTE = 5000;
+	public static final String IP_SERVIDOR = "192.168.50.119";
 
 	private JPanel pGlobal, pSuperior, pCentral, pInferior, pCentralIzquierda, pCentralIzquierdaSuperior,
 			pCentralIzquierdaInferior;
@@ -34,7 +34,7 @@ public class Chat extends JFrame implements ActionListener {
 
 	public Chat() {
 		setLocation(200, 20);
-		setTitle("   CHAT DEL EQUIPO 3 - ANNA Y ANTONIO");
+		setTitle("Vamos equipo 1 !!!");
 		setPGlobal(new JPanel());
 		setPSuperior(new JPanel());
 		setPCentral(new JPanel());
@@ -43,7 +43,7 @@ public class Chat extends JFrame implements ActionListener {
 		setPCentralIzquierdaSuperior(new JPanel());
 		setPCentralIzquierdaInferior(new JPanel());
 		setLNick(new JLabel("NICK:"));
-		setLUsuarios(new JLabel("USUARIOS"));
+		setLUsuarios(new JLabel("USUARIOS:"));
 		setLMensaje(new JLabel("MENSAJE:"));
 		setBEnviar(new JButton("ENVIAR"));
 		setBRegistrar(new JButton("REGISTRAR"));
@@ -51,73 +51,53 @@ public class Chat extends JFrame implements ActionListener {
 		setTMensaje(new JTextField(80));
 		setTaMensajes(new TextArea());
 		setTaUsuarios(new TextArea(20, 2));
-
-		getIpServidor();
-		getPuertoEnvioRegistroCliente();
 //		Para que no se pueda escribir en los textAreas
 		getTaUsuarios().setEditable(false);
 		getTaMensajes().setEditable(false);
-
+		getIpServidor();
+		getPuertoEnvioRegistroCliente();
 		getContentPane().setBackground(new Color(166, 210, 222));
 		getContentPane().setLayout(new GridBagLayout());
 
-		// Línea de arriba--------------------------------------
+//		-------------------Panel superior--------------------------------
 
-		// JLábel del Nick
 		GridBagConstraints gbclNick = new GridBagConstraints(0, 0, 2, 1, 2, 1, GridBagConstraints.EAST,
 				GridBagConstraints.NONE, new Insets(0, 0, 0, 4), 0, 0);
 		getContentPane().add(lNick, gbclNick);
-
-		// JtextField del Nick
 		GridBagConstraints gbctNick = new GridBagConstraints(2, 0, 1, 1, 3, 0, GridBagConstraints.CENTER,
 				GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0);
 		getContentPane().add(tNick, gbctNick);
-
-		// JBotón de registrar
 		GridBagConstraints gbcbRegistrar = new GridBagConstraints(3, 0, 1, 1, 1, 2, GridBagConstraints.WEST,
 				GridBagConstraints.NONE, new Insets(0, 30, 0, 0), 0, 0);
 		getContentPane().add(bRegistrar, gbcbRegistrar);
 
-		// Línea Central------------------------------------------
+//		-------------------Panel central----------------------------------
 
-		// JTextÁrea del centro
+		GridBagConstraints gbclUsuarios = new GridBagConstraints(0, 1, 1, 1, 1, 0, GridBagConstraints.CENTER,
+				GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
+		getContentPane().add(lUsuarios, gbclUsuarios);
+		GridBagConstraints gbctAUsuarios = new GridBagConstraints(0, 2, 1, 1, 0, 7, GridBagConstraints.EAST,
+				GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0);
+		getContentPane().add(taUsuarios, gbctAUsuarios);
 		GridBagConstraints gbctaMensajes = new GridBagConstraints(1, 1, 3, 2, 9, 0, GridBagConstraints.WEST,
 				GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0);
 		getContentPane().add(taMensajes, gbctaMensajes);
 
-		// Línea de Abajo------------------------------------------------
+//		--------------------Panel inferior--------------------------------
 
-		// JLábel Mensaje
 		GridBagConstraints gbclMensaje = new GridBagConstraints(1, 3, 1, 1, 0, 0, GridBagConstraints.EAST,
 				GridBagConstraints.NONE, new Insets(0, 0, 0, 4), 0, 0);
 		getContentPane().add(lMensaje, gbclMensaje);
-
-		// JtextField de Mensaje
 		GridBagConstraints gbctMensaje = new GridBagConstraints(2, 3, 1, 1, 3, 0, GridBagConstraints.CENTER,
 				GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0);
 		getContentPane().add(tMensaje, gbctMensaje);
-
-		// JBotón de enviar
 		GridBagConstraints gbcbEnviar = new GridBagConstraints(3, 3, 1, 1, 4, 1, GridBagConstraints.WEST,
 				GridBagConstraints.NONE, new Insets(0, 30, 0, 0), 0, 0);
 		getContentPane().add(bEnviar, gbcbEnviar);
 
-		// Lateral izquierdo-------------------------------------
-
-		// JLábel Usuarios
-		GridBagConstraints gbclUsuarios = new GridBagConstraints(0, 1, 1, 1, 1, 0, GridBagConstraints.CENTER,
-				GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0);
-		getContentPane().add(lUsuarios, gbclUsuarios);
-
-		// JTextÁrea de Usuarios
-		GridBagConstraints gbctAUsuarios = new GridBagConstraints(0, 2, 1, 1, 0, 7, GridBagConstraints.EAST,
-				GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0);
-		getContentPane().add(taUsuarios, gbctAUsuarios);
-
 		getBRegistrar().addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("hola he pulsado el boton");
 				String nick;
 				nick = getTNick().getText();
 				System.out.println(nick);
