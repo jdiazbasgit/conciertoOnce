@@ -99,10 +99,10 @@ public class Chat extends JFrame implements ActionListener {
 		getBRegistrar().addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
+				HiloEnvioRegistroCliente.currentThread().run();
 				String nick;
 				nick = getTNick().getText();
 				System.out.println(nick);
-				HiloEnvioRegistroCliente.
 			}
 		});
 
