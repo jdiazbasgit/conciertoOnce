@@ -12,9 +12,9 @@ import ventanas.Chat;
 @EqualsAndHashCode(callSuper = false)
 @Data
 public class HiloEnvioRegistroCliente extends Thread {
-
+private Socket socketRegistroCliente = null;
 	public void run() {
-		Socket socketRegistroCliente = null;
+		
 		try {
 			socketRegistroCliente = new Socket(Chat.getIpServidor(), Chat.getPuertoEnvioRegistroCliente());
 			PrintWriter printWriter = new PrintWriter(socketRegistroCliente.getOutputStream());

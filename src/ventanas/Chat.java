@@ -7,6 +7,9 @@ import java.awt.Insets;
 import java.awt.TextArea;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.net.Socket;
+import java.net.UnknownHostException;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -33,6 +36,8 @@ public class Chat extends JFrame implements ActionListener {
 	private JTextField tNick, tMensaje;
 	private TextArea taUsuarios, taMensajes;
 
+	private Socket socketRegistroCliente = null;
+
 	public Chat() {
 		setLocation(200, 20);
 		setTitle("Vamos equipo 1 !!!");
@@ -57,6 +62,7 @@ public class Chat extends JFrame implements ActionListener {
 		getTaMensajes().setEditable(false);
 		getIpServidor();
 		getPuertoEnvioRegistroCliente();
+
 		getContentPane().setBackground(new Color(166, 210, 222));
 		getContentPane().setLayout(new GridBagLayout());
 
@@ -99,10 +105,19 @@ public class Chat extends JFrame implements ActionListener {
 		getBRegistrar().addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
-				HiloEnvioRegistroCliente.currentThread().run();
-				String nick;
-				nick = getTNick().getText();
-				System.out.println(nick);
+				try {
+					socketRegistroCliente = new Socket(getIpServidor(), getPuertoEnvioRegistroCliente());
+					HiloEnvioRegistroCliente.currentThread().run();
+					String nick;
+					nick = getTNick().getText();
+					System.out.println(nick);
+				} catch (UnknownHostException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 		});
 
@@ -113,12 +128,6 @@ public class Chat extends JFrame implements ActionListener {
 		chat.setSize(1200, 800);
 		chat.setVisible(true);
 		chat.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-	}
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
 
 	}
 
