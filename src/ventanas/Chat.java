@@ -16,6 +16,7 @@ import javax.swing.JTextField;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import ventanas.hilos.envio.HiloEnvioRegistroCliente;
 
 @SuppressWarnings("serial")
 @Data
@@ -101,6 +102,7 @@ public class Chat extends JFrame implements ActionListener {
 				String nick;
 				nick = getTNick().getText();
 				System.out.println(nick);
+				HiloEnvioRegistroCliente.
 			}
 		});
 
