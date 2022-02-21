@@ -1,4 +1,4 @@
-package ventanas;
+package ventanas.hilos.recepcion;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.net.Socket;
 
 import lombok.Data;
-import ventanas.hilos.recepcion.HiloEscucha;
+import ventanas.Chat;
 
 @Data
 public class HiloEscuchaRegistroServidor extends HiloEscucha {
