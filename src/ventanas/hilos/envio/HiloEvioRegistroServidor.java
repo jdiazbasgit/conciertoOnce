@@ -11,6 +11,7 @@ public class HiloEvioRegistroServidor extends Thread {
 
 		try {
 			socket = new Socket("getIp", 5000);
+			//TODO recibir y mandar paquete con ip y nick
 
 		} catch (IOException e) {
 
