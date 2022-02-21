@@ -15,25 +15,63 @@ import javax.swing.JTextField;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+<<<<<<< HEAD
+=======
+import java.awt.Panel;
+import java.awt.Label;
+import java.awt.TextField;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Optional;
+
+import javax.swing.JFrame;
+
+import java.awt.TextArea;
+import java.awt.Button;
+import java.awt.Color;
+//import java.awt.FlowLayout;
+//import java.awt.Color;
+//import java.awt.BorderLayout;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+import java.awt.GridBagConstraints;
+>>>>>>> refs/remotes/origin/sockets/profe
 
 @SuppressWarnings("serial")
 @EqualsAndHashCode(callSuper=false)
+<<<<<<< HEAD
 @Data
 public class Chat extends JFrame {
 	@SuppressWarnings("unused")
 	private static final int PUERTO_ESCUCHA_REGISTRO_SERVIDOR=5001;
 	private JPanel pGlobal, pSuperior, pCentral, pInferior, pCentralIzquierda, pCentralIzquierdaSuperior,
+=======
+public class Chat extends JFrame  {
+	
+	public static final String IP_SERVIDOR="192.168.1.44";
+	public static final int PUERTO_ESCUCHA_REGISTRO_SERVIDOR=5000;
+	public static final int PUERTO_ENVIO_REGISTRO_SERVIDOR=5001;
+	public static final int PUERTO_ENVIO_REGISTRO_CLIENTE=5002;
+	public static final int PUERTO_ESCUCHA_REGISTRO_CLIENTE=5003;
+	public static final int PUERTO_DESCONEXION=5004;
+	private Panel pGlobal, pSuperior, pCentral, pInferior, pCentralIzquierda, pCentralIzquierdaSuperior,
+>>>>>>> refs/remotes/origin/sockets/profe
 			pCentralIzquierdaInferior;
 	private JLabel lNick, lUsuarios, lMensaje;
 	private JButton bRegistrar, bEnviar;
 	private JTextField tNick, tMensaje;
 	private TextArea taUsuarios, taMensajes;
+<<<<<<< HEAD
 	
 	
 	
 	
+=======
+	private Optional<Map<String, String>> usuarios;
+>>>>>>> refs/remotes/origin/sockets/profe
 
 	public Chat() {
+		setUsuarios(Optional.of(new HashMap<>()));
 		setLocation(200, 20);
 		setTitle("   CHAT DEL EQUIPO 3 - ANNA Y ANTONIO");
 		setPGlobal(new JPanel());
