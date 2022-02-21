@@ -147,7 +147,6 @@ public class Chat extends JFrame {
 		Chat chat = new Chat();
 		chat.setSize(1200, 800);
 		chat.setVisible(true);
-		chat.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 	}
 
