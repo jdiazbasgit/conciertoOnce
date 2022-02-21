@@ -6,6 +6,10 @@ import lombok.EqualsAndHashCode;
 import java.awt.Panel;
 import java.awt.Label;
 import java.awt.TextField;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Optional;
+
 import javax.swing.JFrame;
 
 import java.awt.TextArea;
@@ -22,14 +26,23 @@ import java.awt.GridBagConstraints;
 @Data
 @EqualsAndHashCode(callSuper=false)
 public class Chat extends JFrame  {
+	
+	public static final String IP_SERVIDOR="192.168.1.44";
+	public static final int PUERTO_ESCUCHA_REGISTRO_SERVIDOR=5000;
+	public static final int PUERTO_ENVIO_REGISTRO_SERVIDOR=5001;
+	public static final int PUERTO_ENVIO_REGISTRO_CLIENTE=5002;
+	public static final int PUERTO_ESCUCHA_REGISTRO_CLIENTE=5003;
+	public static final int PUERTO_DESCONEXION=5004;
 	private Panel pGlobal, pSuperior, pCentral, pInferior, pCentralIzquierda, pCentralIzquierdaSuperior,
 			pCentralIzquierdaInferior;
 	private Label lNick, lUsuarios, lMensaje;
 	private Button bRegistrar, bEnviar;
 	private TextField tNick, tMensaje;
 	private TextArea taUsuarios, taMensajes;
+	private Optional<Map<String, String>> usuarios;
 
 	public Chat() {
+		setUsuarios(Optional.of(new HashMap<>()));
 		setLocation(200, 20);
 		setTitle("   CHAT DEL EQUIPO 3 - ANNA Y ANTONIO");
 		setPGlobal(new Panel());
