@@ -26,8 +26,25 @@ public class HiloEscuchaRegistroServidor extends HiloEscucha {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+			String usuarioNuevo = usuario;
+
+			if (m.values().stream().filter(u -> u.equals(usuarioNuevo)).count() == 1) {
+				// envio mensaje de usuario ya registrado
+
+			} else {
+				getChat().getUsuarios().ifPresent(m1 -> {
+					m1.put(getIp(), usuarioNuevo);
+					m1.forEach((ip,nick)->{
+						//enviar nuevo listado de usuarios a todas las ip
+					});
+
+				});
+				// envio de listado de usuarios conectados con nuevo registro agregado
+
+			}
 
 		});
+		socket.close();
 
-	};
+	}
 }
