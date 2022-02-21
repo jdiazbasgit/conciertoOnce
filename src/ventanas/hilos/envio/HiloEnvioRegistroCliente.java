@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
+import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
@@ -13,7 +14,14 @@ public class HiloEnvioRegistroCliente extends HiloCliente {
 	// variables estaticas puertos
 	// PUERTO 5002
 
-	Chat chat = new Chat();
+	private Chat chat;
+	
+
+	public HiloEnvioRegistroCliente() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 
 	@Override
 	public void run() {
@@ -21,11 +29,11 @@ public class HiloEnvioRegistroCliente extends HiloCliente {
 		System.out.println("texto de jtextfield: " + chat.getTNick().getText());
 		Socket socket = null;
 		try {
-			socket = new Socket("127.0.0.1", 5000);
+			socket = new Socket("192.168.10.69", 5000);
 			
-			ObjectOutputStream objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
-			objectOutputStream.writeBytes(chat.getTNick().getText());
-			objectOutputStream.flush();
+			PrintWriter printWriter = new PrintWriter(socket.getOutputStream());
+			printWriter.println(getcha));
+			
 			
 			//System.out.println(chat.getTNick().getText() + "Esto es del hilo de registro");
 			

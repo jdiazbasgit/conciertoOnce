@@ -5,13 +5,21 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
-public class HiloCliente extends Thread {
+import ventanas.Chat;
 
+public class HiloCliente extends Thread {
+private Chat chat;
+private int puerto;
+	public HiloCliente(Chat chat,int puerto) {
+		this.chat = chat;
+		this.puerto=puerto;
+		
+	}
 	@Override
 	public void run() {
 		Socket socket = null;
 		try {
-			socket = new Socket("192.168.10.18", 5000);
+			socket = new Socket(Chat.IP_SERVIDOR, Chat.PUERTO_ESCUCHA_REGISTRO_SERVIDOR);
 			PrintWriter printWriter = new PrintWriter(socket.getOutputStream());
 			printWriter.println("Hola soy javi");
 			printWriter.flush();
