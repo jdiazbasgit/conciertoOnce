@@ -1,4 +1,4 @@
-package ventanas.hilos.recepcion;
+package ventanas.hilos.envio;
 
 import java.io.IOException;
 import java.net.Socket;
