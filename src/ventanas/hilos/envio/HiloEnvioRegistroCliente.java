@@ -1,26 +1,32 @@
 package ventanas.hilos.envio;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.IOException;
-import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
 import ventanas.Chat;
-
+import ventanas.hilos.envio.HiloCliente;
 public class HiloEnvioRegistroCliente extends HiloCliente {
 	// variables estaticas puertos
 	// PUERTO 5002
 
-	private Chat chat;
-	
-
-	public HiloEnvioRegistroCliente() {
-		super();
+	public HiloEnvioRegistroCliente(Chat chat, int puerto) {
+		super(chat, puerto);
 		// TODO Auto-generated constructor stub
 	}
+	private int puerto;
+	private String ip;
+	
+	
+	Chat chat = new Chat(Chat.IP_SERVIDOR, Chat.PUERTO_ESCUCHA_REGISTRO_SERVIDOR) {
+	this.ip = IP_SERVIDOR;
+	this.puerto = PUERTO_ESCUCHA_REGISTRO_SERVIDOR;
+	}
+//	public HiloEnvioRegistroCliente() {
+//		super();
+//		// TODO Auto-generated constructor stub
+//	}
 
 
 	@Override
@@ -32,7 +38,7 @@ public class HiloEnvioRegistroCliente extends HiloCliente {
 			socket = new Socket("192.168.10.69", 5000);
 			
 			PrintWriter printWriter = new PrintWriter(socket.getOutputStream());
-			printWriter.println(getcha));
+			printWriter.println(getChat());
 			
 			
 			//System.out.println(chat.getTNick().getText() + "Esto es del hilo de registro");
