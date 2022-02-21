@@ -8,6 +8,7 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.TextArea;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashMap;
 import java.util.Map;
@@ -57,6 +58,7 @@ public class Chat extends JFrame implements ActionListener {
 		setTMensaje(new JTextField(80));
 		setTaMensajes(new TextArea());
 		setTaUsuarios(new TextArea(20, 2));
+		getBRegistrar().addActionListener(this);
 
 		// no se puede escribir en los textAreas
 		getTaUsuarios().setEditable(false);
@@ -132,18 +134,19 @@ public class Chat extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		
-		String nick;
-		nick = getTNick().getText();
+
 		if (e.getSource().equals(getBRegistrar())) {
 			System.out.println("boton");
 
 			if (getTNick().getText().equals("")) {
 				getTaMensajes().append("Escribe nick \n");
 				System.out.println("Introduce algo...");
+			} else {
+				HiloEnvioRegistroCliente registro = new HiloEnvioRegistroCliente(this, Chat.IP_SERVIDOR,
+						Chat.PUERTO_ENVIO_REGISTRO_CLIENTE, getTNick().getText());
+				registro.start();
 			}
-			HiloEnvioRegistroCliente registro = new HiloEnvioRegistroCliente(getChat(),  _, int puerto);
-			registro.start();
+
 		}
 	}
 
