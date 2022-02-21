@@ -9,7 +9,7 @@ import java.net.UnknownHostException;
 
 import ventanas.Chat;
 
-public class HiloEnvioRegistroCliente extends Thread {
+public class HiloEnvioRegistroCliente extends HiloCliente {
 	// variables estaticas puertos
 	// PUERTO 5002
 
