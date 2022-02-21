@@ -9,7 +9,7 @@ public class HiloEnvioDesconexionCliente extends HiloEnvio {
 
 	public HiloEnvioDesconexionCliente(Chat chat, int puerto) {
 		super(chat, Chat.IP_SERVIDOR,Chat.PUERTO_DESCONEXION);
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	@Override
