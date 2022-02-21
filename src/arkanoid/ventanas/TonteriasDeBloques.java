@@ -13,13 +13,13 @@ import java.awt.Color;
 @Setter
 @Getter
 public class TonteriasDeBloques {
-	
+
 	private VentanaArkanoid ventanaArkanoid;
-	
+
 	public TonteriasDeBloques(VentanaArkanoid ventanaArkanoid) {
-		this.ventanaArkanoid= ventanaArkanoid;
+		this.ventanaArkanoid = ventanaArkanoid;
 	}
-	
+
 	public void cargaBloques() {
 		if (getVentanaArkanoid().getCuadrados() == null) {
 			getVentanaArkanoid().setCuadrados(new HashSet<>());
@@ -27,10 +27,9 @@ public class TonteriasDeBloques {
 
 				int superior = 300;
 				int inferior = getVentanaArkanoid().getHeight() - 300;
-				int lateral = getVentanaArkanoid().getAncho() - 75;
+				int lateral = getVentanaArkanoid().getAncho() - 73;
 				
-				
-				
+
 				getVentanaArkanoid().getCuadrados().add(dameBloque(inferior, superior, lateral));
 			}
 		}
@@ -43,25 +42,26 @@ public class TonteriasDeBloques {
 		boolean fin = false;
 		while (!fin) {
 			int aleatorioX = (int) (Math.random() * 10000);
-			
+
 			if (aleatorioX > lateral && aleatorioX < getVentanaArkanoid().getWidth() - getVentanaArkanoid().getAncho()) {
 				int aleatorioY = (int) (Math.random() * 10000);
-				
+
 				if (aleatorioY > superior && aleatorioY < inferior - getVentanaArkanoid().getAlto()) {
 					fin = true;
 
 					for (Bloque b : getVentanaArkanoid().getCuadrados()) {
-						Rectangle2D.Double r1 = new Rectangle2D.Double(aleatorioX, aleatorioY, getVentanaArkanoid().getAncho(), getVentanaArkanoid().getAlto());
+						Rectangle2D.Double r1 = new Rectangle2D.Double(aleatorioX, aleatorioY,
+								getVentanaArkanoid().getAncho(), getVentanaArkanoid().getAlto());
 						if (r1.intersects(b.getPosicionX(), b.getPosicionY(), b.getAncho(), b.getAlto())) {
 							fin = false;
 							break;
 						}
 					}
-					
-					
+
 					if (fin) {
-						bloque = new Bloque(getVentanaArkanoid().getAncho(), getVentanaArkanoid().getAlto(), aleatorioX, aleatorioY, getVentanaArkanoid().getGolpes(),Color.YELLOW);
-						
+						bloque = new Bloque(getVentanaArkanoid().getAncho(), getVentanaArkanoid().getAlto(), aleatorioX,
+								aleatorioY, getVentanaArkanoid().getGolpes(), Color.YELLOW);
+
 					}
 
 				}
