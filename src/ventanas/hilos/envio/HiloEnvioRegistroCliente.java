@@ -5,9 +5,11 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
+import lombok.Data;
 import ventanas.Chat;
 import ventanas.hilos.envio.HiloCliente;
-public class HiloEnvioRegistroCliente extends HiloCliente {
+@Data
+public class HiloEnvioRegistroCliente extends HiloEnvio {
 	// variables estaticas puertos
 	// PUERTO 5002
 
@@ -15,14 +17,18 @@ public class HiloEnvioRegistroCliente extends HiloCliente {
 		super(chat, puerto);
 		// TODO Auto-generated constructor stub
 	}
+	private Chat chat;
 	private int puerto;
+
 	private String ip;
 	
+
 	
-	Chat chat = new Chat(Chat.IP_SERVIDOR, Chat.PUERTO_ESCUCHA_REGISTRO_SERVIDOR) {
-	this.ip = IP_SERVIDOR;
-	this.puerto = PUERTO_ESCUCHA_REGISTRO_SERVIDOR;
-	}
+	
+//	Chat chat = new Chat(Chat.IP_SERVIDOR, Chat.PUERTO_ESCUCHA_REGISTRO_SERVIDOR) {
+//	this.ip = IP_SERVIDOR;
+//	this.puerto = PUERTO_ESCUCHA_REGISTRO_SERVIDOR;
+//	}
 //	public HiloEnvioRegistroCliente() {
 //		super();
 //		// TODO Auto-generated constructor stub
@@ -55,6 +61,11 @@ public class HiloEnvioRegistroCliente extends HiloCliente {
 			}
 		}
 	}
+@Override
+public void hacerAlgo(Socket socket) throws IOException {
+	// TODO Auto-generated method stub
+	
+}
 }
 
 
