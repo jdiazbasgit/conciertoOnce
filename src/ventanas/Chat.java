@@ -19,6 +19,7 @@ import javax.swing.JTextField;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import ventanas.eventos.ElQueSabeLoQueHayQueHacerConLaVentana;
 
 @SuppressWarnings("serial")
 @EqualsAndHashCode(callSuper=false)
@@ -43,6 +44,7 @@ public class Chat extends JFrame {
 	private Optional<Map<String, String>> usuarios;
 
 	public Chat() {
+		this.addWindowListener(new ElQueSabeLoQueHayQueHacerConLaVentana(this));
 		setUsuarios(Optional.of(new HashMap<>()));
 		setLocation(200, 20);
 		setTitle("   CHAT DEL EQUIPO 3 - ANNA Y ANTONIO");
