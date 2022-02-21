@@ -5,6 +5,8 @@ import java.io.ObjectInputStream;
 import java.net.Socket;
 import java.util.Collection;
 import java.util.Map;
+import java.util.Optional;
+
 import ventanas.Chat;
 
 public class HiloEscuchaRegistroCliente extends HiloEscucha{
@@ -16,42 +18,31 @@ public class HiloEscuchaRegistroCliente extends HiloEscucha{
 
 	@Override
 	public void hacerAlgo(Socket socket) throws IOException {
-		ObjectInputStream objectInputStream= new ObjectInputStream(socket.getInputStream());
-		try {
+		
+		try (ObjectInputStream objectInputStream= new ObjectInputStream(socket.getInputStream())){
 			Object objectRecibido = objectInputStream.readObject();
 			if( objectRecibido instanceof Map<?,?>) {
-				Collection<?> nicksCollection = ((Map<?,?>)objectRecibido).values();
-				
+				Collection<?> nicksCollection = ((Map<?,?>)objectRecibido).values();				
 				StringBuilder stringBuilder = new StringBuilder();
 				nicksCollection.stream().forEach(n->{
 					stringBuilder.append( (String)n );
 					stringBuilder.append( HiloEscuchaRegistroCliente.SALTO_LINEA );
-				});
-			
+				});			
 				super.getChat().getTaUsuarios().setText(stringBuilder.toString());
 			}
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
+		} catch (ClassNotFoundException | IOException e) {
 			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} finally {
+				Optional.ofNullable(socket).ifPresent(s -> {
+					try {
+						s.close();
+					} catch (IOException e) {
+						e.getMessage();
+					}
+				});
 		}
-		
-		
-		
-		
-		/*if( objectRecibido instanceof Map<?,?>) {
-			Collection<?> nicksCollection = ((Map<?,?>)objectRecibido).values();
-			StringBuilder stringBuilder = new StringBuilder();
-			for (Object nick : nicksCollection) {						
-				stringBuilder.append( (String)nick );
-				stringBuilder.append( HiloRecibeMapaUsuarios.SALTO_LINEA );
-			}
-			chat.getTaUsuarios().setText(stringBuilder.toString());
-		}
-		
-		*/
+	
+
 		
 	}
 }
