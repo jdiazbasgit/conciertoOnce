@@ -1,6 +1,10 @@
 package ventanas.hilos.envio;
 
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.PrintWriter;
 import java.net.Socket;
 
 public class HiloEvioRegistroServidor extends Thread {
@@ -9,8 +13,16 @@ public class HiloEvioRegistroServidor extends Thread {
 	public void run() {
 		Socket socket = null;
 
-		try {
+		try  {
 			socket = new Socket("getIp", 5000);
+			
+				
+			
+			
+			
+			
+			
+			
 			//TODO recibir y mandar paquete con ip y nick
 
 		} catch (IOException e) {
