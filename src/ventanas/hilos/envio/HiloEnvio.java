@@ -15,18 +15,20 @@ public abstract class HiloEnvio extends Thread {
 
 	private String ip;
 
-	public HiloEnvio(Chat chat, int puerto) {
+
+	public HiloEnvio(Chat chat, String ip, int puerto) {
 		this.chat = chat;
 		this.puerto = puerto;
+		this.ip = ip;
 	}
 
 	@Override
 	public void run() {
 		Socket socket = null;
 		try {
-			
-			 socket = new Socket(getIp(), getPuerto());
-			setIp(socket.getInetAddress().getHostAddress());
+
+			socket = new Socket(getIp(), getPuerto());
+
 			hacerAlgo(socket);
 
 		} catch (IOException e) {

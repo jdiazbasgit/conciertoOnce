@@ -8,6 +8,7 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.TextArea;
+import java.awt.event.ActionListener;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
@@ -19,12 +20,14 @@ import javax.swing.JTextField;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import ventanas.eventos.ElQueSabeLoQueHayQueHacerConLaVentana;
+import ventanas.hilos.envio.HiloEnvioRegistroCliente;
 
 @SuppressWarnings("serial")
-@EqualsAndHashCode(callSuper=false)
+@EqualsAndHashCode(callSuper = false)
 @Data
 
-public class Chat extends JFrame {
+public class Chat extends JFrame implements ActionListener {
 
 	public static final String IP_SERVIDOR = "192.168.1.44";
 	public static final int PUERTO_ESCUCHA_REGISTRO_SERVIDOR = 5000;
@@ -36,17 +39,15 @@ public class Chat extends JFrame {
 	private JButton bRegistrar, bEnviar;
 	private JTextField tNick, tMensaje;
 	private TextArea taUsuarios, taMensajes;
-	
-	
-	
-	
+
 	private Optional<Map<String, String>> usuarios;
 
 	public Chat() {
+		this.addWindowListener(new ElQueSabeLoQueHayQueHacerConLaVentana(this));
 		setUsuarios(Optional.of(new HashMap<>()));
 		setLocation(200, 20);
 		setTitle("   CHAT DEL EQUIPO 3 - ANNA Y ANTONIO");
-		
+
 		setLNick(new JLabel("NICK:"));
 		setLUsuarios(new JLabel("USUARIOS"));
 		setLMensaje(new JLabel("MENSAJE:"));
@@ -56,23 +57,18 @@ public class Chat extends JFrame {
 		setTMensaje(new JTextField(80));
 		setTaMensajes(new TextArea());
 		setTaUsuarios(new TextArea(20, 2));
-		
-		//no se puede escribir en los textAreas
+
+		// no se puede escribir en los textAreas
 		getTaUsuarios().setEditable(false);
 		getTaMensajes().setEditable(false);
-		
-		
-		getContentPane().setBackground(new Color(166, 210, 222));
-		
 
-		
+		getContentPane().setBackground(new Color(166, 210, 222));
+
 		getContentPane().setBackground(new Color(166, 210, 222));
 
 		getContentPane().setLayout(new GridBagLayout());
 
 		// Línea de arriba--------------------------------------
-
-		
 
 		// JtextField del Nick
 		// Lábel del Nick
@@ -107,8 +103,7 @@ public class Chat extends JFrame {
 		getContentPane().add(lMensaje, gbclMensaje);
 
 		// JtextField de Mensaje
-		
-		
+
 		// textField de Mensaje
 		GridBagConstraints gbctMensaje = new GridBagConstraints(2, 3, 1, 1, 3, 0, GridBagConstraints.CENTER,
 				GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0);
@@ -132,18 +127,12 @@ public class Chat extends JFrame {
 		GridBagConstraints gbctAUsuarios = new GridBagConstraints(0, 2, 1, 1, 0, 7, GridBagConstraints.EAST,
 				GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0);
 		getContentPane().add(taUsuarios, gbctAUsuarios);
-		
-		
-		
-		
-
-		
-
-		
 
 	}
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		
 		String nick;
 		nick = getTNick().getText();
 		if (e.getSource().equals(getBRegistrar())) {
@@ -153,9 +142,10 @@ public class Chat extends JFrame {
 				getTaMensajes().append("Escribe nick \n");
 				System.out.println("Introduce algo...");
 			}
-			HiloEnvioRegistroCliente registro = new HiloEnvioRegistroCliente();
+			HiloEnvioRegistroCliente registro = new HiloEnvioRegistroCliente(getChat(),  _, int puerto);
 			registro.start();
 		}
+	}
 
 	public static void main(String[] args) {
 		Chat chat = new Chat();

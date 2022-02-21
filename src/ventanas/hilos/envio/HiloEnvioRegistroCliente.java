@@ -13,8 +13,8 @@ public class HiloEnvioRegistroCliente extends HiloEnvio {
 	// variables estaticas puertos
 	// PUERTO 5002
 
-	public HiloEnvioRegistroCliente(Chat chat, int puerto) {
-		super(chat, puerto);
+	public HiloEnvioRegistroCliente(Chat chat, String ip, int puerto) {
+		super(chat,ip, puerto);
 		// TODO Auto-generated constructor stub
 	}
 	private Chat chat;
