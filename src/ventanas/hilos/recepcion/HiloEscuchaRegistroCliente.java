@@ -7,7 +7,7 @@ import java.util.Collection;
 import java.util.Map;
 import java.util.Optional;
 
-import ventanas.Chat;
+import ventanas.trabajo.Chat;
 
 public class HiloEscuchaRegistroCliente extends HiloEscucha{
 	private static final String SALTO_LINEA="\n";
@@ -17,7 +17,7 @@ public class HiloEscuchaRegistroCliente extends HiloEscucha{
 	}
 
 	@Override
-	public void hacerAlgo(Socket socket) throws IOException {
+	public void hacerAlgo(Socket socket)  {
 		
 		try (ObjectInputStream objectInputStream= new ObjectInputStream(socket.getInputStream())){
 			Object objectRecibido = objectInputStream.readObject();
@@ -28,7 +28,7 @@ public class HiloEscuchaRegistroCliente extends HiloEscucha{
 					stringBuilder.append( (String)n );
 					stringBuilder.append( HiloEscuchaRegistroCliente.SALTO_LINEA );
 				});			
-				super.getChat().getTaUsuarios().setText(stringBuilder.toString());
+				this.getChat().getTaUsuarios().setText(stringBuilder.toString());
 			}
 		} catch (ClassNotFoundException | IOException e) {
 			e.printStackTrace();

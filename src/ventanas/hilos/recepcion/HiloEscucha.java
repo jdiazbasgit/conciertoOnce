@@ -5,7 +5,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 import lombok.Data;
-import ventanas.Chat;
+import ventanas.trabajo.Chat;
 
 @Data
 public abstract class HiloEscucha extends Thread {
@@ -18,6 +18,9 @@ public abstract class HiloEscucha extends Thread {
 	
 	public HiloEscucha(Chat chat,int puerto) {
 		this.chat = chat;
+		this.puerto=puerto;
+	}
+	public HiloEscucha(int puerto) {
 		this.puerto=puerto;
 	}
 	@Override
@@ -36,12 +39,11 @@ public abstract class HiloEscucha extends Thread {
 				try {
 					serverSocket.close();
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			} 
 		}
 		
 	}
-	public abstract void hacerAlgo(Socket socket) throws IOException ;
+	public abstract void hacerAlgo(Socket socket) throws IOException  ;
 }

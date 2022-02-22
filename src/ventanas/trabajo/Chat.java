@@ -1,4 +1,4 @@
-package ventanas;
+package ventanas.trabajo;
 
 import java.awt.Color;
 import java.awt.GridBagConstraints;
@@ -40,12 +40,12 @@ public class Chat extends JFrame {
 	
 	
 	
-	
-	private Optional<Map<String, String>> usuarios;
+	public static Optional<Map<String, String>> usuarios= Optional.of(new HashMap<>());
 
 	public Chat() {
-		this.addWindowListener(new ElQueSabeLoQueHayQueHacerConLaVentana(this));
-		setUsuarios(Optional.of(new HashMap<>()));
+		
+		this.addWindowListener(new ElQueSabeLoQueHayQueHacerConLaVentana());
+		//setUsuarios(Optional.of(new HashMap<>()));
 		setLocation(200, 20);
 		setTitle("   CHAT DEL EQUIPO 3 - ANNA Y ANTONIO");
 		
@@ -144,6 +144,8 @@ public class Chat extends JFrame {
 		
 
 	}
+	
+	
 
 	public static void main(String[] args) {
 		Chat chat = new Chat();
@@ -151,5 +153,5 @@ public class Chat extends JFrame {
 		chat.setVisible(true);
 
 	}
-
+	
 }
