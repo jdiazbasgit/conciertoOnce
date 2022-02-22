@@ -153,7 +153,11 @@ public class Chat extends JFrame implements ActionListener {
 				System.out.println("Introduce algo...");
 			} else {
 				HiloEnvioRegistroCliente registro = new HiloEnvioRegistroCliente(this, Chat.IP_SERVIDOR,
+<<<<<<< HEAD
 						Chat.PUERTO_ENVIO_REGISTRO_CLIENTE);
+=======
+						Chat.PUERTO_ENVIO_REGISTRO_CLIENTE, getTNick().getText());
+>>>>>>> branch 'sockets/equipo1' of https://github.com/jdiazbasgit/conciertoOnce.git
 				registro.start();
 			}
 
