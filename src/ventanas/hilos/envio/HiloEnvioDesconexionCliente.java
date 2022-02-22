@@ -11,6 +11,7 @@ public class HiloEnvioDesconexionCliente extends HiloEnvio {
 	
 	public HiloEnvioDesconexionCliente( String ip, int puerto) {
 		super( ip, puerto);
+
 	}
 
 	@Override
