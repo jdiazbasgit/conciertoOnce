@@ -45,7 +45,7 @@ public class HiloEscuchaRegistroServidor extends HiloEscucha {
 				envio.start();
 			});
 
-		} catch (IOException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
