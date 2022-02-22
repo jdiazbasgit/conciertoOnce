@@ -39,7 +39,6 @@ public class HiloEscuchaRegistroServidor extends HiloEscucha {
 					});
 
 				});
-				// envio de listado de usuarios conectados con nuevo registro agregado
 
 			}
 
