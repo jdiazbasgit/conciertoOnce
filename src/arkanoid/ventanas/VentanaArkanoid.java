@@ -69,7 +69,7 @@ public class VentanaArkanoid extends Frame {
 
 		}
 		getExterno().clearRect(0, 0, 2550, 1200);
-		getExterno().drawImage(getImagenFondo(), 0, 0, this.getWidth(), this.getHeight(), this);
+		getExterno().drawImage(getImagenFondo(), 0, 20, this.getWidth(), this.getHeight(), this);
 
 		for (Bloque bloque : cuadrados) {
 			getExterno().setColor(bloque.getColor());

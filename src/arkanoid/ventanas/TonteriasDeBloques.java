@@ -28,22 +28,23 @@ public class TonteriasDeBloques {
 				int superior = 300;
 				int inferior = getVentanaArkanoid().getHeight() - 300;
 				int lateral = getVentanaArkanoid().getAncho() - 73;
+				int lateralDcho = getVentanaArkanoid().getAncho() +73;
 				
 
-				getVentanaArkanoid().getCuadrados().add(dameBloque(inferior, superior, lateral));
+				getVentanaArkanoid().getCuadrados().add(dameBloque(inferior, superior, lateral, lateralDcho));
 			}
 		}
 
 	}
 
-	private Bloque dameBloque(int inferior, int superior, int lateral) {
+	private Bloque dameBloque(int inferior, int superior, int lateral, int lateralDcho) {
 		Bloque bloque = null;
 
 		boolean fin = false;
 		while (!fin) {
 			int aleatorioX = (int) (Math.random() * 10000);
 
-			if (aleatorioX > lateral && aleatorioX < getVentanaArkanoid().getWidth() - getVentanaArkanoid().getAncho()) {
+			if (aleatorioX > 73 && aleatorioX < getVentanaArkanoid().getWidth() - getVentanaArkanoid().getAncho() - 73) {
 				int aleatorioY = (int) (Math.random() * 10000);
 
 				if (aleatorioY > superior && aleatorioY < inferior - getVentanaArkanoid().getAlto()) {
