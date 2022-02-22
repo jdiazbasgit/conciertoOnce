@@ -48,6 +48,7 @@ public class Chat extends JFrame implements ActionListener {
 	
 	
 	public static Map<String, String> usuarios= new HashMap<>();
+	public static Map<String, String> mensajes= new HashMap<>();
 
 
 	public Chat() {
