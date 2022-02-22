@@ -23,5 +23,8 @@ public class HiloEvioRegistroServidor extends HiloEnvio  {
 		ObjectOutputStream objectOutputStream= new ObjectOutputStream(socket.getOutputStream());
 		objectOutputStream.writeObject(socket);
 		objectOutputStream.flush();
+		
+		
+		
 	}
 }
