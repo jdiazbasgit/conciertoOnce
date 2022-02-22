@@ -7,6 +7,7 @@ import ventanas.trabajo.Chat;
 
 public class HiloEnvioDesconexionCliente extends HiloEnvio {
 
+
 	
 	public HiloEnvioDesconexionCliente( String ip, int puerto) {
 		super( ip, puerto);
@@ -15,6 +16,7 @@ public class HiloEnvioDesconexionCliente extends HiloEnvio {
 	@Override
 	public void hacerAlgo(Socket socket)  {
 		
+
 
 	}
 

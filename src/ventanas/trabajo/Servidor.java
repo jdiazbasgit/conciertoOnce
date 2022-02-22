@@ -8,7 +8,7 @@ public class Servidor {
 	}
 
 	public static void main(String[] args) {
-		HiloEscuchaDesconexionServidor hiloEscuchaDesconexionServidor= new HiloEscuchaDesconexionServidor( Chat.PUERTO_DESCONEXION);
+
 	}
 
 }
