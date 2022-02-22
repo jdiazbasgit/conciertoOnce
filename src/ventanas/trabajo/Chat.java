@@ -37,6 +37,9 @@ public class Chat extends JFrame implements ActionListener {
 	public static final int PUERTO_ENVIO_REGISTRO_CLIENTE = 5002;
 	public static final int PUERTO_ESCUCHA_REGISTRO_CLIENTE = 5003;
 	public static final int PUERTO_DESCONEXION = 5004;
+	
+	public static final int PUERTO_ESCUCHA_MENSAJES_SERVIDOR=5005;
+	public static final int PUERTO_ESCUCHA_MENSAJES_CLIENTE=5006;
 	private JLabel lNick, lUsuarios, lMensaje;
 	private JButton bRegistrar, bEnviar;
 	private JTextField tNick, tMensaje;
