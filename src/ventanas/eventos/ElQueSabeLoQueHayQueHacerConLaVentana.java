@@ -4,15 +4,15 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
 import lombok.Data;
-import ventanas.Chat;
 import ventanas.hilos.envio.HiloEnvioDesconexionCliente;
+import ventanas.trabajo.Chat;
 
 @Data
 public class ElQueSabeLoQueHayQueHacerConLaVentana implements WindowListener{
 
-	private Chat chat;
-	public ElQueSabeLoQueHayQueHacerConLaVentana(Chat chat) {
-		this.chat=chat;
+	
+	public ElQueSabeLoQueHayQueHacerConLaVentana() {
+		
 	}
 
 	@Override
@@ -24,10 +24,8 @@ public class ElQueSabeLoQueHayQueHacerConLaVentana implements WindowListener{
 	@Override
 	public void windowClosing(WindowEvent e) {
 	
-
 		HiloEnvioDesconexionCliente hiloEnvioDesconexionCliente=
-				new HiloEnvioDesconexionCliente(getChat(), Chat.IP_SERVIDOR,Chat.PUERTO_DESCONEXION);
-
+				new HiloEnvioDesconexionCliente( Chat.IP_SERVIDOR,Chat.PUERTO_DESCONEXION);
 		hiloEnvioDesconexionCliente.start();
 		System.exit(0);
 		

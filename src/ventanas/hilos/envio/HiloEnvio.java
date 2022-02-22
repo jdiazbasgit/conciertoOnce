@@ -1,10 +1,11 @@
 package ventanas.hilos.envio;
 
 import java.io.IOException;
+import java.net.ServerSocket;
 import java.net.Socket;
 
 import lombok.Data;
-import ventanas.Chat;
+import ventanas.trabajo.Chat;
 
 @Data
 public abstract class HiloEnvio extends Thread {
@@ -19,8 +20,7 @@ public abstract class HiloEnvio extends Thread {
 		this.puerto = puerto;
 		this.ip = ip;
 	}
-
-	public HiloEnvio(String ip, int puerto) {
+	public HiloEnvio( String ip, int puerto) {
 		this.puerto = puerto;
 		this.ip = ip;
 	}
@@ -31,12 +31,19 @@ public abstract class HiloEnvio extends Thread {
 		try {
 
 			socket = new Socket(getIp(), getPuerto());
-
 			hacerAlgo(socket);
 
 		} catch (IOException e) {
-			//e.printStackTrace();
-			System.out.println("Error de conexión");
+			e.printStackTrace();
+			System.out.println(
+					"el usuario " + Chat.usuarios.get().get(getIp()) + " no esta conectado, lo elimino");
+			Chat.usuarios.get().remove(getIp());
+			Chat.usuarios.ifPresent(m->{
+				m.forEach((ip,nick)->{
+					// enviar map a esta ip
+				});
+			});
+			
 		} finally {
 			try {
 				socket.close();
@@ -48,5 +55,5 @@ public abstract class HiloEnvio extends Thread {
 
 	}
 
-	public abstract void hacerAlgo(Socket socket) throws IOException;
+	public abstract void hacerAlgo(Socket socket);
 }

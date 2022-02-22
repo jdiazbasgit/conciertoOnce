@@ -1,13 +1,14 @@
 package ventanas.trabajo;
 
-import ventanas.hilos.recepcion.HiloServidor;
+import ventanas.hilos.recepcion.HiloEscuchaDesconexionServidor;
 
 public class Servidor {
 
-	public static void main(String[] args) {
+	public Servidor() {
+	}
 
-		HiloServidor hiloServidor = new HiloServidor();
-		hiloServidor.start();
+	public static void main(String[] args) {
+		HiloEscuchaDesconexionServidor hiloEscuchaDesconexionServidor= new HiloEscuchaDesconexionServidor( Chat.PUERTO_DESCONEXION);
 	}
 
 }

@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.net.Socket;
 
 import lombok.Data;
-import ventanas.Chat;
+import ventanas.trabajo.Chat;
 
 @Data
 public class HiloEscuchaRegistroServidor extends HiloEscucha {
@@ -19,7 +19,7 @@ public class HiloEscuchaRegistroServidor extends HiloEscucha {
 
 	@Override
 	public void hacerAlgo(Socket socket) throws IOException {
-		getChat().getUsuarios().ifPresent(m -> {
+		Chat.usuarios.ifPresent(m -> {
 			String usuario = null;
 			try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()))) {
 				usuario = bufferedReader.readLine();
@@ -32,13 +32,14 @@ public class HiloEscuchaRegistroServidor extends HiloEscucha {
 				// envio mensaje de usuario ya registrado
 
 			} else {
-				getChat().getUsuarios().ifPresent(m1 -> {
+				Chat.usuarios.ifPresent(m1 -> {
 					m1.put(getIp(), usuarioNuevo);
 					m1.forEach((ip,nick)->{
 						//enviar nuevo listado de usuarios a todas las ip
 					});
 
 				});
+				// envio de listado de usuarios conectados con nuevo registro agregado
 
 			}
 

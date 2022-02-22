@@ -1,12 +1,15 @@
 package ventanas.trabajo;
 
-import ventanas.hilos.envio.HiloCliente;
-
 public class Cliente {
 
+	public Cliente() {
+		// TODO Auto-generated constructor stub
+
+	}
+
 	public static void main(String[] args) {
-		HiloCliente cliente = new HiloCliente();
-		cliente.start();
+		Chat chat =new Chat();
+		chat.setVisible(true);
 	}
 
 }
