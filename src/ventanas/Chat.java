@@ -22,6 +22,7 @@ import javax.swing.JTextField;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import ventanas.eventos.ElQueSabeLoQueHayQueHacerConBotonMensaje;
 import ventanas.eventos.ElQueSabeLoQueHayQueHacerConLaVentana;
 import ventanas.hilos.envio.HiloEnvioRegistroCliente;
 
@@ -60,7 +61,7 @@ public class Chat extends JFrame implements ActionListener {
 		setTaMensajes(new TextArea());
 		setTaUsuarios(new TextArea(20, 2));
 		getBRegistrar().addActionListener(this);
-
+		getBEnviar().addActionListener(new ElQueSabeLoQueHayQueHacerConBotonMensaje(this));
 		// no se puede escribir en los textAreas
 		getTaUsuarios().setEditable(false);
 		getTaMensajes().setEditable(false);
