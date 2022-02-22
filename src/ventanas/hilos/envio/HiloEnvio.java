@@ -4,7 +4,8 @@ import java.io.IOException;
 import java.net.Socket;
 
 import lombok.Data;
-import ventanas.Chat;
+import ventanas.trabajo.Chat;
+
 
 @Data
 public abstract class HiloEnvio extends Thread {
@@ -19,11 +20,12 @@ public abstract class HiloEnvio extends Thread {
 		this.puerto = puerto;
 		this.ip = ip;
 	}
-
-	public HiloEnvio(String ip, int puerto) {
+	public HiloEnvio( String ip, int puerto) {
 		this.puerto = puerto;
 		this.ip = ip;
 	}
+
+	
 
 	@Override
 	public void run() {
@@ -35,6 +37,16 @@ public abstract class HiloEnvio extends Thread {
 			hacerAlgo(socket);
 
 		} catch (IOException e) {
+			e.printStackTrace();
+			System.out.println(
+					"el usuario " + Chat.usuarios.get(getIp()) + " no esta conectado, lo elimino");
+			Chat.usuarios.remove(getIp());
+			Chat.usuarios.forEach((ip,nick)->{
+				HiloEnvioRegistroServidor envio = new HiloEnvioRegistroServidor(getChat(), ip,
+						Chat.PUERTO_ESCUCHA_REGISTRO_CLIENTE);
+				envio.start();
+			});
+			
 			//e.printStackTrace();
 			System.out.println("Error de conexión");
 		} finally {
