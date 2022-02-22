@@ -35,10 +35,13 @@ public class Bola extends Thread {
 		while (getVentanaArkanoid().getCuadrados().size() > 0) {
 
 			try {
-				if (getPosicionX() < 0 || (getPosicionX() + getDimension()) > getVentanaArkanoid().getWidth()) {
+				if (getPosicionX() < 1080 || (getPosicionX() + getDimension()) > getVentanaArkanoid().getWidth()) {
 					setSentidoX(getSentidoX() * -1);
 				}
-				if (getPosicionY() < 0 || (getPosicionY() + getDimension()) > getVentanaArkanoid().getHeight()) {
+				if (getPosicionX() < 1080 || (getPosicionX() + getDimension()) > getVentanaArkanoid().getWidth()) {
+					setSentidoX(getSentidoX() * -1);
+				}
+				if (getPosicionY() < 200 || (getPosicionY() + getDimension()) > getVentanaArkanoid().getHeight()) {
 					setSentidoY(getSentidoY() * -1);
 				}
 				getVentanaArkanoid().getCuadrados().forEach(c -> {

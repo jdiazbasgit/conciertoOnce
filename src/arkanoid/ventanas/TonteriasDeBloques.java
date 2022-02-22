@@ -18,16 +18,17 @@ public class TonteriasDeBloques {
 		if (getVentanaArkanoid().getCuadrados() == null) {
 			getVentanaArkanoid().setCuadrados(new HashSet<>());
 			while (getVentanaArkanoid().getCuadrados().size() < getVentanaArkanoid().getNumeroBloques()) {
-                 int ancho= 80;
-				int superior = 200;
+                 int anchoIzq= -190;
+                 int anchoDer=-190;
+				int superior = 80;
 				int inferior = getVentanaArkanoid().getHeight() - 100;
-				getVentanaArkanoid().getCuadrados().add(dameBloque(inferior, superior,ancho));
+				getVentanaArkanoid().getCuadrados().add(dameBloque(inferior, superior,anchoIzq,anchoDer));
 			}
 		}
 
 	}
 
-	private Bloque dameBloque(int inferior, int superior,int ancho) {
+	private Bloque dameBloque(int inferior, int superior,int anchoIzq, int anchoDer) {
 		Bloque bloque = null;
 
 		boolean fin = false;
@@ -36,6 +37,7 @@ public class TonteriasDeBloques {
 			if (aleatorioX > 0 && aleatorioX < getVentanaArkanoid().getWidth() - getVentanaArkanoid().getAncho()) {
 				int aleatorioY = (int) (Math.random() * 10000);
 				if (aleatorioY > superior && aleatorioY < inferior - getVentanaArkanoid().getAlto()) {
+					
 					fin = true;
 
 					for (Bloque b : getVentanaArkanoid().getCuadrados()) {
