@@ -7,6 +7,7 @@ import java.net.Socket;
 import lombok.Data;
 import ventanas.Chat;
 
+
 @Data
 public abstract class HiloEnvio extends Thread {
 
