@@ -17,7 +17,7 @@ public class EscribitObjeto {
 			objectOutputStream.writeObject(persona);
 			objectOutputStream.flush();
 		} catch (Exception e) {
-			
+			e.printStackTrace();
 		}
 		
 	}
