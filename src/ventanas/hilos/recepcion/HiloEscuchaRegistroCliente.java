@@ -7,7 +7,7 @@ import java.util.Collection;
 import java.util.Map;
 import java.util.Optional;
 
-import ventanas.Chat;
+import ventanas.trabajo.Chat;
 
 public class HiloEscuchaRegistroCliente extends HiloEscucha {
 	private static final String SALTO_LINEA = "\n";
@@ -24,6 +24,7 @@ public class HiloEscuchaRegistroCliente extends HiloEscucha {
 			if (objectRecibido instanceof Map<? , ?>) {
 				Collection<?> nicksCollection = ((Map<?, ?>) objectRecibido).values();
 				StringBuilder stringBuilder = new StringBuilder();
+					
 				nicksCollection.stream().forEach(n -> {
 					stringBuilder.append((String) n);
 					stringBuilder.append(HiloEscuchaRegistroCliente.SALTO_LINEA);

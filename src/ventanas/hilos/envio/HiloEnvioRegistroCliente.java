@@ -3,18 +3,15 @@ package ventanas.hilos.envio;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.Socket;
-import java.net.UnknownHostException;
 
 import lombok.Data;
-import ventanas.Chat;
+import ventanas.trabajo.Chat;
 
 @Data
 public class HiloEnvioRegistroCliente extends HiloEnvio {
 	// variables estaticas puertos
 	// PUERTO 5002
-	private Chat chat;
-	private int puerto;
-	private String ip;
+
 
 	public HiloEnvioRegistroCliente(Chat chat, String ip, int puerto) {
 		super(chat, ip, puerto);
