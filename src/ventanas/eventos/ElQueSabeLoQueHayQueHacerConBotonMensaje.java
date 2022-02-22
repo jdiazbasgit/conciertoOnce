@@ -22,7 +22,7 @@ public class ElQueSabeLoQueHayQueHacerConBotonMensaje implements ActionListener 
 				!getChat().getTMensaje().getText().trim().equals("")) {
 
 			HiloEnvioMensajeCliente hiloEnvioMensaje = new HiloEnvioMensajeCliente(getChat(), Chat.IP_SERVIDOR,
-					Chat.PUERTO_ESCUCHA_REGISTRO_SERVIDOR);
+					Chat.PUERTO_ESCUCHA_MENSAJES_SERVIDOR);
 			hiloEnvioMensaje.start();
 
 		}
