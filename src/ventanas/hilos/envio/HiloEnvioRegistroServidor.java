@@ -6,12 +6,12 @@ import java.net.Socket;
 
 import ventanas.Chat;
 
-public class HiloEvioRegistroServidor extends HiloEnvio  {
+public class HiloEnvioRegistroServidor extends HiloEnvio  {
 
 	
 	
 
-	public HiloEvioRegistroServidor(Chat chat,String ip, int puerto) {
+	public HiloEnvioRegistroServidor(Chat chat,String ip, int puerto) {
 		super(chat, ip, puerto);	
 	}
 
