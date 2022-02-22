@@ -24,10 +24,7 @@ public class ElQueSabeLoQueHayQueHacerConLaVentana implements WindowListener{
 	@Override
 	public void windowClosing(WindowEvent e) {
 	
-
-		HiloEnvioDesconexionCliente hiloEnvioDesconexionCliente=
-				new HiloEnvioDesconexionCliente(getChat(), Chat.IP_SERVIDOR,Chat.PUERTO_DESCONEXION);
-
+		HiloEnvioDesconexionCliente hiloEnvioDesconexionCliente= new HiloEnvioDesconexionCliente(getChat(), Chat.PUERTO_DESCONEXION);
 		hiloEnvioDesconexionCliente.start();
 		System.exit(0);
 		
