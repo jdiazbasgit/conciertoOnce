@@ -8,23 +8,28 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.TextArea;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
 import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import ventanas.eventos.ElQueSabeLoQueHayQueHacerConLaVentana;
+import ventanas.hilos.envio.HiloEnvioRegistroCliente;
 
 @SuppressWarnings("serial")
-@EqualsAndHashCode(callSuper=false)
+@EqualsAndHashCode(callSuper = false)
 @Data
 
-public class Chat extends JFrame {
+public class Chat extends JFrame implements ActionListener {
 
 	public static final String IP_SERVIDOR = "192.168.1.44";
 	public static final int PUERTO_ESCUCHA_REGISTRO_SERVIDOR = 5000;
@@ -36,17 +41,15 @@ public class Chat extends JFrame {
 	private JButton bRegistrar, bEnviar;
 	private JTextField tNick, tMensaje;
 	private TextArea taUsuarios, taMensajes;
-	
-	
-	
-	
+
 	private Optional<Map<String, String>> usuarios;
 
 	public Chat() {
+		this.addWindowListener(new ElQueSabeLoQueHayQueHacerConLaVentana(this));
 		setUsuarios(Optional.of(new HashMap<>()));
 		setLocation(200, 20);
 		setTitle("   CHAT DEL EQUIPO 3 - ANNA Y ANTONIO");
-		
+
 		setLNick(new JLabel("NICK:"));
 		setLUsuarios(new JLabel("USUARIOS"));
 		setLMensaje(new JLabel("MENSAJE:"));
@@ -56,23 +59,19 @@ public class Chat extends JFrame {
 		setTMensaje(new JTextField(80));
 		setTaMensajes(new TextArea());
 		setTaUsuarios(new TextArea(20, 2));
-		
-		//no se puede escribir en los textAreas
+		getBRegistrar().addActionListener(this);
+
+		// no se puede escribir en los textAreas
 		getTaUsuarios().setEditable(false);
 		getTaMensajes().setEditable(false);
-		
-		
-		getContentPane().setBackground(new Color(166, 210, 222));
-		
 
-		
-		
+		getContentPane().setBackground(new Color(166, 210, 222));
+
+		getContentPane().setBackground(new Color(166, 210, 222));
 
 		getContentPane().setLayout(new GridBagLayout());
 
 		// Línea de arriba--------------------------------------
-
-		
 
 		// JtextField del Nick
 		// Lábel del Nick
@@ -107,8 +106,7 @@ public class Chat extends JFrame {
 		getContentPane().add(lMensaje, gbclMensaje);
 
 		// JtextField de Mensaje
-		
-		
+
 		// textField de Mensaje
 		GridBagConstraints gbctMensaje = new GridBagConstraints(2, 3, 1, 1, 3, 0, GridBagConstraints.CENTER,
 				GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0);
@@ -132,15 +130,34 @@ public class Chat extends JFrame {
 		GridBagConstraints gbctAUsuarios = new GridBagConstraints(0, 2, 1, 1, 0, 7, GridBagConstraints.EAST,
 				GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0);
 		getContentPane().add(taUsuarios, gbctAUsuarios);
-		
-		
-		
-		
 
-		
+	}
 
-		
+	@Override
+	public void actionPerformed(ActionEvent e) {
 
+		if (e.getSource().equals(getBRegistrar())) {
+			System.out.println("boton");
+
+			if (getTNick().getText().equals("")) {
+				getTaMensajes().setForeground(Color.RED);
+				getTaMensajes().append("Escribe nick \n");
+				//getTaMensajes().setForeground(Color.BLACK);
+				JDialog dialog = new JDialog();
+				dialog.add(new JLabel("Escribe nick"));
+				dialog.setVisible(true);
+				dialog.setLocation(100,100);
+				dialog.setSize(100,100);
+				//dialog.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				
+				System.out.println("Introduce algo...");
+			} else {
+				HiloEnvioRegistroCliente registro = new HiloEnvioRegistroCliente(this, Chat.IP_SERVIDOR,
+						Chat.PUERTO_ENVIO_REGISTRO_CLIENTE);
+				registro.start();
+			}
+
+		}
 	}
 
 	public static void main(String[] args) {
