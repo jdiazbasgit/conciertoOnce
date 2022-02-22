@@ -14,15 +14,18 @@ public class HiloServidor extends Thread {
 		try {
 			serverSocket = new ServerSocket(5000);
 			while (true) {
+
 				Socket socket = serverSocket.accept();
-				String ip = socket.getInetAddress().getHostName();
+				String ip = socket.getInetAddress().getHostAddress();
 				InputStreamReader inputStreamReader = new InputStreamReader(socket.getInputStream());
 				BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
 				String mensaje = bufferedReader.readLine();
-				System.out.println(ip + "dice: " + mensaje);
+				System.out.println(ip + " dice: " + mensaje);
+				
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
+		
 		} finally {
 			try {
 				serverSocket.close();

@@ -8,13 +8,13 @@ import ventanas.Chat;
 public class HiloEnvioDesconexionCliente extends HiloEnvio {
 
 	public HiloEnvioDesconexionCliente(Chat chat, int puerto) {
-		super(chat, puerto);
-		// TODO Auto-generated constructor stub
+		super(chat, Chat.IP_SERVIDOR,Chat.PUERTO_DESCONEXION);
+		
 	}
 
 	@Override
 	public void hacerAlgo(Socket socket) throws IOException {
-		// TODO Auto-generated method stub
+		
 
 	}
 

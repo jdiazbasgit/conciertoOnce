@@ -66,7 +66,7 @@ public class Chat extends JFrame {
 		
 
 		
-		getContentPane().setBackground(new Color(166, 210, 222));
+		
 
 		getContentPane().setLayout(new GridBagLayout());
 
