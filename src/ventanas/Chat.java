@@ -45,7 +45,7 @@ public class Chat extends JFrame implements ActionListener {
 	private Optional<Map<String, String>> usuarios;
 
 	public Chat() {
-		this.addWindowListener(new ElQueSabeLoQueHayQueHacerConLaVentana(this));
+		this.addWindowListener(new ElQueSabeLoQueHayQueHacerConLaVentana());
 		setUsuarios(Optional.of(new HashMap<>()));
 		setLocation(200, 20);
 		setTitle("   CHAT DEL EQUIPO 3 - ANNA Y ANTONIO");
@@ -142,14 +142,14 @@ public class Chat extends JFrame implements ActionListener {
 			if (getTNick().getText().equals("")) {
 				getTaMensajes().setForeground(Color.RED);
 				getTaMensajes().append("Escribe nick \n");
-				//getTaMensajes().setForeground(Color.BLACK);
+				// getTaMensajes().setForeground(Color.BLACK);
 				JDialog dialog = new JDialog();
 				dialog.add(new JLabel("Escribe nick"));
 				dialog.setVisible(true);
-				dialog.setLocation(100,100);
-				dialog.setSize(100,100);
-				//dialog.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				
+				dialog.setLocation(100, 100);
+				dialog.setSize(100, 100);
+				// dialog.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
 				System.out.println("Introduce algo...");
 			} else {
 				HiloEnvioRegistroCliente registro = new HiloEnvioRegistroCliente(this, Chat.IP_SERVIDOR,
