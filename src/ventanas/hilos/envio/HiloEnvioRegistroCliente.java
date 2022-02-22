@@ -11,9 +11,7 @@ import ventanas.trabajo.Chat;
 public class HiloEnvioRegistroCliente extends HiloEnvio {
 	// variables estaticas puertos
 	// PUERTO 5002
-	private Chat chat;
-	private int puerto;
-	private String ip;
+
 
 	public HiloEnvioRegistroCliente(Chat chat, String ip, int puerto) {
 		super(chat, ip, puerto);

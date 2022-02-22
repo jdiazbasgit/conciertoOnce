@@ -39,12 +39,12 @@ public abstract class HiloEnvio extends Thread {
 		} catch (IOException e) {
 			e.printStackTrace();
 			System.out.println(
-					"el usuario " + Chat.usuarios.get().get(getIp()) + " no esta conectado, lo elimino");
-			Chat.usuarios.get().remove(getIp());
-			Chat.usuarios.ifPresent(m->{
-				m.forEach((ip,nick)->{
-					// enviar map a esta ip
-				});
+					"el usuario " + Chat.usuarios.get(getIp()) + " no esta conectado, lo elimino");
+			Chat.usuarios.remove(getIp());
+			Chat.usuarios.forEach((ip,nick)->{
+				HiloEnvioRegistroServidor envio = new HiloEnvioRegistroServidor(getChat(), ip,
+						Chat.PUERTO_ESCUCHA_REGISTRO_CLIENTE);
+				envio.start();
 			});
 			
 			//e.printStackTrace();

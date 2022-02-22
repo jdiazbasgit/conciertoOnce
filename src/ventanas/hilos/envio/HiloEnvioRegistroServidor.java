@@ -21,7 +21,7 @@ public class HiloEnvioRegistroServidor extends HiloEnvio  {
 	public void hacerAlgo(Socket socket) throws IOException {
 		
 		ObjectOutputStream objectOutputStream= new ObjectOutputStream(socket.getOutputStream());
-		objectOutputStream.writeObject(socket);
+		objectOutputStream.writeObject(Chat.usuarios);
 		objectOutputStream.flush();
 		
 		

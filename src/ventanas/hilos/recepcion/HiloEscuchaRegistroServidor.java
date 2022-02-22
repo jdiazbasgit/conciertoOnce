@@ -6,44 +6,52 @@ import java.io.InputStreamReader;
 import java.net.Socket;
 
 import lombok.Data;
+import ventanas.hilos.envio.HiloEnvioRegistroServidor;
 import ventanas.trabajo.Chat;
 
 @Data
 public class HiloEscuchaRegistroServidor extends HiloEscucha {
-	private Chat chat;
-	private int puerto;
 
 	public HiloEscuchaRegistroServidor(Chat chat, int puerto) {
 		super(chat, puerto);
 	}
 
+	public HiloEscuchaRegistroServidor(int puerto) {
+		super(puerto);
+	}
+
 	@Override
 	public void hacerAlgo(Socket socket) throws IOException {
-		Chat.usuarios.ifPresent(m -> {
-			String usuario = null;
-			try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()))) {
-				usuario = bufferedReader.readLine();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			String usuarioNuevo = usuario;
 
-			if (m.values().stream().filter(u -> u.equals(usuarioNuevo)).count() == 1) {
-				// envio mensaje de usuario ya registrado
+		
+		try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()))) {
+			String usuario = bufferedReader.readLine();
+			if(Chat.usuarios.isEmpty())
+				Chat.usuarios.put(getIp(), usuario);
+			Chat.usuarios.forEach((ip, nick) -> {
+				
+				if (nick.equals(usuario)) {
+					// envio menmsaje usuario existente
 
-			} else {
-				Chat.usuarios.ifPresent(m1 -> {
-					m1.put(getIp(), usuarioNuevo);
-					m1.forEach((ip,nick)->{
-						//enviar nuevo listado de usuarios a todas las ip
-					});
+				} else {
+					Chat.usuarios.put(getIp(), usuario);
+					
+				}
+			});
+			
+			Chat.usuarios.forEach((ip,nick)->{
+				HiloEnvioRegistroServidor envio = new HiloEnvioRegistroServidor(getChat(), ip,
+						Chat.PUERTO_ESCUCHA_REGISTRO_CLIENTE);
+				envio.start();
+			});
 
-				});
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 
-			}
-
-		});
+		
 		socket.close();
 
 	}
+
 }

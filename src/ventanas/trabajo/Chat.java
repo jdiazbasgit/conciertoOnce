@@ -24,13 +24,14 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import ventanas.eventos.ElQueSabeLoQueHayQueHacerConLaVentana;
 import ventanas.hilos.envio.HiloEnvioRegistroCliente;
+import ventanas.hilos.recepcion.HiloEscuchaRegistroCliente;
 
 @SuppressWarnings("serial")
 @Data
 
 public class Chat extends JFrame implements ActionListener {
 
-	public static final String IP_SERVIDOR = "192.168.1.44";
+	public static final String IP_SERVIDOR = "192.168.10.25";
 	public static final int PUERTO_ESCUCHA_REGISTRO_SERVIDOR = 5000;
 	public static final int PUERTO_ENVIO_REGISTRO_SERVIDOR = 5001;
 	public static final int PUERTO_ENVIO_REGISTRO_CLIENTE = 5002;
@@ -43,7 +44,7 @@ public class Chat extends JFrame implements ActionListener {
 	
 	
 	
-	public static Optional<Map<String, String>> usuarios= Optional.of(new HashMap<>());
+	public static Map<String, String> usuarios= new HashMap<>();
 
 
 	public Chat() {
@@ -144,18 +145,12 @@ public class Chat extends JFrame implements ActionListener {
 			if (getTNick().getText().equals("")) {
 				getTaMensajes().setForeground(Color.RED);
 				getTaMensajes().append("Escribe nick \n");
-				//getTaMensajes().setForeground(Color.BLACK);
-				JDialog dialog = new JDialog();
-				dialog.add(new JLabel("Escribe nick"));
-				dialog.setVisible(true);
-				dialog.setLocation(100,100);
-				dialog.setSize(100,100);
-				//dialog.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				
 				
 				System.out.println("Introduce algo...");
 			} else {
 				HiloEnvioRegistroCliente registro = new HiloEnvioRegistroCliente(this, Chat.IP_SERVIDOR,
-						Chat.PUERTO_ENVIO_REGISTRO_CLIENTE);
+						Chat.PUERTO_ESCUCHA_REGISTRO_SERVIDOR);
 				registro.start();
 			}
 
@@ -165,9 +160,13 @@ public class Chat extends JFrame implements ActionListener {
 	
 
 	public static void main(String[] args) {
+		
 		Chat chat = new Chat();
 		chat.setSize(1200, 800);
+		HiloEscuchaRegistroCliente escucha= new HiloEscuchaRegistroCliente(chat, Chat.PUERTO_ESCUCHA_REGISTRO_CLIENTE);
+		escucha.start();
 		chat.setVisible(true);
+		
 
 	}
 	
