@@ -35,7 +35,7 @@ public class Bola extends Thread {
 		while (getVentanaArkanoid().getCuadrados().size() > 0) {
 
 			try {
-				if (getPosicionX() < 67 || (getPosicionX() + getDimension()) > getVentanaArkanoid().getWidth()) {
+				if (getPosicionX() < 60 || (getPosicionX() + getDimension()) > getVentanaArkanoid().getWidth()) {
 					setSentidoX(getSentidoX() * -1);
 				}
 				
@@ -44,7 +44,7 @@ public class Bola extends Thread {
 				}
 				
 				
-				if (getPosicionY() < 40 || (getPosicionY() + getDimension()) > getVentanaArkanoid().getHeight()) {
+				if (getPosicionY() < 65 || (getPosicionY() + getDimension()) > getVentanaArkanoid().getHeight()) {
 					setSentidoY(getSentidoY() * -1);
 				}
 				
