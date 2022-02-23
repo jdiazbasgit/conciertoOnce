@@ -1,12 +1,23 @@
 package ventanas.trabajo;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import lombok.Data;
 import ventanas.hilos.envio.HiloEnvioMensajesServidor;
 import ventanas.hilos.recepcion.HiloEscuchaDesconexionServidor;
 import ventanas.hilos.recepcion.HiloEscuchaMensajesServidor;
 import ventanas.hilos.recepcion.HiloEscuchaRegistroServidor;
 
+
 public class Servidor {
 
+	public static Map<String, String> usuarios= new HashMap<>();
+	
+	public synchronized static Map<String,String> getUsuarios(){
+		return Servidor.usuarios;
+	}
+	
 	public Servidor() {
 	}
 

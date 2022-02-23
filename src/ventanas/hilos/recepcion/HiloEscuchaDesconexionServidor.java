@@ -6,6 +6,7 @@ import java.net.Socket;
 import lombok.Data;
 import ventanas.hilos.envio.HiloEnvioRegistroServidor;
 import ventanas.trabajo.Chat;
+import ventanas.trabajo.Servidor;
 
 @Data
 public class HiloEscuchaDesconexionServidor extends HiloEscucha {
@@ -21,9 +22,9 @@ public class HiloEscuchaDesconexionServidor extends HiloEscucha {
 	}
 	@Override
 	public void hacerAlgo(Socket socket)  {
-		Chat.usuarios.remove(socket.getInetAddress().getHostAddress());
+		Servidor.getUsuarios().remove(socket.getInetAddress().getHostAddress());
 			
-		for (String ip : Chat.usuarios.keySet()) {
+		for (String ip : Servidor.getUsuarios().keySet()) {
 			HiloEnvioRegistroServidor envio= new HiloEnvioRegistroServidor(getChat(), ip, Chat.PUERTO_ESCUCHA_REGISTRO_CLIENTE);
 			envio.start();
 			

@@ -5,6 +5,7 @@ import java.net.Socket;
 
 import lombok.Data;
 import ventanas.trabajo.Chat;
+import ventanas.trabajo.Servidor;
 
 
 @Data
@@ -39,9 +40,9 @@ public abstract class HiloEnvio extends Thread {
 		} catch (IOException e) {
 			e.printStackTrace();
 			System.out.println(
-					"el usuario " + Chat.usuarios.get(getIp()) + " no esta conectado, lo elimino");
-			Chat.usuarios.remove(getIp());
-			Chat.usuarios.forEach((ip,nick)->{
+					"el usuario " + Servidor.getUsuarios().get(getIp()) + " no esta conectado, lo elimino");
+			Servidor.getUsuarios().remove(getIp());
+			Servidor.getUsuarios().forEach((ip,nick)->{
 				HiloEnvioRegistroServidor envio = new HiloEnvioRegistroServidor(getChat(), ip,
 						Chat.PUERTO_ESCUCHA_REGISTRO_CLIENTE);
 				envio.start();

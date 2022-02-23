@@ -5,6 +5,7 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 
 import ventanas.trabajo.Chat;
+import ventanas.trabajo.Servidor;
 
 public class HiloEnvioRegistroServidor extends HiloEnvio  {
 
@@ -21,7 +22,7 @@ public class HiloEnvioRegistroServidor extends HiloEnvio  {
 	public void hacerAlgo(Socket socket) throws IOException {
 		
 		ObjectOutputStream objectOutputStream= new ObjectOutputStream(socket.getOutputStream());
-		objectOutputStream.writeObject(Chat.usuarios);
+		objectOutputStream.writeObject(Servidor.getUsuarios());
 		objectOutputStream.flush();
 		
 		

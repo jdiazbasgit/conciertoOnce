@@ -9,6 +9,7 @@ import lombok.Data;
 import ventanas.hilos.envio.HiloEnvioMensajeCliente;
 import ventanas.hilos.envio.HiloEnvioMensajesServidor;
 import ventanas.trabajo.Chat;
+import ventanas.trabajo.Servidor;
 
 @Data
 public class HiloEscuchaMensajesServidor extends HiloEscucha {
@@ -28,9 +29,9 @@ public class HiloEscuchaMensajesServidor extends HiloEscucha {
 
 		try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()))) {
 			String mensaje = bufferedReader.readLine();
-			String nick = Chat.usuarios.get(getIp());
+			String nick = Servidor.getUsuarios().get(getIp());
 			String salida = nick + " Dice: " + mensaje;
-			Chat.usuarios.forEach((ip, alias) -> {
+			Servidor.getUsuarios().forEach((ip, alias) -> {
 
 					HiloEnvioMensajesServidor hiloEnvioMensajesServidor= new HiloEnvioMensajesServidor(salida, ip, Chat.PUERTO_ESCUCHA_MENSAJES_CLIENTE);
 					hiloEnvioMensajesServidor.start();

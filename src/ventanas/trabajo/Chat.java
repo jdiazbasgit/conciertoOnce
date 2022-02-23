@@ -19,6 +19,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 import lombok.Data;
+import lombok.Synchronized;
 import ventanas.eventos.ElQueSabeLoQueHayQueHacerConLaVentana;
 import ventanas.hilos.envio.HiloEnvioMensajeCliente;
 import ventanas.hilos.envio.HiloEnvioRegistroCliente;
@@ -44,8 +45,7 @@ public class Chat extends JFrame implements ActionListener {
 	private JTextField tNick, tMensaje;
 	private TextArea taUsuarios, taMensajes;
 
-	public static Map<String, String> usuarios = new HashMap<>();
-
+	
 	public Chat() {
 
 		this.addWindowListener(new ElQueSabeLoQueHayQueHacerConLaVentana());

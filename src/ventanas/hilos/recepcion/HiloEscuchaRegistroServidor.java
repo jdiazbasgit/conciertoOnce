@@ -8,6 +8,7 @@ import java.net.Socket;
 import lombok.Data;
 import ventanas.hilos.envio.HiloEnvioRegistroServidor;
 import ventanas.trabajo.Chat;
+import ventanas.trabajo.Servidor;
 
 @Data
 public class HiloEscuchaRegistroServidor extends HiloEscucha {
@@ -26,20 +27,20 @@ public class HiloEscuchaRegistroServidor extends HiloEscucha {
 		
 		try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()))) {
 			String usuario = bufferedReader.readLine();
-			if(Chat.usuarios.isEmpty())
-				Chat.usuarios.put(getIp(), usuario);
-			Chat.usuarios.forEach((ip, nick) -> {
+			if(Servidor.getUsuarios().isEmpty())
+				Servidor.getUsuarios().put(getIp(), usuario);
+			Servidor.getUsuarios().forEach((ip, nick) -> {
 				
 				if (nick.equals(usuario)) {
 					// envio menmsaje usuario existente
 
 				} else {
-					Chat.usuarios.put(getIp(), usuario);
+					Servidor.getUsuarios().put(getIp(), usuario);
 					
 				}
 			});
 			
-			Chat.usuarios.forEach((ip,nick)->{
+			Servidor.getUsuarios().forEach((ip,nick)->{
 				HiloEnvioRegistroServidor envio = new HiloEnvioRegistroServidor(getChat(), ip,
 						Chat.PUERTO_ESCUCHA_REGISTRO_CLIENTE);
 				envio.start();
