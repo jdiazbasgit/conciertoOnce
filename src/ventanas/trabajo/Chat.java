@@ -23,6 +23,7 @@ import javax.swing.JTextField;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import ventanas.eventos.ElQueSabeLoQueHayQueHacerConLaVentana;
+import ventanas.hilos.envio.HiloEnvioMensajeCliente;
 import ventanas.hilos.envio.HiloEnvioRegistroCliente;
 import ventanas.hilos.recepcion.HiloEscuchaRegistroCliente;
 
@@ -161,10 +162,18 @@ public class Chat extends JFrame implements ActionListener {
 		
 		//Grupo 2
 
-			if( e.getSource().equals(getBEnviar())  && (!this.getTMensaje().getText().trim().isEmpty()) ){
-		
+			if( e.getSource().equals(getBEnviar()) ){
+		         if(!this.getTMensaje().getText().trim().isEmpty()) {
+		        	 new HiloEnvioMensajeCliente(this, Chat.IP_SERVIDOR,Chat.PUERTO_ESCUCHA_MENSAJES_SERVIDOR).start();
+		        	 return;
+		         }
+		 
+		         this.getTMensaje().setText("Debe introducir un mensaje...");
 	             
 			}
+			
+		
+			 
 	
 	}
 		
@@ -174,7 +183,7 @@ public class Chat extends JFrame implements ActionListener {
 	
 	
 	
-	}
+	
 	
 	
 
