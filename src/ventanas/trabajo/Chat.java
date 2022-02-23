@@ -66,8 +66,8 @@ public class Chat extends JFrame implements ActionListener {
 		setTMensaje(new JTextField(80));
 		setTaMensajes(new TextArea());
 		setTaUsuarios(new TextArea(20, 2));
-		getBRegistrar().addActionListener(this);
-
+		getBRegistrar().addActionListener(this); 
+		
 		// no se puede escribir en los textAreas
 		getTaUsuarios().setEditable(false);
 		getTaMensajes().setEditable(false);
@@ -156,8 +156,24 @@ public class Chat extends JFrame implements ActionListener {
 						Chat.PUERTO_ESCUCHA_REGISTRO_SERVIDOR);
 				registro.start();
 			}
+              return;
+		}	
+		
+		//Grupo 2
 
-		}
+			if( e.getSource().equals(getBEnviar())  && (!this.getTMensaje().getText().trim().isEmpty()) ){
+		
+	             
+			}
+	
+	}
+		
+
+		
+	
+	
+	
+	
 	}
 	
 	
