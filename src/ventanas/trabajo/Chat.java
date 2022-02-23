@@ -64,7 +64,7 @@ public class Chat extends JFrame implements ActionListener {
 		setTaUsuarios(new TextArea(20, 2));
 		getBRegistrar().addActionListener(this); 
 		getBEnviar().addActionListener(this);
-		
+		getBEnviar().setEnabled(false);
 		// no se puede escribir en los textAreas
 		getTaUsuarios().setEditable(false);
 		getTaMensajes().setEditable(false);

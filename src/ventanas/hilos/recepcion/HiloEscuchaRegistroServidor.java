@@ -27,22 +27,17 @@ public class HiloEscuchaRegistroServidor extends HiloEscucha {
 
 		try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()))) {
 			String usuario = bufferedReader.readLine();
-			if (Servidor.getUsuarios().isEmpty())
-				Servidor.getUsuarios().put(getIp(), usuario);
-			else
-			Servidor.getUsuarios().forEach((ip, nick) -> {
-
+			
+			Servidor.getUsuarios().forEach( (ip, nick) -> {
 				if (nick.equalsIgnoreCase(usuario)) {
 					HiloEnvioMensajesServidor envio= new HiloEnvioMensajesServidor("El nick ya existe....", getIp(), Chat.PUERTO_ESCUCHA_MENSAJES_CLIENTE);
 					envio.start();
-					return;
-				} else {
-					Servidor.getUsuarios().put(getIp(), usuario);
-					
+					return;		
 				}
-				
 			});
-
+			
+			Servidor.getUsuarios().put(getIp(), usuario);
+			//getChat().getBEnviar().setEnabled(true);
 			Servidor.getUsuarios().forEach((ip, nick) -> {
 				HiloEnvioRegistroServidor envio = new HiloEnvioRegistroServidor(getChat(), ip,
 						Chat.PUERTO_ESCUCHA_REGISTRO_CLIENTE);

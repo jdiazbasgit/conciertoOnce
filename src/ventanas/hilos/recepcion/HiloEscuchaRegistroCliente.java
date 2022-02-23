@@ -21,6 +21,7 @@ public class HiloEscuchaRegistroCliente extends HiloEscucha {
 		//quitar las parte superior del chat
 		getChat().getTNick().setEditable(false);
 		getChat().getBRegistrar().setEnabled(false);
+		getChat().getBEnviar().setEnabled(true);
 		try (ObjectInputStream objectInputStream = new ObjectInputStream(socket.getInputStream())) {
 			Object objectRecibido = objectInputStream.readObject();
 			if (objectRecibido instanceof Map<? , ?>) {
