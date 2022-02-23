@@ -12,16 +12,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
 
 import javax.swing.JButton;
-import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import ventanas.eventos.ElQueSabeLoQueHayQueHacerConLaVentana;
 import ventanas.hilos.envio.HiloEnvioRegistroCliente;
 import ventanas.hilos.recepcion.HiloEscuchaRegistroCliente;
@@ -44,16 +41,13 @@ public class Chat extends JFrame implements ActionListener {
 	private JButton bRegistrar, bEnviar;
 	private JTextField tNick, tMensaje;
 	private TextArea taUsuarios, taMensajes;
-	
-	
-	
-	public static Map<String, String> usuarios= new HashMap<>();
 
+	public static Map<String, String> usuarios = new HashMap<>();
 
 	public Chat() {
-		
+
 		this.addWindowListener(new ElQueSabeLoQueHayQueHacerConLaVentana());
-		//setUsuarios(Optional.of(new HashMap<>()));
+		// setUsuarios(Optional.of(new HashMap<>()));
 		setLocation(200, 20);
 		setTitle("   CHAT DEL EQUIPO 3 - ANNA Y ANTONIO");
 
@@ -73,7 +67,6 @@ public class Chat extends JFrame implements ActionListener {
 		getTaMensajes().setEditable(false);
 
 		getContentPane().setBackground(new Color(166, 210, 222));
-
 
 		getContentPane().setLayout(new GridBagLayout());
 
@@ -148,8 +141,7 @@ public class Chat extends JFrame implements ActionListener {
 			if (getTNick().getText().equals("")) {
 				getTaMensajes().setForeground(Color.RED);
 				getTaMensajes().append("Escribe nick \n");
-				
-				
+
 				System.out.println("Introduce algo...");
 			} else {
 				HiloEnvioRegistroCliente registro = new HiloEnvioRegistroCliente(this, Chat.IP_SERVIDOR,
@@ -159,18 +151,15 @@ public class Chat extends JFrame implements ActionListener {
 
 		}
 	}
-	
-	
 
 	public static void main(String[] args) {
-		
+
 		Chat chat = new Chat();
 		chat.setSize(1200, 800);
-		HiloEscuchaRegistroCliente escucha= new HiloEscuchaRegistroCliente(chat, Chat.PUERTO_ESCUCHA_REGISTRO_CLIENTE);
+		HiloEscuchaRegistroCliente escucha = new HiloEscuchaRegistroCliente(chat, Chat.PUERTO_ESCUCHA_REGISTRO_CLIENTE);
 		escucha.start();
 		chat.setVisible(true);
-		
 
 	}
-	
+
 }
