@@ -22,8 +22,8 @@ public class HiloEscuchaMensajeCliente extends HiloEscucha {
                
 		InputStreamReader inputStreamReader = new InputStreamReader(socket.getInputStream());
 		BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+		getChat().getTaMensajes().append(bufferedReader.readLine() +" \n");
 		
-		getChat().getTaMensajes().append(bufferedReader.readLine()+"\n");
 	}
 
 }
