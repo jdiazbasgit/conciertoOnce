@@ -20,6 +20,7 @@ import javax.swing.JTextField;
 
 import lombok.Data;
 import ventanas.eventos.ElQueSabeLoQueHayQueHacerConLaVentana;
+import ventanas.hilos.envio.HiloEnvioMensajeCliente;
 import ventanas.hilos.envio.HiloEnvioRegistroCliente;
 import ventanas.hilos.recepcion.HiloEscuchaRegistroCliente;
 
@@ -60,8 +61,8 @@ public class Chat extends JFrame implements ActionListener {
 		setTMensaje(new JTextField(80));
 		setTaMensajes(new TextArea());
 		setTaUsuarios(new TextArea(20, 2));
-		getBRegistrar().addActionListener(this);
-
+		getBRegistrar().addActionListener(this); 
+		
 		// no se puede escribir en los textAreas
 		getTaUsuarios().setEditable(false);
 		getTaMensajes().setEditable(false);
@@ -148,8 +149,20 @@ public class Chat extends JFrame implements ActionListener {
 						Chat.PUERTO_ESCUCHA_REGISTRO_SERVIDOR);
 				registro.start();
 			}
+              return;
+		}	
+		
 
-		}
+			if( e.getSource().equals(getBEnviar()) ){
+		         if(!this.getTMensaje().getText().trim().isEmpty()) {
+		        	 new HiloEnvioMensajeCliente(this, Chat.IP_SERVIDOR,Chat.PUERTO_ESCUCHA_MENSAJES_SERVIDOR).start();
+		        	 return;
+		         }
+		 
+		         this.getTMensaje().setText("Debe introducir un mensaje...");
+	             
+			}
+	
 	}
 
 	public static void main(String[] args) {
