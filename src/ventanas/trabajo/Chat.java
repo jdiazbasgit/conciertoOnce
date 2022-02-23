@@ -31,7 +31,7 @@ import ventanas.hilos.recepcion.HiloEscuchaRegistroCliente;
 
 public class Chat extends JFrame implements ActionListener {
 
-	public static final String IP_SERVIDOR = "192.168.10.16";
+	public static final String IP_SERVIDOR =  "192.168.10.63";//"192.168.10.16";
 	public static final int PUERTO_ESCUCHA_REGISTRO_SERVIDOR = 5000;
 	public static final int PUERTO_ENVIO_REGISTRO_SERVIDOR = 5001;
 	public static final int PUERTO_ENVIO_REGISTRO_CLIENTE = 5002;
