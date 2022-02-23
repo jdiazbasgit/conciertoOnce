@@ -15,15 +15,10 @@ public class HiloEnvioMensajeCliente  extends HiloEnvio {
 
 	@Override
 	public void hacerAlgo(Socket socket) throws IOException {
-       try(PrintWriter printWriter = new PrintWriter(socket.getOutputStream());){
-    	   printWriter.println(getChat().getTMensaje().getText());
+       try( PrintWriter printWriter = new PrintWriter(socket.getOutputStream()) ){
+    	   printWriter.println(getChat().getTMensaje().getText().trim());
    		   printWriter.flush();
-
        }
-		
-		
-		
-
 	}
 
 }
