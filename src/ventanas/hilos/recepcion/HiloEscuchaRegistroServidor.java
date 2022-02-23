@@ -23,11 +23,10 @@ public class HiloEscuchaRegistroServidor extends HiloEscucha {
 	}
 
 	@Override
-	public void hacerAlgo(Socket socket) throws IOException {
+	public synchronized void hacerAlgo(Socket socket) throws IOException {
 
 		try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()))) {
-			String usuario = bufferedReader.readLine();
-			
+			String usuario = bufferedReader.readLine();			
 			Servidor.getUsuarios().forEach( (ip, nick) -> {
 				if (nick.equalsIgnoreCase(usuario)) {
 					HiloEnvioMensajesServidor envio= new HiloEnvioMensajesServidor("El nick ya existe....", getIp(), Chat.PUERTO_ESCUCHA_MENSAJES_CLIENTE);
@@ -36,12 +35,10 @@ public class HiloEscuchaRegistroServidor extends HiloEscucha {
 				}
 			});
 			
-			Servidor.getUsuarios().put(getIp(), usuario);
-			//getChat().getBEnviar().setEnabled(true);
+			Servidor.getUsuarios().put(getIp(), usuario);			
 			Servidor.getUsuarios().forEach((ip, nick) -> {
-				HiloEnvioRegistroServidor envio = new HiloEnvioRegistroServidor(getChat(), ip,
-						Chat.PUERTO_ESCUCHA_REGISTRO_CLIENTE);
-				envio.start();
+				new HiloEnvioRegistroServidor(getChat(), ip, Chat.PUERTO_ESCUCHA_REGISTRO_CLIENTE).start();
+				
 			});
 
 		} catch (Exception e) {
