@@ -22,7 +22,7 @@ public class HiloEscuchaDesconexionServidor extends HiloEscucha {
 	
 	@Override
 	public void hacerAlgo(Socket socket)  {
-		System.out.println("desconectar -> " + Servidor.getUsuarios().get(socket.getInetAddress().getHostAddress())); 
+		
 		Servidor.getUsuarios().remove(socket.getInetAddress().getHostAddress());
 			
 		for (String ip : Servidor.getUsuarios().keySet()) {
