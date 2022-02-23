@@ -18,7 +18,7 @@ public class HiloEnvioMensajeCliente  extends HiloEnvio {
        try(PrintWriter printWriter = new PrintWriter(socket.getOutputStream());){
     	   printWriter.println(getChat().getTMensaje().getText());
    		   printWriter.flush();
-
+   		   getChat().getTMensaje().setText("");
        }
 		
 		
