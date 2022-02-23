@@ -23,7 +23,7 @@ public class HiloEscuchaRegistroServidor extends HiloEscucha {
 	}
 
 	@Override
-	public void hacerAlgo(Socket socket) throws IOException {
+	public synchronized void hacerAlgo(Socket socket) throws IOException {
 
 		try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()))) {
 			String usuario = bufferedReader.readLine();
