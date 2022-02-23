@@ -18,7 +18,9 @@ public class HiloEscuchaRegistroCliente extends HiloEscucha {
 
 	@Override
 	public void hacerAlgo(Socket socket) throws IOException {
-
+		//quitar las parte superior del chat
+		getChat().getTNick().setEditable(false);
+		getChat().getBRegistrar().setEnabled(false);
 		try (ObjectInputStream objectInputStream = new ObjectInputStream(socket.getInputStream())) {
 			Object objectRecibido = objectInputStream.readObject();
 			if (objectRecibido instanceof Map<? , ?>) {

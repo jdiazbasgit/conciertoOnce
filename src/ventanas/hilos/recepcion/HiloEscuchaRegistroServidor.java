@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import java.net.Socket;
 
 import lombok.Data;
+import ventanas.hilos.envio.HiloEnvioMensajesServidor;
 import ventanas.hilos.envio.HiloEnvioRegistroServidor;
 import ventanas.trabajo.Chat;
 import ventanas.trabajo.Servidor;
@@ -24,23 +25,25 @@ public class HiloEscuchaRegistroServidor extends HiloEscucha {
 	@Override
 	public void hacerAlgo(Socket socket) throws IOException {
 
-		
 		try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()))) {
 			String usuario = bufferedReader.readLine();
-			if(Servidor.getUsuarios().isEmpty())
+			if (Servidor.getUsuarios().isEmpty())
 				Servidor.getUsuarios().put(getIp(), usuario);
+			else
 			Servidor.getUsuarios().forEach((ip, nick) -> {
-				
-				if (nick.equals(usuario)) {
-					// envio menmsaje usuario existente
 
+				if (nick.equalsIgnoreCase(usuario)) {
+					HiloEnvioMensajesServidor envio= new HiloEnvioMensajesServidor("El nick ya existe....", getIp(), Chat.PUERTO_ESCUCHA_MENSAJES_CLIENTE);
+					envio.start();
+					return;
 				} else {
 					Servidor.getUsuarios().put(getIp(), usuario);
 					
 				}
+				
 			});
-			
-			Servidor.getUsuarios().forEach((ip,nick)->{
+
+			Servidor.getUsuarios().forEach((ip, nick) -> {
 				HiloEnvioRegistroServidor envio = new HiloEnvioRegistroServidor(getChat(), ip,
 						Chat.PUERTO_ESCUCHA_REGISTRO_CLIENTE);
 				envio.start();
@@ -50,7 +53,6 @@ public class HiloEscuchaRegistroServidor extends HiloEscucha {
 			e.printStackTrace();
 		}
 
-		
 		socket.close();
 
 	}
