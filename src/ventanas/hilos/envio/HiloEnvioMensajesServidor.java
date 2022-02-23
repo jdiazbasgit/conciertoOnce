@@ -12,12 +12,12 @@ import ventanas.trabajo.Chat;
 @Data
 public class HiloEnvioMensajesServidor extends HiloEnvio {
 	
-	  private String texto; private String ip; private int puerto;
+	  private String texto; 
 	
  
 	public HiloEnvioMensajesServidor(String texto, String ip, int puerto) {
 		super(ip,puerto);
-		 this.puerto = puerto;
+		this.texto = texto;
 		 
 	}
 

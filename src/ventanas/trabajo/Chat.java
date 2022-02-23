@@ -22,6 +22,7 @@ import lombok.Data;
 import ventanas.eventos.ElQueSabeLoQueHayQueHacerConLaVentana;
 import ventanas.hilos.envio.HiloEnvioMensajeCliente;
 import ventanas.hilos.envio.HiloEnvioRegistroCliente;
+import ventanas.hilos.recepcion.HiloEscuchaMensajeCliente;
 import ventanas.hilos.recepcion.HiloEscuchaRegistroCliente;
 
 @SuppressWarnings("serial")
@@ -29,7 +30,7 @@ import ventanas.hilos.recepcion.HiloEscuchaRegistroCliente;
 
 public class Chat extends JFrame implements ActionListener {
 
-	public static final String IP_SERVIDOR = "192.168.10.25";
+	public static final String IP_SERVIDOR = "192.168.10.16";
 	public static final int PUERTO_ESCUCHA_REGISTRO_SERVIDOR = 5000;
 	public static final int PUERTO_ENVIO_REGISTRO_SERVIDOR = 5001;
 	public static final int PUERTO_ENVIO_REGISTRO_CLIENTE = 5002;
@@ -62,6 +63,7 @@ public class Chat extends JFrame implements ActionListener {
 		setTaMensajes(new TextArea());
 		setTaUsuarios(new TextArea(20, 2));
 		getBRegistrar().addActionListener(this); 
+		getBEnviar().addActionListener(this);
 		
 		// no se puede escribir en los textAreas
 		getTaUsuarios().setEditable(false);
@@ -159,7 +161,7 @@ public class Chat extends JFrame implements ActionListener {
 		        	 return;
 		         }
 		 
-		         this.getTMensaje().setText("Debe introducir un mensaje...");
+		         this.getTaMensajes().append("Debe introducir un mensaje...\n");
 	             
 			}
 	
@@ -171,6 +173,8 @@ public class Chat extends JFrame implements ActionListener {
 		chat.setSize(1200, 800);
 		HiloEscuchaRegistroCliente escucha = new HiloEscuchaRegistroCliente(chat, Chat.PUERTO_ESCUCHA_REGISTRO_CLIENTE);
 		escucha.start();
+		HiloEscuchaMensajeCliente escuchaCliente= new HiloEscuchaMensajeCliente(chat, Chat.PUERTO_ESCUCHA_MENSAJES_CLIENTE);
+		escuchaCliente.start();
 		chat.setVisible(true);
 
 	}

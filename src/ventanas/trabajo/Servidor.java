@@ -1,6 +1,8 @@
 package ventanas.trabajo;
 
+import ventanas.hilos.envio.HiloEnvioMensajesServidor;
 import ventanas.hilos.recepcion.HiloEscuchaDesconexionServidor;
+import ventanas.hilos.recepcion.HiloEscuchaMensajesServidor;
 import ventanas.hilos.recepcion.HiloEscuchaRegistroServidor;
 
 public class Servidor {
@@ -14,6 +16,9 @@ public class Servidor {
 		desconexion.start();
 		HiloEscuchaRegistroServidor registro= new HiloEscuchaRegistroServidor(Chat.PUERTO_ESCUCHA_REGISTRO_SERVIDOR);
 		registro.start();
+		HiloEscuchaMensajesServidor mensajes= new HiloEscuchaMensajesServidor(Chat.PUERTO_ESCUCHA_MENSAJES_SERVIDOR);
+		mensajes.start();
+		
 		
 
 	}
