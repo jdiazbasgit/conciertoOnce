@@ -2,7 +2,6 @@ package ventanas.eventos;
 
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
-
 import lombok.Data;
 import ventanas.hilos.envio.HiloEnvioDesconexionCliente;
 import ventanas.trabajo.Chat;
@@ -11,56 +10,34 @@ import ventanas.trabajo.Chat;
 public class ElQueSabeLoQueHayQueHacerConLaVentana implements WindowListener{
 
 	
-	public ElQueSabeLoQueHayQueHacerConLaVentana() {
-		
-	}
+	public ElQueSabeLoQueHayQueHacerConLaVentana() {}
 
-	@Override
-	public void windowOpened(WindowEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void windowClosing(WindowEvent e) {
 	
+	@Override
+	public void windowClosing(WindowEvent e) {	
 
 		HiloEnvioDesconexionCliente hiloEnvioDesconexionCliente=
 				new HiloEnvioDesconexionCliente( Chat.IP_SERVIDOR,Chat.PUERTO_DESCONEXION);
-
 		hiloEnvioDesconexionCliente.start();
-		System.exit(0);
-		
+		System.exit(0);		
 	}
+	
+	@Override
+	public void windowOpened(WindowEvent e) {}
 
 	@Override
-	public void windowClosed(WindowEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void windowClosed(WindowEvent e) {}
 
 	@Override
-	public void windowIconified(WindowEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void windowIconified(WindowEvent e) {}
 
 	@Override
-	public void windowDeiconified(WindowEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void windowDeiconified(WindowEvent e) {}
 
 	@Override
-	public void windowActivated(WindowEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void windowActivated(WindowEvent e) {}
 
 	@Override
-	public void windowDeactivated(WindowEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void windowDeactivated(WindowEvent e) {}
 
 }

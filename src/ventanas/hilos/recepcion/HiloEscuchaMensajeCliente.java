@@ -4,14 +4,9 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.Socket;
-
 import ventanas.trabajo.Chat;
 
 public class HiloEscuchaMensajeCliente extends HiloEscucha {
-
-	
-
-	
 
 	public HiloEscuchaMensajeCliente(Chat chat, int puerto) {
 		super(chat, puerto);

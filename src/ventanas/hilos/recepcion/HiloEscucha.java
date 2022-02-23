@@ -3,11 +3,13 @@ package ventanas.hilos.recepcion;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
-
+import java.util.Optional;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import ventanas.trabajo.Chat;
 
 @Data
+@EqualsAndHashCode(callSuper=false)
 public abstract class HiloEscucha extends Thread {
 
 	private Chat chat;
@@ -16,12 +18,20 @@ public abstract class HiloEscucha extends Thread {
 	private String ip;
 
 	public HiloEscucha(Chat chat, int puerto) {
+		super();
 		this.chat = chat;
 		this.puerto = puerto;
 	}
 
 	public HiloEscucha(int puerto) {
+		super();
 		this.puerto = puerto;
+	}
+
+
+	public HiloEscucha(Chat chat, int puerto, String ip) {
+		this(chat,puerto);
+		this.ip = ip;
 	}
 
 	@Override
@@ -39,15 +49,19 @@ public abstract class HiloEscucha extends Thread {
 		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {
-			try {
-				serverSocket.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-
+				Optional.ofNullable(serverSocket).ifPresent(socket->{
+					try {
+						socket.close();
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+				});	
 		}
 
 	}
 
 	public abstract void hacerAlgo(Socket socket) throws IOException;
+
+	
+
 }

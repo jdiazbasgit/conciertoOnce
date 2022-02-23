@@ -6,7 +6,6 @@ import java.net.Socket;
 import java.util.Collection;
 import java.util.Map;
 import java.util.Optional;
-
 import ventanas.trabajo.Chat;
 
 public class HiloEscuchaRegistroCliente extends HiloEscucha {

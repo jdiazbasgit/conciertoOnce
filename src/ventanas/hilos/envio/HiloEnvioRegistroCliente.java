@@ -3,15 +3,13 @@ package ventanas.hilos.envio;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.Socket;
-
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import ventanas.trabajo.Chat;
 
 @Data
+@EqualsAndHashCode(callSuper = false)
 public class HiloEnvioRegistroCliente extends HiloEnvio {
-	// variables estaticas puertos
-	// PUERTO 5002
-
 
 	public HiloEnvioRegistroCliente(Chat chat, String ip, int puerto) {
 		super(chat, ip, puerto);
@@ -23,11 +21,6 @@ public class HiloEnvioRegistroCliente extends HiloEnvio {
 		PrintWriter printWriter = new PrintWriter(socket.getOutputStream());
 		printWriter.println(getChat().getTNick().getText());
 		printWriter.flush();
-
-		System.out.println(getChat().getTNick().getText() + "Esto es del hilo de registro");
-
-		
-		
 
 	}
 

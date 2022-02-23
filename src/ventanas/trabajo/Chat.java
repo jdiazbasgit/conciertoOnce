@@ -2,24 +2,17 @@ package ventanas.trabajo;
 
 import java.awt.Color;
 import java.awt.GridBagConstraints;
-//import java.awt.FlowLayout;
-//import java.awt.Color;
-//import java.awt.BorderLayout;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.TextArea;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.HashMap;
-import java.util.Map;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
-
 import lombok.Data;
-import lombok.Synchronized;
+import lombok.EqualsAndHashCode;
 import ventanas.eventos.ElQueSabeLoQueHayQueHacerConLaVentana;
 import ventanas.hilos.envio.HiloEnvioMensajeCliente;
 import ventanas.hilos.envio.HiloEnvioRegistroCliente;
@@ -28,31 +21,28 @@ import ventanas.hilos.recepcion.HiloEscuchaRegistroCliente;
 
 @SuppressWarnings("serial")
 @Data
-
+@EqualsAndHashCode(callSuper = false)
 public class Chat extends JFrame implements ActionListener {
 
-	public static final String IP_SERVIDOR = "192.168.10.74";
+	public static final String IP_SERVIDOR = "192.168.1.113";
 	public static final int PUERTO_ESCUCHA_REGISTRO_SERVIDOR = 5000;
 	public static final int PUERTO_ENVIO_REGISTRO_SERVIDOR = 5001;
 	public static final int PUERTO_ENVIO_REGISTRO_CLIENTE = 5002;
 	public static final int PUERTO_ESCUCHA_REGISTRO_CLIENTE = 5003;
 	public static final int PUERTO_DESCONEXION = 5004;
-	
-	public static final int PUERTO_ESCUCHA_MENSAJES_SERVIDOR=5005;
-	public static final int PUERTO_ESCUCHA_MENSAJES_CLIENTE=5006;
+	public static final int PUERTO_ESCUCHA_MENSAJES_SERVIDOR = 5005;
+	public static final int PUERTO_ESCUCHA_MENSAJES_CLIENTE = 5006;
+
 	private JLabel lNick, lUsuarios, lMensaje;
 	private JButton bRegistrar, bEnviar;
 	private JTextField tNick, tMensaje;
 	private TextArea taUsuarios, taMensajes;
 
-	
 	public Chat() {
 
 		this.addWindowListener(new ElQueSabeLoQueHayQueHacerConLaVentana());
-		// setUsuarios(Optional.of(new HashMap<>()));
 		setLocation(200, 20);
 		setTitle("   CHAT DEL EQUIPO 3 - ANNA Y ANTONIO");
-
 		setLNick(new JLabel("NICK:"));
 		setLUsuarios(new JLabel("USUARIOS"));
 		setLMensaje(new JLabel("MENSAJE:"));
@@ -62,15 +52,12 @@ public class Chat extends JFrame implements ActionListener {
 		setTMensaje(new JTextField(80));
 		setTaMensajes(new TextArea());
 		setTaUsuarios(new TextArea(20, 2));
-		getBRegistrar().addActionListener(this); 
+		getBRegistrar().addActionListener(this);
 		getBEnviar().addActionListener(this);
 		getBEnviar().setEnabled(false);
-		// no se puede escribir en los textAreas
 		getTaUsuarios().setEditable(false);
 		getTaMensajes().setEditable(false);
-
 		getContentPane().setBackground(new Color(166, 210, 222));
-
 		getContentPane().setLayout(new GridBagLayout());
 
 		// Línea de arriba--------------------------------------
@@ -139,42 +126,30 @@ public class Chat extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 
 		if (e.getSource().equals(getBRegistrar())) {
-			System.out.println("boton");
-
-			if (getTNick().getText().equals("")) {
+			if (getTNick().getText().trim().equals("")) {
 				getTaMensajes().setForeground(Color.RED);
 				getTaMensajes().append("Escribe nick \n");
-
-				System.out.println("Introduce algo...");
 			} else {
-				HiloEnvioRegistroCliente registro = new HiloEnvioRegistroCliente(this, Chat.IP_SERVIDOR,
-						Chat.PUERTO_ESCUCHA_REGISTRO_SERVIDOR);
-				registro.start();
+				new HiloEnvioRegistroCliente(this, Chat.IP_SERVIDOR,Chat.PUERTO_ESCUCHA_REGISTRO_SERVIDOR).start();
 			}
-              return;
-		}	
-		
+			return;
+		}
 
-			if( e.getSource().equals(getBEnviar()) ){
-		         if(!this.getTMensaje().getText().trim().isEmpty()) {
-		        	 new HiloEnvioMensajeCliente(this, Chat.IP_SERVIDOR,Chat.PUERTO_ESCUCHA_MENSAJES_SERVIDOR).start();
-		        	 return;
-		         }
-		 
-		         this.getTaMensajes().append("Debe introducir un mensaje...\n");
-	             
+		if (e.getSource().equals(getBEnviar())) {
+			if (!this.getTMensaje().getText().trim().isEmpty()) {
+				new HiloEnvioMensajeCliente(this, Chat.IP_SERVIDOR, Chat.PUERTO_ESCUCHA_MENSAJES_SERVIDOR).start();
+				return;
 			}
-	
+			this.getTaMensajes().append("Debe introducir un mensaje...\n");
+		}
 	}
 
 	public static void main(String[] args) {
 
 		Chat chat = new Chat();
 		chat.setSize(1200, 800);
-		HiloEscuchaRegistroCliente escucha = new HiloEscuchaRegistroCliente(chat, Chat.PUERTO_ESCUCHA_REGISTRO_CLIENTE);
-		escucha.start();
-		HiloEscuchaMensajeCliente escuchaCliente= new HiloEscuchaMensajeCliente(chat, Chat.PUERTO_ESCUCHA_MENSAJES_CLIENTE);
-		escuchaCliente.start();
+		new HiloEscuchaRegistroCliente(chat, Chat.PUERTO_ESCUCHA_REGISTRO_CLIENTE).start();
+		new HiloEscuchaMensajeCliente(chat, Chat.PUERTO_ESCUCHA_MENSAJES_CLIENTE).start();
 		chat.setVisible(true);
 
 	}
