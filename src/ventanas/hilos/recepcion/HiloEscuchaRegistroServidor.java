@@ -37,7 +37,7 @@ public class HiloEscuchaRegistroServidor extends HiloEscucha {
 					HiloEnvioMensajesServidor envio= new HiloEnvioMensajesServidor("El nick ya existe....", getIp(), Chat.PUERTO_ESCUCHA_MENSAJES_CLIENTE);
 					envio.start();
 					try {
-						socket.close();
+						socket.close(); //cuando el nick coincide mando mensaje y mato el socket
 					} catch (IOException e) {
 						e.printStackTrace();
 					}
