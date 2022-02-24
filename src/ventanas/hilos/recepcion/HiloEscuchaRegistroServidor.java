@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.Socket;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import ventanas.hilos.envio.HiloEnvioMensajesServidor;
@@ -24,7 +25,7 @@ public class HiloEscuchaRegistroServidor extends HiloEscucha {
 	}
 
 	@Override
-	public void hacerAlgo(Socket socket) throws IOException {
+	public synchronized void hacerAlgo(Socket socket) throws IOException {
 
 		try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()))) {
 			String usuario = bufferedReader.readLine();		
