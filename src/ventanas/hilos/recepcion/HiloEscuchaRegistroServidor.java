@@ -15,8 +15,6 @@ import ventanas.trabajo.Servidor;
 @Data
 public class HiloEscuchaRegistroServidor extends HiloEscucha {
 
-	private boolean existe;
-	
 	public HiloEscuchaRegistroServidor(int puerto) {
 		super(puerto);
 	}
@@ -29,23 +27,16 @@ public class HiloEscuchaRegistroServidor extends HiloEscucha {
 			if (Servidor.getUsuarios().isEmpty())
 				Servidor.getUsuarios().put(getIp(), usuario);
 			else {
-				
-				Servidor.getUsuarios().forEach((ip, nick) -> {
-					boolean existeFuncional=existe;
-					if (nick.equalsIgnoreCase(usuario)) {
-						HiloEnvio envio = new HiloEnvioMensajesServidor("El nick ya existe....",
-								getIp(), Chat.PUERTO_ESCUCHA_MENSAJES_CLIENTE);
-						envio.start();
-						setExiste(true);
-						
-					} 
-				});
-				if(!isExiste())
+
+				if (Servidor.getUsuarios().values().stream().filter(n -> n.equalsIgnoreCase(usuario)).count() > 0)
+					new HiloEnvioMensajesServidor("El nick ya existe...", getIp(), Chat.PUERTO_ESCUCHA_MENSAJES_CLIENTE)
+							.start();
+				else
 					Servidor.getUsuarios().put(getIp(), usuario);
 			}
-			
+
 			Servidor.getUsuarios().forEach((ip, nick) -> {
-				HiloEnvioRegistroServidor envio = new HiloEnvioRegistroServidor( ip,
+				HiloEnvioRegistroServidor envio = new HiloEnvioRegistroServidor(ip,
 						Chat.PUERTO_ESCUCHA_REGISTRO_CLIENTE);
 				envio.start();
 			});
