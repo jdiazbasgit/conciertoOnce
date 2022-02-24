@@ -9,7 +9,7 @@ import ventanas.trabajo.Servidor;
 
 
 @Data
-public abstract class HiloEnvio extends Thread {
+public abstract class HiloEnvio extends Thread implements HiloInterface {
 
 	private Chat chat;
 	private int puerto;
@@ -43,7 +43,7 @@ public abstract class HiloEnvio extends Thread {
 					"el usuario " + Servidor.getUsuarios().get(getIp()) + " no esta conectado, lo elimino");
 			Servidor.getUsuarios().remove(getIp());
 			Servidor.getUsuarios().forEach((ip,nick)->{
-				HiloEnvioRegistroServidor envio = new HiloEnvioRegistroServidor(getChat(), ip,
+				HiloEnvioRegistroServidor envio = new HiloEnvioRegistroServidor( ip,
 						Chat.PUERTO_ESCUCHA_REGISTRO_CLIENTE);
 				envio.start();
 			});
@@ -61,5 +61,5 @@ public abstract class HiloEnvio extends Thread {
 
 	}
 
-	public abstract void hacerAlgo(Socket socket) throws IOException;
+	
 }

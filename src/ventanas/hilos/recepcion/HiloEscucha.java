@@ -5,29 +5,32 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 import lombok.Data;
+import ventanas.hilos.envio.HiloInterface;
 import ventanas.trabajo.Chat;
+import ventanas.trabajo.Servidor;
 
 @Data
-public abstract class HiloEscucha extends Thread {
+public abstract  class HiloEscucha extends Thread implements HiloInterface {
 
 	private Chat chat;
 	private int puerto;
 
 	private String ip;
 
-	public HiloEscucha(Chat chat, int puerto) {
-		this.chat = chat;
-		this.puerto = puerto;
-	}
+	
 
 	public HiloEscucha(int puerto) {
 		this.puerto = puerto;
+	}
+	
+	public HiloEscucha(Chat chat,int puerto) {
+		this.puerto = puerto;
+		this.chat=chat;
 	}
 
 	@Override
 	public void run() {
 		ServerSocket serverSocket = null;
-
 		try {
 			serverSocket = new ServerSocket(getPuerto());
 			while (true) {
@@ -49,5 +52,6 @@ public abstract class HiloEscucha extends Thread {
 
 	}
 
-	public abstract void hacerAlgo(Socket socket) throws IOException;
+
+	
 }

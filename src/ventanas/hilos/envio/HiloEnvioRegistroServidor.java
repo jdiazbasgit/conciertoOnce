@@ -12,9 +12,10 @@ public class HiloEnvioRegistroServidor extends HiloEnvio  {
 	
 	
 
-	public HiloEnvioRegistroServidor(Chat chat,String ip, int puerto) {
-		super(chat, ip, puerto);	
+	public HiloEnvioRegistroServidor(String ip, int puerto) {
+		super(ip, puerto);	
 	}
+	
 
 
 

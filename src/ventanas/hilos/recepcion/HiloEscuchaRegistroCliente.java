@@ -12,7 +12,11 @@ import ventanas.trabajo.Chat;
 public class HiloEscuchaRegistroCliente extends HiloEscucha {
 	private static final String SALTO_LINEA = "\n";
 
-	public HiloEscuchaRegistroCliente(Chat chat, int puerto) {
+	public HiloEscuchaRegistroCliente(int puerto) {
+		super( puerto);
+	}
+	
+	public HiloEscuchaRegistroCliente(Chat chat,int puerto) {
 		super(chat, puerto);
 	}
 
@@ -21,6 +25,7 @@ public class HiloEscuchaRegistroCliente extends HiloEscucha {
 		//quitar las parte superior del chat
 		getChat().getTNick().setEditable(false);
 		getChat().getBRegistrar().setEnabled(false);
+		getChat().getBEnviar().setEnabled(true);
 		try (ObjectInputStream objectInputStream = new ObjectInputStream(socket.getInputStream())) {
 			Object objectRecibido = objectInputStream.readObject();
 			if (objectRecibido instanceof Map<? , ?>) {

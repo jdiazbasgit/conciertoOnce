@@ -13,10 +13,15 @@ public class HiloEscuchaMensajeCliente extends HiloEscucha {
 
 	
 
+	public HiloEscuchaMensajeCliente(int puerto) {
+		super( puerto);
+	}
+
 	public HiloEscuchaMensajeCliente(Chat chat, int puerto) {
 		super(chat, puerto);
 	}
 
+	
 	@Override
 	public void hacerAlgo(Socket socket) throws IOException {
                
@@ -26,4 +31,5 @@ public class HiloEscuchaMensajeCliente extends HiloEscucha {
 		
 	}
 
+	
 }
