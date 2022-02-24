@@ -5,10 +5,11 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import ventanas.hilos.envio.HiloInterface;
 import ventanas.trabajo.Chat;
-import ventanas.trabajo.Servidor;
 
+@EqualsAndHashCode(callSuper=false)
 @Data
 public abstract  class HiloEscucha extends Thread implements HiloInterface {
 

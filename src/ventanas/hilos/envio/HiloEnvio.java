@@ -4,10 +4,11 @@ import java.io.IOException;
 import java.net.Socket;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import ventanas.trabajo.Chat;
 import ventanas.trabajo.Servidor;
 
-
+@EqualsAndHashCode(callSuper=false)
 @Data
 public abstract class HiloEnvio extends Thread implements HiloInterface {
 

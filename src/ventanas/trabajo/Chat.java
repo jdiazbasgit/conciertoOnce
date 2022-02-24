@@ -10,25 +10,20 @@ import java.awt.Insets;
 import java.awt.TextArea;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.HashMap;
-import java.util.Map;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 import lombok.Data;
-import lombok.Synchronized;
+import lombok.EqualsAndHashCode;
 import ventanas.eventos.ElQueSabeLoQueHayQueHacerConLaVentana;
 import ventanas.hilos.envio.HiloEnvio;
 import ventanas.hilos.envio.HiloEnvioMensajeCliente;
 import ventanas.hilos.envio.HiloEnvioRegistroCliente;
-import ventanas.hilos.recepcion.HiloEscucha;
-import ventanas.hilos.recepcion.HiloEscuchaMensajeCliente;
-import ventanas.hilos.recepcion.HiloEscuchaRegistroCliente;
 
 @SuppressWarnings("serial")
+@EqualsAndHashCode(callSuper=false)
 @Data
 
 public class Chat extends JFrame implements ActionListener {

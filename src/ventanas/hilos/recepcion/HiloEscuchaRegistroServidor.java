@@ -4,14 +4,14 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.Socket;
-
 import lombok.Data;
-import ventanas.hilos.envio.HiloEnvio;
+import lombok.EqualsAndHashCode;
 import ventanas.hilos.envio.HiloEnvioMensajesServidor;
 import ventanas.hilos.envio.HiloEnvioRegistroServidor;
 import ventanas.trabajo.Chat;
 import ventanas.trabajo.Servidor;
 
+@EqualsAndHashCode(callSuper=false)
 @Data
 public class HiloEscuchaRegistroServidor extends HiloEscucha {
 
