@@ -1,14 +1,12 @@
 package ventanas.hilos.envio;
 
-import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.PrintStream;
-import java.net.ServerSocket;
 import java.net.Socket;
-import java.net.UnknownHostException;
-
 import lombok.Data;
-import ventanas.trabajo.Chat;
+import lombok.EqualsAndHashCode;
+
+@EqualsAndHashCode(callSuper=false)
 @Data
 public class HiloEnvioMensajesServidor extends HiloEnvio {
 	
