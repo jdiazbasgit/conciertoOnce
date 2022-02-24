@@ -35,6 +35,7 @@ public abstract class HiloEscucha extends Thread {
 				setIp(socket.getInetAddress().getHostAddress());
 				hacerAlgo(socket);
 			}
+			
 
 		} catch (IOException e) {
 			e.printStackTrace();

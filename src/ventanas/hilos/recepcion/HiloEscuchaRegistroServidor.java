@@ -33,8 +33,8 @@ public class HiloEscuchaRegistroServidor extends HiloEscucha {
 			Servidor.getUsuarios().forEach((ip, nick) -> {
 
 				if (nick.equalsIgnoreCase(usuario)) {
-					HiloEnvioMensajesServidor envio= new HiloEnvioMensajesServidor("El nick ya existe....", getIp(), Chat.PUERTO_ESCUCHA_MENSAJES_CLIENTE);
-					envio.start();
+					HiloEnvioMensajesServidor envio= new HiloEnvioMensajesServidor("El nick ya existe....",getIp(), Chat.PUERTO_ESCUCHA_MENSAJES_CLIENTE);
+				    envio.start();
 					return;
 				} else {
 					Servidor.getUsuarios().put(getIp(), usuario);
