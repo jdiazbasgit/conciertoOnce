@@ -10,8 +10,6 @@ import java.awt.Insets;
 import java.awt.TextArea;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.HashMap;
-import java.util.Map;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -19,7 +17,6 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 import lombok.Data;
-import lombok.Synchronized;
 import ventanas.eventos.ElQueSabeLoQueHayQueHacerConLaVentana;
 import ventanas.hilos.envio.HiloEnvioMensajeCliente;
 import ventanas.hilos.envio.HiloEnvioRegistroCliente;
@@ -31,21 +28,20 @@ import ventanas.hilos.recepcion.HiloEscuchaRegistroCliente;
 
 public class Chat extends JFrame implements ActionListener {
 
-	public static final String IP_SERVIDOR = "192.168.10.16";
+	public static final String IP_SERVIDOR = "192.168.10.14";
 	public static final int PUERTO_ESCUCHA_REGISTRO_SERVIDOR = 5000;
 	public static final int PUERTO_ENVIO_REGISTRO_SERVIDOR = 5001;
 	public static final int PUERTO_ENVIO_REGISTRO_CLIENTE = 5002;
 	public static final int PUERTO_ESCUCHA_REGISTRO_CLIENTE = 5003;
 	public static final int PUERTO_DESCONEXION = 5004;
-	
-	public static final int PUERTO_ESCUCHA_MENSAJES_SERVIDOR=5005;
-	public static final int PUERTO_ESCUCHA_MENSAJES_CLIENTE=5006;
+
+	public static final int PUERTO_ESCUCHA_MENSAJES_SERVIDOR = 5005;
+	public static final int PUERTO_ESCUCHA_MENSAJES_CLIENTE = 5006;
 	private JLabel lNick, lUsuarios, lMensaje;
 	private JButton bRegistrar, bEnviar;
 	private JTextField tNick, tMensaje;
 	private TextArea taUsuarios, taMensajes;
 
-	
 	public Chat() {
 
 		this.addWindowListener(new ElQueSabeLoQueHayQueHacerConLaVentana());
@@ -62,9 +58,9 @@ public class Chat extends JFrame implements ActionListener {
 		setTMensaje(new JTextField(80));
 		setTaMensajes(new TextArea());
 		setTaUsuarios(new TextArea(20, 2));
-		getBRegistrar().addActionListener(this); 
+		getBRegistrar().addActionListener(this);
 		getBEnviar().addActionListener(this);
-		
+
 		// no se puede escribir en los textAreas
 		getTaUsuarios().setEditable(false);
 		getTaMensajes().setEditable(false);
@@ -151,20 +147,19 @@ public class Chat extends JFrame implements ActionListener {
 						Chat.PUERTO_ESCUCHA_REGISTRO_SERVIDOR);
 				registro.start();
 			}
-              return;
-		}	
-		
+			return;
+		}
 
-			if( e.getSource().equals(getBEnviar()) ){
-		         if(!this.getTMensaje().getText().trim().isEmpty()) {
-		        	 new HiloEnvioMensajeCliente(this, Chat.IP_SERVIDOR,Chat.PUERTO_ESCUCHA_MENSAJES_SERVIDOR).start();
-		        	 return;
-		         }
-		 
-		         this.getTaMensajes().append("Debe introducir un mensaje...\n");
-	             
+		if (e.getSource().equals(getBEnviar())) {
+			if (!this.getTMensaje().getText().trim().isEmpty()) {
+				new HiloEnvioMensajeCliente(this, Chat.IP_SERVIDOR, Chat.PUERTO_ESCUCHA_MENSAJES_SERVIDOR).start();
+				return;
 			}
-	
+
+			this.getTaMensajes().append("Debe introducir un mensaje...\n");
+
+		}
+
 	}
 
 	public static void main(String[] args) {
@@ -173,7 +168,8 @@ public class Chat extends JFrame implements ActionListener {
 		chat.setSize(1200, 800);
 		HiloEscuchaRegistroCliente escucha = new HiloEscuchaRegistroCliente(chat, Chat.PUERTO_ESCUCHA_REGISTRO_CLIENTE);
 		escucha.start();
-		HiloEscuchaMensajeCliente escuchaCliente= new HiloEscuchaMensajeCliente(chat, Chat.PUERTO_ESCUCHA_MENSAJES_CLIENTE);
+		HiloEscuchaMensajeCliente escuchaCliente = new HiloEscuchaMensajeCliente(chat,
+				Chat.PUERTO_ESCUCHA_MENSAJES_CLIENTE);
 		escuchaCliente.start();
 		chat.setVisible(true);
 

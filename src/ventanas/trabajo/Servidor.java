@@ -2,6 +2,7 @@ package ventanas.trabajo;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 import lombok.Data;
 import ventanas.hilos.envio.HiloEnvioMensajesServidor;
@@ -12,9 +13,9 @@ import ventanas.hilos.recepcion.HiloEscuchaRegistroServidor;
 
 public class Servidor {
 
-	public static Map<String, String> usuarios= new HashMap<>();
+	public static Map<String, Set<String>> usuarios= new HashMap<>();
 	
-	public synchronized static Map<String,String> getUsuarios(){
+	public synchronized static Map<String,Set <String>> getUsuarios(){
 		return Servidor.usuarios;
 	}
 	
