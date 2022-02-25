@@ -38,7 +38,7 @@ public class Bola extends Thread {
 				if (getPosicionX() < 63 || (getPosicionX() + getDimension()) > getVentanaArkanoid().getWidth()) {
 					setSentidoX(getSentidoX() * -1);
 				}
-				if (getPosicionX() > 1020 || (getPosicionX() + getDimension()) > getVentanaArkanoid().getWidth()) {
+				if (getPosicionX() > 1095 || (getPosicionX() + getDimension()) > getVentanaArkanoid().getWidth()) {
 					setSentidoX(getSentidoX() * -1);
 				}
 				if (getPosicionY() < 63 || (getPosicionY() + getDimension()) > getVentanaArkanoid().getHeight()) {

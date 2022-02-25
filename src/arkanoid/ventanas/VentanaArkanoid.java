@@ -37,7 +37,7 @@ public class VentanaArkanoid extends Frame {
 	private int dimensionBola;
 	private Image imagenBola;
 	private Image ImagenFondo;
-	private Image imagenBloques;
+	private Image imagenBloque;
 	private Image imagenOnce;
 	private Nave nave;
 	VentanaArkanoid() {
@@ -69,7 +69,7 @@ public class VentanaArkanoid extends Frame {
 			Pintor pintor = new Pintor(this);
 			pintor.start();
 			setPrimeraVez(false);
-			 setImagenBloques(Toolkit.getDefaultToolkit().getImage("naranja.jpg"));
+			 setImagenBloque(Toolkit.getDefaultToolkit().getImage("naranja.jpg"));
             setImagenBola(Toolkit.getDefaultToolkit().getImage("red.png"));
             setImagenFondo(Toolkit.getDefaultToolkit().getImage("fondo.jpg"));
             setImagenOnce(Toolkit.getDefaultToolkit().getImage("photo1645593704.jpeg"));
@@ -86,7 +86,9 @@ public class VentanaArkanoid extends Frame {
 			getExterno().drawString(String.valueOf(bloque.getGolpes()),bloque.getPosicionX()+bloque.getAncho()/2, bloque.getPosicionY()+bloque.getAlto()/2);
 	        
 		}
-	
+		
+		
+		
 
 		if (getBola() != null)
 			//getExterno().fillOval(getBola().getPosicionX(), getBola().getPosicionY(), getBola().getDimension(),
@@ -101,7 +103,7 @@ public class VentanaArkanoid extends Frame {
 	if (getNave() != null)
 		getExterno().drawImage(getImagenOnce(), getNave().getPosicionX(), getNave().getPosicionY(),
 				getNave().getDimension(), getNave().getDimension(), this);
-	g.drawImage(getImagenOnce(), 60, 720, this);
+	g.drawImage(getImagenOnce(), 70, 720, this);
 }
 	
 	@Override

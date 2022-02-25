@@ -7,7 +7,7 @@ import lombok.EqualsAndHashCode;
 
 @EqualsAndHashCode(callSuper = false)
 @Data
-public class Nave extends Thread {
+public class Nave extends Thread  {
 
 	private int ancho;
 	private int alto;
@@ -17,7 +17,7 @@ public class Nave extends Thread {
 	
 	public Nave(int ancho, int alto, VentanaArkanoid ventanaArkanoid, int posicionX, int posicionY, int sentidoX,
 			int sentidoY, int incrementoX, int incrementoY, Image image) {
-		super();
+	super();
 		this.ancho = ancho;
 		this.alto = alto;
 		this.ventanaArkanoid = ventanaArkanoid;
@@ -33,10 +33,8 @@ public class Nave extends Thread {
 
 	
 
-	@Override
-	public void run() {
-		super.run();
-	}
+	
+	
 
 
 
