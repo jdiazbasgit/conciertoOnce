@@ -1,10 +1,8 @@
 package arkanoid.ventanas;
 
 import java.awt.Color;
-import java.awt.Image;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 

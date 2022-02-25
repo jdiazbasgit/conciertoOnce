@@ -1,10 +1,8 @@
 package arkanoid.ventanas;
 
+import java.awt.Color;
 import java.awt.geom.Rectangle2D;
 import java.util.HashSet;
-import java.awt.Color;
-import java.awt.Image;
-import java.awt.Toolkit;
 public class TonteriasDeBloques {
 	
 	private VentanaArkanoid ventanaArkanoid;
@@ -12,16 +10,15 @@ public class TonteriasDeBloques {
 	public TonteriasDeBloques(VentanaArkanoid ventanaArkanoid) {
 		this.ventanaArkanoid= ventanaArkanoid;
 	}
-	
-	@SuppressWarnings("unused")
+
 	public void cargaBloques() {
 		if (getVentanaArkanoid().getCuadrados() == null) {
 			getVentanaArkanoid().setCuadrados(new HashSet<>());
 			while (getVentanaArkanoid().getCuadrados().size() < getVentanaArkanoid().getNumeroBloques()) {
                  int anchoIzq= -73;
                  int anchoDer=+73;
-				int superior = 175;
-				int inferior = getVentanaArkanoid().getHeight() - 107;
+				int superior = 95;
+				int inferior = getVentanaArkanoid().getHeight() - 147;
 				getVentanaArkanoid().getCuadrados().add(dameBloque(inferior, superior,anchoIzq,anchoDer));
 			}
 		}

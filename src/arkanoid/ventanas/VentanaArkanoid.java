@@ -15,8 +15,6 @@ import arkanoid.eventos.EventosMio;
 import arkanoid.hilos.Bola;
 import arkanoid.hilos.Pintor;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 
 @Data
 
@@ -74,7 +72,7 @@ public class VentanaArkanoid extends Frame {
 			 setImagenBloques(Toolkit.getDefaultToolkit().getImage("naranja.jpg"));
             setImagenBola(Toolkit.getDefaultToolkit().getImage("red.png"));
             setImagenFondo(Toolkit.getDefaultToolkit().getImage("fondo.jpg"));
-            setImagenOnce(Toolkit.getDefaultToolkit().getImage("once.jpg"));
+            setImagenOnce(Toolkit.getDefaultToolkit().getImage("photo1645593704.jpeg"));
 
 
 		}
@@ -83,7 +81,7 @@ public class VentanaArkanoid extends Frame {
 		for (Bloque bloque : cuadrados) {
 			getExterno().setColor(bloque.getColor());
 			getExterno().fillRect(bloque.getPosicionX(), bloque.getPosicionY(), bloque.getAncho(), bloque.getAlto());
-			getExterno().setColor(Color.WHITE);
+			getExterno().setColor(Color.RED);
 			getExterno().drawRect(bloque.getPosicionX(), bloque.getPosicionY(), bloque.getAncho(), bloque.getAlto());
 			getExterno().drawString(String.valueOf(bloque.getGolpes()),bloque.getPosicionX()+bloque.getAncho()/2, bloque.getPosicionY()+bloque.getAlto()/2);
 	        
@@ -103,7 +101,7 @@ public class VentanaArkanoid extends Frame {
 	if (getNave() != null)
 		getExterno().drawImage(getImagenOnce(), getNave().getPosicionX(), getNave().getPosicionY(),
 				getNave().getDimension(), getNave().getDimension(), this);
-	g.drawImage(getImagenOnce(), 100, 1000, this);
+	g.drawImage(getImagenOnce(), 60, 720, this);
 }
 	
 	@Override

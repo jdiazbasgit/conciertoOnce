@@ -1,7 +1,6 @@
 package arkanoid.ventanas;
 
 import java.awt.Image;
-import arkanoid.ventanas.VentanaArkanoid;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
