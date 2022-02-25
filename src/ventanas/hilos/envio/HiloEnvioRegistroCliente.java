@@ -15,6 +15,7 @@ public class HiloEnvioRegistroCliente extends HiloEnvio {
 		super(chat, ip, puerto);
 	}
 
+	
 	@Override
 	public void hacerAlgo(Socket socket) throws IOException {
 
