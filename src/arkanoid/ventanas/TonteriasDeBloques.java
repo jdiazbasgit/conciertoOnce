@@ -20,8 +20,8 @@ public class TonteriasDeBloques {
 			while (getVentanaArkanoid().getCuadrados().size() < getVentanaArkanoid().getNumeroBloques()) {
                  int anchoIzq= -73;
                  int anchoDer=+73;
-				int superior = 245;
-				int inferior = getVentanaArkanoid().getHeight() - 100;
+				int superior = 175;
+				int inferior = getVentanaArkanoid().getHeight() - 107;
 				getVentanaArkanoid().getCuadrados().add(dameBloque(inferior, superior,anchoIzq,anchoDer));
 			}
 		}
