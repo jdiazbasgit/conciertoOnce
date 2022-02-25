@@ -14,11 +14,11 @@ import java.util.Set;
 import arkanoid.eventos.EventosMio;
 import arkanoid.hilos.Bola;
 import arkanoid.hilos.Pintor;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
-@Setter
-@Getter
+@Data
 
 public class VentanaArkanoid extends Frame {
 
@@ -40,6 +40,8 @@ public class VentanaArkanoid extends Frame {
 	private Image imagenBola;
 	private Image ImagenFondo;
 	private Image imagenBloques;
+	private Image imagenOnce;
+	private Nave nave;
 	VentanaArkanoid() {
 		Properties properties = new Properties();
 		try {
@@ -72,6 +74,8 @@ public class VentanaArkanoid extends Frame {
 			 setImagenBloques(Toolkit.getDefaultToolkit().getImage("naranja.jpg"));
             setImagenBola(Toolkit.getDefaultToolkit().getImage("red.png"));
             setImagenFondo(Toolkit.getDefaultToolkit().getImage("fondo.jpg"));
+            setImagenOnce(Toolkit.getDefaultToolkit().getImage("once.jpg"));
+
 
 		}
 		getExterno().clearRect(0,0,2000,2000);
@@ -94,9 +98,13 @@ public class VentanaArkanoid extends Frame {
 
 		g.drawImage(getImagen(),0,0,this);
 		
-	}
 	
 	
+	if (getNave() != null)
+		getExterno().drawImage(getImagenOnce(), getNave().getPosicionX(), getNave().getPosicionY(),
+				getNave().getDimension(), getNave().getDimension(), this);
+	g.drawImage(getImagenOnce(), 100, 1000, this);
+}
 	
 	@Override
 	public void update(Graphics g) {
