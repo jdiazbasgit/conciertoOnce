@@ -1,9 +1,11 @@
 package arkanoid.eventos;
 
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.WindowEvent;
 
 import arkanoid.hilos.Bola;
+import arkanoid.ventanas.Nave;
 import arkanoid.ventanas.VentanaArkanoid;
 
 
@@ -29,6 +31,16 @@ public class EventosMio extends GestorEventosAdapter {
 		getVentanaArkanoid().setBola(bola);
 		bola.start();
 				
+	}
+	
+	
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		Nave nave=new Nave(KeyEvent.VK_RIGHT ,getVentanaArkanoid().getHeight()-60,0,0,1,1,getVentanaArkanoid().getDimensionBola(),getVentanaArkanoid());
+		getVentanaArkanoid().setNave(nave);
+		nave.start();
+		super.keyPressed(e);
 	}
 
 	public VentanaArkanoid getVentanaArkanoid() {

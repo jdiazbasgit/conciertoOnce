@@ -84,7 +84,7 @@ public class VentanaArkanoid extends Frame {
 			getExterno().setColor(Color.RED);
 			getExterno().drawRect(bloque.getPosicionX(), bloque.getPosicionY(), bloque.getAncho(), bloque.getAlto());
 			getExterno().drawString(String.valueOf(bloque.getGolpes()),bloque.getPosicionX()+bloque.getAncho()/2, bloque.getPosicionY()+bloque.getAlto()/2);
-	        
+	       
 		}
 		
 		
@@ -104,8 +104,18 @@ public class VentanaArkanoid extends Frame {
 		getExterno().drawImage(getImagenOnce(), getNave().getPosicionX(), getNave().getPosicionY(),
 				getNave().getDimension(), getNave().getDimension(), this);
 	g.drawImage(getImagenOnce(), 70, 720, this);
+	
+	
+	
+	
 }
 	
+	private Object getCoordX() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
 	@Override
 	public void update(Graphics g) {
 		paint(g);
