@@ -1,8 +1,8 @@
 package arkanoid.ventanas;
 
+import java.awt.Color;
 import java.awt.geom.Rectangle2D;
 import java.util.HashSet;
-import java.awt.Color;
 public class TonteriasDeBloques {
 	
 	private VentanaArkanoid ventanaArkanoid;
@@ -23,8 +23,8 @@ public class TonteriasDeBloques {
 		}
 
 	}
-
-	private Bloque dameBloque(int inferior, int superior) {
+//esto era private
+	protected Bloque dameBloque(int inferior, int superior) {
 		Bloque bloque = null;
 
 		boolean fin = false;

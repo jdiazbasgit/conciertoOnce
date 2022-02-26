@@ -10,7 +10,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 public class EventosMio extends GestorEventosAdapter {
-
 	private VentanaArkanoid ventanaArkanoid;
 
 	@Override
@@ -35,7 +34,7 @@ public class EventosMio extends GestorEventosAdapter {
 		getVentanaArkanoid().setBola(bola);
 		bola.start();
 		
-		Plataforma plataforma = new Plataforma(0, 0, 0, ventanaArkanoid, 0)
+		//Plataforma plataforma = new Plataforma(0, 0, 0, ventanaArkanoid, 0)
 				
 	}
 

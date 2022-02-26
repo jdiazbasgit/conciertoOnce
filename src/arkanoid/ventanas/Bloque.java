@@ -19,4 +19,15 @@ public class Bloque {
 	private int golpes;
 	private Color color;
 	
+	public Bloque(int ancho, int alto, int posicionX, int posicionY, Color color) {
+		
+		this.ancho = ancho;
+		this.alto = alto;
+		this.posicionX = posicionX;
+		this.posicionY = posicionY;
+		this.color = color;
+	}
+	
+	
 }
+
