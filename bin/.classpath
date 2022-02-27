@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<classpath>
-	<classpathentry excluding="src/" kind="src" path=""/>
-	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="C:/Users/Javier/Software/sts-4.12.1.RELEASE/lombok.jar"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jre1.8.0_321"/>
-	<classpathentry kind="output" path="bin"/>
-</classpath>
