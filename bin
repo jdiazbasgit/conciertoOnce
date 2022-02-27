@@ -1,0 +1,7 @@
+tree 37e8eb1e90a476411217d9839ba0be73ef65c58a
+parent 2b2d067bdc1b1c70561aaa27771f7d1346260bbb
+author Your Name <you@example.com> 1645907930 +0100
+committer Your Name <you@example.com> 1645907930 +0100
+
+Cambios: no rebota en el suelo, intento de heredar el bloque, añadir
+moviento de plataforma

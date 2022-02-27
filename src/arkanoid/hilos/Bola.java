@@ -2,11 +2,13 @@ package arkanoid.hilos;
 
 import java.awt.Color;
 import java.awt.geom.Rectangle2D;
+import java.awt.geom.RoundRectangle2D;
 
 import arkanoid.ventanas.Bloque;
 import arkanoid.ventanas.VentanaArkanoid;
 import lombok.Getter;
 import lombok.Setter;
+
 @Setter
 @Getter
 //@AllArgsConstructor
@@ -37,32 +39,36 @@ public class Bola extends Thread {
 				if (getPosicionX() < 0 || (getPosicionX() + getDimension()) > getVentanaArkanoid().getWidth()) {
 					setSentidoX(getSentidoX() * -1);
 				}
-				if (getPosicionY() < 0 || (getPosicionY() + getDimension()) > getVentanaArkanoid().getHeight()) {
-//					setSentidoY(getSentidoY() * -1);
+//				Añadido fin de partida cuando la bola cae por debajo.
+				if (getPosicionY() + getDimension() > getVentanaArkanoid().getHeight()) {
 					System.out.println("game over");
 					currentThread().interrupt();
 				}
+				if (getPosicionY() < 0)
+					setSentidoY(getSentidoY() * -1);
+
 				getVentanaArkanoid().getCuadrados().forEach(c -> {
 					if (miraChoque(c)) {
-						Rectangle2D.Double miRectangulo = new Rectangle2D.Double(this.getPosicionX(),
-								this.getPosicionY(), this.getDimension(), this.getDimension());
-						if (miRectangulo.intersectsLine((int) (c.getPosicionX()+this.getDimension()), (int) (c.getPosicionY()),
-								(int) (c.getPosicionX() + c.getAncho()+this.getDimension()), (int) (c.getPosicionY()))
-								|| miRectangulo.intersectsLine((int) (c.getPosicionX()+this.getDimension()),
-										(int) (c.getPosicionY() + c.getAlto()), (int) (c.getPosicionX() + c.getAncho()+this.getDimension()),
-										(int) (c.getPosicionY() + c.getAlto()))) {
+						RoundRectangle2D.Double miRectangulo = new RoundRectangle2D.Double.Double(this.getPosicionX(),
+								this.getPosicionY(), this.getDimension(), this.getDimension(), 10, 10);
+						if (miRectangulo.intersects(c.getPosicionX() + this.getDimension(), (c.getPosicionY()),
+								c.getPosicionX() + c.getAncho() + this.getDimension(), (c.getPosicionY()))
+								|| miRectangulo.intersects(c.getPosicionX() + this.getDimension(),
+										c.getPosicionY() + c.getAlto(),
+										c.getPosicionX() + c.getAncho() + this.getDimension(),
+										c.getPosicionY() + c.getAlto())) {
 							this.setSentidoY(this.getSentidoY() * -1);
 						}
 
-						if (miRectangulo.intersectsLine((int) (c.getPosicionX()-this.getDimension()), (int) (c.getPosicionY()),
-								(int) (c.getPosicionX()), (int) (c.getPosicionY() + c.getAlto()+this.getDimension()))
-								|| miRectangulo.intersectsLine((int) (c.getPosicionX() + c.getAncho()),
-										(int) (c.getPosicionY()-this.getDimension()), (int) (c.getPosicionX() + c.getAncho()),
-										(int) (c.getPosicionY() + c.getAlto()+this.getDimension()))) {
+						if (miRectangulo.intersects(c.getPosicionX() - this.getDimension(), (c.getPosicionY()),
+								(c.getPosicionX()), c.getPosicionY() + c.getAlto() + this.getDimension())
+								|| miRectangulo.intersects(c.getPosicionX() + c.getAncho(),
+										c.getPosicionY() - this.getDimension(), c.getPosicionX() + c.getAncho(),
+										c.getPosicionY() + c.getAlto() + this.getDimension())) {
 							this.setSentidoX(this.getSentidoX() * -1);
 						}
-						c.setGolpes(c.getGolpes()-1);
-						switch(c.getGolpes()) {
+						c.setGolpes(c.getGolpes() - 1);
+						switch (c.getGolpes()) {
 						case 2:
 							c.setColor(Color.YELLOW);
 							break;
@@ -70,8 +76,8 @@ public class Bola extends Thread {
 							c.setColor(Color.GRAY);
 							break;
 						}
-						if(c.getGolpes()==0)
-						getVentanaArkanoid().getCuadrados().remove(c);
+						if (c.getGolpes() == 0)
+							getVentanaArkanoid().getCuadrados().remove(c);
 					}
 				});
 				this.setPosicionX(this.getPosicionX() + this.getIncrementoX() * this.getSentidoX());
@@ -88,8 +94,8 @@ public class Bola extends Thread {
 	private synchronized boolean miraChoque(Bloque bloque) {
 		Rectangle2D.Double miRectangulo = new Rectangle2D.Double(this.getPosicionX(), this.getPosicionY(),
 				this.getDimension(), this.getDimension());
-		return miRectangulo.intersects((double) bloque.getPosicionX(), (double) bloque.getPosicionY(),
-				(double) bloque.getAncho(), (double) bloque.getAlto());
+		return miRectangulo.intersects(bloque.getPosicionX(), bloque.getPosicionY(), bloque.getAncho(),
+				bloque.getAlto());
 	}
 
 }

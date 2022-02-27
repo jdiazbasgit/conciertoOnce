@@ -32,9 +32,9 @@ public class VentanaArkanoid extends Frame {
 	private int velocidad;
 	private int dimensionBola;
 	private Image imagenFondo;
-	private int altoPlataforma;
-	private int anchoPlataforma;
-	private int velocidadPlataforma;
+//	private int altoPlataforma;
+//	private int anchoPlataforma;
+//	private int velocidadPlataforma;
 
 	public VentanaArkanoid() {
 		Properties properties = new Properties();
@@ -46,9 +46,9 @@ public class VentanaArkanoid extends Frame {
 			setGolpes(Integer.parseInt(properties.getProperty("golpes")));
 			setVelocidad(Integer.parseInt(properties.getProperty("velocidad")));
 			setDimensionBola(Integer.parseInt(properties.getProperty("dimensionBola")));
-			setAltoPlataforma(Integer.parseInt(properties.getProperty("altoPlataforma")));
-			setAnchoPlataforma(Integer.parseInt(properties.getProperty("anchoPlataforma")));
-			setVelocidadPlataforma(Integer.parseInt(properties.getProperty("velocidadPlataforma")));
+//			setAltoPlataforma(Integer.parseInt(properties.getProperty("altoPlataforma")));
+//			setAnchoPlataforma(Integer.parseInt(properties.getProperty("anchoPlataforma")));
+//			setVelocidadPlataforma(Integer.parseInt(properties.getProperty("velocidadPlataforma")));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

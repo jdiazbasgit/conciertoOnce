@@ -1,15 +1,12 @@
 package arkanoid.eventos;
 
-import arkanoid.hilos.Plataforma;
 import java.awt.event.MouseEvent;
 import java.awt.event.WindowEvent;
 
 import arkanoid.hilos.Bola;
 import arkanoid.ventanas.VentanaArkanoid;
-import lombok.AllArgsConstructor;
-import lombok.Data;
 
-public class EventosMio extends GestorEventosAdapter {
+public class EventosMio extends GestorEventosAdapter implements Runnable {
 	private VentanaArkanoid ventanaArkanoid;
 
 	@Override
@@ -25,19 +22,19 @@ public class EventosMio extends GestorEventosAdapter {
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		
 
-		//fdsgfdgdf
-		
-		
-		Bola bola=new Bola(e.getX(),getVentanaArkanoid().getHeight()-60,1,1,1,1,getVentanaArkanoid().getDimensionBola(),getVentanaArkanoid());
+		// fdsgfdgdf
+
+		Bola bola = new Bola(e.getX(), getVentanaArkanoid().getHeight() - 60, 1, 1, 1, 1,
+				getVentanaArkanoid().getDimensionBola(), getVentanaArkanoid());
 		getVentanaArkanoid().setBola(bola);
 		bola.start();
-		
-		//Plataforma plataforma = new Plataforma(0, 0, 0, ventanaArkanoid, 0)
-				
+
+		// Plataforma plataforma = new Plataforma(0, 0, 0, ventanaArkanoid, 0)
+
 	}
 
+//	pendiente de redefinir fpara el movimiento de la plataforma.
 	@Override
 	public void mouseMoved(MouseEvent e) {
 		// TODO Auto-generated method stub
@@ -50,6 +47,17 @@ public class EventosMio extends GestorEventosAdapter {
 
 	public void setVentanaArkanoid(VentanaArkanoid ventanaArkanoid) {
 		this.ventanaArkanoid = ventanaArkanoid;
+	}
+
+	public void cargaBloques() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+
 	}
 
 }

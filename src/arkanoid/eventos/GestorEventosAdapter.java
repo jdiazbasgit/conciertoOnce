@@ -2,12 +2,15 @@ package arkanoid.eventos;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
+import java.awt.event.MouseWheelEvent;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
 import javax.swing.event.MouseInputAdapter;
 
-public class GestorEventosAdapter extends MouseInputAdapter implements MouseListener, WindowListener {
+public class GestorEventosAdapter extends MouseInputAdapter
+		implements MouseListener, WindowListener, MouseMotionListener {
 
 	@Override
 	public void windowOpened(WindowEvent e) {
@@ -19,6 +22,24 @@ public class GestorEventosAdapter extends MouseInputAdapter implements MouseList
 	public void windowClosing(WindowEvent e) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public void mouseWheelMoved(MouseWheelEvent e) {
+		// TODO Auto-generated method stub
+		super.mouseWheelMoved(e);
+	}
+
+	@Override
+	public void mouseDragged(MouseEvent e) {
+		// TODO Auto-generated method stub
+		super.mouseDragged(e);
+	}
+
+	@Override
+	public void mouseMoved(MouseEvent e) {
+		// TODO Auto-generated method stub
+		super.mouseMoved(e);
 	}
 
 	@Override
