@@ -16,4 +16,9 @@ public class Jugador extends Bloque {
 		this.posicionX = posicionX;
 	}
 
+//	public Jugador(int ancho, int alto, int posicionX, int posicionY, Color color, PointerInfo pointerInfo) {
+//		super(ancho, alto, posicionX, posicionY, color, pointerInfo);
+//		// TODO Auto-generated constructor stub
+//	}
+
 }

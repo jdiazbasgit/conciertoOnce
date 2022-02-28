@@ -20,17 +20,18 @@ public class TonteriasDeBloques {
 				int superior = 100;
 				int inferior = getVentanaArkanoid().getHeight() - 200;
 				getVentanaArkanoid().getCuadrados().add(dameBloque(inferior, superior));
-				getVentanaArkanoid().getCuadrados().add(dameJugador(superior, getVentanaArkanoid().getHeight()));
+				getVentanaArkanoid().getCuadrados().add(dameJugador());
 			}
 		}
 
 	}
 
-	private Bloque dameJugador(int inferior, int superior) {
+	private Bloque dameJugador() {
 		Jugador jugador = null;
-
+		RoundRectangle2D.Double r2 = new RoundRectangle2D.Double(getVentanaArkanoid().getHeight() - 200,
+				getVentanaArkanoid().getHeight(), 80, 20, 5, 5);
+		jugador = new Jugador(0, 0, 0, 0, null);
 		return jugador;
-
 	}
 
 	private Bloque dameBloque(int inferior, int superior) {
