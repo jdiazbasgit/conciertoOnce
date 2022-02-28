@@ -12,6 +12,9 @@ import lombok.Setter;
 @AllArgsConstructor
 public class Bloque {
 
+	public Bloque(int ancho, int alto, int posicionX, int posicionY, Color color) {
+		// TODO Auto-generated constructor stub
+	}
 	private int ancho;
 	private int alto;
 	private int posicionX;

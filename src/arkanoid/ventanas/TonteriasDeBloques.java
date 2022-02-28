@@ -1,8 +1,10 @@
 package arkanoid.ventanas;
 
+import java.awt.Color;
 import java.awt.geom.Rectangle2D;
 import java.util.HashSet;
-import java.awt.Color;
+
+import arkanoid.eventos.EventosMio;
 public class TonteriasDeBloques {
 	
 	private VentanaArkanoid ventanaArkanoid;
@@ -19,9 +21,16 @@ public class TonteriasDeBloques {
 				int superior = 100;
 				int inferior = getVentanaArkanoid().getHeight() - 200;
 				getVentanaArkanoid().getCuadrados().add(dameBloque(inferior, superior));
+				getVentanaArkanoid().getCuadrados().add(dameJugador());
 			}
 		}
 
+	}
+
+	private Bloque dameJugador() {
+		Bloque jugador =new Bloque(80, 40, getVentanaArkanoid().getX()/2, getVentanaArkanoid().getHeight()-100, Color.green);
+		
+		return jugador;
 	}
 
 	private Bloque dameBloque(int inferior, int superior) {

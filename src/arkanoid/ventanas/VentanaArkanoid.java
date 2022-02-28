@@ -37,6 +37,7 @@ public class VentanaArkanoid extends Frame {
 	private int velocidad;
 	private int dimensionBola;
 	private Image imagenFondo;
+	private Jugador jugador;
 
 	VentanaArkanoid() {
 		Properties properties = new Properties();
@@ -54,6 +55,7 @@ public class VentanaArkanoid extends Frame {
 		}
 		this.addWindowListener(new EventosMio(this));
 		this.addMouseListener(new EventosMio(this));
+		this.addMouseMotionListener(new EventosMio(this));
 	}
 
 	@Override
@@ -77,6 +79,10 @@ public class VentanaArkanoid extends Frame {
 			getExterno().drawRect(bloque.getPosicionX(), bloque.getPosicionY(), bloque.getAncho(), bloque.getAlto());
 			//getExterno().drawString(String.valueOf(bloque.getGolpes()),bloque.getPosicionX()+bloque.getAncho()/2, bloque.getPosicionY()+bloque.getAlto()/2);
 		}
+//		getExterno().fillRect(jugador.getPosicionX(), jugador.getPosicionY(), jugador.getAncho(), jugador.getAlto());
+//		getExterno().setColor(Color.BLACK);
+//		getExterno().drawRect(jugador.getPosicionX(), jugador.getPosicionY(), jugador.getAncho(), jugador.getAlto());
+		
 		if (getBola() != null)
 			getExterno().fillOval(getBola().getPosicionX(), getBola().getPosicionY(), getBola().getDimension(),
 					getBola().getDimension());
