@@ -1,12 +1,14 @@
 package arkanoid.ventanas;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.geom.RoundRectangle2D;
 import java.util.HashSet;
 
 public class TonteriasDeBloques {
 
 	private VentanaArkanoid ventanaArkanoid;
+	private int XDelRaton = getPointerInfo().getLocation().x;
 
 	public TonteriasDeBloques(VentanaArkanoid ventanaArkanoid) {
 		this.ventanaArkanoid = ventanaArkanoid;
@@ -27,11 +29,17 @@ public class TonteriasDeBloques {
 	}
 
 	private Bloque dameJugador() {
+
 		Jugador jugador = null;
-		RoundRectangle2D.Double r2 = new RoundRectangle2D.Double(getVentanaArkanoid().getHeight() - 200,
-				getVentanaArkanoid().getHeight(), 80, 20, 5, 5);
-		jugador = new Jugador(0, 0, 0, 0, null);
+		new RoundRectangle2D.Double(getVentanaArkanoid().getHeight() - 200, getVentanaArkanoid().getHeight(), 80, 20, 5,
+				5);
+		jugador = new Jugador(80, 20, XDelRaton, getVentanaArkanoid().getHeight() - 100, Color.BLACK);
 		return jugador;
+	}
+
+	private Component getPointerInfo() {
+		XDelRaton = getPointerInfo().getLocation().x;
+		return null;
 	}
 
 	private Bloque dameBloque(int inferior, int superior) {
