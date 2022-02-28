@@ -9,6 +9,8 @@ import java.util.Set;
 import arkanoid.eventos.EventosMio;
 import arkanoid.hilos.Bola;
 import arkanoid.hilos.Pintor;
+import arkanoid.hilos.Raqueta;
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -48,16 +50,20 @@ public class VentanaArkanoid extends Frame {
 		this.addMouseListener(new EventosMio(this));
 	}
 
+	@SuppressWarnings("unused")
 	@Override
 	public void paint(Graphics g) {
 		if (isPrimeraVez()) {
+			
 			setImagen(createImage(2000, 2000));
 			setExterno(getImagen().getGraphics());
 			TonteriasDeBloques tonterias = new TonteriasDeBloques(this);
+			Raqueta raqueta = new Raqueta(ancho, alto, ancho, alto);
 			tonterias.cargaBloques();
 			Pintor pintor = new Pintor(this);
 			pintor.start();
 			setPrimeraVez(false);
+			
 		}
 		getExterno().clearRect(0, 0, 2000, 2000);
 		for (Bloque bloque : cuadrados) {
@@ -67,6 +73,7 @@ public class VentanaArkanoid extends Frame {
 			getExterno().drawRect(bloque.getPosicionX(), bloque.getPosicionY(), bloque.getAncho(), bloque.getAlto());
 			getExterno().drawString(String.valueOf(bloque.getGolpes()), bloque.getPosicionX() + bloque.getAncho() / 2,
 					bloque.getPosicionY() + bloque.getAlto() / 2);
+			
 		}
 		if (getBola() != null)
 			getExterno().fillOval(getBola().getPosicionX(), getBola().getPosicionY(), getBola().getDimension(),

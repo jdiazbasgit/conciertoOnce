@@ -1,6 +1,7 @@
 package arkanoid.ventanas;
 
 import java.awt.Toolkit;
+
 public class VerVentanaArkanoid {
 
 	public static void main(String[] args) {

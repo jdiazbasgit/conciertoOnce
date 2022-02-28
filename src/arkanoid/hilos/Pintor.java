@@ -14,6 +14,7 @@ public class Pintor extends Thread {
 	public void run() {
 		while(true) {
 			getVentanaArkanoid().repaint();
+			
 			try {
 				Thread.sleep(10);
 			} catch (InterruptedException e) {
