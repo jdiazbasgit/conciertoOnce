@@ -4,10 +4,7 @@ import java.awt.Color;
 import java.awt.Frame;
 import java.awt.Graphics;
 import java.awt.Image;
-<<<<<<< HEAD
-import java.awt.geom.Rectangle2D;
-=======
->>>>>>> branch 'arkanoid/JuanVega' of https://github.com/jdiazbasgit/conciertoOnce.git
+import java.awt.Toolkit;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -26,6 +23,7 @@ import lombok.EqualsAndHashCode;
 public class VentanaArkanoid extends Frame {
 
 	private Set<Bloque> cuadrados;
+	private Jugador jugador;
 	private int ancho;
 	private int alto;
 	private int golpes;
@@ -36,6 +34,7 @@ public class VentanaArkanoid extends Frame {
 	private Bola bola;
 	private int velocidad;
 	private int dimensionBola;
+	private Image imagenFondo;
 
 	VentanaArkanoid() {
 		Properties properties = new Properties();
@@ -48,17 +47,11 @@ public class VentanaArkanoid extends Frame {
 			setVelocidad(Integer.parseInt(properties.getProperty("velocidad")));
 			setDimensionBola(Integer.parseInt(properties.getProperty("dimensionBola")));
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		this.addWindowListener(new EventosMio(this));
 		this.addMouseListener(new EventosMio(this));
-	}
-
-	@Override
-	protected Object clone() throws CloneNotSupportedException {
-		// TODO Auto-generated method stub
-		return super.clone();
+		this.addMouseMotionListener(new EventosMio(this));
 	}
 
 	@Override
@@ -71,8 +64,10 @@ public class VentanaArkanoid extends Frame {
 			Pintor pintor = new Pintor(this);
 			pintor.start();
 			setPrimeraVez(false);
+			setImagenFondo(Toolkit.getDefaultToolkit().getImage("paisaje.jpg"));
 		}
 		getExterno().clearRect(0, 0, 2000, 2000);
+		getExterno().drawImage(getImagenFondo(), 0, 0, this.getWidth(), this.getHeight(), this);
 		for (Bloque bloque : cuadrados) {
 			getExterno().setColor(bloque.getColor());
 			getExterno().fillRect(bloque.getPosicionX(), bloque.getPosicionY(), bloque.getAncho(), bloque.getAlto());
