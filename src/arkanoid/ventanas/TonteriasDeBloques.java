@@ -1,7 +1,7 @@
 package arkanoid.ventanas;
 
 import java.awt.Color;
-import java.awt.geom.Rectangle2D;
+import java.awt.geom.RoundRectangle2D;
 import java.util.HashSet;
 
 public class TonteriasDeBloques {
@@ -20,8 +20,16 @@ public class TonteriasDeBloques {
 				int superior = 100;
 				int inferior = getVentanaArkanoid().getHeight() - 200;
 				getVentanaArkanoid().getCuadrados().add(dameBloque(inferior, superior));
+				getVentanaArkanoid().getCuadrados().add(dameJugador(superior, getVentanaArkanoid().getHeight()));
 			}
 		}
+
+	}
+
+	private Bloque dameJugador(int inferior, int superior) {
+		Jugador jugador = null;
+
+		return jugador;
 
 	}
 
@@ -37,8 +45,8 @@ public class TonteriasDeBloques {
 					fin = true;
 
 					for (Bloque b : getVentanaArkanoid().getCuadrados()) {
-						Rectangle2D.Double r1 = new Rectangle2D.Double(aleatorioX, aleatorioY,
-								getVentanaArkanoid().getAncho(), getVentanaArkanoid().getAlto());
+						RoundRectangle2D.Double r1 = new RoundRectangle2D.Double(aleatorioX, aleatorioY,
+								getVentanaArkanoid().getAncho(), getVentanaArkanoid().getAlto(), 0, 0);
 						if (r1.intersects(b.getPosicionX(), b.getPosicionY(), b.getAncho(), b.getAlto())) {
 							fin = false;
 							break;

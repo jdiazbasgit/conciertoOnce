@@ -13,7 +13,7 @@ public class Jugador extends Bloque {
 
 	public Jugador(int ancho, int alto, int posicionX, int posicionY, Color color) {
 		super(ancho, alto, posicionX, posicionY, color);
-
+		this.posicionX = posicionX;
 	}
 
 }
