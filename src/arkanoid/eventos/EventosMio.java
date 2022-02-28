@@ -35,13 +35,7 @@ public class EventosMio extends GestorEventosAdapter {
 	
 	
 
-	@Override
-	public void keyPressed(KeyEvent e) {
-		Nave nave=new Nave(KeyEvent.VK_RIGHT ,getVentanaArkanoid().getHeight()-60,0,0,1,1,getVentanaArkanoid().getDimensionBola(),getVentanaArkanoid());
-		getVentanaArkanoid().setNave(nave);
-		nave.start();
-		super.keyPressed(e);
-	}
+	
 
 	public VentanaArkanoid getVentanaArkanoid() {
 		return ventanaArkanoid;

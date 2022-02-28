@@ -30,50 +30,47 @@ public class Nave extends Thread  {
 		this.image = image;
 	}
 
-
-	
-
-	
-	
-
-
-
-
-
-
-
-
-
-
-
-
-
-	public Nave(int vkKpDown, int i, int j, int k, int l, int m, int dimensionBola, VentanaArkanoid ventanaArkanoid2) {
-		// TODO Auto-generated constructor stub
-	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	public int getDimension() {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+
+	
+
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

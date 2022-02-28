@@ -101,23 +101,7 @@ public class GestorEventosAdapter implements MouseListener,WindowListener,KeyLis
 	public void keyPressed(KeyEvent e)  {
 				
 		
-		 switch(e.getKeyCode()){
-		
-		                 case KeyEvent.VK_DOWN:
-		                		
-		                 break;
-		                 case KeyEvent.VK_UP:
-		                	
-		                 break;
-		                 case KeyEvent.VK_RIGHT:
-		             		
-		                 break;
-		                 case KeyEvent.VK_LEFT:
-		                	
-		                 break;
-		             }
-		             repaint();
-		         }
+	}
 
 		
 	

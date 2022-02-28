@@ -16,7 +16,7 @@ public class TonteriasDeBloques {
 			getVentanaArkanoid().setCuadrados(new HashSet<>());
 			while (getVentanaArkanoid().getCuadrados().size() < getVentanaArkanoid().getNumeroBloques()) {
                  int anchoIzq= -73;
-                 int anchoDer=+98;
+                 int anchoDer=+78;
 				int superior = 95;
 				int inferior = getVentanaArkanoid().getHeight() - 147;
 				getVentanaArkanoid().getCuadrados().add(dameBloque(inferior, superior,anchoIzq,anchoDer));

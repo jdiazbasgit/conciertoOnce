@@ -5,6 +5,8 @@ import java.awt.Frame;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -18,7 +20,7 @@ import lombok.Data;
 
 @Data
 
-public class VentanaArkanoid extends Frame {
+public class VentanaArkanoid extends Frame implements KeyListener{
 
 	/**
 	 * 
@@ -72,7 +74,7 @@ public class VentanaArkanoid extends Frame {
 			 setImagenBloque(Toolkit.getDefaultToolkit().getImage("naranja.jpg"));
             setImagenBola(Toolkit.getDefaultToolkit().getImage("red.png"));
             setImagenFondo(Toolkit.getDefaultToolkit().getImage("fondo.jpg"));
-            setImagenOnce(Toolkit.getDefaultToolkit().getImage("photo1645593704.jpeg"));
+            setImagenOnce(Toolkit.getDefaultToolkit().getImage("photo1645826503.jpeg"));
 
 
 		}
@@ -105,20 +107,57 @@ public class VentanaArkanoid extends Frame {
 				getNave().getDimension(), getNave().getDimension(), this);
 	g.drawImage(getImagenOnce(), 70, 720, this);
 	
+
 	
 	
 	
 }
 	
-	private Object getCoordX() {
-		// TODO Auto-generated method stub
-		return null;
+	
+	@Override
+	public void update(Graphics g) {
+		paint(g);
 	}
 
 
 	@Override
-	public void update(Graphics g) {
-		paint(g);
+	public void keyTyped(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		int i=e.getKeyCode();
+		 switch(i){
+			
+         case KeyEvent.VK_DOWN:
+        
+        	break;
+         case KeyEvent.VK_UP:
+        
+        	
+         break;
+         case KeyEvent.VK_RIGHT:
+        
+     		
+         break;
+         case KeyEvent.VK_LEFT:
+        	
+         break;
+         default:
+        	 break;
+     }
+     repaint();
+ }
+	
+
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 
 
