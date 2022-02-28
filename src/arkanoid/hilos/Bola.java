@@ -78,8 +78,6 @@ public class Bola extends Thread {
 				this.setPosicionY(this.getPosicionY() + this.getIncrementoY() * this.getSentidoY());
 				Thread.sleep(getVentanaArkanoid().getVelocidad());
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				// e.printStackTrace();
 			}
 		}
 
