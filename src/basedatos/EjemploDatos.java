@@ -22,7 +22,7 @@ public class EjemploDatos {
 			//1.- registramos driver
 			DriverManager.registerDriver(new Driver());
 			//2.- Conectamos
-			conexion= DriverManager.getConnection("jdbc:mysql://192.168.10.16:3306/curso", "curso", "Cursocurso1;");
+			conexion= DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/cursos", "root", "1234");
 			//3.- Instruccion
 			Statement instruccion= conexion.createStatement();
 			//4.- Ejecuto
