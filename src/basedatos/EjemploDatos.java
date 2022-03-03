@@ -22,7 +22,7 @@ public class EjemploDatos {
 			//1.- registramos driver
 			DriverManager.registerDriver(new Driver());
 			//2.- Conectamos
-			conexion= DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/cursos", "root", "1234");
+			conexion= DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/curso", "root", "1234");
 			//3.- Instruccion
 			Statement instruccion= conexion.createStatement();
 			//4.- Ejecuto
@@ -40,10 +40,10 @@ public class EjemploDatos {
 				
 			}
 			
-			PreparedStatement pst1= conexion.prepareStatement("INSERT INTO CARGOS (DESCRIPCION) VALUES (?)");
-			pst1.setString(1, "cargo del que mas cobra 2");
+			//PreparedStatement pst1= conexion.prepareStatement("INSERT INTO CARGOS (DESCRIPCION) VALUES (?)");
+			//pst1.setString(1, "cargo del que mas cobra 2");
 			
-			System.out.println(pst1.execute());
+			//System.out.println(pst1.execute());
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

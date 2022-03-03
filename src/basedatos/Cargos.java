@@ -2,18 +2,21 @@ package basedatos;
 
 import java.awt.Choice;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.GridLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -29,24 +32,61 @@ public class Cargos extends JFrame implements ActionListener,ChangeListener {
 	private JLabel label = new JLabel("Descripcion");
 	private JButton botonRegistroDialog = new JButton("Registrar");
 	private Choice descripcion = new Choice();
+	 private boolean DEBUG = false;
 
 
 	public Cargos() {
+		
 		JPanel panel = new JPanel();
 		this.add(panel);
 //		setContentPane(new JPanel());
 		setBAlta(new JButton("Alta"));
 	
 		setDescripcion(new Choice());
-		setTCargos(new JTable());
+		
+		String[] columnNames = {"First Name",
+                "Last Name",
+                "Sport",
+                "# of Years",
+                "Vegetarian"};
+
+Object[][] data = {
+{"Kathy", "Smith",
+"Snowboarding", new Integer(5), new Boolean(false)},
+{"John", "Doe",
+"Rowing", new Integer(3), new Boolean(true)},
+{"Sue", "Black",
+"Knitting", new Integer(2), new Boolean(false)},
+{"Jane", "White",
+"Speed reading", new Integer(20), new Boolean(true)},
+{"Joe", "Brown",
+"Pool", new Integer(10), new Boolean(false)}
+};
+		setTCargos(new JTable(data, columnNames));
 
 		getBAlta().addActionListener(this);
 		panel.add(getBAlta());
-		panel.setLayout(new FlowLayout(FlowLayout.CENTER, 20, 8));
-		getContentPane().setLayout(new GridBagLayout());
-		GridBagConstraints getTCargos = new GridBagConstraints(1, 1, 3, 2, 9, 0, GridBagConstraints.WEST,
-				GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0);
-		getContentPane().add(getTCargos(), getTCargos);
+		  
+		  
+	        
+	 
+	        //final JTable table = new JTable(data, columnNames);
+	        getTCargos().setPreferredScrollableViewportSize(new Dimension(500, 70));
+	        getTCargos().setFillsViewportHeight(true);
+	 
+//	        
+	 
+	        //Create the scroll pane and add the table to it.
+	        JScrollPane scrollPane = new JScrollPane(getTCargos());
+	 
+	        //Add the scroll pane to this panel.
+	        add(scrollPane);
+		//panel.setLayout(new GridLayout(2,3,40,40));
+		//panel.setLayout(new FlowLayout(FlowLayout.CENTER, 20, 8));
+//		getContentPane().setLayout(new GridBagLayout());
+//		GridBagConstraints getTCargos = new GridBagConstraints(1, 1, 3, 2, 9, 0, GridBagConstraints.WEST,
+//				GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0);
+//		getContentPane().add(getTCargos(), getTCargos);
 	}
 
 	public static void main(String[] args) {
@@ -72,13 +112,13 @@ public class Cargos extends JFrame implements ActionListener,ChangeListener {
 			panel.add(getLabel(),gbLabel);
 			GridBagConstraints  gbTexto= new GridBagConstraints(0,1,5,1,0,0,GridBagConstraints.CENTER,GridBagConstraints.HORIZONTAL,new Insets(0,0,0,0),0,0);
 			panel.add(getDescripcion(),gbTexto);
-			GridBagConstraints  gbBoton= new GridBagConstraints(0,2,5,2,0,1,GridBagConstraints.CENTER,GridBagConstraints.CENTER,new Insets(0,0,0,0),0,0);
+			GridBagConstraints  gbBoton= new GridBagConstraints(0,2,3,2,0,0,GridBagConstraints.CENTER,GridBagConstraints.CENTER,new Insets(0,0,0,0),0,0);
 			panel.add(getBotonRegistroDialog(),gbBoton);
 			
 			//botonRegistroDialog.setHorizontalAlignment(JButton.CENTER);
 			getBotonRegistroDialog().setPreferredSize(new Dimension(5, 10));
 			
-
+			
 //			dialog.add(botonRegistroDialog);
 			dialog.setSize(250, 250);
 			dialog.setVisible(true);
@@ -88,6 +128,21 @@ public class Cargos extends JFrame implements ActionListener,ChangeListener {
 		}
 	}
 
+	 private void printDebugData(JTable table) {
+	        int numRows = table.getRowCount();
+	        int numCols = table.getColumnCount();
+	        javax.swing.table.TableModel model = table.getModel();
+	 
+	        System.out.println("Value of data: ");
+	        for (int i=0; i < numRows; i++) {
+	            System.out.print("    row " + i + ":");
+	            for (int j=0; j < numCols; j++) {
+	                System.out.print("  " + model.getValueAt(i, j));
+	            }
+	            System.out.println();
+	        }
+	        System.out.println("--------------------------");
+	    }
 	@Override
 	public void stateChanged(ChangeEvent e) {
 		// aqui seria la select que trae los datos de la descripcion del cargo	
