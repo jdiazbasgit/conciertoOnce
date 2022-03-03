@@ -9,6 +9,7 @@ public class VerVentanaGlobal {
 		ventanaGlobal.setVisible(true);
 		ventanaGlobal.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+		
 	}
 
 }

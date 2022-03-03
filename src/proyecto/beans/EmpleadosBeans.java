@@ -2,12 +2,14 @@ package proyecto.beans;
 
 import java.util.Date;
 
+import javax.swing.JPanel;
 import javax.swing.JTable;
 
 import lombok.Data;
 
+@SuppressWarnings("serial")
 @Data
-public class EmpleadosBeans extends JTable {
+public class EmpleadosBeans extends JPanel {
 	
 	private int id;
 	private String nombre,dni,telefono,datosPersonalesId,empresasId,datosLaboralesId;

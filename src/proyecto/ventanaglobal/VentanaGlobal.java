@@ -14,18 +14,24 @@ public class VentanaGlobal extends JFrame {
 	
 	public VentanaGlobal() {
 		setTitle("PROYECTO DE DB ");
-		setSize(900, 700);
+		setSize(500, 600);
 		setLocationRelativeTo(null);
-		
+	
+	
 		iniciarVentanas();
 	}
 
-	private void iniciarVentanas() {
+private void iniciarVentanas() {
+		
+		
 		
 		pestanias = new JTabbedPane();
 		ventanaEmpleados = new VentanaEmpleados();
-		pestanias.add("Empleados",ventanaEmpleados);
 		add(pestanias);
+		pestanias.add("Empleados",ventanaEmpleados);
+		
+		
+		
 	}
 	
 	
