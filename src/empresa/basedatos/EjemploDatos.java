@@ -1,4 +1,4 @@
-package basedatos;
+package empresa.basedatos;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

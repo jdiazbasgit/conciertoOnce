@@ -1,4 +1,4 @@
-package beans;
+package empresa.beans;
 
 import lombok.Data;
 

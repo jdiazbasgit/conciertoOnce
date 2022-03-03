@@ -1,4 +1,4 @@
-package beans;
+package empresa.beans;
 
 import EstadoCivil;/*Pendiente de recivir clase  de equipo Fco. Javier y Juan*/
 import HijosBean;/* clase HijosBean de equipo MAR-JUANCARLOS*/

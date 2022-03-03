@@ -1,4 +1,4 @@
-package dao;
+package empresa.dao;
 
 import java.rmi.ConnectIOException;
 import java.sql.Connection;
@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import beans.Vehiculo;
+import empresa.beans.Vehiculo;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
