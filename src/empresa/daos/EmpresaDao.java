@@ -22,7 +22,7 @@ public class EmpresaDao {
 			// 1.- registramos driver
 			DriverManager.registerDriver(new Driver());
 			// 2.- Conectamos
-			conexion = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/curso", "root", "1234");
+			conexion = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/cursos", "root", "1234");
 			// 3.- Instruccion
 			// 4.- Ejecuto
 		} catch (SQLException e) {

@@ -1,13 +1,17 @@
 package empresa.ventanas;
 
+import java.awt.BorderLayout;
 import java.awt.Choice;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.GridLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.swing.JButton;
@@ -34,6 +38,7 @@ public class Cargos extends JFrame implements ActionListener, ChangeListener {
 	private Choice descripcion = new Choice();
 
 	public Cargos() {
+		EmpresaDao empresaDao = new EmpresaDao();
 
 		JPanel panel = new JPanel();
 		this.add(panel);
@@ -41,52 +46,56 @@ public class Cargos extends JFrame implements ActionListener, ChangeListener {
 		setBAlta(new JButton("Alta"));
 
 		setDescripcion(new Choice());
-		EmpresaDao empresaDao = new EmpresaDao();
-		try {
-			empresaDao.dameConexion();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			try {
-				empresaDao.dameConexion().close();
-				
-			} catch (SQLException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-			e.printStackTrace();
-		}
-		finally {
-			try {
-				empresaDao.dameConexion().close();
-				System.out.println("se cerro la base de datos");
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
+		
+		
+		
 		
 
 		String[] columnNames = { "ID", "Descripcion" };
 
-		Object[][] data = { { "Kathy", "Smith" }, { "Jane", "White" }, { "Joe", "Brown" } };
+		Object[][] data = {};
 
 		setTCargos(new JTable(data, columnNames));
 		getTCargos().setPreferredScrollableViewportSize(new Dimension(500, 70));
 		getTCargos().setFillsViewportHeight(true);
 
-		panel.add(getBAlta());
-		getBAlta().addActionListener(this);
+		
+	
 
 		JScrollPane scrollPane = new JScrollPane(getTCargos());
 
 		// Add the scroll pane to this panel.
-		add(scrollPane);
+		//add(scrollPane);
+	
+		
+		//panel.add(getBAlta());
+		getBAlta().addActionListener(this);
+		panel.setLayout(new BorderLayout(10,10));
+		panel.add(scrollPane,BorderLayout.NORTH);
+		panel.add(getBAlta(),BorderLayout.SOUTH);
+		//panel.setLayout(new BorderLayout(20,20));
 		// panel.setLayout(new GridLayout(2,3,40,40));
-		// panel.setLayout(new FlowLayout(FlowLayout.CENTER, 20, 8));
+		
 //		getContentPane().setLayout(new GridBagLayout());
 //		GridBagConstraints getTCargos = new GridBagConstraints(1, 1, 3, 2, 9, 0, GridBagConstraints.WEST,
 //				GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0);
 //		getContentPane().add(getTCargos(), getTCargos);
+		try {
+			empresaDao.dameConexion();
+			PreparedStatement pst = empresaDao.dameConexion().prepareStatement("select id,descripcion from cargos");
+			ResultSet rs=pst.executeQuery();
+			while (rs.next()) {
+				System.err.println(rs.getString(1) + " - " + rs.getString(2));
+				
+				
+			}
+			empresaDao.dameConexion().close();
+			//ResultSet rs =
+			
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 	}
 
 	public static void main(String[] args) {
@@ -99,8 +108,27 @@ public class Cargos extends JFrame implements ActionListener, ChangeListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		
 
 		if (e.getSource().equals(getBAlta())) {
+			EmpresaDao empresaDao = new EmpresaDao();
+			try {
+				empresaDao.dameConexion();
+				PreparedStatement pst = empresaDao.dameConexion().prepareStatement("select descripcion from cargos");
+				ResultSet rs=pst.executeQuery();
+				while (rs.next()) {
+					System.err.println(rs.getString(1));
+					getDescripcion().add(rs.getString(1));
+					
+				}
+				empresaDao.dameConexion().close();
+				//ResultSet rs =
+				
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			//query
 			System.out.println("boton");
 			JDialog dialog = new JDialog(new JFrame(), "Registro Cargo", true);
 			JPanel panel = new JPanel();
@@ -123,11 +151,33 @@ public class Cargos extends JFrame implements ActionListener, ChangeListener {
 //			dialog.add(botonRegistroDialog);
 			dialog.setSize(250, 250);
 			dialog.setVisible(true);
+			
+			
 		}
-		if (e.getSource().equals(getBotonRegistroDialog())) {
-			// aqui sentencia sql insert into
+		if (e.getSource().equals(getBotonRegistroDialog())){
+
+//			EmpresaDao empresaDao = new EmpresaDao();
+//			try {
+//				empresaDao.dameConexion();
+//				PreparedStatement pst1 = empresaDao.dameConexion().prepareStatement("insert into cargos (DESCRIPCION) VALUES (?) ");
+//				
+//				pst1.setString(1, getDescripcion().getSelectedItem());
+//				ResultSet rs=pst1.executeQuery();
+//				while (rs.next()) {
+//					System.err.println(rs.getString(1));
+//					getDescripcion().add(rs.getString(1));
+//					
+//				}
+//				empresaDao.dameConexion().close();
+//				//ResultSet rs =
+//				
+//			} catch (SQLException e1) {
+//				// TODO Auto-generated catch block
+//				e1.printStackTrace();
+//			}
 		}
 	}
+	
 
 	private void printDebugData(JTable table) {
 		int numRows = table.getRowCount();
