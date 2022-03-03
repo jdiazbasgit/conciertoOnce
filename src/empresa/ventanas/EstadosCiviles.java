@@ -1,4 +1,4 @@
-package basedatos;
+package empresa.ventanas;
 import java.awt.Choice;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -20,7 +20,7 @@ import javax.swing.event.ChangeListener;
 import lombok.Data;
 @SuppressWarnings("serial")
 @Data
-public class EstadoCivil extends JFrame implements ActionListener,ChangeListener{
+public class EstadosCiviles extends JFrame implements ActionListener,ChangeListener{
 	private JTable tEstadosCiviles;
 	private JButton bAlta;
 	private JLabel label = new JLabel("Descripcion");
@@ -29,7 +29,7 @@ public class EstadoCivil extends JFrame implements ActionListener,ChangeListener
 	
 
 	
-	public EstadoCivil() {
+	public EstadosCiviles() {
 		JPanel panel = new JPanel();
 		this.add(panel);
 //		setContentPane(new JPanel());
@@ -79,7 +79,7 @@ public class EstadoCivil extends JFrame implements ActionListener,ChangeListener
 		
 	}
 	public static void main(String[] args) {
-		EstadoCivil estadoCivil = new EstadoCivil();
+		EstadosCiviles estadoCivil = new EstadosCiviles();
 		estadoCivil.setSize(1200, 800);
 		estadoCivil.setVisible(true);
 		estadoCivil.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

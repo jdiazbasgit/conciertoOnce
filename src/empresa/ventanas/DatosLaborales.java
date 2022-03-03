@@ -1,4 +1,4 @@
-package basedatos;
+package empresa.ventanas;
 import java.awt.Choice;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
@@ -18,7 +18,7 @@ import javax.swing.event.ChangeListener;
 
 import lombok.Data;
 @Data
-public class DatosLaboralesDAO extends JFrame implements ActionListener,ChangeListener{
+public class DatosLaborales extends JFrame implements ActionListener,ChangeListener{
 	//CAMBIAR VARIABLES
 	private JTable tDatosLaborales;
 	private JButton bAlta;
@@ -27,7 +27,7 @@ public class DatosLaboralesDAO extends JFrame implements ActionListener,ChangeLi
 	private Choice descripcion = new Choice();
 	
 
-	public DatosLaboralesDAO() {
+	public DatosLaborales() {
 		JPanel panel = new JPanel();
 //		setContentPane(new JPanel());
 		setBAlta(new JButton("Alta"));
@@ -42,7 +42,7 @@ public class DatosLaboralesDAO extends JFrame implements ActionListener,ChangeLi
 		getContentPane().add(getTDatosLaborales(), getTTDatosLaborales);
 	}
 	public static void main(String[] args) {
-		DatosLaboralesDAO datosLaborales = new DatosLaboralesDAO();
+		DatosLaborales datosLaborales = new DatosLaborales();
 		datosLaborales.setSize(1200, 800);
 		datosLaborales.setVisible(true);
 		datosLaborales.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

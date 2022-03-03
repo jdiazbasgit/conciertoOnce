@@ -1,4 +1,4 @@
-package basedatos;
+package empresa.ventanas;
 
 import java.awt.Choice;
 import java.awt.Dimension;
@@ -7,7 +7,8 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import basedatos.EmpresaDao;
+import java.sql.SQLException;
+
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
@@ -18,6 +19,7 @@ import javax.swing.JTable;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
+import empresa.daos.EmpresaDao;
 import lombok.Data;
 
 @Data
@@ -39,7 +41,12 @@ public class Cargos extends JFrame implements ActionListener, ChangeListener {
 
 		setDescripcion(new Choice());
 		EmpresaDao empresaDao = new EmpresaDao();
-		empresaDao.conexion();
+		try {
+			empresaDao.dameConexion();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		String[] columnNames = { "ID", "Descripcion" };
 
