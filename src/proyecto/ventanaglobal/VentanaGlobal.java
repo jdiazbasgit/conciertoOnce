@@ -13,7 +13,7 @@ public class VentanaGlobal extends JFrame {
 	JTabbedPane pestanias;
 	
 	public VentanaGlobal() {
-		setTitle("PROYECTO DE DB ");
+		setTitle("PROYECTO DE BASE DE DATOS");
 		setSize(500, 600);
 		setLocationRelativeTo(null);
 	
