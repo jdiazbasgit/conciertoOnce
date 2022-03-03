@@ -12,7 +12,7 @@ public class ConexionBD {
 	private static final String DOMINIO="/localhost:3306/";
 	private static final String URL = PROTOCOLO+DOMINIO+NOMBRE_BD;
 	private static final String USUARIO = "root";
-	private static final String PASSWORD = "1234";
+	private static final String PASSWORD = "root";
 	
 	private static Connection conexion=null;
 	
