@@ -1,9 +1,9 @@
-package Beans;
+package beans;
 
 import lombok.Data;
 
 @Data
-public class TipoCarnetBean {
+public class TipoCarnet {
 	private int id;
 	private String descripcion;
 	

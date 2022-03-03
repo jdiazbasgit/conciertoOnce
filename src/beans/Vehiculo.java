@@ -1,9 +1,9 @@
-package Beans;
+package beans;
 
 import lombok.Data;
 
 @Data
-public class VehículosBean {
+public class Vehiculo {
 	
 	private int id;
 	private String marca;

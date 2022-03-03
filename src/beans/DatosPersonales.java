@@ -1,9 +1,9 @@
-package Beans;
+package beans;
 
-import EstadoCivil;/*Pndiuente de recivir clase  de equipo MAR-JUANCARLOS*/
+import EstadoCivil;/*Pendiente de recivir clase  de equipo Fco. Javier y Juan*/
 import HijosBean;/* clase HijosBean de equipo MAR-JUANCARLOS*/
 
-public class DatosPersonalesBean {
+public class DatosPersonales {
 private int id;
 private EstadoCivil estadoCivil;
 private HijosBean hijosBean;
