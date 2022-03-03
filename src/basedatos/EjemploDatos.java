@@ -10,7 +10,7 @@ import java.sql.Statement;
 import com.mysql.jdbc.Driver;
 
 public class EjemploDatos {
-
+/*apertura de rama*/
 	public EjemploDatos() {
 		// TODO Auto-generated constructor stub
 	}
