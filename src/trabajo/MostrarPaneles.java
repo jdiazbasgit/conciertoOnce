@@ -1,9 +1,7 @@
-package main;
+package trabajo;
 
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
-
-import basedatos.ConexionBD;
 import paneles.EmpresasPanel;
 
 public class MostrarPaneles {
