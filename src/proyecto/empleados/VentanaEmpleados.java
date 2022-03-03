@@ -1,6 +1,7 @@
 package proyecto.empleados;
 
 import java.awt.BorderLayout;
+
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import lombok.Data;
@@ -13,12 +14,12 @@ public class VentanaEmpleados extends JPanel {
 
 		TablaEmpleados tablaEmpleados = new TablaEmpleados();
 
-		add(tablaEmpleados);
+		add(tablaEmpleados,BorderLayout.CENTER);
 
-		JButton boton = new JButton("Alta");
+		JButton boton = new JButton("Alta Empleados");
 
 		JPanel panelBoton = new JPanel();
-		add(boton);
+		add(boton, BorderLayout.SOUTH);
 		add(panelBoton);
 	}
 
