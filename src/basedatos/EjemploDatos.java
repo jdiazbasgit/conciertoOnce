@@ -12,7 +12,6 @@ import com.mysql.jdbc.Driver;
 public class EjemploDatos {
 
 	public EjemploDatos() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public static void main(String[] args) {
