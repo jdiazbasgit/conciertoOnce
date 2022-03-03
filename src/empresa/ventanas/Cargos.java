@@ -7,6 +7,7 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
 import java.sql.SQLException;
 
 import javax.swing.JButton;
@@ -45,8 +46,25 @@ public class Cargos extends JFrame implements ActionListener, ChangeListener {
 			empresaDao.dameConexion();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
+			try {
+				empresaDao.dameConexion().close();
+				
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 			e.printStackTrace();
 		}
+		finally {
+			try {
+				empresaDao.dameConexion().close();
+				System.out.println("se cerro la base de datos");
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
 
 		String[] columnNames = { "ID", "Descripcion" };
 
