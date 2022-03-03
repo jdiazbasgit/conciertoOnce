@@ -56,7 +56,8 @@ public class Cargos extends JFrame implements ActionListener, ChangeListener {
 
 		String[] columnNames = { "ID", "Descripcion" };
 
-		Object[][] data = new Object[tCargos.getRowCount()][tCargos.getColumnCount()];
+		Object[][] data = new Object[30][30];
+		//tCargos.getRowCount() y tCargos.getColumnCount()
 
 		setTCargos(new JTable(data, columnNames));
 		getTCargos().setPreferredScrollableViewportSize(new Dimension(500, 250));
