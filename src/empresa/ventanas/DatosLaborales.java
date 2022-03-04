@@ -2,11 +2,6 @@ package empresa.ventanas;
 import java.awt.BorderLayout;
 import java.awt.Choice;
 import java.awt.Dimension;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Insets;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -14,18 +9,13 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import javax.swing.JButton;
-import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.JTextField;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 
-import empresa.beans.Cargo;
-import empresa.daos.EmpresaDao;
+import empresa.daos.EmpresaDAO;
 import lombok.Data;
 @Data
 public class DatosLaborales extends JFrame {
@@ -39,7 +29,7 @@ public class DatosLaborales extends JFrame {
 
 	public DatosLaborales() {
 		setTitle("Datos Laborales");
-		EmpresaDao empresaDao = new EmpresaDao();
+		EmpresaDAO empresaDao = new EmpresaDAO();
 		setDescripcion(new Choice());
 		JPanel panel = new JPanel();
 		this.add(panel);
@@ -54,7 +44,7 @@ public class DatosLaborales extends JFrame {
 		Connection conexion = null;
 		try {
 
-			conexion = empresaDao.dameConexion();
+			conexion = empresaDao.getConexion();
 
 			PreparedStatement pst = conexion.prepareStatement("select dl.id,dl.salario,c.descripcion from datos_laborales as dl, cargos as c where dl.cargos_id = c.id");
 			ResultSet rs = pst.executeQuery();

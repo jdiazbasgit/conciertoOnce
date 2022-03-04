@@ -1,7 +1,6 @@
 package empresa.ventanas;
 
 import java.awt.BorderLayout;
-import java.awt.Choice;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -11,11 +10,8 @@ import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -26,11 +22,9 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 
 import empresa.beans.Cargo;
-import empresa.daos.EmpresaDao;
+import empresa.daos.EmpresaDAO;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -46,7 +40,7 @@ public class Cargos extends JFrame implements ActionListener {
 
 	public Cargos() {
 		setTitle("Cargos");
-		EmpresaDao empresaDao = new EmpresaDao();
+		EmpresaDAO empresaDao = new EmpresaDAO();
 		setDescripcion(new JTextField());
 		JPanel panel = new JPanel();
 		this.add(panel);
@@ -87,7 +81,7 @@ public class Cargos extends JFrame implements ActionListener {
 		Connection conexion = null;
 		try {
 
-			conexion = empresaDao.dameConexion();
+			conexion = empresaDao.getConexion();
 
 			PreparedStatement pst = conexion.prepareStatement("select id,descripcion from cargos");
 			ResultSet rs = pst.executeQuery();
@@ -177,11 +171,11 @@ public class Cargos extends JFrame implements ActionListener {
 		Cargo cargo = new Cargo();
 		// Cargo cargo = null;
 
-		EmpresaDao empresaDao = new EmpresaDao();
+		EmpresaDAO empresaDao = new EmpresaDAO();
 		Connection conexion = null;
 
 		try {
-			conexion = empresaDao.dameConexion();
+			conexion = empresaDao.getConexion();
 			PreparedStatement pst1 = conexion
 					.prepareStatement("insert into cargos" + cargo.getDescripcion() + " VALUES (?) ");
 

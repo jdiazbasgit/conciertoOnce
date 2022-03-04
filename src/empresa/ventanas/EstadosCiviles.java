@@ -23,12 +23,11 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.JTextField;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 import empresa.beans.Cargo;
-import empresa.daos.EmpresaDao;
+import empresa.daos.EmpresaDAO;
 import lombok.Data;
 
 @SuppressWarnings("serial")
@@ -42,7 +41,7 @@ public class EstadosCiviles extends JFrame implements ActionListener, ChangeList
 
 	public EstadosCiviles() {
 		setTitle("Estados Civiles");
-		EmpresaDao empresaDao = new EmpresaDao();
+		EmpresaDAO empresaDao = new EmpresaDAO();
 		setDescripcion(new Choice());
 		JPanel panel = new JPanel();
 		this.add(panel);
@@ -60,7 +59,7 @@ public class EstadosCiviles extends JFrame implements ActionListener, ChangeList
 		Connection conexion = null;
 		try {
 
-			conexion = empresaDao.dameConexion();
+			conexion = empresaDao.getConexion();
 
 			PreparedStatement pst = conexion.prepareStatement("select id,descripcion from estado_civil");
 			ResultSet rs = pst.executeQuery();
@@ -116,11 +115,11 @@ public class EstadosCiviles extends JFrame implements ActionListener, ChangeList
 			JPanel panel = new JPanel();
 
 			dialog.add(panel);
-			EmpresaDao empresaDao = new EmpresaDao();
+			EmpresaDAO empresaDao = new EmpresaDAO();
 			Connection conexion = null;
 			try {
 
-				conexion = empresaDao.dameConexion();
+				conexion = empresaDao.getConexion();
 
 				PreparedStatement pst = conexion.prepareStatement("select descripcion from estado_civil");
 				ResultSet rs = pst.executeQuery();
@@ -171,11 +170,11 @@ public class EstadosCiviles extends JFrame implements ActionListener, ChangeList
 		Cargo cargo = new Cargo();
 		// Cargo cargo = null;
 
-		EmpresaDao empresaDao = new EmpresaDao();
+		EmpresaDAO empresaDao = new EmpresaDAO();
 		Connection conexion = null;
 
 		try {
-			conexion = empresaDao.dameConexion();
+			conexion = empresaDao.getConexion();
 			PreparedStatement pst1 = conexion
 					.prepareStatement("insert into cargos" + cargo.getDescripcion() + " VALUES (?) ");
 
