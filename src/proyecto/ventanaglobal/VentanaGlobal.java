@@ -4,14 +4,14 @@ import javax.swing.JFrame;
 import javax.swing.JTabbedPane;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import proyecto.empleados.VentanaEmpleados;
+import proyecto.empleados.VentanaEmpleado;
 
 @EqualsAndHashCode(callSuper=false)
 @Data
 @SuppressWarnings("serial")
 public class VentanaGlobal extends JFrame {
 
-	VentanaEmpleados ventanaEmpleados;
+	VentanaEmpleado ventanaEmpleados;
 	JTabbedPane pestanias;
 	
 	public VentanaGlobal() {
@@ -28,7 +28,7 @@ private void iniciarVentanas() {
 		
 		
 		pestanias = new JTabbedPane();
-		ventanaEmpleados = new VentanaEmpleados();
+		ventanaEmpleados = new VentanaEmpleado();
 		add(pestanias);
 		pestanias.add("Empleados",ventanaEmpleados);
 		

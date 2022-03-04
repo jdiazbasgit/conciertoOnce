@@ -13,11 +13,11 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = false)
 @Data
 @SuppressWarnings("serial")
-public class VentanaEmpleados extends JPanel implements ActionListener {
+public class VentanaEmpleado extends JPanel implements ActionListener {
 
-	public VentanaEmpleados() {
+	public VentanaEmpleado() {
 
-		TablaEmpleados tablaEmpleados = new TablaEmpleados();
+		TablaEmpleado tablaEmpleados = new TablaEmpleado();
 
 		add(tablaEmpleados, BorderLayout.CENTER);
 
