@@ -20,7 +20,7 @@ public class EmpresaDAO extends  ConexionDAO {
 	
 	public  List<Empresa> dameEmpresas() throws SQLException{
 		Connection conn = null;
-		List<Empresa> lista_empresas = new ArrayList<Empresa>();
+		List<Empresa> listaEmpresas = new ArrayList<Empresa>();
 		try { 
 		    conn =getConexion();
 			Statement instruccion = conn.createStatement();
@@ -28,13 +28,13 @@ public class EmpresaDAO extends  ConexionDAO {
 			ResultSet rs = instruccion.executeQuery(query);
 			while(rs.next()) {
 				Empresa empresa = new Empresa(rs.getInt(1), rs.getString(2), rs.getString(3));
-				lista_empresas.add(empresa);
+				listaEmpresas.add(empresa);
 			}
 			conn.close();
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}	
-		 return lista_empresas;
+		 return listaEmpresas;
 			
 	}
 	

@@ -1,4 +1,4 @@
-package empresa.dao;
+package empresa.daos;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -13,13 +13,13 @@ import lombok.EqualsAndHashCode;
 
 @EqualsAndHashCode(callSuper = false)
 @Data
-public class VehiculoDao extends EmpresaDao {
+public class VehiculoDao extends ConexionDAO {
 
 	public List<Vehiculo> dameVehiculos() throws SQLException {
 		List<Vehiculo> vehiculos = new ArrayList<Vehiculo>();
 		Vehiculo vehiculo = new Vehiculo();
 
-		Connection conexion = dameConexion();
+		Connection conexion = getConexion();
 		Statement instruccion = conexion.createStatement();
 		ResultSet resultSet = instruccion.executeQuery("SELECT ID,MARCA,MODELO FROM VEHICULOS");
 		while (resultSet.next()) {

@@ -1,4 +1,4 @@
-package empresa.dao;
+package empresa.daos;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -9,13 +9,13 @@ import java.util.List;
 
 import empresa.beans.TipoCarnet;
 
-public class TipoCarnetDao extends EmpresaDao {
+public class TipoCarnetDao extends ConexionDAO {
 
 	
 
 	public List<TipoCarnet> dameTipoCarnet() throws SQLException {
 		List<TipoCarnet> tipoCarnet = new ArrayList<TipoCarnet>();
-		Connection conexion = dameConexion();
+		Connection conexion = getConexion();
 		Statement instruccion = conexion.createStatement();
 		ResultSet resultSet = instruccion.executeQuery("SELECT ID,DEFINICION");
 		while (resultSet.next()) {
