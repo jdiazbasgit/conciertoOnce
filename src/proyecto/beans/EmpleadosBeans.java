@@ -14,6 +14,7 @@ public class EmpleadosBeans extends JPanel {
 	private int id;
 	private String nombre,dni,telefono,datosPersonalesId,empresasId,datosLaboralesId;
 	private Date fechaNacimiento,fechaAlta,fechaBaja;
+	
 
 	public EmpleadosBeans(int id, String nombre, String dni, String telefono, String datosPersonalesId,
 			String empresasId, String datosLaboralesId, Date fechaNacimiento, Date fechaAlta, Date fechaBaja) {
