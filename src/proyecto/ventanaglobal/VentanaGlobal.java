@@ -5,6 +5,7 @@ import javax.swing.JTabbedPane;
 
 import empresa.beans.EstadoCivil;
 import empresa.paneles.EmpresasPanel;
+import empresa.paneles.HijosPanel;
 import empresa.ventanas.Cargos;
 import empresa.ventanas.DatosLaborales;
 import empresa.ventanas.EstadosCiviles;
@@ -42,7 +43,7 @@ private void iniciarVentanas() {
 		//pestanias.add("Datos Personales",new DatosPersonales());
 		pestanias.add("Cargos",new Cargos());
 		pestanias.add("Estados Civiles",new EstadosCiviles());
-		pestanias.add("Hijos",new EmpresasPanel());
+		pestanias.add("Hijos",new HijosPanel());
 		
 		
 		

@@ -25,27 +25,20 @@ public class HijosPanel extends JPanel {
 	
 
 	public HijosPanel() {
-		JScrollPane empleadosTabla = new JScrollPane(new JTable(getHijos(), NOMBRES_COLUMNAS_TB_EMPRESAS));
-		this.setLayout(new BorderLayout());
-		this.add(empleadosTabla, BorderLayout.CENTER);
-	}
-	
-	private Object[][] getHijos() {
 		HijoDAO hijoDAO= new HijoDAO();
-		Object[][] salida=null;
-		Connection conexion= null;
+		JScrollPane empleadosTabla;
 		try {
-			
-			
-				
-			}
-			
+			empleadosTabla = new JScrollPane(new JTable(hijoDAO.dameArrayStringHijos(), NOMBRES_COLUMNAS_TB_EMPRESAS));
+			this.setLayout(new BorderLayout());
+			this.add(empleadosTabla, BorderLayout.CENTER);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return null;
+		
 	}
+	
+	
 
 	private void addComboBox() {
 		/*
