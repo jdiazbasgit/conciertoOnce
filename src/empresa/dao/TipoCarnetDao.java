@@ -25,7 +25,7 @@ public List<TipoCarnet>dameTipoCarnet(){
 		  Statement instruccion= conexion.createStatement();
 			ResultSet resultSet= instruccion.executeQuery("SELECT ID,DEFINICION");
 			while(resultSet.next()) {
-			
+			System.out.println();
 			}
 		
 		} catch (SQLException e)
