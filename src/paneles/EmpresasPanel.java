@@ -51,21 +51,6 @@ public class EmpresasPanel extends JPanel {
         sportColumn.setCellEditor(new DefaultCellEditor(comboBox));
 		 */
 	}
-	private void addRowTable() {
-		 /*
-			  
-			  String data[][] = {{"Vinod","100"},{"Raju","200"},{"Ranju","300"}};
-			  String col[] = {"Name","code"};
-			  DefaultTableModel model = new DefaultTableModel(data,col);
-			  JTable table = new JTable(model);
-			  //Insert first position
-			  model.insertRow(0,new Object[]{"Ranjan","50"});
-			  //Insert 4 position
-			  model.insertRow(3,new Object[]{"Amar","600"});
-			  //Insert last position
-			  model.insertRow(table.getRowCount(),new Object[]{"Sushil","600"});
-		*/
-	
-	}
+
 
 }
