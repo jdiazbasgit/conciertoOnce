@@ -8,11 +8,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import empresa.beans.DatosPersonales;
-import empresa.beans.Vehiculo;
-import lombok.Data;
 
 public class DatosPersonalesDao extends EmpresaDao {
 	
+	@SuppressWarnings("unused")
 	private DatosPersonales datosPersonales;
 
 	public DatosPersonalesDao(DatosPersonales datosPersonales) {
@@ -20,6 +19,7 @@ public class DatosPersonalesDao extends EmpresaDao {
 		this.datosPersonales = datosPersonales;
 	}
 	
+	@SuppressWarnings("finally")
 	public  List<DatosPersonales> dameDatosPersonales() {
 		List<DatosPersonales> datosPersonales=new ArrayList<>();
 		

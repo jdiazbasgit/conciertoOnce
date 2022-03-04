@@ -1,7 +1,9 @@
 package empresa.dao;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,10 +17,16 @@ public TipoCarnetDao(TipoCarnet tipoCarnet) {
 	this.tipoCarnet=tipoCarnet;
 	
 }
+@SuppressWarnings("finally")
 public List<TipoCarnet>dameTipoCarnet(){
 	List<TipoCarnet> tipoCarnet=new ArrayList<TipoCarnet>();
 	try {
 		Connection conexion = dameConexion();
+		  Statement instruccion= conexion.createStatement();
+			ResultSet resultSet= instruccion.executeQuery("SELECT ID,DEFINICION");
+			while(resultSet.next()) {
+			
+			}
 		
 		} catch (SQLException e)
 		{
