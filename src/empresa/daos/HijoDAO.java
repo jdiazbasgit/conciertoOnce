@@ -19,11 +19,10 @@ public class HijoDAO extends ConexionDAO {
 	
 	
 	
-	public  List<Hijo> dameHijos() throws SQLException{
+	public  List<Hijo> dameListaHijos() throws SQLException{
 		Connection conn = null;
-		List<Hijo> lista_hijos = new ArrayList<Hijo>();
-		try {
-		
+		List<Hijo> lista_hijos = new ArrayList<>();
+		try {	
 		 
 		    conn = getConexion();
 			Statement instruccion = conn.createStatement();
@@ -44,9 +43,7 @@ public class HijoDAO extends ConexionDAO {
 		 return lista_hijos;
 			
 	}
-	
-	
-	
+
 	public void grabaHijos(Hijo hijo) throws SQLException {
 		Connection conn = null;
 		

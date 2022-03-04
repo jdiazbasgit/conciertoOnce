@@ -1,4 +1,4 @@
-package paneles;
+package empresa.paneles;
 
 import java.awt.BorderLayout;
 
