@@ -16,7 +16,7 @@ public class VentanaEmpleados extends JPanel {
 
 		add(tablaEmpleados,BorderLayout.CENTER);
 
-		JButton boton = new JButton("Alta Empleados");
+		JButton boton = new JButton("Alta Nuevos Empleados");
 
 		JPanel panelBoton = new JPanel();
 		add(boton, BorderLayout.SOUTH);

@@ -14,7 +14,7 @@ public class VentanaGlobal extends JFrame {
 	
 	public VentanaGlobal() {
 		setTitle("PROYECTO DE BASE DE DATOS");
-		setSize(600, 600);
+		setSize(650, 600);
 		setLocationRelativeTo(null);
 	
 	

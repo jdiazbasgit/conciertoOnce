@@ -3,11 +3,11 @@ package proyecto.beans;
 import java.util.Date;
 
 import javax.swing.JPanel;
-import javax.swing.JTable;
-
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 @SuppressWarnings("serial")
+@EqualsAndHashCode(callSuper=false)
 @Data
 public class EmpleadosBeans extends JPanel {
 	

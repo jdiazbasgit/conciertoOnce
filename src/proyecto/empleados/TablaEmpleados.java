@@ -21,8 +21,8 @@ import proyecto.beans.EmpleadosBeans;
 @Data
 public class TablaEmpleados extends EmpleadosBeans {
 	
-	private String [] nombreColumnas = {"Id","Nombre","Telerfono","Fecha_Nacimiento","Fecha _Alta","Fecha_Baja","Datos_Personales",
-	"Empesa_Id","Datos_Laborales"};
+	private String [] nombreColumnas = {"Id","Nombre","Telerfono","F.Nacimiento","F.Alta","F.Baja","D.Personales",
+	"E.Id","D.Laborales"};
 	private Object [][] datosFilas = {};
 	private EmpleadosBeans empleados;
 	
