@@ -23,6 +23,7 @@ public class VehiculoDao extends EmpresaDao {
 		this.vehiculo = vehiculo;
 	}
 	
+	@SuppressWarnings("finally")
 	public  List<Vehiculo> dameVehiculos() {
 		List<Vehiculo> vehiculos = new ArrayList<Vehiculo>();
         Vehiculo vehiculo = new Vehiculo();
