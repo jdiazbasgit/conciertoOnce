@@ -33,9 +33,9 @@ public class VentanaEmpleado extends JPanel implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 
 		JFrame jFrame = new JFrame();
-		String getMessage = JOptionPane.showInputDialog(jFrame, "Alta Nuevo Empleado");
+		 JOptionPane.showInputDialog(jFrame, "Alta Nuevo Empleado");
 		/*
-		 * 
+		 * String getMessage =
 		 * JOptionPane.showMessageDialog(jFrame, "Introduzca un Nombre " + getMessage);
 		 */
 		System.out.println("funciona el botón");
