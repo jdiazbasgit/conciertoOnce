@@ -11,33 +11,21 @@ import empresa.beans.DatosPersonales;
 
 public class DatosPersonalesDao extends EmpresaDao {
 	
-	@SuppressWarnings("unused")
-	private DatosPersonales datosPersonales;
 
-	public DatosPersonalesDao(DatosPersonales datosPersonales) {
-		super();
-		this.datosPersonales = datosPersonales;
-	}
-	
-	@SuppressWarnings("finally")
-	public  List<DatosPersonales> dameDatosPersonales() {
+
+	public  List<DatosPersonales> dameDatosPersonales() throws SQLException {
 		List<DatosPersonales> datosPersonales=new ArrayList<>();
 		
-		try {
 			Connection conexion = dameConexion();
 		    Statement instruccion= conexion.createStatement();
 			ResultSet resultSet= instruccion.executeQuery("SELECT ID,ESTADO CIVIL,HIJOS");
 			while(resultSet.next()) {
+				
 			System.out.println(resultSet.getString(1)+ " - "+resultSet.getString(2)+" - "+resultSet.getDate(3));
 			}
 			
-		} catch (SQLException e)
-		{
-			e.printStackTrace();
-		}
-		finally {
 			return datosPersonales;
 		}
 	}
-}
+
 	

@@ -10,32 +10,18 @@ import java.util.List;
 import empresa.beans.TipoCarnet;
 
 public class TipoCarnetDao extends EmpresaDao {
-private TipoCarnet tipoCarnet;
 
-public TipoCarnetDao(TipoCarnet tipoCarnet) {
-	super();
-	this.tipoCarnet=tipoCarnet;
 	
-}
-@SuppressWarnings("finally")
-public List<TipoCarnet>dameTipoCarnet(){
-	List<TipoCarnet> tipoCarnet=new ArrayList<TipoCarnet>();
-	try {
+
+	public List<TipoCarnet> dameTipoCarnet() throws SQLException {
+		List<TipoCarnet> tipoCarnet = new ArrayList<TipoCarnet>();
 		Connection conexion = dameConexion();
-		  Statement instruccion= conexion.createStatement();
-			ResultSet resultSet= instruccion.executeQuery("SELECT ID,DEFINICION");
-			while(resultSet.next()) {
-			System.out.println(resultSet.getString(1)+ " - "+resultSet.getString(2));
-			}
-		
-		} catch (SQLException e)
-		{
-			e.printStackTrace();
+		Statement instruccion = conexion.createStatement();
+		ResultSet resultSet = instruccion.executeQuery("SELECT ID,DEFINICION");
+		while (resultSet.next()) {
+			System.out.println(resultSet.getString(1) + " - " + resultSet.getString(2));
 		}
-		finally {
-			return tipoCarnet;
-		}
+
+		return tipoCarnet;
 	}
-
-
 }
