@@ -43,7 +43,21 @@ public class HijoDAO extends ConexionDAO {
 		 return lista_hijos;
 			
 	}
-
+	
+	public  String[][] dameArrayStringHijos() throws SQLException{
+		List<Hijo> lista_hijos = this.dameListaHijos();	
+		System.out.println(lista_hijos);
+		String[][] arrayStringHijos = new String[lista_hijos.size()][this.getColumnasHijo().length];
+		int numeroFila=0;
+		for (Hijo hijo:lista_hijos) {
+			arrayStringHijos[numeroFila][0]=String.valueOf(hijo.getId());
+			arrayStringHijos[numeroFila][1]=String.valueOf(hijo.getNumChicos());
+			arrayStringHijos[numeroFila][2]=String.valueOf(hijo.getNumChicas());
+			numeroFila++;
+		}
+		return arrayStringHijos;
+	}
+	
 	public void grabaHijos(Hijo hijo) throws SQLException {
 		Connection conn = null;
 		
