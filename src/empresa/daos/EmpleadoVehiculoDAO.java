@@ -11,7 +11,7 @@ import java.util.List;
 import empresa.beans.EmpleadoVehiculo;
 
 
-public class EmpleadoVehiculoDAO {
+public class EmpleadoVehiculoDAO  extends ConexionDAO {
 	
 	public String[] getColumnasEmpleadoVehiculo() {
 		return new String[] {"NOMBRE","DNI","TELEFONO","MARCA","MODELO"};
@@ -24,7 +24,7 @@ public class EmpleadoVehiculoDAO {
 		try {
 		
 		 
-		    conn =  ConexionBD.getConexion();
+		    conn =  getConexion();
 			Statement instruccion = conn.createStatement();
 			
 			String query = "SELECT e.NOMBRE,e.DNI,e.TELEFONO,v.MARCA,v.MODELO"

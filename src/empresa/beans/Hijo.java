@@ -17,5 +17,5 @@ public class Hijo implements Serializable{
 	private int numChicos;
 	private int numChicas;
 	
-	
+
 }

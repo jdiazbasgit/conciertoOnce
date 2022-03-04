@@ -11,7 +11,7 @@ import java.util.List;
 
 import empresa.beans.Empresa;
 
-public class EmpresaDAO {
+public class EmpresaDAO extends  ConexionDAO {
 	
 	public String[] getColumnasHijo() {
 		return new String[] {"ID","NOMBRE","CIF"};
@@ -22,7 +22,7 @@ public class EmpresaDAO {
 		Connection conn = null;
 		List<Empresa> lista_empresas = new ArrayList<Empresa>();
 		try { 
-		    conn =  ConexionBD.getConexion();
+		    conn =getConexion();
 			Statement instruccion = conn.createStatement();
 			String query = "SELECT e.ID, e.NOMBRE , e.CIF  FROM empresas as e";
 			ResultSet rs = instruccion.executeQuery(query);
@@ -30,7 +30,7 @@ public class EmpresaDAO {
 				Empresa empresa = new Empresa(rs.getInt(1), rs.getString(2), rs.getString(3));
 				lista_empresas.add(empresa);
 			}
-			
+			conn.close();
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}	
@@ -44,7 +44,7 @@ public class EmpresaDAO {
 		Connection conn = null;
          try {
 			
-			conn =  ConexionBD.getConexion();
+			conn = getConexion();
 			String query = "INSERT INTO empresas (NOMBRE,CIF) values(?,?) ";
 			
 			PreparedStatement preparedStatement = conn.prepareStatement(query);
