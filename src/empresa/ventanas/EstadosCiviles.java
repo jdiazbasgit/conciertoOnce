@@ -32,7 +32,7 @@ import lombok.Data;
 
 @SuppressWarnings("serial")
 @Data
-public class EstadosCiviles extends JFrame implements ActionListener, ChangeListener {
+public class EstadosCiviles extends JPanel implements ActionListener, ChangeListener {
 	private JTable tEstadosCiviles;
 	private JButton bAlta;
 	private JLabel label = new JLabel("Descripcion");
@@ -40,7 +40,6 @@ public class EstadosCiviles extends JFrame implements ActionListener, ChangeList
 	private Choice descripcion = new Choice();
 
 	public EstadosCiviles() {
-		setTitle("Estados Civiles");
 		EmpresaDAO empresaDao = new EmpresaDAO();
 		setDescripcion(new Choice());
 		JPanel panel = new JPanel();
@@ -197,13 +196,7 @@ public class EstadosCiviles extends JFrame implements ActionListener, ChangeList
 
 	}
 
-	public static void main(String[] args) {
-		EstadosCiviles estadoCivil = new EstadosCiviles();
-		estadoCivil.setSize(1200, 800);
-		estadoCivil.setVisible(true);
-		estadoCivil.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-	}
+	
 
 	@Override
 	public void stateChanged(ChangeEvent e) {

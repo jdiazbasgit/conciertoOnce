@@ -30,7 +30,7 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class Cargos extends JFrame implements ActionListener {
+public class Cargos extends JPanel implements ActionListener {
 	// private List<Cargos> cargos = new ArrayList<Cargos>();
 	private String cargos[];
 	private JTable tCargos;
@@ -39,7 +39,6 @@ public class Cargos extends JFrame implements ActionListener {
 	private JTextField descripcion;
 
 	public Cargos() {
-		setTitle("Cargos");
 		EmpresaDAO empresaDao = new EmpresaDAO();
 		setDescripcion(new JTextField());
 		JPanel panel = new JPanel();
@@ -122,13 +121,7 @@ public class Cargos extends JFrame implements ActionListener {
 		}
 	}
 
-	public static void main(String[] args) {
-		Cargos Cargos = new Cargos();
-		Cargos.setSize(400, 350);
-		Cargos.setVisible(true);
-		Cargos.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-	}
+	
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
