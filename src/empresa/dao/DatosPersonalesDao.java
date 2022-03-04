@@ -28,7 +28,7 @@ public class DatosPersonalesDao extends EmpresaDao {
 		    Statement instruccion= conexion.createStatement();
 			ResultSet resultSet= instruccion.executeQuery("SELECT ID,ESTADO CIVIL,HIJOS");
 			while(resultSet.next()) {
-			System.out.println();
+			System.out.println(resultSet.getString(1)+ " - "+resultSet.getString(2)+" - "+resultSet.getDate(3));
 			}
 			
 		} catch (SQLException e)
