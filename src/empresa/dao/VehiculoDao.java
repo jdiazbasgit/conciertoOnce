@@ -7,8 +7,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.JTable;
-
 import empresa.beans.Vehiculo;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -27,17 +25,17 @@ public class VehiculoDao extends EmpresaDao {
 	
 	public  List<Vehiculo> dameVehiculos() {
 		List<Vehiculo> vehiculos = new ArrayList<Vehiculo>();
-		//JTable tablavehiculos = new Jtable(Vehiculo[1][3],String[3]);
-		//Lista<Vehiculos>listaVehiculos = new
+        Vehiculo vehiculo = new Vehiculo();
+	
 		try {
 			Connection conexion = dameConexion();
-			
-			
-			
-			Statement instruccion= conexion.createStatement();
+		    Statement instruccion= conexion.createStatement();
 			ResultSet resultSet= instruccion.executeQuery("SELECT ID,MARCA,MODELO FROM VEHICULOS");
 			while(resultSet.next()) {
-				System.out.println(resultSet.getInt(1)+ " - "+resultSet.getString(2)+" - "+resultSet.getString(3));
+				vehiculo.setId(resultSet.getInt(1));
+				vehiculo.setMarca(resultSet.getString(2));
+				vehiculo.setModelo(resultSet.getString(3));
+				vehiculos.add(vehiculo);
 			}
 			
 		} catch (SQLException e)
@@ -48,8 +46,7 @@ public class VehiculoDao extends EmpresaDao {
 			return vehiculos;
 		}
 	}
-	
-	//public void grabarVehiculo() {
+
 	
 
 	

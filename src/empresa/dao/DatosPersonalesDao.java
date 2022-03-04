@@ -1,7 +1,9 @@
 package empresa.dao;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,8 +22,15 @@ public class DatosPersonalesDao extends EmpresaDao {
 	
 	public  List<DatosPersonales> dameDatosPersonales() {
 		List<DatosPersonales> datosPersonales=new ArrayList<>();
-		try {	
-			Connection conexion= dameConexion();
+		
+		try {
+			Connection conexion = dameConexion();
+		    Statement instruccion= conexion.createStatement();
+			ResultSet resultSet= instruccion.executeQuery("SELECT ID,ESTADO CIVIL,HIJOS");
+			while(resultSet.next()) {
+			
+			}
+			
 		} catch (SQLException e)
 		{
 			e.printStackTrace();
