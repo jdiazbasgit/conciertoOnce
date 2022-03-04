@@ -183,7 +183,7 @@ public class Cargos extends JFrame implements ActionListener {
 		try {
 			conexion = empresaDao.dameConexion();
 			PreparedStatement pst1 = conexion
-					.prepareStatement("insert into cargos" + cargo.getDescripcion_Cargos() + " VALUES (?) ");
+					.prepareStatement("insert into cargos" + cargo.getDescripcion() + " VALUES (?) ");
 
 			pst1.setString(1, getDescripcion().getText());
 			pst1.executeQuery();

@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 
 public class Cargo {
-	private int id_Cargos;
-	private String descripcion_Cargos;
+	private int id;
+	private String descripcion;
 
 }
