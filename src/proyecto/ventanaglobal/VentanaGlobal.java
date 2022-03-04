@@ -2,9 +2,11 @@ package proyecto.ventanaglobal;
 
 import javax.swing.JFrame;
 import javax.swing.JTabbedPane;
-
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import proyecto.empleados.VentanaEmpleados;
+
+@EqualsAndHashCode(callSuper=false)
 @Data
 @SuppressWarnings("serial")
 public class VentanaGlobal extends JFrame {
