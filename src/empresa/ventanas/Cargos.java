@@ -8,9 +8,12 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,6 +25,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
@@ -32,47 +36,47 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class Cargos extends JFrame implements ActionListener, ChangeListener {
-	//private List<Cargos> cargos = new ArrayList<Cargos>();
+public class Cargos extends JFrame implements ActionListener {
+	// private List<Cargos> cargos = new ArrayList<Cargos>();
 	private String cargos[];
 	private JTable tCargos;
 	private JButton bAlta, botonRegistroDialog;
 	private JLabel label;
-	private Choice descripcion; 
-
+	private JTextField descripcion;
 
 	public Cargos() {
 		setTitle("Cargos");
 		EmpresaDao empresaDao = new EmpresaDao();
-		setDescripcion(new Choice());
+		setDescripcion(new JTextField());
 		JPanel panel = new JPanel();
 		this.add(panel);
 //		setContentPane(new JPanel());
 		setBAlta(new JButton("Alta"));
 		setBotonRegistroDialog(new JButton("Registrar"));
 		setLabel(new JLabel("Descripcion"));
-
-		setDescripcion(new Choice());
-
 		String[] columnNames = { "ID", "Descripcion" };
-
-		Object[][] data = new Object[30][30];
-		//tCargos.getRowCount() y tCargos.getColumnCount()
-
-		setTCargos(new JTable(data, columnNames));
-		getTCargos().setPreferredScrollableViewportSize(new Dimension(500, 250));
-		getTCargos().setFillsViewportHeight(true);
-		
-		JScrollPane scrollPane = new JScrollPane(getTCargos());
+		Object[][] data = null;
+		// tCargos.getRowCount() y tCargos.getColumnCount()
 
 		// Add the scroll pane to this panel.
 		// add(scrollPane);
 
 		// panel.add(getBAlta());
 		getBAlta().addActionListener(this);
-		panel.setLayout(new BorderLayout(10, 10));
-		panel.add(scrollPane, BorderLayout.NORTH);
-		panel.add(getBAlta(), BorderLayout.SOUTH);
+		// JPanel panel2 = new JPanel();
+//		this.add(panel);
+//		this.add(panel2);
+//		getBAlta().addActionListener(this);
+
+		// agregar los dos paneles
+//		panel2.add(getBAlta(), BorderLayout.SOUTH);
+//		panel2.setLayout(new BorderLayout(10, 10));
+//		
+//		JPanel panelContenedor = new JPanel();
+//		panelContenedor.setLayout(new BorderLayout(10, 10));
+//		panelContenedor.add(panel, BorderLayout.NORTH);
+//		panelContenedor.add(panel2, BorderLayout.SOUTH);
+
 		// panel.setLayout(new BorderLayout(20,20));
 		// panel.setLayout(new GridLayout(2,3,40,40));
 
@@ -80,26 +84,47 @@ public class Cargos extends JFrame implements ActionListener, ChangeListener {
 //		GridBagConstraints getTCargos = new GridBagConstraints(1, 1, 3, 2, 9, 0, GridBagConstraints.WEST,
 //				GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0);
 //		getContentPane().add(getTCargos(), getTCargos);
+		Connection conexion = null;
 		try {
-			empresaDao.dameConexion();
-			PreparedStatement pst = empresaDao.dameConexion().prepareStatement("select id,descripcion from cargos");
+
+			conexion = empresaDao.dameConexion();
+
+			PreparedStatement pst = conexion.prepareStatement("select id,descripcion from cargos");
 			ResultSet rs = pst.executeQuery();
-			int i = 0;
+
+			Statement statement = conexion.createStatement();
+			ResultSet rsCount = statement.executeQuery("select count(1) from cargos");
+			rsCount.next();
+			int filas = rsCount.getInt(1);
+			data = new Object[filas][2];
 			while (rs.next()) {
+
 				System.err.println(rs.getString(1) + " - " + rs.getString(2));
-				 int id = rs.getInt(1);
-			     String descripcion = rs.getString(2);
-			     data[i][0] = id;
-			     data[i][1] = descripcion;
-			     
-			     i++;
-			     
+				int id = rs.getInt(1);
+				String descripcion = rs.getString(2);
+				data[rs.getRow() - 1][0] = id;
+				data[rs.getRow() - 1][1] = descripcion;
 
 			}
-			empresaDao.dameConexion().close();
-		} catch (SQLException e1) {
+			setTCargos(new JTable(data, columnNames));
+			getTCargos().setPreferredScrollableViewportSize(new Dimension(500, 250));
+			getTCargos().setFillsViewportHeight(true);
+
+			JScrollPane scrollPane = new JScrollPane(getTCargos());
+			panel.setLayout(new BorderLayout(10, 10));
+			panel.add(scrollPane, BorderLayout.NORTH);
+			panel.add(getBAlta(), BorderLayout.SOUTH);
+
+		} catch (Exception e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
+		} finally {
+			try {
+				conexion.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	}
 
@@ -115,31 +140,13 @@ public class Cargos extends JFrame implements ActionListener, ChangeListener {
 	public void actionPerformed(ActionEvent e) {
 
 		if (e.getSource().equals(getBotonRegistroDialog())) {
+			grabaCargo();
 			System.out.println("boton registro");
 			JOptionPane.showMessageDialog(this, "Registro Realizado", "Registro", JOptionPane.INFORMATION_MESSAGE);
-			grabaCargo();
-
 
 		}
 		if (e.getSource().equals(getBAlta())) {
 
-			EmpresaDao empresaDao = new EmpresaDao();
-			try {
-				empresaDao.dameConexion();
-				PreparedStatement pst = empresaDao.dameConexion().prepareStatement("select descripcion from cargos");
-				ResultSet rs = pst.executeQuery();
-				while (rs.next()) {
-					System.err.println(rs.getString(1));
-					getDescripcion().add(rs.getString(1));
-
-				}
-				empresaDao.dameConexion().close();
-				
-
-			} catch (SQLException e1) {
-				e1.printStackTrace();
-			}
-		
 			System.out.println("boton");
 			JDialog dialog = new JDialog(new JFrame(), "Registro Cargo", true);
 			JPanel panel = new JPanel();
@@ -165,138 +172,38 @@ public class Cargos extends JFrame implements ActionListener, ChangeListener {
 		}
 
 	}
-	
-	public  Cargo grabaCargo() {
+
+	public Cargo grabaCargo() {
 		Cargo cargo = new Cargo();
-		//Cargo cargo = null;
-		
+		// Cargo cargo = null;
+
 		EmpresaDao empresaDao = new EmpresaDao();
+		Connection conexion = null;
+
 		try {
-			empresaDao.dameConexion();
-			PreparedStatement pst1 = empresaDao.dameConexion().prepareStatement("insert into cargos" + cargo.getDescripcion_Cargos() + " VALUES (?) ");
-			
-			pst1.setString(1, getDescripcion().getSelectedItem());
-			
-			ResultSet rs=pst1.executeQuery();
-			getDescripcion().removeAll();
-			while (rs.next()) {
-				System.err.println(rs.getString(1));
-				getDescripcion().add(rs.getString(1));
-				
-			}
-			empresaDao.dameConexion().close();
-			
+			conexion = empresaDao.dameConexion();
+			PreparedStatement pst1 = conexion
+					.prepareStatement("insert into cargos" + cargo.getDescripcion_Cargos() + " VALUES (?) ");
+
+			pst1.setString(1, getDescripcion().getText());
+			pst1.executeQuery();
+			conexion.close();
+
 		} catch (SQLException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
+		} finally {
+			try {
+				conexion.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		return cargo;
-		
+
 	}
 
-//	private void printDebugData(JTable table) {
-//		int numRows = table.getRowCount();
-//		int numCols = table.getColumnCount();
-//		javax.swing.table.TableModel model = table.getModel();
-//
-//		System.out.println("Value of data: ");
-//		for (int i = 0; i < numRows; i++) {
-//			System.out.print("    row " + i + ":");
-//			for (int j = 0; j < numCols; j++) {
-//				System.out.print("  " + model.getValueAt(i, j));
-//			}
-//			System.out.println();
-//		}
-//		System.out.println("--------------------------");
-//	}
-
-	@Override
-	public void stateChanged(ChangeEvent e) {
-		// aqui seria la select que trae los datos de la descripcion del cargo
-	}
 
 }
-//public class TableDemo extends JPanel { 
-//    static final Logger logger = Logger.getLogger(TableDemo.class.getName()); 
-// 
-//    private OscarTableModel oscarModel; 
-// 
-//    private JPanel controlPanel; 
-//    private Stacker dataPanel; 
-//    private JTable oscarTable; 
-//    private JCheckBox winnersCheckbox; 
-//    private JTextField filterField; 
-//    private Box statusBarLeft; 
-//    private JLabel actionStatus; 
-//    private JLabel tableStatus; 
-// 
-//    private Color[] rowColors; 
-//    private String statusLabelString; 
-//    private String searchLabelString; 
-// 
-//    private boolean showOnlyWinners = false; 
-//    private String filterString = null; 
-// 
-//    private TableRowSorter sorter; 
-//    private RowFilter<OscarTableModel, Integer> winnerFilter; 
-//    private RowFilter<OscarTableModel, Integer> searchFilter; 
-// 
-//    // Resource bundle for internationalized and accessible text 
-//    private ResourceBundle bundle = null; 
-// 
-//    public TableDemo() { 
-//        initModel(); 
-//        initComponents(); 
-//        initSortingFiltering(); 
-//    } 
-// 
-//    protected void initModel() { 
-//        oscarModel = new OscarTableModel(); 
-//    } 
-// 
-//    protected void initComponents() { 
-//        setLayout(new BorderLayout()); 
-// 
-//        controlPanel = createControlPanel(); 
-//        add(controlPanel, BorderLayout.NORTH); 
-// 
-//        //<snip>Create JTable 
-//        oscarTable = new JTable(oscarModel); 
-//        //</snip> 
-// 
-//        //</snip>Set JTable display properties 
-//        oscarTable.setColumnModel(createColumnModel()); 
-//        oscarTable.setAutoCreateRowSorter(true); 
-//        oscarTable.setRowHeight(26); 
-//        oscarTable.setAutoResizeMode(JTable.AUTO_RESIZE_NEXT_COLUMN); 
-//        oscarTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION); 
-//        oscarTable.setIntercellSpacing(new Dimension(0, 0)); 
-//        //</snip> 
-// 
-//        //<snip>Initialize preferred size for table's viewable area 
-//        Dimension viewSize = new Dimension(); 
-//        viewSize.width = oscarTable.getColumnModel().getTotalColumnWidth(); 
-//        viewSize.height = 10 * oscarTable.getRowHeight(); 
-//        oscarTable.setPreferredScrollableViewportSize(viewSize); 
-//        //</snip> 
-// 
-//        //<snip>Customize height and alignment of table header 
-//        JTableHeader header = oscarTable.getTableHeader(); 
-//        header.setPreferredSize(new Dimension(30, 26)); 
-//        TableCellRenderer headerRenderer = header.getDefaultRenderer(); 
-//        if (headerRenderer instanceof JLabel) { 
-//            ((JLabel) headerRenderer).setHorizontalAlignment(JLabel.CENTER); 
-//        } 
-//        //</snip> 
-// 
-//        JScrollPane scrollpane = new JScrollPane(oscarTable); 
-//        dataPanel = new Stacker(scrollpane); 
-//        add(dataPanel, BorderLayout.CENTER); 
-// 
-//        add(createStatusBar(), BorderLayout.SOUTH); 
-// 
-//    } 
-// 
-
-
 
