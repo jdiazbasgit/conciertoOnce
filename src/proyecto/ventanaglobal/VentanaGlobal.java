@@ -37,7 +37,7 @@ public class VentanaGlobal extends JFrame {
 		EmpresaDAO dao = new EmpresaDAO();
 		pestanias.add("Empresas", 
 				       new PanelTabla(dao.dameArrayEmpresas(),dao.getColumnasEmpresa(),"Empresas", "Crear Empresa"));	
-		pestanias.add("Emple-Vehic", new PanelEmpleadoVehiculo("Empleado =>  Vehículos"));
+		pestanias.add("Emple-Vehic", new PanelEmpleadoVehiculo());
 		HijoDAO hdao = new HijoDAO();
 		pestanias.add("Hijos", 
 				       new PanelTabla(hdao.dameArrayHijos(),hdao.getColumnasHijo(),"Hijos", "Crear Hijos"));	

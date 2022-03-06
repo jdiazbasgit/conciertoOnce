@@ -1,16 +1,8 @@
 package proyecto.empleados;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.sql.ResultSet;
-import java.util.Date;
-import javax.swing.JButton;
-import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import com.mysql.cj.xdevapi.Statement;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import proyecto.beans.EmpleadosBean;
