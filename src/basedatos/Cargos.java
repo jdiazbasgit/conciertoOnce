@@ -4,13 +4,10 @@ import java.awt.Choice;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import java.awt.GridLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-
+import basedatos.EmpresaDao;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
@@ -25,64 +22,42 @@ import lombok.Data;
 
 @Data
 
-public class Cargos extends JFrame implements ActionListener,ChangeListener {
+public class Cargos extends JFrame implements ActionListener, ChangeListener {
 
 	private JTable tCargos;
 	private JButton bAlta;
 	private JLabel label = new JLabel("Descripcion");
 	private JButton botonRegistroDialog = new JButton("Registrar");
 	private Choice descripcion = new Choice();
-	 private boolean DEBUG = false;
-
 
 	public Cargos() {
-		
+
 		JPanel panel = new JPanel();
 		this.add(panel);
 //		setContentPane(new JPanel());
 		setBAlta(new JButton("Alta"));
-	
+
 		setDescripcion(new Choice());
-		
-		String[] columnNames = {"First Name",
-                "Last Name",
-                "Sport",
-                "# of Years",
-                "Vegetarian"};
+		EmpresaDao empresaDao = new EmpresaDao();
+		empresaDao.conexion();
 
-Object[][] data = {
-{"Kathy", "Smith",
-"Snowboarding", new Integer(5), new Boolean(false)},
-{"John", "Doe",
-"Rowing", new Integer(3), new Boolean(true)},
-{"Sue", "Black",
-"Knitting", new Integer(2), new Boolean(false)},
-{"Jane", "White",
-"Speed reading", new Integer(20), new Boolean(true)},
-{"Joe", "Brown",
-"Pool", new Integer(10), new Boolean(false)}
-};
+		String[] columnNames = { "ID", "Descripcion" };
+
+		Object[][] data = { { "Kathy", "Smith" }, { "Jane", "White" }, { "Joe", "Brown" } };
+
 		setTCargos(new JTable(data, columnNames));
+		getTCargos().setPreferredScrollableViewportSize(new Dimension(500, 70));
+		getTCargos().setFillsViewportHeight(true);
 
-		getBAlta().addActionListener(this);
 		panel.add(getBAlta());
-		  
-		  
-	        
-	 
-	        //final JTable table = new JTable(data, columnNames);
-	        getTCargos().setPreferredScrollableViewportSize(new Dimension(500, 70));
-	        getTCargos().setFillsViewportHeight(true);
-	 
-//	        
-	 
-	        //Create the scroll pane and add the table to it.
-	        JScrollPane scrollPane = new JScrollPane(getTCargos());
-	 
-	        //Add the scroll pane to this panel.
-	        add(scrollPane);
-		//panel.setLayout(new GridLayout(2,3,40,40));
-		//panel.setLayout(new FlowLayout(FlowLayout.CENTER, 20, 8));
+		getBAlta().addActionListener(this);
+
+		JScrollPane scrollPane = new JScrollPane(getTCargos());
+
+		// Add the scroll pane to this panel.
+		add(scrollPane);
+		// panel.setLayout(new GridLayout(2,3,40,40));
+		// panel.setLayout(new FlowLayout(FlowLayout.CENTER, 20, 8));
 //		getContentPane().setLayout(new GridBagLayout());
 //		GridBagConstraints getTCargos = new GridBagConstraints(1, 1, 3, 2, 9, 0, GridBagConstraints.WEST,
 //				GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0);
@@ -104,48 +79,50 @@ Object[][] data = {
 			System.out.println("boton");
 			JDialog dialog = new JDialog(new JFrame(), "Registro Cargo", true);
 			JPanel panel = new JPanel();
-			
-			
+
 			dialog.add(panel);
 			panel.setLayout(new GridBagLayout());
-			GridBagConstraints  gbLabel= new GridBagConstraints(0,0,1,1,1,0,GridBagConstraints.CENTER,0,new Insets(0,0,0,0),0,0);
-			panel.add(getLabel(),gbLabel);
-			GridBagConstraints  gbTexto= new GridBagConstraints(0,1,5,1,0,0,GridBagConstraints.CENTER,GridBagConstraints.HORIZONTAL,new Insets(0,0,0,0),0,0);
-			panel.add(getDescripcion(),gbTexto);
-			GridBagConstraints  gbBoton= new GridBagConstraints(0,2,3,2,0,0,GridBagConstraints.CENTER,GridBagConstraints.CENTER,new Insets(0,0,0,0),0,0);
-			panel.add(getBotonRegistroDialog(),gbBoton);
-			
-			//botonRegistroDialog.setHorizontalAlignment(JButton.CENTER);
+			GridBagConstraints gbLabel = new GridBagConstraints(0, 0, 1, 1, 1, 0, GridBagConstraints.CENTER, 0,
+					new Insets(0, 0, 0, 0), 0, 0);
+			panel.add(getLabel(), gbLabel);
+			GridBagConstraints gbTexto = new GridBagConstraints(0, 1, 5, 1, 0, 0, GridBagConstraints.CENTER,
+					GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0);
+			panel.add(getDescripcion(), gbTexto);
+			GridBagConstraints gbBoton = new GridBagConstraints(0, 2, 3, 2, 0, 0, GridBagConstraints.CENTER,
+					GridBagConstraints.CENTER, new Insets(0, 0, 0, 0), 0, 0);
+			panel.add(getBotonRegistroDialog(), gbBoton);
+
+			// botonRegistroDialog.setHorizontalAlignment(JButton.CENTER);
 			getBotonRegistroDialog().setPreferredSize(new Dimension(5, 10));
-			
-			
+
 //			dialog.add(botonRegistroDialog);
 			dialog.setSize(250, 250);
 			dialog.setVisible(true);
 		}
 		if (e.getSource().equals(getBotonRegistroDialog())) {
-			//aqui sentencia sql insert into
+			// aqui sentencia sql insert into
 		}
 	}
 
-	 private void printDebugData(JTable table) {
-	        int numRows = table.getRowCount();
-	        int numCols = table.getColumnCount();
-	        javax.swing.table.TableModel model = table.getModel();
-	 
-	        System.out.println("Value of data: ");
-	        for (int i=0; i < numRows; i++) {
-	            System.out.print("    row " + i + ":");
-	            for (int j=0; j < numCols; j++) {
-	                System.out.print("  " + model.getValueAt(i, j));
-	            }
-	            System.out.println();
-	        }
-	        System.out.println("--------------------------");
-	    }
+	private void printDebugData(JTable table) {
+		int numRows = table.getRowCount();
+		int numCols = table.getColumnCount();
+		javax.swing.table.TableModel model = table.getModel();
+
+		System.out.println("Value of data: ");
+		for (int i = 0; i < numRows; i++) {
+			System.out.print("    row " + i + ":");
+			for (int j = 0; j < numCols; j++) {
+				System.out.print("  " + model.getValueAt(i, j));
+			}
+			System.out.println();
+		}
+		System.out.println("--------------------------");
+	}
+
 	@Override
 	public void stateChanged(ChangeEvent e) {
-		// aqui seria la select que trae los datos de la descripcion del cargo	
+		// aqui seria la select que trae los datos de la descripcion del cargo
 	}
 
 }
@@ -340,11 +317,6 @@ Object[][] data = {
 //        return value; 
 //    } 
 // 
-//    public void start() { 
-//        if (oscarModel.getRowCount() == 0) { 
-//            loadData("resources/oscars.xml"); 
-//        } 
-//    } 
 // 
 //    //<snip>Initialize table columns 
 //    protected TableColumnModel createColumnModel() { 
@@ -479,11 +451,7 @@ Object[][] data = {
 // 
 //    } 
 // 
-//    private class ShowWinnersListener implements ChangeListener { 
-//        public void stateChanged(ChangeEvent event) { 
-//            setShowOnlyWinners(winnersCheckbox.isSelected()); 
-//        } 
-//    } 
+//   
 // 
 //    //<snip>Setup search filter 
 //    protected class SearchFilterListener implements DocumentListener { 
@@ -514,34 +482,7 @@ Object[][] data = {
 // 
 //    //<snip>Use SwingWorker to asynchronously load the data     
 // 
-//    public void loadData(String dataPath) { 
-//        // create SwingWorker which will load the data on a separate thread 
-//        OscarDataLoader loader = new OscarDataLoader( 
-//                TableDemo.class.getResource(dataPath), oscarModel); 
-// 
-//        actionStatus.setText(getString("TableDemo.loadingStatusLabel", 
-//                "Loading data: ")); 
-//         
-//        // display progress bar while data loads 
-//        final JProgressBar progressBar = new JProgressBar(); 
-//        statusBarLeft.add(progressBar); 
-//        loader.addPropertyChangeListener(new PropertyChangeListener() { 
-//            public void propertyChange(PropertyChangeEvent event) { 
-//                if (event.getPropertyName().equals("progress")) { 
-//                    int progress = ((Integer) event.getNewValue()).intValue(); 
-//                    progressBar.setValue(progress); 
-// 
-//                    if (progress == 100) { 
-//                        statusBarLeft.remove(progressBar); 
-//                        actionStatus.setText(""); 
-//                        revalidate(); 
-//                    } 
-//                } 
-//            } 
-//        }); 
-//        loader.execute(); 
-// 
-//    } 
+
 //    //</snip> 
 //     
 //    protected void showMessage(String title, String message) { 
@@ -653,18 +594,3 @@ Object[][] data = {
 //        } 
 //    } 
 // 
-//    public static void main(String args[]) { 
-// 
-//        javax.swing.SwingUtilities.invokeLater(new Runnable() { 
-//            public void run() { 
-//                JFrame frame = new JFrame("JTable Demo"); 
-//                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
-//                TableDemo demo = new TableDemo(); 
-//                frame.add(demo); 
-//                frame.setSize(700, 400); 
-//                frame.setVisible(true); 
-//                demo.start(); 
-//            } 
-//        }); 
-//    } 
-//} 

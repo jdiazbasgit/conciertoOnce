@@ -1,7 +1,6 @@
 package basedatos;
 import java.awt.Choice;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -14,39 +13,41 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTable;
-import javax.swing.JTextField;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 import lombok.Data;
 @Data
-public class EstadosCiviles extends JFrame implements ActionListener{
-	private JTable tEstadosCiviles;
+public class DatosLaboralesDAO extends JFrame implements ActionListener,ChangeListener{
+	//CAMBIAR VARIABLES
+	private JTable tDatosLaborales;
 	private JButton bAlta;
 	private JLabel label = new JLabel("Descripcion");
 	private JButton botonRegistroDialog = new JButton("Registrar");
 	private Choice descripcion = new Choice();
 	
 
-	
-	public EstadosCiviles() {
+	public DatosLaboralesDAO() {
 		JPanel panel = new JPanel();
-		this.add(panel);
 //		setContentPane(new JPanel());
 		setBAlta(new JButton("Alta"));
-	
-		setDescripcion(new Choice());
-		setTEstadosCiviles(new JTable());
-
+		setTDatosLaborales(new JTable());
+		
 		getBAlta().addActionListener(this);
-		panel.add(getBAlta());
-		panel.setLayout(new FlowLayout(FlowLayout.CENTER, 20, 8));
-		getContentPane().setLayout(new GridBagLayout());
+		panel.add(bAlta);
+		//getContentPane().setLayout(new GridBagLayout());
 	
-		GridBagConstraints getTEstadosCiviles = new GridBagConstraints(1, 1, 3, 2, 9, 0, GridBagConstraints.WEST,
+		GridBagConstraints getTTDatosLaborales = new GridBagConstraints(1, 1, 3, 2, 9, 0, GridBagConstraints.WEST,
 				GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0);
-		getContentPane().add(getTEstadosCiviles(), getTEstadosCiviles);
+		getContentPane().add(getTDatosLaborales(), getTTDatosLaborales);
 	}
+	public static void main(String[] args) {
+		DatosLaboralesDAO datosLaborales = new DatosLaboralesDAO();
+		datosLaborales.setSize(1200, 800);
+		datosLaborales.setVisible(true);
+		datosLaborales.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-	@Override
+	}
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource().equals(getBAlta())) {
 			System.out.println("boton");
@@ -72,16 +73,14 @@ public class EstadosCiviles extends JFrame implements ActionListener{
 			dialog.setVisible(true);
 		}
 		if (e.getSource().equals(getBotonRegistroDialog())) {
-			//select descripcion from 
+			//aqui sentencia sql insert into
 		}
 		
 	}
-	public static void main(String[] args) {
-		EstadosCiviles EstadosCiviles = new EstadosCiviles();
-		EstadosCiviles.setSize(1200, 800);
-		EstadosCiviles.setVisible(true);
-		EstadosCiviles.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+	@Override
+	public void stateChanged(ChangeEvent e) {
+		//select dl.cargos_id from datos laborales as dl,cargos as c where dl.cargos_id=c.id
+		
 	}
 
 }
