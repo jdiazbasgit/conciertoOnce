@@ -5,6 +5,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import lombok.Data;
 
@@ -36,6 +37,20 @@ public class PrimerServlet extends HttpServlet {
 		setContador(getContador()+1);
 		
 		response.getWriter().println("<h1 style='color:#ff0000'>Eres el visitante numero:"+getContador()+"</h1>");
+		
+		HttpSession sesion= request.getSession(true);
+		
+		if(sesion.getAttribute("visitas")==null) {
+			sesion.setAttribute("visitas", 1);
+		}
+		else
+		{
+			int visitas=(int) sesion.getAttribute("visitas");
+			visitas++;
+			sesion.setAttribute("visitas", visitas);
+		}
+		response.getWriter().println("<h1 style='color:#00ff00'>Tu has venido a verme "
+		+sesion.getAttribute("visitas")+" veces</h1>");
 		
 	}
 
