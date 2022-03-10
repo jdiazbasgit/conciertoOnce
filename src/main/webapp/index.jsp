@@ -45,9 +45,10 @@
 		<%="Tu has venido a verme " + session.getAttribute("visitas") + " veces"%>
 	</h1>
 
-	<curso:repeticiones texto="jhuyffgfhg" cantidad="5">
-		<br>
-		<curso:texto />
+	<curso:repeticiones texto="	Ejemplo" cantidad="5">
+		<br>	
+	<curso:texto />
+	
 	</curso:repeticiones>
 
 </body>
