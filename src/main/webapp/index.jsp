@@ -77,6 +77,13 @@
 
 
 
+<<<<<<< HEAD
+=======
+	<curso:repeticiones texto="NweTime" cantidad="5">
+		<br>
+		<curso:texto />
+	</curso:repeticiones>
+>>>>>>> 1cb5e28a0bba567802b6a9424a1d73a8a1ec8e3c
 
 </body>
 </html>
