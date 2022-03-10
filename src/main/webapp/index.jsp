@@ -26,13 +26,13 @@
 		%>
 		<%=salida%>
 	</h1>
-	<h1>
+	<h2>
 		<%
 		contador++;
 		%>
 		<%="Eres el visitante numero: " + contador%>
-	</h1>
-	<h1 style="color: green;">
+	</h2>
+	<h2 style="color: green;">
 		<%
 		if (session.getAttribute("visitas") == null) {
 			session.setAttribute("visitas", 1);
@@ -43,14 +43,14 @@
 		}
 		%>
 		<%="Tu has venido a verme " + session.getAttribute("visitas") + " veces"%>
-	</h1>
-	
+	</h2>
 	<curso:repeticiones texto="texto de muestra"  cantidad="5">
 		<br>
 		
 		<curso:texto/>
 		
 	</curso:repeticiones>
+	
 </body>
 </html>
 
