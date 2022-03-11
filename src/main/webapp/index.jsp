@@ -2,7 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 <%@taglib prefix="curso" uri="/WEB-INF/tlds/curso.tld"%>
 <%@taglib prefix="datos" uri="/WEB-INF/tlds/datos.tld"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"  %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -56,8 +56,8 @@
 
 
 	<datos:conexion driver="com.mysql.jdbc.Driver"
-		cadena="jdbc:mysql://localhost:3306/curso" usuario="curso"
-		clave="Cursocurso1;">
+		cadena="jdbc:mysql://localhost:3306/curso" usuario="root"
+		clave=" ">
 		<table border="1" align="center">
 			<tr>
 				<td>NOMBRE</td>
