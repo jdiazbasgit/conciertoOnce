@@ -47,7 +47,7 @@
 
 	<curso:repeticiones  cantidad="5">
 		<br>
-		<curso:texto />
+		<TR><td><curso:texto /></td></TR>
 	</curso:repeticiones>
 
 </body>
