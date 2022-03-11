@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@taglib prefix="curso" uri="/WEB-INF/tlds/curso.tld"%>
+<%@taglib prefix="datos" uri="/WEB-INF/tlds/datos.tld"%>
+<%@taglib prefix="c" uri= "http://java.sun.com/jstl/core_rt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,13 +46,43 @@
 		%>
 		<%="Tu has venido a verme " + session.getAttribute("visitas") + " veces"%>
 	</h2>
+	<h2>
 	<curso:repeticiones texto="texto de muestra"  cantidad="5">
+	</h2>
+	
+		<curso:repeticiones cantidad="5">
+
+			<li style="color: red;"><curso:texto /></li>
+
+		</curso:repeticiones>
+	
+
+	
+	<datos:conexion driver="com.mysql.jdbc.Driver"
+		cadena="jdbc:mysql://localhost:3306/curso" usuario="curso"
+		clave="Cursocurso1;">
+		<table>
+			<tr>
+				<td>ID</td>
+				<td>DESCRIPCION</td>
+			</tr>
+			<datos:resultado sql="select id,descripcion from cargos">
+
+				<tr>
+					<td><datos:valor campo="1" /></td>
+					<td><datos:valor campo="2" /></td>
+				</tr>
+
+			</datos:resultado>
+		</table>
+	</datos:conexion>
+
 		<br>
 		
 		<curso:texto/>
 		
 	</curso:repeticiones>
-	
+
 </body>
 </html>
 
