@@ -56,9 +56,11 @@
 
 
 	<datos:conexion driver="com.mysql.jdbc.Driver"
-		cadena="jdbc:mysql://localhost:3306/curso" usuario="curso"
-		clave="Cursocurso1;">
+		cadena="jdbc:mysql://localhost:3306/curso" usuario="root"
+		clave="1234">
 		<table border="1" align="center">
+		<c:set var = "color" scope = "session" value = "0"/>
+		 <c:if test = "${"<td>" = % 2}">
 			<tr>
 				<td>NOMBRE</td>
 				<td>DNI</td>
@@ -81,9 +83,12 @@
 					<td><datos:valor campo="5" /></td>
 					<td><datos:valor campo="6" /></td>
 				</tr>
+				
 
 			</datos:resultado>
+			</c:if>
 		</table>
+		
 	</datos:conexion>
 	<curso:repeticiones texto="NweTime" cantidad="5">
 		<br>
