@@ -10,7 +10,7 @@
 <title>Insert title here</title>
 <style type="text/css">
 .rojo {
-	color: red;
+	backgroundColor: red;
 }
 </style>
 </head>
