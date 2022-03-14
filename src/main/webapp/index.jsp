@@ -2,7 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 <%@taglib prefix="curso" uri="/WEB-INF/tlds/curso.tld"%>
 <%@taglib prefix="datos" uri="/WEB-INF/tlds/datos.tld"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -58,17 +58,17 @@
 	<datos:conexion driver="com.mysql.jdbc.Driver"
 		cadena="jdbc:mysql://192.168.10.17/curso" usuario="curso"
 		clave="Cursocurso1;">
-		<table border="1" align="center">
-			<tr bg color="#c2c2c2">
-		clave="Cursocurso1;">
-		<table border="1" align="center">
+		<c:set var="fila" value="0" />
+		<table border="1" style="border-aling: center">
 			<tr>
+
 				<td>NOMBRE</td>
 				<td>DNI</td>
 				<td>ESTADO CIVIL</td>
 				<td>CARGO</td>
 				<td>SALARIO</td>
 				<td>FECHA NACIMIENTO</td>
+
 			</tr>
 			<datos:resultado
 				sql="select e.nombre, e.dni, ec.descripcion, c.descripcion, dl.salario,E.FECHA_NACIMIENTO
@@ -76,23 +76,35 @@
 			where e.datos_laborales_id=dl.id and e.datos_personales_id=dp.id and dp.estado_civil_id=ec.id and 
 			dl.cargos_id=c.id">
 
-				<tr bg color="#ffc0cb">
 				<tr>
+
+
+					<c:if test="${fila mod 2 eq 0 }">
+						<tr bgcolor="#c7c7c7">
+					</c:if>
+					<c:if test="${fila mod 2 ne 0 }">
+						<tr bgcolor="#f03687">
+					</c:if>
+
 					<td><datos:valor campo="1" /></td>
+
 					<td><datos:valor campo="2" /></td>
 					<td><datos:valor campo="3" /></td>
 					<td><datos:valor campo="4" /></td>
 					<td><datos:valor campo="5" /></td>
 					<td><datos:valor campo="6" /></td>
 				</tr>
-
 			</datos:resultado>
 		</table>
 	</datos:conexion>
 	<curso:repeticiones texto="NweTime" cantidad="5">
 		<br>
-		<tr><td><curso:texto /></td></tr>
-		<TR><td><curso:texto /></td></TR>
+		<tr>
+			<td><curso:texto /></td>
+		</tr>
+		<TR>
+			<td><curso:texto /></td>
+		</TR>
 	</curso:repeticiones>
 
 </body>
