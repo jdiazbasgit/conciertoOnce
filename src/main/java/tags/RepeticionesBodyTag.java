@@ -8,6 +8,7 @@ import javax.swing.text.DefaultEditorKit.InsertContentAction;
 
 import lombok.Data;
 
+@SuppressWarnings("serial")
 @Data
 public class RepeticionesBodyTag extends BodyTagSupport {
 

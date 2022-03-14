@@ -66,6 +66,7 @@
 				<td>SALARIO</td>
 				<td>FECHA NACIMIENTO</td>
 			</tr>
+			
 			<datos:resultado
 				sql="select e.nombre, e.dni, ec.descripcion, c.descripcion, dl.salario,E.FECHA_NACIMIENTO
 			from empleados as e, datos_laborales as dl,datos_personales as dp, cargos as c, estado_civil as ec 
