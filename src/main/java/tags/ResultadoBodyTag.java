@@ -10,7 +10,7 @@ import javax.servlet.jsp.tagext.BodyTagSupport;
 import lombok.Data;
 
 @Data
-public class ResultadoBodytag extends BodyTagSupport {
+public class ResultadoBodyTag extends BodyTagSupport {
 	
 	/**
 	 * 
@@ -19,7 +19,7 @@ public class ResultadoBodytag extends BodyTagSupport {
 	private String SQL;
 	private ConexionBodyTag papa;
 	
-	public  ResultadoBodytag() {
+	public  ResultadoBodyTag() {
 		setPapa((ConexionBodyTag) getParent());
 	}
 
