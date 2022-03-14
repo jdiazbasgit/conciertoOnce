@@ -3,6 +3,7 @@
 <%@taglib prefix="curso" uri="/WEB-INF/tlds/curso.tld"%>
 <%@taglib prefix="datos" uri="/WEB-INF/tlds/datos.tld"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,25 +24,28 @@
 </style>
 </head>
 <body>
-	<%!int contador = 0;%>
-	
+	<c:set var="contador" value="0" scope="application" />
+	<%!int contador = 0; %>
+
 
 	<h1 class="rojo">
-
-		<%
-		int a = 0;
+		<c:set var="texto1" value="${texto1}" scope="request" />
+		<c:set var="texto2" value="${texto2}" scope="request" />
+		<c:set var="texto" value="${texto1}${texto2}" scope="request" />
+		${texto}
+		<%--
 		String texto1 = request.getParameter("texto1");
 		String texto2 = request.getParameter("texto2");
 		String texto = texto1 + texto2;
 		String salida = "Has escrito " + texto.toUpperCase() + " y tiene " + texto.length() + " letras";
-		%>
-		<%=salida%>
+		--%>
+		<c:out value="Has escrito "/>
+		 ${fn:toUpperCase(texto)}
+		 <c:out value="y tiene"/>
+		 ${fn:length(texto)}
 	</h1>
 	<h1>
-		<%
-		contador++;
-		%>
-		<%="Eres el visitante numero: " + contador%>
+		Eres el visitante numero ${contador}
 	</h1>
 	<h1 style="color: green;">
 		<%
