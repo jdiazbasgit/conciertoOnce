@@ -24,31 +24,40 @@
 </style>
 </head>
 <body>
-	<c:set var="contador" value="0" scope="application" />
-	<%!int contador = 0; %>
+	<c:set var="contador" value="0" scope="page" />
+	<%--!int contador = 0;--%>
 
 
 	<h1 class="rojo">
-		<c:set var="texto1" value="${texto1}" scope="request" />
-		<c:set var="texto2" value="${texto2}" scope="request" />
-		<c:set var="texto" value="${texto1}${texto2}" scope="request" />
-		${texto}
+
+		<c:set var="a" value="0" scope="page" />
+		<c:set var="texto1" value="${param.texto1}" scope="page" />
+		<c:set var="texto2" value="${param.texto2}" scope="page" />
+		<c:set var="texto" value="${texto1}${texto2}" scope="page" />
+		<c:set var="salida"
+			value="Has escrito  ${fn:toUpperCase(texto)} y tiene  ${fn:length(texto)} letras"
+			scope="page" />
+
 		<%--
 		String texto1 = request.getParameter("texto1");
 		String texto2 = request.getParameter("texto2");
 		String texto = texto1 + texto2;
 		String salida = "Has escrito " + texto.toUpperCase() + " y tiene " + texto.length() + " letras";
 		--%>
-		<c:out value="Has escrito "/>
-		 ${fn:toUpperCase(texto)}
-		 <c:out value="y tiene"/>
-		 ${fn:length(texto)}
+
+		<c:out value="${salida}" />
 	</h1>
 	<h1>
-		Eres el visitante numero ${contador}
+		<c:set var="contador" value="${contador+1}" />
+		<%--
+		contador++;
+		--%>
+
+		<c:out value="Eres el visitante numero: ${contador}" />
+		<%--="Eres el visitante numero: " + contador--%>
 	</h1>
 	<h1 style="color: green;">
-		<%
+		<%--
 		if (session.getAttribute("visitas") == null) {
 			session.setAttribute("visitas", 1);
 		} else {
@@ -56,8 +65,20 @@
 			visitas++;
 			session.setAttribute("visitas", visitas);
 		}
-		%>
-		<%="Tu has venido a verme " + session.getAttribute("visitas") + " veces"%>
+		--%>
+
+		<%--="Tu has venido a verme " + session.getAttribute("visitas") + " veces"--%>
+
+		<c:choose>
+			<c:when test="${sessionScope.visitas eq null}">
+				<c:set var="visitas" value="1" scope="session" />
+			</c:when>
+			<c:otherwise>
+				<c:set var="visitas" value="${sessionScope.visitas + 1 }"
+					scope="session" />
+			</c:otherwise>
+		</c:choose>
+		<c:out value="Tu has venido a verme ${sessionScope.visitas} veces"></c:out>
 	</h1>
 	<ul>
 		<curso:repeticiones cantidad="5">
@@ -69,8 +90,7 @@
 
 	<%--192.168.10.17 --%>
 	<datos:conexion driver="com.mysql.jdbc.Driver"
-		cadena="jdbc:mysql://192.168.10.17:3306/curso" usuario="curso"
-		clave="Cursocurso1;">
+		cadena="jdbc:mysql://localhost:3306/curso" usuario="root" clave="1234">
 		<table border="1" align="center">
 
 			<tr>
@@ -97,7 +117,7 @@
 						<tr class="rosa">
 					</c:otherwise>
 				</c:choose>
-
+				<c:set var="fila" value="${fila+1}" />
 				<tr>
 
 					<td><datos:valor campo="1" /></td>
@@ -107,7 +127,7 @@
 					<td><datos:valor campo="5" /></td>
 					<td><datos:valor campo="6" /></td>
 				</tr>
-				<c:set var="fila" value="${fila+1}" />
+
 
 			</datos:resultado>
 
