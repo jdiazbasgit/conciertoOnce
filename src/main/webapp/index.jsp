@@ -12,10 +12,19 @@
 .rojo {
 	color: red;
 }
+
+.gris {
+	background-color: #cacaca
+}
+
+.rosa {
+	background-color: #fabada
+}
 </style>
 </head>
 <body>
 	<%!int contador = 0;%>
+	
 
 	<h1 class="rojo">
 
@@ -54,9 +63,10 @@
 		</curso:repeticiones>
 	</ul>
 
-<%--192.168.10.17 --%>
+	<%--192.168.10.17 --%>
 	<datos:conexion driver="com.mysql.jdbc.Driver"
-		cadena="jdbc:mysql://192.168.10.17:3306/curso" usuario="curso" clave="Cursocurso1;">
+		cadena="jdbc:mysql://192.168.10.17:3306/curso" usuario="curso"
+		clave="Cursocurso1;">
 		<table border="1" align="center">
 
 			<tr>
@@ -67,30 +77,37 @@
 				<td>SALARIO</td>
 				<td>FECHA NACIMIENTO</td>
 			</tr>
+			<c:set var="fila" value="0" />
 			<datos:resultado
 				sql="select e.nombre, e.dni, ec.descripcion, c.descripcion, dl.salario,E.FECHA_NACIMIENTO
 			from empleados as e, datos_laborales as dl,datos_personales as dp, cargos as c, estado_civil as ec 
 			where e.datos_laborales_id=dl.id and e.datos_personales_id=dp.id and dp.estado_civil_id=ec.id and 
 			dl.cargos_id=c.id">
-			<c:forEach items="${nombres}" var="contador">
-				<c:set var="fila" scope="page" value="0" />
-				<c:if test='${ fila mod 2 eq 0}'>
-					<tr bgcolor="ffff00">
-					<td> ${fila}${contador}</td>
-					</tr>
-				
-					<tr>
-					
-						<td id=1><datos:valor campo="1" /></td>
-						<td id=2><datos:valor campo="2" /></td>
-						<td id=3><datos:valor campo="3" /></td>
-						<td id=4><datos:valor campo="4" /></td>
-						<td id=5><datos:valor campo="5" /></td>
-						<td id=6><datos:valor campo="6" /></td>
-					</tr>
-				</c:if>
-				</c:forEach>
+
+
+				<c:choose>
+					<c:when test="${fila mod 2 eq 0}">
+						<tr class="gris">
+					</c:when>
+					<c:otherwise>
+						<tr class="rosa">
+					</c:otherwise>
+				</c:choose>
+
+				<tr>
+
+					<td><datos:valor campo="1" /></td>
+					<td><datos:valor campo="2" /></td>
+					<td><datos:valor campo="3" /></td>
+					<td><datos:valor campo="4" /></td>
+					<td><datos:valor campo="5" /></td>
+					<td><datos:valor campo="6" /></td>
+				</tr>
+				<c:set var="fila" value="${fila+1}" />
+
 			</datos:resultado>
+
+
 		</table>
 
 	</datos:conexion>
