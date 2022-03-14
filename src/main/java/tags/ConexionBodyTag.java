@@ -10,6 +10,7 @@ import javax.servlet.jsp.tagext.BodyTagSupport;
 
 import lombok.Data;
 
+@SuppressWarnings("serial")
 @Data
 public class ConexionBodyTag extends BodyTagSupport {
 
