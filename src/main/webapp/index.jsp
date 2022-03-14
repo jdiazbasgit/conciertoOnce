@@ -82,7 +82,7 @@
 						<td><datos:valor campo="5" /></td>
 						<td><datos:valor campo="6" /></td>
 					</tr>
-			<c:set>filas++</c:set>		
+					<c:set var="filas" value="${filas + 1} }" />
 				</c:if>
 			</datos:resultado>
 		</table>
