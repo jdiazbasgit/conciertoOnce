@@ -56,8 +56,8 @@
 
 
 	<datos:conexion driver="com.mysql.jdbc.Driver"
-		cadena="jdbc:mysql://localhost:3306/curso" usuario="root"
-		clave="">
+		cadena="jdbc:mysql://localhost:3306/curso" usuario="curso"
+		clave="Cursocurso1;">
 		<table border="1" align="center">
 			<tr>
 				<td>NOMBRE</td>
