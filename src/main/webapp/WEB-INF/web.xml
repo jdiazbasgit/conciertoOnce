@@ -6,7 +6,6 @@
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
   <servlet>
-    <description></description>
     <display-name>PrimerServlet</display-name>
     <servlet-name>PrimerServlet</servlet-name>
     <servlet-class>servlets.PrimerServlet</servlet-class>
@@ -16,7 +15,6 @@
     <url-pattern>/PrimerServlet</url-pattern>
   </servlet-mapping>
   <servlet>
-    <description></description>
     <display-name>S1</display-name>
     <servlet-name>S1</servlet-name>
     <servlet-class>servlets.S1</servlet-class>
@@ -26,7 +24,6 @@
     <url-pattern>/S1</url-pattern>
   </servlet-mapping>
   <servlet>
-    <description></description>
     <display-name>S2</display-name>
     <servlet-name>S2</servlet-name>
     <servlet-class>servlets.S2</servlet-class>
@@ -36,7 +33,6 @@
     <url-pattern>/S2</url-pattern>
   </servlet-mapping>
   <servlet>
-    <description></description>
     <display-name>ServletEL</display-name>
     <servlet-name>ServletEL</servlet-name>
     <servlet-class>servlets.ServletEL</servlet-class>
