@@ -28,36 +28,4 @@
 			<type>String</type>
 		</attribute>
 	</tag>
-	<tag>
-		<name>resultado</name>
-		<tag-class>tags.ResultadoBodyTag</tag-class>
-		<attribute>
-			<name>sql</name>
-			<required>true</required>
-			<type>String</type>
-		</attribute>
-		
-	</tag>
-	<tag>
-		<name>valor</name>
-		<tag-class>tags.ValorTag</tag-class>
-		<attribute>
-			<name>campo</name>
-			<required>true</required>
-			<type>int</type>
-		</attribute>
-		
-	</tag>
 </taglib>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
