@@ -6,10 +6,10 @@
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
   <servlet>
-    <description></description>
+  <description></description>
     <display-name>PrimerServlet</display-name>
     <servlet-name>PrimerServlet</servlet-name>
-    <servlet-class>servlets.PrimerServlet</servlet-class>
+    <servlet-class>servlets.PrimerServletmio</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>PrimerServlet</servlet-name>
