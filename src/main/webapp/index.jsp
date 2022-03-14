@@ -2,7 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 <%@taglib prefix="curso" uri="/WEB-INF/tlds/curso.tld"%>
 <%@taglib prefix="datos" uri="/WEB-INF/tlds/datos.tld"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,31 +15,30 @@
 </style>
 </head>
 <body>
-	<%!int contador = 0;%>
+	<c:set var="contador" value="0"/>
 
 	<h1 class="rojo">
 
-		<%
-		int a = 0;
-		String texto1 = request.getParameter("texto1");
-		String texto2 = request.getParameter("texto2");
-		String texto = texto1 + texto2;
-		String salida = "Has escrito " + texto.toUpperCase() + " y tiene " + texto.length() + " letras";
-		%>
-		<%=salida%>
+		<c:set var="a" value="0" />
+	<c:set var="texto1" value="${texto1}"/>
+		<c:set var="texto2" value="${texto2}"/>
+		<c:set var="texto" value="${texto1+texto2}"/>
+	Hola Has escrito ${texto.toUpperCase()} y tiene ${texto.length()} letras
+	
+
 	</h1>
 	<h1>
-		<%
-		contador++;
-		%>
-		<%="Eres el visitante numero: " + contador%>
+	<c:set var="contador" value="${contador+1}" />
+	 Eres el visitante numero:${contador}
 	</h1>
 	<h1 style="color: green;">
-		<%
-		if (session.getAttribute("visitas") == null) {
-			session.setAttribute("visitas", 1);
-		} else {
-			int visitas = (int) session.getAttribute("visitas");
+	<c:set var="visitas" value="0" scope="session"/>
+		<c:choose>
+		<c:when test="${ visitas"== 0}" scope="session"/> {
+			<c:set var="visitas" value="${visitas+1 }"/>
+			
+		<c:otherwise> 
+		int visitas = (int) session.getAttribute("visitas");
 			visitas++;
 			session.setAttribute("visitas", visitas);
 		}
@@ -54,7 +53,7 @@
 		</curso:repeticiones>
 	</ul>
 
-
+</c:choose>
 	<datos:conexion driver="com.mysql.jdbc.Driver"
 		cadena="jdbc:mysql://192.168.10.17:3306/curso" usuario="curso"
 		clave="Cursocurso1;">

@@ -29,7 +29,8 @@
 			</c:choose>
 			<td>${nombre }</td>
 			</tr>
-			<c:set var="fila" value="${fila+1 }" />
+			<c:set var="fila" value="${fila+1
+			}" />
 		</c:forEach>
 	</table>
 </body>
