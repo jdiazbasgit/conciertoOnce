@@ -76,7 +76,7 @@
 			where e.datos_laborales_id=dl.id and e.datos_personales_id=dp.id and dp.estado_civil_id=ec.id and 
 			dl.cargos_id=c.id">
 
-			
+
 			</datos:resultado>
 		</table>
 	</datos:conexion>

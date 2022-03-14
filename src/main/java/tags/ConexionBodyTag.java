@@ -33,14 +33,13 @@ public class ConexionBodyTag extends BodyTagSupport {
 	@Override
 	public int doEndTag() throws JspException {
 		try {
-			
+
 			getBodyContent().writeOut(getPreviousOut());
 			return EVAL_PAGE;
 		} catch (Exception e) {
 			e.printStackTrace();
 			return SKIP_PAGE;
-		}
-		finally {
+		} finally {
 			try {
 				getConexion().close();
 			} catch (SQLException e) {

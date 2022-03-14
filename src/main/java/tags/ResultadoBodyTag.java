@@ -18,7 +18,6 @@ public class ResultadoBodyTag extends BodyTagSupport {
 
 	public ResultadoBodyTag() {
 
-		
 	}
 
 	@Override

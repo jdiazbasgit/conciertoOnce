@@ -17,16 +17,16 @@
 			<td>NOMBRE</td>
 		</tr>
 		<c:forEach items="${nombres}" var="nombre">
-		<c:choose>
-			<c:when test="${fila mod 2 eq 0 }">
-				<tr bgcolor="#c7c7c7">
-			</c:when>
-			
-			<c:otherwise>
-				<tr bgcolor="#f03687">
-			</c:otherwise>
+			<c:choose>
+				<c:when test="${fila mod 2 eq 0 }">
+					<tr bgcolor="#c7c7c7">
+				</c:when>
 
-</c:choose>
+				<c:otherwise>
+					<tr bgcolor="#f03687">
+				</c:otherwise>
+
+			</c:choose>
 			<td>${nombre }</td>
 			</tr>
 			<c:set var="fila" value="${fila+1 }" />

@@ -36,7 +36,7 @@
 			<required>true</required>
 			<type>String</type>
 		</attribute>
-		
+
 	</tag>
 	<tag>
 		<name>valor</name>
@@ -46,7 +46,7 @@
 			<required>true</required>
 			<type>int</type>
 		</attribute>
-		
+
 	</tag>
 </taglib>
   
