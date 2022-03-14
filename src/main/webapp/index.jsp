@@ -56,7 +56,7 @@
 
 
 	<datos:conexion driver="com.mysql.jdbc.Driver"
-		cadena="jdbc:mysql://192.168.10.17/curso" usuario="curso"
+		cadena="jdbc:mysql://192.168.10.17:3306/curso" usuario="curso"
 		clave="Cursocurso1;">
 		<c:set var="fila" value="0" />
 		<table border="1" style="border-aling: center">
