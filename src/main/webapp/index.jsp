@@ -76,24 +76,7 @@
 			where e.datos_laborales_id=dl.id and e.datos_personales_id=dp.id and dp.estado_civil_id=ec.id and 
 			dl.cargos_id=c.id">
 
-				<tr>
-
-
-					<c:if test="${fila mod 2 eq 0 }">
-						<tr bgcolor="#c7c7c7">
-					</c:if>
-					<c:if test="${fila mod 2 ne 0 }">
-						<tr bgcolor="#f03687">
-					</c:if>
-
-					<td><datos:valor campo="1" /></td>
-
-					<td><datos:valor campo="2" /></td>
-					<td><datos:valor campo="3" /></td>
-					<td><datos:valor campo="4" /></td>
-					<td><datos:valor campo="5" /></td>
-					<td><datos:valor campo="6" /></td>
-				</tr>
+			
 			</datos:resultado>
 		</table>
 	</datos:conexion>
