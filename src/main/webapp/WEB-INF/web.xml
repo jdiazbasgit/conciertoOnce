@@ -35,4 +35,14 @@
     <servlet-name>S2</servlet-name>
     <url-pattern>/S2</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ServletEL</display-name>
+    <servlet-name>ServletEL</servlet-name>
+    <servlet-class>servlets.ServletEL</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletEL</servlet-name>
+    <url-pattern>/ServletEL</url-pattern>
+  </servlet-mapping>
 </web-app>

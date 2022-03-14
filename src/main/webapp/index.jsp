@@ -56,10 +56,13 @@
 
 
 	<datos:conexion driver="com.mysql.jdbc.Driver"
-		cadena="jdbc:mysql://localhost:3306/curso" usuario="curso"
-		clave="1234">
+		cadena="jdbc:mysql://192.168.10.17/curso" usuario="curso"
+		clave="Cursocurso1;">
 		<table border="1" align="center">
 			<tr bg color="#c2c2c2">
+		clave="Cursocurso1;">
+		<table border="1" align="center">
+			<tr>
 				<td>NOMBRE</td>
 				<td>DNI</td>
 				<td>ESTADO CIVIL</td>
@@ -74,6 +77,7 @@
 			dl.cargos_id=c.id">
 
 				<tr bg color="#ffc0cb">
+				<tr>
 					<td><datos:valor campo="1" /></td>
 					<td><datos:valor campo="2" /></td>
 					<td><datos:valor campo="3" /></td>
@@ -88,6 +92,7 @@
 	<curso:repeticiones texto="NweTime" cantidad="5">
 		<br>
 		<tr><td><curso:texto /></td></tr>
+		<TR><td><curso:texto /></td></TR>
 	</curso:repeticiones>
 
 </body>
