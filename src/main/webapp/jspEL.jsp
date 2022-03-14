@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
+    pageEncoding="ISO-8859-1"%>
+    <%@taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,17 +9,17 @@
 </head>
 <body>
 
-	${nombres }
-	<br>
+	${nombres} <br>
 	<table border="1">
+	<tr>
+		<td>NOMBRE</td>
+	</tr>
+	<c:forEach items="${nombres}" var="nombre">
 		<tr>
-			<td>NOMBRE</td>
-		</tr>
-		<c:forEach items="${nombres}" var="nombre">
-			<tr>
-				<td>${nombre }</td>
-			</tr>
-		</c:forEach>
+		<td>"nombre"</td>
+	</tr>
+	</c:forEach>
 	</table>
+
 </body>
 </html>
