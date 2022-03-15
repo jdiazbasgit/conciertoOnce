@@ -11,14 +11,24 @@
 
 	${nombres }
 	<br>
+	<c:set var="fila" value="0" />
 	<table border="1">
 		<tr>
 			<td>NOMBRE</td>
 		</tr>
 		<c:forEach items="${nombres}" var="nombre">
-			<tr>
-				<td>${nombre }</td>
+			<c:choose>
+				<c:when test="${fila mod 2 eq 0 }">
+					<tr bgcolor="#c7c7c7">
+				</c:when>
+				<c:otherwise>
+					<tr bgcolor="#ff0000">
+				</c:otherwise>
+			</c:choose>
+			<td>${nombre }</td>
 			</tr>
+			<c:set var="fila" value="${fila+1}"/>
+
 		</c:forEach>
 	</table>
 </body>
