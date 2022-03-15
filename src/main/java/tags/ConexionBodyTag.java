@@ -21,7 +21,7 @@ public class ConexionBodyTag extends BodyTagSupport {
 		try {
 			Class.forName(getDriver());
 			setConexion(DriverManager.getConnection(getCadena(), getUsuario(), getClave()));
-
+ 
 		} catch (Exception e) {
 			e.printStackTrace();
 			return SKIP_PAGE;

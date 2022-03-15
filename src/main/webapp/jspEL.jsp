@@ -6,6 +6,15 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<style type="text/css">
+.gris {
+	background-color: #cacaca
+}
+
+.rosa {
+	background-color: #fabada
+}
+</style>
 </head>
 <body>
 
@@ -15,11 +24,31 @@
 		<tr>
 			<td>NOMBRE</td>
 		</tr>
+		<c:set var="fila" value="0" />
 		<c:forEach items="${nombres}" var="nombre">
-			<tr>
-				<td>${nombre }</td>
+			<c:choose>
+				<c:when test="${fila mod 2 eq 0}">
+					<tr class="gris">
+				</c:when>
+				<c:otherwise>
+					<tr class="rosa">
+				</c:otherwise>
+			</c:choose>
+			<td>${nombre }</td>
 			</tr>
+			<c:set var="fila" value="${fila+1}" />
 		</c:forEach>
 	</table>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
