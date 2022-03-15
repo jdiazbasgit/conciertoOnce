@@ -1,5 +1,4 @@
 package concierto.beans;
-
 public class InstrumentoBean {
 	
 
