@@ -87,7 +87,7 @@
 	</datos:conexion>
 	<curso:repeticiones texto="NweTime" cantidad="5">
 		<br>
-		<TR><td><curso:texto /></td></TR>
+		<tr><td><curso:texto /></td></tr>
 	</curso:repeticiones>
 
 </body>
