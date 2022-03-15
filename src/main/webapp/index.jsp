@@ -24,16 +24,14 @@
 </style>
 </head>
 <body>
-	<c:set var="contador" value="0" scope="page" />
+	<c:set var="contador" value="1" scope="page" />
 	<%--!int contador = 0;--%>
 
 
 	<h1 class="rojo">
-
-		<c:set var="a" value="0" scope="page" />
-		<c:set var="texto1" value="${param.texto1}" scope="page" />
-		<c:set var="texto2" value="${param.texto2}" scope="page" />
-		<c:set var="texto" value="${texto1}${texto2}" scope="page" />
+		<c:set var="texto1" value="${param.texto1}" scope="request" />
+		<c:set var="texto2" value="${param.texto2}" scope="request" />
+		<c:set var="texto" value="${texto1}${texto2}" scope="request" />
 		<c:set var="salida"
 			value="Has escrito  ${fn:toUpperCase(texto)} y tiene  ${fn:length(texto)} letras"
 			scope="page" />
@@ -48,12 +46,23 @@
 		<c:out value="${salida}" />
 	</h1>
 	<h1>
-		<c:set var="contador" value="${contador+1}" />
+	<c:choose>
+			<c:when test="${applicationScope.contador eq null}">
+				<c:set var="contador" value="1" scope="application" />
+			</c:when>
+			<c:otherwise>
+				<c:set var="contador" value="${applicationScope.contador + 1 }"
+					scope="application" />
+			</c:otherwise>
+		</c:choose>
+		<c:out value="Eres el visitante numero: ${applicationScope.contador}"></c:out>
+	
+		<%-- <c:set var="contador" value="${pageScope.contador+1}" scope="page"/>--%>
 		<%--
 		contador++;
 		--%>
 
-		<c:out value="Eres el visitante numero: ${contador}" />
+		<%--<c:out value="Eres el visitante numero: ${pageScope.contador}"/>
 		<%--="Eres el visitante numero: " + contador--%>
 	</h1>
 	<h1 style="color: green;">
@@ -88,11 +97,10 @@
 		</curso:repeticiones>
 	</ul>
 
-	<%--192.168.10.17 --%>
+	<%--192.168.10.20 --%>
 	<datos:conexion driver="com.mysql.jdbc.Driver"
-		cadena="jdbc:mysql://localhost:3306/curso" usuario="root" clave="1234">
+		cadena="jdbc:mysql://192.168.10.20:3306/curso" usuario="curso" clave="Cursocurso1;">
 		<table border="1" align="center">
-
 			<tr>
 				<td>NOMBRE</td>
 				<td>DNI</td>
@@ -119,7 +127,6 @@
 				</c:choose>
 				<c:set var="fila" value="${fila+1}" />
 				<tr>
-
 					<td><datos:valor campo="1" /></td>
 					<td><datos:valor campo="2" /></td>
 					<td><datos:valor campo="3" /></td>
@@ -127,18 +134,9 @@
 					<td><datos:valor campo="5" /></td>
 					<td><datos:valor campo="6" /></td>
 				</tr>
-
-
 			</datos:resultado>
-
-
 		</table>
-
 	</datos:conexion>
-	<%-- <curso:repeticiones texto="NweTime" cantidad="5">
-		<br>
-		<TR><td><curso:texto /></td></TR>
-	</curso:repeticiones>--%>
 
 </body>
 </html>
