@@ -2,15 +2,19 @@
 	pageEncoding="ISO-8859-1"%>
 <%@taglib prefix="curso" uri="/WEB-INF/tlds/curso.tld"%>
 <%@taglib prefix="datos" uri="/WEB-INF/tlds/datos.tld"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 <style type="text/css">
-.rojo {
-	color: red;
+
+.gris  {
+	background-color: gray;
+}
+.rosa {
+	background-color: #fabada
 }
 </style>
 </head>
@@ -56,9 +60,9 @@
 
 
 	<datos:conexion driver="com.mysql.jdbc.Driver"
-		cadena="jdbc:mysql://localhost:3306/curso" usuario="curso"
+		cadena="jdbc:mysql://192.168.10.17:3306/curso" usuario="curso"
 		clave="Cursocurso1;">
-		<table border="1" align="center">
+		<table border="1">
 			<tr>
 				<td>NOMBRE</td>
 				<td>DNI</td>
@@ -67,27 +71,41 @@
 				<td>SALARIO</td>
 				<td>FECHA NACIMIENTO</td>
 			</tr>
+			<c:set var="fila" value="0"/>
 			<datos:resultado
 				sql="select e.nombre, e.dni, ec.descripcion, c.descripcion, dl.salario,E.FECHA_NACIMIENTO
 			from empleados as e, datos_laborales as dl,datos_personales as dp, cargos as c, estado_civil as ec 
 			where e.datos_laborales_id=dl.id and e.datos_personales_id=dp.id and dp.estado_civil_id=ec.id and 
 			dl.cargos_id=c.id">
 
-				<tr>
-					<td><datos:valor campo="1" /></td>
-					<td><datos:valor campo="2" /></td>
-					<td><datos:valor campo="3" /></td>
-					<td><datos:valor campo="4" /></td>
-					<td><datos:valor campo="5" /></td>
-					<td><datos:valor campo="6" /></td>
-				</tr>
+				
+				<c:choose>
+					<c:when test="${fila mod 2 eq 0 }">
+						<tr class="gris">
+					</c:when>
+					<c:otherwise>
+						<tr class="rosa">
+					</c:otherwise>
+				</c:choose>
+				
 
+
+				<td><datos:valor campo="1" /></td>
+				<td><datos:valor campo="2" /></td>
+				<td><datos:valor campo="3" /></td>
+				<td><datos:valor campo="4" /></td>
+				<td><datos:valor campo="5" /></td>
+				<td><datos:valor campo="6" /></td>
+				</tr>
+<c:set var="fila" value="${fila+1 }"/>
 			</datos:resultado>
 		</table>
 	</datos:conexion>
 	<curso:repeticiones texto="NweTime" cantidad="5">
 		<br>
-		<TR><td><curso:texto /></td></TR>
+		<TR>
+			<td><curso:texto /></td>
+		</TR>
 	</curso:repeticiones>
 
 </body>

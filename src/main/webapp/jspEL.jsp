@@ -16,6 +16,7 @@
 			<td>NOMBRE</td>
 		</tr>
 		<c:forEach items="${nombres}" var="nombre">
+		
 			<tr>
 				<td>${nombre }</td>
 			</tr>

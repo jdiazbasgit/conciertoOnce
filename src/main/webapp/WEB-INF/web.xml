@@ -45,4 +45,16 @@
     <servlet-name>ServletEL</servlet-name>
     <url-pattern>/ServletEL</url-pattern>
   </servlet-mapping>
+  <filter>
+    <display-name>mifiltro</display-name>
+    <filter-name>mifiltro</filter-name>
+    <filter-class>filtros.MiFiltro</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>mifiltro</filter-name>
+    <url-pattern>/index.jsp</url-pattern>
+  </filter-mapping>
+  <listener>
+    <listener-class>listeners.Milistener</listener-class>
+  </listener>
 </web-app>
