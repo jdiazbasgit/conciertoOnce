@@ -2,37 +2,53 @@
 	pageEncoding="ISO-8859-1"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
 <meta charset="ISO-8859-1">
-<title>jstl</title>
-<style>
-	table, th, td{ 
-		border: 1px solid black;
-	}
-	table {
-		margin-left: auto;
-  		margin-right: auto;
-	}	
-	table tr:nth-child(even) td {
-		background-color: #4C8BF5;
-		color: #fff;
-	}
+<title>Insert title here</title>
+<style type="text/css">
+.gris {
+	background-color: #cacaca
+}
+
+.rosa {
+	background-color: #fabada
+}
 </style>
 </head>
 <body>
+
 	${nombres }
 	<br>
-	<table>
-	<caption>Nombres de Persona</caption>
+	<table border="1">
 		<tr>
-			<th>NOMBRE</th>
+			<td>NOMBRE</td>
 		</tr>
+		<c:set var="fila" value="0" />
 		<c:forEach items="${nombres}" var="nombre">
-			<tr>
-				<td>${nombre }</td>
+			<c:choose>
+				<c:when test="${fila mod 2 eq 0}">
+					<tr class="gris">
+				</c:when>
+				<c:otherwise>
+					<tr class="rosa">
+				</c:otherwise>
+			</c:choose>
+			<td>${nombre }</td>
 			</tr>
+			<c:set var="fila" value="${fila+1}" />
 		</c:forEach>
 	</table>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+

@@ -4,21 +4,22 @@ import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.BodyTagSupport;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-@Getter
-@Setter
-@NoArgsConstructor
+import lombok.Data;
+
+@Data
 public class ResultadoBodyTag extends BodyTagSupport {
-
-	private static final long serialVersionUID = 1L;
 	private String sql;
 	private ConexionBodyTag papa;
-	private transient ResultSet resultSet;
+	private ResultSet resultSet;
+
+	public ResultadoBodyTag() {
+
+		
+	}
 
 	@Override
 	public int doStartTag() throws JspException {
@@ -35,6 +36,7 @@ public class ResultadoBodyTag extends BodyTagSupport {
 			try {
 				getPapa().getConexion().close();
 			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 			return SKIP_PAGE;
@@ -52,6 +54,7 @@ public class ResultadoBodyTag extends BodyTagSupport {
 			try {
 				getPapa().getConexion().close();
 			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 			return SKIP_PAGE;

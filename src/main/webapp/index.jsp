@@ -2,95 +2,98 @@
 	pageEncoding="ISO-8859-1"%>
 <%@taglib prefix="curso" uri="/WEB-INF/tlds/curso.tld"%>
 <%@taglib prefix="datos" uri="/WEB-INF/tlds/datos.tld"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
 <meta charset="ISO-8859-1">
-<title>primerWeb</title>
+<title>Insert title here</title>
 <style type="text/css">
-.rojo {
-	color: red;
+.gris {
+	background-color: #ff0000;
 }
-table, th, td{ 
-	border: 1px solid black;
-}
-table{ 
-	margin-left: auto;
-	margin-right: auto;
+
+.rosa {
+	background-color: #fabada;
 }
 </style>
 </head>
 <body>
-	<%!int contador = 0;%>
-
-	<h1 class="rojo">
-		<%
-		int a = 0;
-		String texto1 = request.getParameter("texto1");
-		String texto2 = request.getParameter("texto2");
-		String texto = texto1 + texto2;
-		String salida = "Has escrito " + texto.toUpperCase() + " y tiene " + texto.length() + " letras";
-		%>
-		<%=salida%>
+	<c:if test="${applicationScope.contador eq null }">
+		<c:set var="contador" value="0" scope="application" />
+	</c:if>
+	<c:set var="texto1" value="${requestScope.texto1}" />
+	<c:set var="texto2" value="${requestScope.texto2}" />
+	<c:set var="texto" value="${texto1+texto2}" />
+	<c:set var="salida"
+		value="Has escrito ${texto}  y tiene ${texto} letras" />
+	${salida }
 	</h1>
 	<h1>
-		<%
-		contador++;
-		%>
-		<%="Eres el visitante numero: " + contador%>
+		<c:set var="contador" value="${contador+1}" scope="application" />
+		Eres el visitante numero: ${contador}
 	</h1>
 	<h1 style="color: green;">
-		<%
-		if (session.getAttribute("visitas") == null) {
-			session.setAttribute("visitas", 1);
-		} else {
-			int visitas = (int) session.getAttribute("visitas");
-			visitas++;
-			session.setAttribute("visitas", visitas);
-		}
-		%>
-		<%="Tu has venido a verme " + session.getAttribute("visitas") + " veces"%>
+
+		<c:choose>
+			<c:when test="${sessionScope.visitas eq null}">
+				<c:set var="visitas" value="1" scope="session" />
+			</c:when>
+			<c:otherwise>
+				<c:set var="visitas" value="${visitas+1}" scope="session" />
+			</c:otherwise>
+		</c:choose>
+		<c:if test="${sessionScope.visitas eq null}">
+
+		</c:if>
+
+		Tu has venido a verme ${sessionScope.visitas} veces
 	</h1>
+	
+	<c:forEach begin="0" end="1000000">
+	
+	</c:forEach>
 	<ul>
-		<curso:repeticiones texto="Esto es un texto" cantidad="5">
+		<curso:repeticiones cantidad="5">
 
 			<li style="color: red;"><curso:texto /></li>
 
 		</curso:repeticiones>
 	</ul>
 
-	<table>
-	<caption>Listado empresas de la base datos curso</caption>
-		<curso:tabla />
-	</table>
-	
 
-<%-- 	
 	<datos:conexion driver="com.mysql.jdbc.Driver"
-		cadena="jdbc:mysql://localhost:3306/curso" usuario="curso"
+		cadena="jdbc:mysql://192.168.10.20:3306/curso" usuario="curso"
 		clave="Cursocurso1;">
---%>
-	<datos:conexion driver="com.mysql.jdbc.Driver"
-		cadena="jdbc:mysql://localhost:3306/curso" usuario="root"
-		clave="1234">
-		<table>
-		<caption>Listado empleados de la base datos curso</caption>
+		<table border="1" align="center">
 			<tr>
-				<th>NOMBRE</th>
-				<th>DNI</th>
-				<th>ESTADO CIVIL</th>
-				<th>CARGO</th>
-				<th>SALARIO</th>
-				<th>FECHA NACIMIENTO</th>
+				<td>NOMBRE</td>
+				<td>DNI</td>
+				<td>ESTADO CIVIL</td>
+				<td>CARGO</td>
+				<td>SALARIO</td>
+				<td>FECHA NACIMIENTO</td>
 			</tr>
+			<%
+			int fila = 0;
+			%>
 			<datos:resultado
 				sql="select e.nombre, e.dni, ec.descripcion, c.descripcion, dl.salario,E.FECHA_NACIMIENTO
 			from empleados as e, datos_laborales as dl,datos_personales as dp, cargos as c, estado_civil as ec 
 			where e.datos_laborales_id=dl.id and e.datos_personales_id=dp.id and dp.estado_civil_id=ec.id and 
 			dl.cargos_id=c.id">
-
-				<tr>
+				<%
+				if (fila % 2 == 0) {
+				%>
+				<tr class="gris">
+					<%
+					} else {
+					%>
+				
+				<tr class="rosa">
+					<%
+					}
+					%>
 					<td><datos:valor campo="1" /></td>
 					<td><datos:valor campo="2" /></td>
 					<td><datos:valor campo="3" /></td>
@@ -99,10 +102,28 @@ table{
 					<td><datos:valor campo="6" /></td>
 				</tr>
 
+				<%
+				fila++;
+				%>
 			</datos:resultado>
 		</table>
 	</datos:conexion>
+	<curso:repeticiones texto="NweTime" cantidad="5">
+		<br>
+		<TR>
+			<td><curso:texto /></td>
+		</TR>
+	</curso:repeticiones>
+
 </body>
 </html>
+
+
+
+
+
+
+
+
 
 

@@ -1,24 +1,28 @@
 package tags;
 
 import java.io.IOException;
+
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.BodyTagSupport;
+import javax.swing.text.DefaultEditorKit.InsertContentAction;
+
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 
 @Data
-@EqualsAndHashCode(callSuper=false)
 public class RepeticionesBodyTag extends BodyTagSupport {
-	private static final long serialVersionUID = 1L;
+
 	private int cantidad;
 	private String texto;
 	private int contador;
 
 	@Override
 	public int doStartTag() throws JspException {
+
 		setContador(0);
+		//System.out.println(getTexto().length());
 		if(getTexto()==null)
 			setTexto("no has escrito nada");
+
 		return EVAL_BODY_BUFFERED;
 	}
 
@@ -29,6 +33,7 @@ public class RepeticionesBodyTag extends BodyTagSupport {
 			return EVAL_BODY_AGAIN;
 		}
 		return SKIP_BODY;
+
 	}
 
 	@Override
@@ -41,4 +46,5 @@ public class RepeticionesBodyTag extends BodyTagSupport {
 			return SKIP_PAGE;
 		}
 	}
+
 }

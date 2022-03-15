@@ -5,20 +5,16 @@
 	<jsp-version>1.2</jsp-version>
 	<short-name>curso</short-name>
 	<tag>
-		<name>tabla</name>
-		<tag-class>tags.TablaTag</tag-class>		
-		<body-content>empty</body-content>
-	</tag>
-	<tag>
 		<name>texto</name>
-		<tag-class>tags.TextoTag</tag-class>		
+		<tag-class>tags.TextoTag</tag-class>
+		
 	</tag>
 	<tag>
 		<name>repeticiones</name>
 		<tag-class>tags.RepeticionesBodyTag</tag-class>
 		<attribute>
 			<name>texto</name>
-			<required>true</required>
+			<required>false</required>
 			<type>String</type>
 		</attribute>
 		<attribute>

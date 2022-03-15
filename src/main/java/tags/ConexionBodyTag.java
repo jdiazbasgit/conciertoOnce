@@ -3,16 +3,16 @@ package tags;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.Iterator;
+
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.BodyTagSupport;
+
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 
 @Data
-@EqualsAndHashCode(callSuper=false)
 public class ConexionBodyTag extends BodyTagSupport {
-	private static final long serialVersionUID = 1L;
-	
+
 	private String driver, cadena, usuario, clave;
 	private Connection conexion;
 
@@ -21,7 +21,7 @@ public class ConexionBodyTag extends BodyTagSupport {
 		try {
 			Class.forName(getDriver());
 			setConexion(DriverManager.getConnection(getCadena(), getUsuario(), getClave()));
-
+ 
 		} catch (Exception e) {
 			e.printStackTrace();
 			return SKIP_PAGE;
@@ -44,6 +44,7 @@ public class ConexionBodyTag extends BodyTagSupport {
 			try {
 				getConexion().close();
 			} catch (SQLException e) {
+				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
