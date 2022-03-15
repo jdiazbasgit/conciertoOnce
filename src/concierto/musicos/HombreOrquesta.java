@@ -1,5 +1,4 @@
 package concierto.musicos;
-
 import concierto.excepciones.SinSonidoException;
 import concierto.instrumentos.Instrumento;
 import concierto.instrumentos.InstrumentoInterface;
