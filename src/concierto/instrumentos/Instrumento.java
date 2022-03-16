@@ -16,7 +16,9 @@ public class Instrumento implements InstrumentoInterface {
 		this.instrumentoBean = instrumentoBean;
 	}
 
-	
+	public Instrumento() {
+		
+	}
 
 	/**
 	 * metodo que devuelve el sonido del instrumento

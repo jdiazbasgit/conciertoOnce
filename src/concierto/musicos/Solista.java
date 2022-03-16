@@ -13,5 +13,9 @@ public class Solista extends Musico {
 	public void tocar() throws SinSonidoException {
 		System.out.println(getInstrumentoInterface().sonar());
 	}
+	
+	public Solista() {
+		// TODO Auto-generated constructor stub
+	}
 
 }
