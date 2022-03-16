@@ -5,6 +5,9 @@ import concierto.instrumentos.InstrumentoInterface;
 public class MusicoMar implements MusicoInterface {
 
 	private InstrumentoInterface instrumentoInterface;
+	
+	public MusicoMar() {
+	}
 
 	public MusicoMar(InstrumentoInterface instrumentoInterface) {
 		super();

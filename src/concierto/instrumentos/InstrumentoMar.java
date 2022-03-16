@@ -3,6 +3,10 @@ package concierto.instrumentos;
 public class InstrumentoMar implements InstrumentoInterface{
 
 	private String sonido;
+	
+	public InstrumentoMar() {
+		super();
+	}
 
 	public InstrumentoMar(String sonido) {
 		super();
