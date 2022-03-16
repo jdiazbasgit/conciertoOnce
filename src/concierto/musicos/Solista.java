@@ -9,6 +9,10 @@ public class Solista extends Musico {
 		super(instrumento);
 
 	}
+	
+	public Solista() {
+		// TODO Auto-generated constructor stub
+	}
 
 	@Override
 	public void tocar()  throws SinSonidoException {

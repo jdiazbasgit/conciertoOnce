@@ -6,6 +6,9 @@ import concierto.instrumentos.Instrumento;
 public abstract class Musico implements MusicoInterface {
 
 	private Instrumento[] instrumentos;
+	
+	public Musico() {
+	}
 
 	public Musico(Instrumento[] instrumentos) {
 		super();
@@ -17,7 +20,7 @@ public abstract class Musico implements MusicoInterface {
 		this.instrumento = instrumento;
 	}
 
-	protected Instrumento instrumento;
+	public Instrumento instrumento;
 
 	public abstract void tocar() throws SinSonidoException;
 

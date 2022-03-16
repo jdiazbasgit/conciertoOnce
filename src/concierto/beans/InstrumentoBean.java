@@ -9,6 +9,10 @@ public class InstrumentoBean {
 		this.sonido = sonido;
 
 	}
+	
+	public InstrumentoBean() {
+		// TODO Auto-generated constructor stub
+	}
 
 	public String getSonido() {
 		return sonido;
