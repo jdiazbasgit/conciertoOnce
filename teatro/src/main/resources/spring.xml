@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+     
+    
+
+	<bean id="instrumetobean"
+		class="main.java.concierto.beans.InstrumentoBean">
+		<constructor-arg value="pom pom pom"></constructor-arg>
+	</bean>
+
+	
+	<bean id="solista" class="main.java.concierto.musicos.Solista">
+		<constructor-arg ref="instrumento"></constructor-arg>
+	</bean>
+	<bean id="instrumento"
+		class="main.java.concierto.instrumentos.Instrumento">
+		<constructor-arg ref="instrumentobean"></constructor-arg>
+	</bean>
+</beans>
