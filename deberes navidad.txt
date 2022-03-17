@@ -1,6 +1,0 @@
-En la aplicacion del concierto hacer una simulacion de un hombre orquesta que toque 10 instrumentos, hacerlo de dos formas
-sin programación funcional y con programación funcional,
-
-Por ootro lado en la rama banco/profe teneis iniciada una aplicacion que genera un menu de opciones en la consola para un banco
-hay una opcion, de ingresar, otra de cobrar y otra de visualizar saldo. os dejo hecha la parte del menu, debeis ver que clase necesitais con que propiedades
-y hacer ingresos y cobros e ir actualizando el saldo con dichas operaciones.
