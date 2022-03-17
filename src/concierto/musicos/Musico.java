@@ -21,6 +21,10 @@ public abstract  class Musico implements MusicoInterface {
 		super();
 		this.setInstrumentosInterface(instrumentosInterface);
 	}
+	
+	public Musico() {
+		// TODO Auto-generated constructor stub
+	}
 
 	public abstract  void tocar() throws SinSonidoException ;
 

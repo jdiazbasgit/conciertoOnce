@@ -16,7 +16,8 @@ public class Instrumento implements InstrumentoInterface, Comparable<Instrumento
 		this.instrumentoBean = instrumentoBean;
 	}
 
-	
+	public Instrumento() {
+	}
 
 	/**
 	 * metodo que devuelve el sonido del instrumento
