@@ -6,7 +6,7 @@
   <dependencies>
   	<dependency>
   		<groupId>once.curso</groupId>
-  		<artifactId>concierto</artifactId>
+  		<artifactId>conciertoOnce</artifactId>
   		<version>1.0</version>
   	</dependency>
   </dependencies>
