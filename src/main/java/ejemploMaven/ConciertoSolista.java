@@ -15,7 +15,6 @@ public class ConciertoSolista {
 		try {
 			solista.tocar();
 		} catch (SinSonidoException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
