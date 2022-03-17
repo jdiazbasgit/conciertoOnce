@@ -11,6 +11,7 @@ public class HombreOrquesta extends Musico {
 	public HombreOrquesta(Set<Instrumento> instrumentosInterface) {
 		super(instrumentosInterface);
 	}
+	public HombreOrquesta() {}
 
 	@Override
 	public void tocar() throws SinSonidoException {
