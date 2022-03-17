@@ -22,15 +22,14 @@ public class Instrumento implements InstrumentoInterface, Comparable<Instrumento
 
 	/**
 	 * metodo que devuelve el sonido del instrumento
-
-	 * @throws SinSonidoException 
+	 *  
+	 * @throws SinSonidoException
 	 */
 
 	public String sonar() throws SinSonidoException {
-		if(getInstrumentoBean().getSonido().equals("nada")) {
+		if (getInstrumentoBean().getSonido().equals("nada")) {
 			throw new SinSonidoException();
 		}
-		
 		return getInstrumentoBean().getSonido();
 		
 	}

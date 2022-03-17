@@ -3,7 +3,6 @@ import concierto.beans.InstrumentoBean;
 import concierto.excepciones.SinSonidoException;
 import concierto.instrumentos.Instrumento;
 import concierto.instrumentos.InstrumentoInterface;
-import concierto.instrumentos.InstrumentoJavier;
 import concierto.musicos.MusicoInterface;
 import concierto.musicos.MusicoJavier;
 import concierto.musicos.Solista;
