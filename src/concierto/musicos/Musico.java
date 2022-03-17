@@ -19,6 +19,9 @@ public abstract class Musico implements MusicoInterface {
 		this.instrumentosInterface = instrumentosInterface;
 	}
 
+	public Musico() {
+		// TODO Auto-generated constructor stub
+	}
 	public abstract void tocar() throws SinSonidoException ;
 
 	public InstrumentoInterface getInstrumentoInterface() {
@@ -37,5 +40,6 @@ public abstract class Musico implements MusicoInterface {
 		this.instrumentosInterface = instrumentosInterface;
 	}
 
+	
 }
 

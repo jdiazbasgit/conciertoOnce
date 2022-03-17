@@ -11,7 +11,9 @@ public class InstrumentoBean {
 		
 	}
 	
-	
+	public InstrumentoBean() {
+		// TODO Auto-generated constructor stub
+	}
 
 
 	public String getSonido() {
