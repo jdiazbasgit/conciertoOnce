@@ -10,6 +10,7 @@ import concierto.excepciones.SinSonidoException;
 public class Instrumento implements InstrumentoInterface, Comparable<Instrumento>{
 
 	private InstrumentoBean instrumentoBean;
+	
 
 	public Instrumento(InstrumentoBean instrumentoBean) {
 		super();

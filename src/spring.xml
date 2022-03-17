@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+<bean id="tambor" class="concierto.instrumentos.Instrumento">
+<property name="instrumentoBean" ref="instrumentoBean"></property>
+</bean>
+
+<bean id="instrumentoBean" class="concierto.beans.InstrumentoBean">
+<property name="sonido" value="pom,pom,pom en xml"></property>
+</bean>
+
+<bean class="concierto.musicos.Solista" id="solista">
+<property name="instrumentoInterface" ref="tambor"></property>
+</bean>
+</beans>

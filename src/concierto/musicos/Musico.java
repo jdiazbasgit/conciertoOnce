@@ -11,6 +11,8 @@ public abstract  class Musico implements MusicoInterface {
 	private Set<Instrumento> instrumentosInterface;
 
 	private InstrumentoInterface instrumentoInterface;
+	
+
 
 	public Musico(InstrumentoInterface instrumentoInterface) {
 		super();
