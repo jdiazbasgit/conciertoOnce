@@ -65,7 +65,6 @@ public class Instrumento implements InstrumentoInterface, Comparable<Instrumento
 
 	@Override
 	public int compareTo(Instrumento o) {
-		// TODO Auto-generated method stub
 		return this.getInstrumentoBean().getSonido().compareTo(o.getInstrumentoBean().getSonido());
 	}
 

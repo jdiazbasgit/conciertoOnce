@@ -25,7 +25,6 @@ public abstract  class Musico implements MusicoInterface {
 	}
 	
 	public Musico() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public abstract  void tocar() throws SinSonidoException ;

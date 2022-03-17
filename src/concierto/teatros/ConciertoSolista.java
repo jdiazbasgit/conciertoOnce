@@ -2,9 +2,6 @@ package concierto.teatros;
 import concierto.beans.InstrumentoBean;
 import concierto.excepciones.SinSonidoException;
 import concierto.instrumentos.Instrumento;
-import concierto.instrumentos.InstrumentoInterface;
-import concierto.musicos.MusicoInterface;
-import concierto.musicos.MusicoJavier;
 import concierto.musicos.Solista;
 
 public class ConciertoSolista {
@@ -33,7 +30,6 @@ public class ConciertoSolista {
 		try {
 			solista.tocar();
 		} catch (SinSonidoException e) {
-			// TODO Auto-generated catch block
 			System.out.println("Señores el instrumento se ha roto y se ha acabado el concieto");
 		}
 		

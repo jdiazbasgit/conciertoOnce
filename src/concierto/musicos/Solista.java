@@ -12,7 +12,6 @@ public class Solista extends Musico {
 	}
 
 	public Solista() {
-		// TODO Auto-generated constructor stub
 	}
 	
 	

@@ -4,7 +4,6 @@ import java.util.Set;
 
 import concierto.excepciones.SinSonidoException;
 import concierto.instrumentos.Instrumento;
-import concierto.instrumentos.InstrumentoInterface;
 
 public class HombreOrquesta extends Musico {
 
