@@ -2,12 +2,12 @@ package ejemploMaven;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-
 import concierto.excepciones.SinSonidoException;
 import concierto.musicos.Solista;
 
 public class ConciertoSolista {
 
+	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		
 		ApplicationContext habitacion= new ClassPathXmlApplicationContext("spring.xml");
@@ -15,7 +15,7 @@ public class ConciertoSolista {
 		try {
 			solista.tocar();
 		} catch (SinSonidoException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 	}
