@@ -19,6 +19,13 @@ public class Solista extends Musico {
 
 		System.out.println(getInstrumento().sonar());
 
-	}
+
 
 }
+
+	public Instrumento getInstrumento() {
+		return null;
+	}
+
+	
+	}

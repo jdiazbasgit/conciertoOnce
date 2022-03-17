@@ -1,17 +1,28 @@
 package concierto.beans;
 
+import lombok.Data;
+
+@Data
 public class InstrumentoBean {
 
-	private String sonido;
+	private String sonido, marca;
+	private int precio;
+
+	public InstrumentoBean() {
+
+	}
 
 	public InstrumentoBean(String sonido) {
 		super();
 		this.sonido = sonido;
 
 	}
-	
-	public InstrumentoBean() {
-		// TODO Auto-generated constructor stub
+
+	public InstrumentoBean(String sonido, String marca, int precio) {
+		super();
+		this.sonido = sonido;
+		this.marca = marca;
+		this.precio = precio;
 	}
 
 	public String getSonido() {

@@ -3,8 +3,11 @@ package concierto.instrumentos;
 
 import concierto.beans.InstrumentoBean;
 import concierto.excepciones.SinSonidoException;
+import lombok.Data;
 
-public class Instrumento implements InstrumentoInterface {
+
+@Data
+public class Instrumento implements InstrumentoInterface, Comparable<Instrumento>{
 
 	private InstrumentoBean instrumentoBean;
 
@@ -18,8 +21,9 @@ public class Instrumento implements InstrumentoInterface {
 
 	public Instrumento(String sonido) {
 		this.setInstrumentoBean(new InstrumentoBean(sonido));
-		
 	}
+		
+
 
 	/**
 	 * metodo que devuelve el sonido del instrumento
@@ -36,6 +40,7 @@ public class Instrumento implements InstrumentoInterface {
 	}
 	
 
+
 	public InstrumentoBean getInstrumentoBean() {
 		return instrumentoBean;
 	}
@@ -44,7 +49,30 @@ public class Instrumento implements InstrumentoInterface {
 		this.instrumentoBean = instrumentoBean;
 	}
 
-	
-	
+
+
+
+	/*@Override
+	public int hashCode() {
+		
+		return this.getInstrumentoBean().getSonido().hashCode()+1;
+	}*/
+
+
+
+	/*@Override
+	public boolean equals(Object obj) {
+		Instrumento instrumento=(Instrumento) obj;
+		return this.getInstrumentoBean().getSonido().equals(instrumento.getInstrumentoBean().getSonido());
+		
+	}*/
+
+
+
+	@Override
+	public int compareTo(Instrumento o) {
+		// TODO Auto-generated method stub
+		return this.getInstrumentoBean().getSonido().compareTo(o.getInstrumentoBean().getSonido());
+	}
 
 }

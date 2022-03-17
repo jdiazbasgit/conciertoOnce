@@ -1,26 +1,32 @@
 package concierto.musicos;
+
+import java.util.Set;
+
 import concierto.excepciones.SinSonidoException;
 import concierto.instrumentos.Instrumento;
 import concierto.instrumentos.InstrumentoInterface;
 
-public class HombreOrquesta extends Musico implements MusicoInterface {
+
+public class HombreOrquesta extends Musico {
+
+	public HombreOrquesta(Set<Instrumento> instrumentosInterface) {
+		super(instrumentosInterface);
+	}
 
 	public HombreOrquesta(Instrumento[] instrumentos) {
-		super(instrumentos);
-
+		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public void tocar() throws SinSonidoException {
-		for (InstrumentoInterface instrumento : getInstrumentos()) {
-			System.out.println(instrumento.sonar());
 		
-		/*List.of(getInstrumentoInterface()).stream().forEach(instrumento->
-		{System.out.println(instrumento.sonar());
-		
-		});*/
+	
 
+
+		for (Instrumento instrumento : getInstrumentosInterface()) {
+			System.out.println(instrumento.sonar()+" - "+instrumento.hashCode());
+			//System.err.println(instrumento.getInstrumentoBean().getSonido().hashCode());
+		}
 	}
 
-}
 }
