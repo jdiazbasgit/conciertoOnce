@@ -5,7 +5,8 @@
 
 
 	<bean id="tambor" class="concierto.instrumentos.Instrumento"> <!-- Instrumento tambor= new Instrumento() -->
-		<property name="instrumentoBean" ref="instrumentoBean"></property> <!-- tambor.setInstrumentoBean(instrumentoBean) -->
+		<property name="instrumentoBean" ref="instrumentoBean"></property><!--  tambor.setInstrumentoBean(instrumentoBean) -->
+		<!--<constructor-arg name="instrumentoBean" ref="instrumentoBean"></constructor-arg>-->
 	</bean>
 
 
