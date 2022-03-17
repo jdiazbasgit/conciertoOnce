@@ -1,6 +1,6 @@
 package concierto.instrumentos;
 
-import concierto.beans.InstrumentoBean;
+import concierto.beans.InstrumentoBeanTambor;
 import concierto.excepciones.SinSonidoException;
 
 /**
@@ -9,16 +9,14 @@ import concierto.excepciones.SinSonidoException;
 
 public class Instrumento implements InstrumentoInterface, Comparable<Instrumento>{
 
-	private InstrumentoBean instrumentoBean;
+	private InstrumentoBeanTambor instrumentoBean;
 
-	public Instrumento(InstrumentoBean instrumentoBean) {
+	public Instrumento(InstrumentoBeanTambor instrumentoBean) {
 		super();
 		this.instrumentoBean = instrumentoBean;
 	}
 
-	public Instrumento() {
-	}
-
+	
 	/**
 	 * metodo que devuelve el sonido del instrumento
 	 *  
@@ -35,11 +33,11 @@ public class Instrumento implements InstrumentoInterface, Comparable<Instrumento
 	
 	
 
-	public InstrumentoBean getInstrumentoBean() {
+	public InstrumentoBeanTambor getInstrumentoBean() {
 		return instrumentoBean;
 	}
 
-	public void setInstrumentoBean(InstrumentoBean instrumentoBean) {
+	public void setInstrumentoBean(InstrumentoBeanTambor instrumentoBean) {
 		this.instrumentoBean = instrumentoBean;
 	}
 
