@@ -11,9 +11,9 @@ public class ConciertoSolista {
 	private static ApplicationContext habitacion;
 
 	public static void main(String[] args) {
-		
+
 		habitacion = new ClassPathXmlApplicationContext("spring.xml");
-		Solista solista= (Solista) habitacion.getBean("solista");
+		Solista solista = (Solista) habitacion.getBean("solista");
 		try {
 			solista.tocar();
 		} catch (SinSonidoException e) {
