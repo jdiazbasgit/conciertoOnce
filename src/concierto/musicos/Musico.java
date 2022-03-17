@@ -11,6 +11,10 @@ public abstract  class Musico implements MusicoInterface {
 	private Set<Instrumento> instrumentosInterface;
 
 	private InstrumentoInterface instrumentoInterface;
+	
+	public Musico() {
+		// TODO Auto-generated constructor stub
+	}
 
 	public Musico(InstrumentoInterface instrumentoInterface) {
 		super();

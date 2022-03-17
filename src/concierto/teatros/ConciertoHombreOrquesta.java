@@ -1,24 +1,14 @@
 package concierto.teatros;
 
-<<<<<<< HEAD
-=======
-import java.util.ArrayList;
+
 import java.util.HashMap;
->>>>>>> branch 'concierto/profe' of https://github.com/jdiazbasgit/conciertoOnce.git
-import java.util.HashSet;
-<<<<<<< HEAD
-=======
-import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
->>>>>>> branch 'concierto/profe' of https://github.com/jdiazbasgit/conciertoOnce.git
 import java.util.Set;
 import java.util.TreeSet;
 
 import concierto.beans.InstrumentoBean;
 import concierto.excepciones.SinSonidoException;
 import concierto.instrumentos.Instrumento;
-import concierto.instrumentos.InstrumentoInterface;
 import concierto.musicos.HombreOrquesta;
 
 public class ConciertoHombreOrquesta {
