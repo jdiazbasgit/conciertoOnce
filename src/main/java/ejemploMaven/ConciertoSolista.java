@@ -8,9 +8,11 @@ import concierto.musicos.Solista;
 
 public class ConciertoSolista {
 
+	private static ApplicationContext habitacion;
+
 	public static void main(String[] args) {
 		
-		ApplicationContext habitacion= new ClassPathXmlApplicationContext("spring.xml");
+		habitacion = new ClassPathXmlApplicationContext("spring.xml");
 		Solista solista= (Solista) habitacion.getBean("solista");
 		try {
 			solista.tocar();
