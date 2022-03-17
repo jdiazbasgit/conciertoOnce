@@ -23,7 +23,7 @@ public class HombreOrquesta extends Musico {
 	
 
 
-		for (Instrumento instrumento : getInstrumentosInterface()) {
+		for (Instrumento instrumento : getInstrumentos()) {
 			System.out.println(instrumento.sonar()+" - "+instrumento.hashCode());
 			//System.err.println(instrumento.getInstrumentoBean().getSonido().hashCode());
 		}
