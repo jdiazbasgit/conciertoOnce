@@ -9,12 +9,6 @@ public class ConciertoSolista {
 
 	public static void main(String[] args) {
 
-		/*
-		 * InstrumentoInterface instrumentoJavier = new
-		 * InstrumentoJavier("sonido de instrumento Javier"); MusicoInterface
-		 * musicoJavier = new MusicoJavier(instrumentoJavier); musicoJavier.tocar();
-		 */
-
 		Solista solista = new Solista(new Instrumento(new InstrumentoBean("nada")));
 //		Solista solista1 = new Solista(new Instrumento(new InstrumentoBean("blam blam")));
 //		Solista solista2 = new Solista(new Instrumento(new InstrumentoBean("blum blum")));

@@ -15,8 +15,7 @@ public class HombreOrquesta extends Musico {
 	public void tocar() throws SinSonidoException {
 
 		for (Instrumento instrumento : getInstrumentosInterface()) {
-			System.out.println(instrumento.sonar()+" - "+instrumento.hashCode());
-			//System.err.println(instrumento.getInstrumentoBean().getSonido().hashCode());
+			System.out.println(instrumento.sonar() + " - " + instrumento.hashCode());
 		}
 	}
 

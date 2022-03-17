@@ -4,5 +4,5 @@ import concierto.excepciones.SinSonidoException;
 
 public interface InstrumentoInterface {
 
-	public String sonar() throws SinSonidoException; 
+	public String sonar() throws SinSonidoException;
 }
