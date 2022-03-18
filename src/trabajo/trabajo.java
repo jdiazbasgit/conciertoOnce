@@ -6,8 +6,8 @@ public class trabajo {
 
 	public static void main(String[] args) {
 		
-		Operaciones suma = new Operaciones(8, 8);
-		System.out.println(suma.sumaNumeros(8, 8));
+		Operaciones operaciones = new Operaciones(8, 8);
+		System.out.println(operaciones.sumaNumeros(operaciones.getNumero1(), operaciones.getNumero2()));
 
 	}
 
