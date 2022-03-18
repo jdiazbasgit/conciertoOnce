@@ -5,7 +5,6 @@ public class Operaciones {
 	int numero2;
 	
 	public Operaciones(int numero1, int numero2) {
-		super();
 		this.numero1 = numero1;
 		this.numero2 = numero2;
 	}	
