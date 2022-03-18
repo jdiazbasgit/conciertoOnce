@@ -9,6 +9,12 @@ public class Operaciones {
 		this.numero2 = numero2;
 	}
 
+	
+
+	public int suma(){
+		int resultado = getNumero1()+getNumero2();
+		 return resultado;
+	 }
 	public int getNumero1() {
 		return numero1;
 	}
@@ -24,10 +30,5 @@ public class Operaciones {
 	public void setNumero2(int numero2) {
 		this.numero2 = numero2;
 	}
-
-	public int suma(){
-		int resultado = numero1+numero2;
-		 return resultado;
-	 }
 
 }
