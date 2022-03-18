@@ -28,7 +28,7 @@ public class Solista extends Musico {
 	
 	@Override
 	public void tocar() throws SinSonidoException {
-		System.out.println(getInstrumentoInterface().sonar());
+		System.out.println(getInstrumentoInterface().sonar()+" - "+getInstrumentoInterface().getInstrumentoBeanPapa().hashCode());
 	}
 
 }

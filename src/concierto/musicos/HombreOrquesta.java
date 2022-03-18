@@ -27,7 +27,7 @@ public class HombreOrquesta extends Musico {
 	@Override
 	@Autowired
 	@Qualifier("tocameAMi")
-	@Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
+	
 	
 	public void setInstrumentosInterface(Set<Instrumento> instrumentosInterface) {
 		// TODO Auto-generated method stub
@@ -38,7 +38,7 @@ public class HombreOrquesta extends Musico {
 	public void tocar() throws SinSonidoException {
 
 		for (Instrumento instrumento : getInstrumentosInterface()) {
-			System.out.println(instrumento.sonar()+" - "+instrumento.hashCode());
+			System.out.println(instrumento.sonar()+" - "+instrumento.getInstrumentoBeanPapa().hashCode());
 			//System.err.println(instrumento.getInstrumentoBean().getSonido().hashCode());
 		}
 	}

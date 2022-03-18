@@ -12,7 +12,6 @@ import lombok.Data;
  * @author fjdia Calase del instrumento
  */
 @Data
-@Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 public class Instrumento implements InstrumentoInterface, Comparable<Instrumento> {
 
 	private InstrumentoBeanPapa instrumentoBeanPapa;

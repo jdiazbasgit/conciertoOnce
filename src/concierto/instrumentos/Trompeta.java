@@ -10,8 +10,9 @@ import concierto.beans.InstrumentoBeanPapa;
 
 @Component
 @Qualifier("tocameAMi")
-
+@Scope("prototype")
 public class Trompeta extends Instrumento {
+	
 	public Trompeta() {
 		// TODO Auto-generated constructor stub
 	}
