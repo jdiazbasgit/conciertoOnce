@@ -1,24 +1,30 @@
 package concierto.instrumentos;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
-import concierto.beans.InstrumentoBeanGuitarra;
-import concierto.beans.InstrumentoBeanTambor;
+import concierto.beans.InstrumentoBeanPapa;
 
 @Component
+@Qualifier("tocameAMi")
 public class Guitarra extends Instrumento {
 
-	public Guitarra(InstrumentoBeanTambor instrumentoBean) {
-		super(instrumentoBean);
+	public Guitarra(InstrumentoBeanPapa instrumentoBeanPapa) {
+		super(instrumentoBeanPapa);
 		// TODO Auto-generated constructor stub
 	}
-	
-	@Autowired
-	@Override
-	public void setInstrumentoBean(InstrumentoBeanGuitarra instrumentoBean) {
-		// TODO Auto-generated method stub
-		super.setInstrumentoBean(instrumentoBean);
+
+	public Guitarra() {
+		
+		;
 	}
 
+	@Autowired
+	@Qualifier("instrumentoBeanGuitarra")
+	@Override
+	public void setInstrumentoBeanPapa(InstrumentoBeanPapa instrumentoBeanPapa) {
+		// TODO Auto-generated method stub
+		super.setInstrumentoBeanPapa(instrumentoBeanPapa);
+	}
 }

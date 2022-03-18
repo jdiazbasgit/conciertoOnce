@@ -7,32 +7,14 @@ import lombok.Data;
 
 @Component
 @Data
-public class InstrumentoBeanTambor {
-
-	@Value("pom, pom,pòm  en anotaciones")
-	private String sonido;
-	private String  marca;
-	private int precio;
-
-	public InstrumentoBeanTambor(String sonido) {
-		super();
-		this.sonido = sonido;
-		
-	}
-	
-	public InstrumentoBeanTambor() {
-		
-	}
-	
-	
-	public InstrumentoBeanTambor(String sonido, String marca, int precio) {
-		super();
-		this.sonido = sonido;
-		this.marca = marca;
-		this.precio = precio;
-	}
-
+public class InstrumentoBeanTambor extends InstrumentoBeanPapa{
 
 	
 
+	@Value("pom, pom, pom en anotaciones")
+	@Override
+		public void setSonido(String sonido) {
+			// TODO Auto-generated method stub
+			super.setSonido(sonido);
+		}
 }

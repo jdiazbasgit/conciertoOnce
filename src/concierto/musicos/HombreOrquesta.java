@@ -3,6 +3,9 @@ package concierto.musicos;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import concierto.excepciones.SinSonidoException;
@@ -23,6 +26,9 @@ public class HombreOrquesta extends Musico {
 	
 	@Override
 	@Autowired
+	@Qualifier("tocameAMi")
+	@Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
+	
 	public void setInstrumentosInterface(Set<Instrumento> instrumentosInterface) {
 		// TODO Auto-generated method stub
 		super.setInstrumentosInterface(instrumentosInterface);

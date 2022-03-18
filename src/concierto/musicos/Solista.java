@@ -19,7 +19,7 @@ public class Solista extends Musico {
 	}
 	
 	@Autowired
-	@Qualifier("guitarra")
+	@Qualifier("trompeta")
 	@Override
 	public void setInstrumentoInterface(Instrumento instrumentoInterface) {
 		// TODO Auto-generated method stub
