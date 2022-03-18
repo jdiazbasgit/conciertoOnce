@@ -10,8 +10,7 @@ public Operaciones(int numero1, int numero2) {
 	
 }
 	public int suma() {
-		int resultado= getNumero1()+getNumero2();
-		return resultado;
+		return getNumero1()+getNumero2();
 	}
 	
 	public int getNumero1() {
