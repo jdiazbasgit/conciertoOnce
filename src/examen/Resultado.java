@@ -6,7 +6,7 @@ public class Resultado {
 
 		Operaciones operaciones = new Operaciones(25,12);
 		
-		System.out.println(operaciones.suma());
+		System.out.println("el resultado es: " +  operaciones.suma());
 	}
 
 }
