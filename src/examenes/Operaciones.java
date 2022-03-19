@@ -1,4 +1,4 @@
-package examen;
+package examenes;
 
 public class Operaciones {
 private int numero1;

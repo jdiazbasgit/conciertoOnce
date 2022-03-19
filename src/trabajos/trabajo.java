@@ -1,6 +1,6 @@
-package trabajo;
+package trabajos;
 
-import examen.Operaciones;
+import examenes.Operaciones;
 
 public class trabajo {
 
