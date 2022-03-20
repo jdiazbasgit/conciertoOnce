@@ -20,8 +20,18 @@ public class Operaciones {
 		return getNumero1() * getNumero2();
 	}
 
+	public int otraMulti(int num1, int num2) {
+
+		return num1 * num2;
+	}
+
 	public double division() {
 		return getNumero1() / getNumero2();
+	}
+
+	public double otraDivision(double num1, double num2) {
+
+		return num1 / num2;
 	}
 
 	public Operaciones() {
