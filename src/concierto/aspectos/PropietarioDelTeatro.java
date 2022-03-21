@@ -5,7 +5,6 @@ import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
-
 import concierto.beans.InstrumentoBeanPapa;
 import concierto.excepciones.SinSonidoException;
 import concierto.instrumentos.Instrumento;
@@ -44,8 +43,8 @@ public class PropietarioDelTeatro {
 			}
 			
 			joinPoint.proceed();
-			System.out.println("SEÑORES EL CONCIERTO HA TERMINADO, PUIEDEN ENCENDER LOS MOVILES soy el dueño");
-			// AfterReturninig
+			System.out.println("SEÑORES EL CONCIERTO HA TERMINADO, PUEDEN ENCENDER LOS MOVILES soy el dueño");
+			// AfterReturning
 		} catch (Throwable e) {
 			System.out.println("SEÑORES SE HA ROTO EL INSTRUMENTO, LO VOY A ARREGLAR");
 			if (musico.getClass().isInstance(new Solista())) {
