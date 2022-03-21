@@ -5,6 +5,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import concierto.excepciones.SinSonidoException;
 import concierto.musicos.HombreOrquesta;
+import concierto.musicos.MusicoInterface;
 import concierto.musicos.Solista;
 
 public class ConciertoSolista {
@@ -12,16 +13,12 @@ public class ConciertoSolista {
 	public static void main(String[] args) {
 		
 		ApplicationContext habitacion= new ClassPathXmlApplicationContext("springAnotaciones.xml");
-		Solista solista= (Solista) habitacion.getBean("solista");
+		MusicoInterface solista= (MusicoInterface) habitacion.getBean("solista");
 		//Solista solista1= (Solista) habitacion.getBean("solista1");
-		HombreOrquesta hombreOrquesta= (HombreOrquesta) habitacion.getBean("hombreOrquesta");
+		MusicoInterface hombreOrquesta= (MusicoInterface) habitacion.getBean("hombreOrquesta");
 		try {
-			solista.getInstrumentoInterface().getInstrumentoBeanPapa().setSonido("sonido cambiado a la trompeta");
 			solista.tocar();
 			
-			//solista1.tocar();
-			
-			System.out.println("toca el hombre orquesta");
 			
 			hombreOrquesta.tocar();
 		} catch (SinSonidoException e) {
