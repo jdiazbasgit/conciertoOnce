@@ -28,6 +28,8 @@ public class PropietarioDelTeatro {
 		try {
 			// Before
 			System.out.println("SEÑORES APAGUEN LOS MOVILES QUE VA A EMPEZAR EL CONCIERTO,SOY EL DUEÑO");
+		
+		
 			joinPoint.proceed();
 			System.out.println("SEÑORES EL CONCIERTO HA TERMINADO, PUEDEN ENCENDER LOS MOVILES");
 			// AfterReturning
