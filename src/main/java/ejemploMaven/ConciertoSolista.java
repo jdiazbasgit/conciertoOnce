@@ -11,7 +11,7 @@ public class ConciertoSolista {
 
 	public static void main(String[] args) {
 		
-		ApplicationContext habitacion= new ClassPathXmlApplicationContext("spring.xml");
+		ApplicationContext habitacion= new ClassPathXmlApplicationContext("springAnotaciones.xml");
 		MusicoInterface solista= (MusicoInterface) habitacion.getBean("solista");
 		try {
 			solista.tocar();
