@@ -3,8 +3,12 @@ package empresa.daos;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+
+import org.springframework.stereotype.Component;
+
 import com.mysql.cj.jdbc.Driver;
 
+@Component
 public class ConexionDAO {
 	private static final String NOMBRE_BD="curso";
 	private static final String PROTOCOLO="jdbc:mysql:/";

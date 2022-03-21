@@ -2,6 +2,8 @@ package empresa.beans;
 
 import java.io.Serializable;
 
+import org.springframework.stereotype.Component;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
