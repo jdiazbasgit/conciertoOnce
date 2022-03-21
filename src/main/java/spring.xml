@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
+
+
+	<bean id="tambor" class="concierto.instrumentos.Instrumento"> <!-- Instrumento tambor= new Instrumento() -->
+		<!--<property name="instrumentoBean" ref="instrumentoBean"></property> 
+			tambor.setInstrumentoBean(instrumentoBean) -->
+		<constructor-arg name="instrumentoBean"
+			ref="instrumentoBeanTambor"></constructor-arg>
+	</bean>
+	<bean id="trompeta" class="concierto.instrumentos.Instrumento"> <!-- Instrumento tambor= new Instrumento() -->
+		<!--<property name="instrumentoBean" ref="instrumentoBean"></property> 
+			tambor.setInstrumentoBean(instrumentoBean) -->
+		<constructor-arg name="instrumentoBean"
+			ref="instrumentoBeanTrompeta"></constructor-arg>
+	</bean>
+	<bean id="guitarra" class="concierto.instrumentos.Instrumento"
+		scope="prototype"> <!-- Instrumento tambor= new Instrumento() -->
+		<!--<property name="instrumentoBean" ref="instrumentoBean"></property> 
+			tambor.setInstrumentoBean(instrumentoBean) -->
+		<constructor-arg name="instrumentoBean"
+			ref="instrumentoBeanGuitarra"></constructor-arg>
+	</bean>
+
+
+	<bean class="concierto.beans.InstrumentoBeanTambor"
+		id="instrumentoBeanTambor"> <!-- InstrumentoBean instrumentoBean= new InstrumentoBean() -->
+		<property name="sonido"
+			value="pom, pom, pom en xml ghdfhdfghdfghdfh"></property> <!-- instrumentoBean.setSonido("pom, pom.pom en xml") -->
+	</bean>
+
+	<bean class="concierto.beans.InstrumentoBeanTrompeta"
+		id="instrumentoBeanTrompeta"> <!-- InstrumentoBean instrumentoBean= new InstrumentoBean() -->
+		<property name="sonido"
+			value="tuuu, tuuu, tuuu en xml ghdfhdfghdfghdfh"></property> <!-- instrumentoBean.setSonido("pom, pom.pom en xml") -->
+	</bean>
+
+	<bean class="concierto.beans.InstrumentoBeanGuitarra"
+		id="instrumentoBeanGuitarra" scope="prototype"> <!-- InstrumentoBean instrumentoBean= new InstrumentoBean() -->
+		<property name="sonido"
+			value="tlan, tlan, tlan en xml ghdfhdfghdfghdfh"></property> <!-- instrumentoBean.setSonido("pom, pom.pom en xml") -->
+	</bean>
+
+	<bean class="concierto.musicos.Solista" id="solista"> <!-- Solista solista= new Solista() -->
+		<property name="instrumentoInterface" ref="tambor"></property>
+	</bean>
+
+
+	<bean class="concierto.musicos.Solista" id="solista1"> <!-- Solista solista= new Solista() -->
+		<property name="instrumentoInterface" ref="guitarra"></property> <!-- solista.setInstrumentoBean(tambor) -->
+	</bean>
+
+	<util:set id="lista">
+		<ref bean="guitarra" />
+		<ref bean="tambor" />
+	</util:set>
+
+	<bean class="concierto.musicos.HombreOrquesta" id="hombreOrquesta">
+		<property name="instrumentosInterface" ref="lista"></property>
+	</bean>
+
+
+
+</beans>
