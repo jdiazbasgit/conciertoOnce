@@ -26,7 +26,7 @@ public class Operaciones {
 	}
 
 	public double division() {
-		return getNumero1() / getNumero2();
+		return (double) getNumero1() / (double) getNumero2();
 	}
 
 	public double otraDivision(double num1, double num2) {

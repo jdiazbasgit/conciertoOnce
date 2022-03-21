@@ -5,8 +5,8 @@ public class Ejecución {
 	public static void main(String[] args) {
 		System.out.println("Resultado Suma = " + new Operaciones(5, 2).suma());
 		System.out.println("Resultado Resta = " + new Operaciones().resta(6, 2));
-		System.out.println("Resultado División = " + new Operaciones(26, 7).division());
 		System.out.println("Resultado Multiplicación = " + new Operaciones(3, 5).multi());
+		System.out.println("Resultado División = " + new Operaciones(26, 7).division() + "\n");
 
 		Operaciones operaSuma = new Operaciones(5, 40);
 		System.out.println("El resultado de sumar " + operaSuma.getNumero1() + " y " + operaSuma.getNumero2()
