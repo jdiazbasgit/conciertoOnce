@@ -8,6 +8,7 @@ import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import concierto.anotaciones.Vigilado;
 import concierto.excepciones.SinSonidoException;
 import concierto.instrumentos.Instrumento;
 import concierto.instrumentos.InstrumentoInterface;
@@ -35,6 +36,7 @@ public class HombreOrquesta extends Musico {
 	}
 
 	@Override
+	@Vigilado
 	public void tocar() throws SinSonidoException {
 
 		for (Instrumento instrumento : getInstrumentosInterface()) {
