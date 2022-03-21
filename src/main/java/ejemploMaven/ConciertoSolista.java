@@ -4,6 +4,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import concierto.excepciones.SinSonidoException;
+import concierto.musicos.MusicoInterface;
 import concierto.musicos.Solista;
 
 public class ConciertoSolista {
@@ -11,7 +12,7 @@ public class ConciertoSolista {
 	public static void main(String[] args) {
 		
 		ApplicationContext habitacion= new ClassPathXmlApplicationContext("spring.xml");
-		Solista solista= (Solista) habitacion.getBean("solista");
+		MusicoInterface solista= (MusicoInterface) habitacion.getBean("solista");
 		try {
 			solista.tocar();
 		} catch (SinSonidoException e) {
