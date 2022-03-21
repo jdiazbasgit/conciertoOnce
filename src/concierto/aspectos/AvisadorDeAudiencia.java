@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 public class AvisadorDeAudiencia {
 
 	
-	@Pointcut("execution( @concierto.anotaciones.Vigilado * concierto.musicos.HombreOrquesta.*(..))")
+	@Pointcut("execution( @concierto.anotaciones.Vigilado * *.*(..))")
 	public void sujetador() {
 		
 	}
