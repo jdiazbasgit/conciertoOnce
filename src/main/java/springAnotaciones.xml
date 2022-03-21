@@ -8,6 +8,5 @@
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
 
 <context:component-scan base-package="concierto"></context:component-scan>
-<context:component-scan base-package=""></context:component-scan>
 <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
 </beans>
