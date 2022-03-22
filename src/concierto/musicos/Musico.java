@@ -10,9 +10,9 @@ public abstract  class Musico implements MusicoInterface {
 
 	private Set<Instrumento> instrumentosInterface;
 
-	private InstrumentoInterface instrumentoInterface;
+	private Instrumento instrumentoInterface;
 
-	public Musico(InstrumentoInterface instrumentoInterface) {
+	public Musico(Instrumento instrumentoInterface) {
 		super();
 		this.instrumentoInterface = instrumentoInterface;
 	}
@@ -21,23 +21,29 @@ public abstract  class Musico implements MusicoInterface {
 		super();
 		this.setInstrumentosInterface(instrumentosInterface);
 	}
+	
+	public Musico() {
+		// TODO Auto-generated constructor stub
+	}
 
 	public abstract  void tocar() throws SinSonidoException ;
 
-	public InstrumentoInterface getInstrumentoInterface() {
+	public Instrumento getInstrumentoInterface() {
 		return instrumentoInterface;
 	}
 
-	public void setInstrumentoInterface(InstrumentoInterface instrumentoInterface) {
-		this.instrumentoInterface = instrumentoInterface;
+	
+
+	public void setInstrumentosInterface(Set<Instrumento> instrumentosInterface) {
+		this.instrumentosInterface = instrumentosInterface;
 	}
 
 	public Set<Instrumento> getInstrumentosInterface() {
 		return instrumentosInterface;
 	}
 
-	public void setInstrumentosInterface(Set<Instrumento> instrumentosInterface) {
-		this.instrumentosInterface = instrumentosInterface;
+	public void setInstrumentoInterface(Instrumento instrumentoInterface) {
+		this.instrumentoInterface = instrumentoInterface;
 	}
 
 	
@@ -45,3 +51,4 @@ public abstract  class Musico implements MusicoInterface {
 	
 
 }
+	

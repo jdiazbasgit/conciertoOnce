@@ -1,19 +1,24 @@
 package concierto.instrumentos;
 
-import concierto.beans.InstrumentoBean;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
+import org.springframework.context.annotation.Scope;
+
+import concierto.beans.InstrumentoBeanPapa;
+import concierto.beans.InstrumentoBeanTambor;
 import concierto.excepciones.SinSonidoException;
+import lombok.Data;
 
 /**
  * @author fjdia Calase del instrumento
  */
+@Data
+public class Instrumento implements InstrumentoInterface, Comparable<Instrumento> {
 
-public class Instrumento implements InstrumentoInterface, Comparable<Instrumento>{
+	private InstrumentoBeanPapa instrumentoBeanPapa;
 
-	private InstrumentoBean instrumentoBean;
-
-	public Instrumento(InstrumentoBean instrumentoBean) {
+	public Instrumento(InstrumentoBeanPapa instrumentoBeanPapa) {
 		super();
-		this.instrumentoBean = instrumentoBean;
+		this.instrumentoBeanPapa = instrumentoBeanPapa;
 	}
 
 	public Instrumento() {
@@ -22,51 +27,37 @@ public class Instrumento implements InstrumentoInterface, Comparable<Instrumento
 
 	/**
 	 * metodo que devuelve el sonido del instrumento
-	 *  
+	 * 
 	 * @throws SinSonidoException
 	 */
 
 	public String sonar() throws SinSonidoException {
-		if (getInstrumentoBean().getSonido().equals("nada")) {
+		if (getInstrumentoBeanPapa().getSonido().equals("nada")) {
 			throw new SinSonidoException();
 		}
-		return getInstrumentoBean().getSonido();
-		
-	}
-	
-	
+		return getInstrumentoBeanPapa().getSonido();
 
-	public InstrumentoBean getInstrumentoBean() {
-		return instrumentoBean;
 	}
 
-	public void setInstrumentoBean(InstrumentoBean instrumentoBean) {
-		this.instrumentoBean = instrumentoBean;
-	}
+	/*
+	 * @Override public int hashCode() {
+	 * 
+	 * return this.getInstrumentoBean().getSonido().hashCode()+1; }
+	 */
 
-
-
-	/*@Override
-	public int hashCode() {
-		
-		return this.getInstrumentoBean().getSonido().hashCode()+1;
-	}*/
-
-
-
-	/*@Override
-	public boolean equals(Object obj) {
-		Instrumento instrumento=(Instrumento) obj;
-		return this.getInstrumentoBean().getSonido().equals(instrumento.getInstrumentoBean().getSonido());
-		
-	}*/
-
-
+	/*
+	 * @Override public boolean equals(Object obj) { Instrumento
+	 * instrumento=(Instrumento) obj; return
+	 * this.getInstrumentoBean().getSonido().equals(instrumento.getInstrumentoBean()
+	 * .getSonido());
+	 * 
+	 * }
+	 */
 
 	@Override
 	public int compareTo(Instrumento o) {
 		// TODO Auto-generated method stub
-		return this.getInstrumentoBean().getSonido().compareTo(o.getInstrumentoBean().getSonido());
+		return this.getInstrumentoBeanPapa().getSonido().compareTo(o.getInstrumentoBeanPapa().getSonido());
 	}
 
 }
