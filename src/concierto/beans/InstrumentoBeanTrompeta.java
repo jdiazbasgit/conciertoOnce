@@ -11,10 +11,9 @@ import lombok.Data;
 @Scope("prototype")
 public class InstrumentoBeanTrompeta extends InstrumentoBeanPapa {
 
-	@Value("tuuu, tuuu, tuuu en anotaciones")
+	@Value("nada")
 	@Override
 		public void setSonido(String sonido) {
-			// TODO Auto-generated method stub
 			super.setSonido(sonido);
 		}
 }

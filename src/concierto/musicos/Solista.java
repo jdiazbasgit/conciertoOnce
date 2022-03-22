@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
+import concierto.anotaciones.Traza;
 import concierto.anotaciones.Vigilado;
 import concierto.excepciones.SinSonidoException;
 import concierto.instrumentos.Instrumento;
@@ -29,6 +30,7 @@ public class Solista extends Musico {
 	
 	@Override
 	@Vigilado
+	@Traza
 	public void tocar() throws SinSonidoException {
 		System.out.println(getInstrumentoInterface().sonar()+" - "+getInstrumentoInterface().getInstrumentoBeanPapa().hashCode());
 	}
