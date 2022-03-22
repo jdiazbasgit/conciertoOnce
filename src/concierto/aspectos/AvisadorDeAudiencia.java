@@ -1,6 +1,8 @@
 package concierto.aspectos;
 
 import org.aspectj.lang.annotation.After;
+import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -18,13 +20,18 @@ public class AvisadorDeAudiencia {
 	
 	@Before("sujetador()")
 	public void apagarMoviles() {
-		System.out.println("SEÑORES APAGUEN LOS MOVILES QUE VA A EMPEZAR EL CONCIERTO");
+		
 	}
 	
 	
 	
-	@After("sujetador()")
+	@AfterReturning("sujetador()")
 	public void encenderMoviles() {
-		System.out.println("SEÑORES EL CONCIERTO HA TERMINADO, PUIEDEN ENCENDER LOS MOVILES");
+		
+	}
+
+	@AfterThrowing("sujetador()")
+	public void instrumentoRoto() {
+		System.out.println("el instrumento se ha roto, todo el mundo a casa");
 	}
 }
