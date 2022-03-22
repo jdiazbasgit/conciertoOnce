@@ -1,4 +1,4 @@
-package once.curso.sprimgmvc;
+package main.java.once.curso.sprimgmvc;
 
 import java.text.DateFormat;
 import java.util.Date;
