@@ -8,5 +8,6 @@
 <h1>
 	${algo} 
 </h1>
+<P>  miVariable es =>  ${miVariable} </P>
 </body>
 </html>
