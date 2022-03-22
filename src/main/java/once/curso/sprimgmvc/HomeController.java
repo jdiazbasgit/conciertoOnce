@@ -43,7 +43,8 @@ public class HomeController {
 	
 	
 	
-	@RequestMapping("algo")
+	//@RequestMapping("algo")
+	@RequestMapping(value = "algo", method = RequestMethod.GET)
 	public String algo(Model model,@RequestParam("texto") String texto,@RequestParam String texto2) {
 		
 		/*
