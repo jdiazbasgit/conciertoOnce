@@ -8,8 +8,8 @@ import org.springframework.stereotype.Component;
 
 import concierto.beans.InstrumentoBeanPapa;
 
-@Component
-@Qualifier("tocameAMi")
+//@Component
+//@Qualifier("tocameAMi")
 @Scope("prototype")
 public class Trompeta extends Instrumento {
 	
@@ -17,8 +17,8 @@ public class Trompeta extends Instrumento {
 		// TODO Auto-generated constructor stub
 	}
 
-	@Autowired
-	@Qualifier("instrumentoBeanTrompeta")
+	//@Autowired
+	//@Qualifier("instrumentoBeanTrompeta")
 	@Override
 	public void setInstrumentoBeanPapa(InstrumentoBeanPapa instrumentoBeanPapa) {
 		// TODO Auto-generated method stub

@@ -11,7 +11,7 @@ import lombok.Data;
 public class InstrumentoBeanGuitarra extends InstrumentoBeanPapa{
 
 
-	@Value("nada")
+	@Value("nadaxcvbnxcvbxcvbxcbxc")
 	@Override
 		public void setSonido(String sonido) {
 			// TODO Auto-generated method stub
