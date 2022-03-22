@@ -4,6 +4,8 @@ import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -35,5 +37,16 @@ public class HomeController {
 		
 		return "home";
 	}
+	
+	@RequestMapping("algo")
+	public String algo(Model model,HttpServletRequest request) {
+		
+		String texto=request.getParameter("texto");
+		model.addAttribute("algo","has escrito "+texto.toUpperCase()+ " y tiene "+texto.length()+" letras");
+		
+		return "algo";
+		
+	}
+	
 	
 }
