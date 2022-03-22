@@ -49,10 +49,11 @@ public class PropietarioDelTeatro {
 				musico.tocar();
 			} catch (SinSonidoException e1) {
 				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			} finally {
+				//e1.printStackTrace();
+			} 
+			//throw e;
+			//finally {
 				//After
-			}
 		}
 	}
 }
