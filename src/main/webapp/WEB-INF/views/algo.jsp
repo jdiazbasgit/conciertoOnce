@@ -6,9 +6,7 @@
 </head>
 <body>
 <h1>
-	Hello world!  
+	${algo} 
 </h1>
-<!-- serverTime lo hemos metido en el model en el servlet HomeController -->
-<P>  The time on the server is ${serverTime}. </P>
 </body>
 </html>
