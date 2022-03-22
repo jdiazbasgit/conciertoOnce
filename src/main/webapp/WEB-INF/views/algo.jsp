@@ -2,13 +2,13 @@
 <%@ page session="false" %>
 <html>
 <head>
-	<title>Home</title>
+	<title>Home Algo</title>
 </head>
 <body>
 <h1>
-	Hello Algo world!  
+	Hello Algo!  
 </h1>
 
-<P>${algo}. </P>
+<P style="color:green">${algo}</P>
 </body>
 </html>
