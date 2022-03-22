@@ -7,6 +7,7 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import concierto.beans.InstrumentoBean;
+import concierto.beans.InstrumentoBeanPapa;
 import concierto.excepciones.SinSonidoException;
 import concierto.instrumentos.Instrumento;
 import concierto.musicos.HombreOrquesta;
@@ -31,11 +32,11 @@ public class ConciertoHombreOrquesta {
 		
 		
 		Set<Instrumento> instrumentos= new TreeSet <>();
-		Instrumento guitarra=new Instrumento(new InstrumentoBean("apom,pom,pom"));
+		Instrumento guitarra=new Instrumento(new InstrumentoBeanPapa("apom,pom,pom"));
 	
-		Instrumento trompeta=new Instrumento(new InstrumentoBean("apom,pom,pom"));
+		Instrumento trompeta=new Instrumento(new InstrumentoBeanPapa("apom,pom,pom"));
 		
-		Instrumento tambor=new Instrumento(new InstrumentoBean("cpom,pom,pom"));
+		Instrumento tambor=new Instrumento(new InstrumentoBeanPapa("cpom,pom,pom"));
 		
 		
 		instrumentos.add(trompeta);

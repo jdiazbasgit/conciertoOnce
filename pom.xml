@@ -5,7 +5,7 @@
 	<groupId>once.curso</groupId>
 	<artifactId>conciertoOnce</artifactId>
 	<version>1.0</version>
-	
+
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
 		<dependency>
@@ -13,14 +13,25 @@
 			<artifactId>spring-context</artifactId>
 			<version>5.3.16</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<version>1.18.22</version>
 			<scope>provided</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjrt</artifactId>
+			<version>1.9.8</version>
+		</dependency>
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>1.9.8</version>
+		</dependency>
 	</dependencies>
+
 	<build>
 
 		<sourceDirectory>src</sourceDirectory>
