@@ -5,11 +5,10 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
- <meta charset="UTF-8">
-<title>Home</title>
+<meta charset="UTF-8">
+<title>Login KO</title>
 </head>
 <body>
-	<h1>${algo}</h1>
-	<P>miVariable es => ${miVariable}</P>
+	<h1>KO</h1>
 </body>
 </html>
