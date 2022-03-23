@@ -38,7 +38,7 @@ public class HomeController {
 		return "home";
 	}
 
-	@RequestMapping(value="algo",method = RequestMethod.GET)
+	@RequestMapping(value="/algo",method = RequestMethod.GET)
 	public String algo( Model model,@RequestParam String texto,@RequestParam String texto2) {
 		
 		model.addAttribute("algo", "has escrito " + texto2.toUpperCase() + "y tiene " + texto.length() + " letras");
