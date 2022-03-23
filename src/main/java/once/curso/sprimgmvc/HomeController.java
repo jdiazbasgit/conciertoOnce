@@ -57,7 +57,7 @@ public class HomeController {
 
 		modelAndView.setViewName("ko");
 		if (usuario.equals("pepe") && clave.equals("1234"))
-			modelAndView.setViewName("ok");
+			modelAndView.setViewName("Ok");
 
 		return modelAndView;
 	}
@@ -66,10 +66,10 @@ public class HomeController {
 	@RequestMapping(value = "loginConObjeto", method = RequestMethod.POST)
 	public ModelAndView loginConObjeto(ModelAndView modelAndView, Login login) {
 		
-		modelAndView.setViewName("ko");
+		modelAndView.setViewName("Ko");
 		
 		if (login.getUsuario().equals("pepe") && login.getClave().equals("1234"))
-			modelAndView.setViewName("ok");
+			modelAndView.setViewName("Ok");
 		
 		return modelAndView;
 	}
