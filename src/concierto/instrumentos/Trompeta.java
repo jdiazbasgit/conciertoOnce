@@ -8,8 +8,8 @@ import org.springframework.stereotype.Component;
 
 import concierto.beans.InstrumentoBeanPapa;
 
-@Component
-@Qualifier("tocameAMi")
+//@Component
+@Qualifier("getTrompeta")
 @Scope("prototype")
 public class Trompeta extends Instrumento {
 	
