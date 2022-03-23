@@ -30,7 +30,7 @@ public class HomeController {
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@RequestMapping(value = "/pagina.somoslosmejores", method = RequestMethod.GET)
 	public ModelAndView home(ModelAndView modelAndView) {
 		modelAndView.setViewName("home");
 		Login login= new Login();
@@ -48,7 +48,7 @@ public class HomeController {
 
 	}
 
-	@RequestMapping("algo/{texto}/{texto2}")
+	@RequestMapping("pagina.html/{texto}/{texto2}")
 	public String algo(Model model, @PathVariable("texto") String nombre, @PathVariable String texto2,
 			@RequestParam String primerNombre) {
 
