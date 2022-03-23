@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>${algo} </h1>
+<h1>${variable} </h1>
 </body>
 </html>
