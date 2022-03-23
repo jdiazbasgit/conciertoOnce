@@ -15,63 +15,69 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
+
+import once.curso.sprimgmvcbeans.Login;
 
 /**
  * Handles requests for the application home page.
  */
 @Controller
 public class HomeController {
-	
+
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-	
+
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
-	@RequestMapping(value = "/pepe", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
-		logger.info("Welcome home! The client locale is {}.", locale);
-		logger.error("Welcome home! The client locale is {}.", locale);
-		
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		
-		String formattedDate = dateFormat.format(date);
-		
-		model.addAttribute("serverTime", formattedDate );
-		
-		return "home";
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public ModelAndView home(ModelAndView modelAndView) {
+		modelAndView.setViewName("home");
+		Login login= new Login();
+		login.setUsuario("federico");
+		modelAndView.addObject("login", login);
+		return modelAndView;
 	}
-	
-	@RequestMapping(value="algo",method = RequestMethod.GET)
-	public String algo(Model model, @RequestParam String texto,@RequestParam String texto2) {
-		
-		
-		model.addAttribute("algo",
-				"has escrito "+texto2.toUpperCase()+ " y tiene "+texto.length()+" letras");
-		
+
+	@RequestMapping(value = "algo", method = RequestMethod.GET)
+	public String algo(Model model, @RequestParam String texto, @RequestParam String texto2) {
+
+		model.addAttribute("algo", "has escrito " + texto2.toUpperCase() + " y tiene " + texto.length() + " letras");
+
 		return "algo";
-		
+
 	}
-	
-	
+
 	@RequestMapping("algo/{texto}/{texto2}")
-	public String algo1(Model model, @PathVariable("texto") String nombre,@PathVariable String texto2) {
-		
-		
-		model.addAttribute("algo",
-				"tu nombre y apellido es "+nombre+" "+texto2);
-		
+	public String algo(Model model, @PathVariable("texto") String nombre, @PathVariable String texto2,
+			@RequestParam String primerNombre) {
+
+		model.addAttribute("variable",
+				"tu nombre y apellido es " + nombre + " " + texto2 + " y tu primer nombre es " + primerNombre);
+
 		return "algo";
-		
+
+	}
+
+	@RequestMapping(value = "login", method = RequestMethod.POST)
+	public ModelAndView login(ModelAndView modelAndView, @RequestParam String usuario, @RequestParam String clave) {
+
+		modelAndView.setViewName("ko");
+		if (usuario.equals("pepe") && clave.equals("1234"))
+			modelAndView.setViewName("ok");
+
+		return modelAndView;
 	}
 	
+	
+	@RequestMapping(value = "loginConObjeto", method = RequestMethod.POST)
+	public ModelAndView loginConObjeto(ModelAndView modelAndView, Login login) {
+		
+		modelAndView.setViewName("ko");
+		
+		if (login.getUsuario().equals("pepe") && login.getClave().equals("1234"))
+			modelAndView.setViewName("ok");
+		
+		return modelAndView;
+	}
 }
-
-
-
-
-
-
-
-
-
