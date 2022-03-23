@@ -4,9 +4,10 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>texto</title>
 </head>
 <body>
+<h1>Hello world! </h1>
 <h1>${algo} </h1>
 </body>
 </html>
