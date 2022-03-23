@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>${variable} </h1>
+<h1>KO</h1>
 </body>
 </html>
