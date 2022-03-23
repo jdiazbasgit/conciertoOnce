@@ -23,6 +23,7 @@
 	</bean> -->
 	
 
-	<context:component-scan base-package="concierto"></context:component-scan>
+	<!-- <context:component-scan base-package="concierto"></context:component-scan>
 	<aop:aspectj-autoproxy />
+	<bean id="trompeta" class="concierto.instrumentos.Trompeta"></bean> -->
 </beans>
