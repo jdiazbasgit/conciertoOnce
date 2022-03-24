@@ -1,4 +1,4 @@
-package once.curso.sprimgmvc;
+homepackage once.curso.sprimgmvc;
 
 import java.text.DateFormat;
 import java.util.Date;
@@ -40,7 +40,7 @@ public class HomeController {
 	}
 
 	@RequestMapping(value = "algo", method = RequestMethod.GET)
-	public String algo(Model model, @RequestParam String texto, @RequestParam String texto2) {
+	public String algo(Model model, @RequestParam String texto,   String texto2) {
 
 		model.addAttribute("algo", "has escrito " + texto2.toUpperCase() + " y tiene " + texto.length() + " letras");
 
