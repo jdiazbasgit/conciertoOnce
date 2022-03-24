@@ -16,6 +16,7 @@ import lombok.Data;
 @Controller
 public class HomeController {
 	private int contador;
+
 	@RequestMapping(value = "/")
 	public ModelAndView practicaMVC(HttpServletResponse response) throws IOException {
 
@@ -23,21 +24,22 @@ public class HomeController {
 	}
 
 	@RequestMapping(value = "/ejercicio/{texto}")
-	public ModelAndView cursoOnce(HttpSession sesion, ModelAndView modelAndView, @PathVariable String texto)throws IOException {
+	public ModelAndView cursoOnce(HttpSession sesion, ModelAndView modelAndView, @PathVariable String texto)
+			throws IOException {
 
 		modelAndView.setViewName("home");
 		modelAndView.addObject("texto", texto);
-		setContador(getContador()+1);
-		modelAndView.addObject("contador",getContador());
-		if (sesion.getAttribute("visitas")==null)
-			sesion.setAttribute("visitas",1);
-			else {
-				int visitas= (Integer) sesion.getAttribute("visitas");
-				visitas++;
-				sesion.setAttribute("visitas", visitas);
-			}
+		setContador(getContador() + 1);
+		modelAndView.addObject("contador", getContador());
+		if (sesion.getAttribute("visitas") == null)
+			sesion.setAttribute("visitas", 1);
+		else {
+			int visitas = (Integer) sesion.getAttribute("visitas");
+			visitas++;
+			sesion.setAttribute("visitas", visitas);
+		}
 		modelAndView.addObject("visitas", sesion.getAttribute("visitas"));
-		
+
 		return modelAndView;
 	}
 
