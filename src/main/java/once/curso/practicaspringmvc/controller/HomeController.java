@@ -27,15 +27,17 @@ public class HomeController {
 
 		modelAndView.setViewName("home");
 		modelAndView.addObject("texto", texto);
-//		modelAndView.addAllObjects();
 		setContador(getContador()+1);
 		modelAndView.addObject("contador",getContador());
 		if (sesion.getAttribute("visitas")==null)
 			sesion.setAttribute("visitas",1);
 			else {
 				int visitas= (Integer) sesion.getAttribute("visitas");
+				visitas++;
+				sesion.setAttribute("visitas", visitas);
 			}
 		modelAndView.addObject("visitas", sesion.getAttribute("visitas"));
+		
 		return modelAndView;
 	}
 
