@@ -27,37 +27,44 @@ public class HomeController {
 		return new ModelAndView("home");
 	}
 
+	/*
+	 * @RequestMapping(value = "pagina", method = RequestMethod.GET) public String
+	 * algo(Model model, @RequestParam String texto) { setContador(getContador()+1);
+	 * String salida = texto.toUpperCase(); String salida1 =
+	 * String.valueOf(texto.length()); String salida2 =
+	 * String.valueOf(getContador()); String salida3 =
+	 * String.valueOf(getContador());
+	 * 
+	 * model.addAttribute("miTexto", salida); model.addAttribute("miTexto1",
+	 * salida1); model.addAttribute("miTexto2", salida2);
+	 * model.addAttribute("miTexto3", salida3);
+	 * return "pagina";
+	 * }
+	 */
+	
+	
+	
 	@RequestMapping(value = "pagina", method = RequestMethod.GET)
-	public String algo(Model model, @RequestParam String texto) {
+	public ModelAndView algo(Model model, @RequestParam String texto,ModelAndView modelAndView,HttpSession  sesion) {
+		modelAndView.setViewName("pagina");
 		setContador(getContador()+1);	
-		
-		/*
-		 * HttpServletRequest request = null; HttpSession sesion =
-		 * request.getSession(true);
-		 * 
-		 * if(sesion.getAttribute("visitas")==null) { sesion.setAttribute("visitas",1);
-		 * }else { int visitas = (Integer) sesion.getAttribute("visitas");
-		 * sesion.setAttribute("visitas",visitas); }
-		 */
-	     
-		
-		
-		
 		String salida = texto.toUpperCase();
 		String salida1 = String.valueOf(texto.length());
 		String salida2 =  String.valueOf(getContador());
-		String salida3 =  String.valueOf(getContador());
-
-		model.addAttribute("miTexto", salida);
-		model.addAttribute("miTexto1", salida1);
-		model.addAttribute("miTexto2", salida2);
-		model.addAttribute("miTexto3", salida3);
 		
-		
-       	
-
-
-		return "pagina";
+		if(sesion.getAttribute("visitas")==null) {
+			sesion.setAttribute("visitas", 1);
+			
+		}else {
+			int visitas = (Integer) sesion.getAttribute("visitas");
+			visitas++;
+			sesion.setAttribute("visitas",visitas);
+		}
+		modelAndView.addObject("miTexto", salida);
+		modelAndView.addObject("miTexto1", salida1);
+		modelAndView.addObject("miTexto2", salida2);
+		modelAndView.addObject("miTexto3", sesion.getAttribute("visitas"));
+		return modelAndView;
 
 	}
 
