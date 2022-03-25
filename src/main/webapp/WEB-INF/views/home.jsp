@@ -8,9 +8,14 @@
 
 	<spring:form action="loginConObjeto" method="POST"
 		modelAttribute="login">
-Usuario:<spring:input path="usuario" />
+		<spring:label path="usuario">Usuario:</spring:label>
+        <spring:input path="usuario" />
 		<br>
-Clave:<spring:password path="clave" /><br>
+		<br>
+		<spring:label path="clave">Clave:&nbsp;&nbsp;&nbsp;</spring:label>
+        <spring:password path="clave" />
+		<br>
+		<br>
 
 		<spring:button>EnviaR</spring:button>
 
