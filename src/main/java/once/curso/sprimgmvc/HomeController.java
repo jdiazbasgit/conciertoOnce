@@ -29,6 +29,12 @@ public class HomeController {
 		modelAndView.addObject("login", new Login());
 		return modelAndView ;
 	}
+	@RequestMapping(value = "/", method = RequestMethod.POST)
+	public ModelAndView  mensaje(ModelAndView modelAndView) {
+		modelAndView.setViewName("home");
+		modelAndView.addObject("login", new Login());
+		return modelAndView ;
+	}
 /*	
 	// Si mando a la vista un objeto con datos en sus propiedades,
 	// se muestra en el formulario los campos rellenos
