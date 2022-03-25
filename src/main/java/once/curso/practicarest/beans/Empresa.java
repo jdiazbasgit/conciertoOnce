@@ -15,7 +15,7 @@ import lombok.ToString;
 public class Empresa implements Serializable {
 	
 	
-	private final int id;
+	private int id;
 	private String nombre;
 	private String cif;
 
