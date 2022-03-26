@@ -13,7 +13,7 @@ import lombok.ToString;
 @ToString
 public class Hijo implements Serializable{
 
-	private final int id;
+	private int id;
 	private int numChicos;
 	private int numChicas;
 	
