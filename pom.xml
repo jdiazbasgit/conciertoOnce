@@ -8,11 +8,11 @@
 		<version>2.6.5</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.example</groupId>
-	<artifactId>demo1</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>demo1</name>
-	<description>Demo project for Spring Boot</description>
+	<groupId>once.curso</groupId>
+	<artifactId>conciertoOnce</artifactId>
+	<version>1.0</version>
+	<name>practicaspringmvc</name>
+	<description>Práctica Spring MVC REST</description>
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
