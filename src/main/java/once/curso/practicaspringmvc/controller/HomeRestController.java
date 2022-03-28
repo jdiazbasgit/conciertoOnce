@@ -17,6 +17,7 @@ public class HomeRestController {
 
 	@Autowired
 	private Persona persona;
+	
 
 	// @RequestMapping(value="/persona",method = RequestMethod.POST)
 	@PostMapping("/persona")
@@ -31,6 +32,7 @@ public class HomeRestController {
 		 */
 		persona.setNombre(persona.getNombre() + "-------------");
 		return persona;
+		
 	}
 
 }
