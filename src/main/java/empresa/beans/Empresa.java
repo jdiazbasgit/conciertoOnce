@@ -1,5 +1,6 @@
 package empresa.beans;
 
+
 import java.io.Serializable;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,11 +12,11 @@ import lombok.ToString;
 @Getter
 @AllArgsConstructor
 @ToString
-public class Hijo implements Serializable{
-
-	private final int id;
-	private int numChicos;
-	private int numChicas;
+public class Empresa implements Serializable {
 	
+	private int id;
+	private String nombre;
+	private String cif;
 
 }
+
