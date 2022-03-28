@@ -1,6 +1,7 @@
 package once.curso.practicaspringmvc.config;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -30,18 +31,30 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter{
 	
 	Connection conexion = null;
 	@Bean
-	public Connection getempresaDAO() {
+	public Connection getConexionDAO() {
 		EmpresaDAO empresaDAO= new EmpresaDAO();
-		conexion = empresaDAO.getConexion();
+		try {
+			conexion = empresaDAO.getConexion();
+		} catch (SQLException e) {
+			try {
+				conexion.close();
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			e.printStackTrace();
+		}
 	return conexion;	
 	
 	}
-	
+
 	@Bean
-	public Vehiculo getVehiculo() {
-		Vehiculo vehiculo = new Vehiculo();
-		vehiculo.
+	public VehiculoDao getVehiculo() {
+		
+		return new empresa.daos.VehiculoDao();
 	}
+	@Bean
+	public 
 	
 	
 	@Override
