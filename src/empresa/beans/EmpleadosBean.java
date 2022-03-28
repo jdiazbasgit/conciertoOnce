@@ -1,4 +1,4 @@
-package proyecto.beans;
+package empresa.beans;
 
 import java.util.Date;
 

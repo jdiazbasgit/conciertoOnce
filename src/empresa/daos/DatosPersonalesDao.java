@@ -7,20 +7,14 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.stereotype.Component;
-
-import empresa.anotaciones.Vigilado;
 import empresa.beans.DatosPersonales;
 import lombok.Data;
-import lombok.extern.apachecommons.CommonsLog;
 
 @Data
-@Component
 public class DatosPersonalesDao implements DatosPersonalsDaoInterface{
 
 	private Connection conexion;
 
-	@Vigilado
 	public List<DatosPersonales> dameDatosPersonales() throws SQLException {
 		List<DatosPersonales> datosPersonales = new ArrayList<>();
 
