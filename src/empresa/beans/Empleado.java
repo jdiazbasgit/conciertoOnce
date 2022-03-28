@@ -27,7 +27,6 @@ public class Empleado extends JPanel {
 
 	public Empleado(int id, String nombre, String dni, String telefono, String datosPersonalesId,
 			String empresasId, String datosLaboralesId, Date fechaNacimiento, Date fechaAlta, Date fechaBaja) {
-		super();
 		this.id = id;
 		this.nombre = nombre;
 		this.dni = dni;

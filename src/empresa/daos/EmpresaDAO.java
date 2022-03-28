@@ -9,12 +9,14 @@ import java.util.ArrayList;
 import java.util.List;
 import empresa.beans.Empresa;
 
+@Compornte
 public class EmpresaDAO extends ConexionDAO {
 
 	public String[] getColumnasEmpresa() {
 		return new String[] { "ID", "NOMBRE", "CIF" };
 	}
 
+	@Bean
 	public List<Empresa> dameListaEmpresas() throws SQLException {
 
 		List<Empresa> listaEmpresas = new ArrayList<>();
@@ -30,6 +32,7 @@ public class EmpresaDAO extends ConexionDAO {
 
 	}
 	
+	@Bean
 	public String[][] dameArrayEmpresas() throws SQLException {
 
 		List<Empresa> listaEmpresas = this.dameListaEmpresas();

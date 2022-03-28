@@ -12,6 +12,7 @@ import lombok.ToString;
 @Getter
 @AllArgsConstructor
 @ToString
+@Complement
 public class Empresa implements Serializable {
 	
 	private final int id;
