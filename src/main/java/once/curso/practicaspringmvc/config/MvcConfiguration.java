@@ -30,22 +30,16 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter{
 	
 	Connection conexion = null;
 	@Bean
-	public Connection getempresaDAO() {
-		EmpresaDAO empresaDAO= new EmpresaDAO();
-		try {
-			conexion = empresaDAO.getConexion();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	return conexion;	
+	public EmpresaDAO getempresaDAO() {		
+	return new EmpresaDAO();	
 	
 	}
 	
 	@Bean
 	public Vehiculo getVehiculo() {
 		Vehiculo vehiculo = new Vehiculo();
-		vehiculo.
+		return vehiculo;
+	
 	}
 	
 	
