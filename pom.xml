@@ -40,7 +40,7 @@
 		</dependency>
 		<dependency>
 			<groupId>curso.once</groupId>
-			<artifactId>concierto</artifactId>
+			<artifactId>basedatos</artifactId>
 			<version>1.0</version>
 		</dependency>
 	</dependencies>

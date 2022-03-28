@@ -1,6 +1,7 @@
 package once.curso.practicaspringmvc.config;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -13,7 +14,6 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import empresa.beans.Vehiculo;
 import empresa.daos.EmpresaDAO;
-import empresa.daos.VehiculoDao;
 
 @Configuration
 @ComponentScan(basePackages="once.curso.practicaspringmvc")
@@ -32,7 +32,12 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter{
 	@Bean
 	public Connection getempresaDAO() {
 		EmpresaDAO empresaDAO= new EmpresaDAO();
-		conexion = empresaDAO.getConexion();
+		try {
+			conexion = empresaDAO.getConexion();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	return conexion;	
 	
 	}
