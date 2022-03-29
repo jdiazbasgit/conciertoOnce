@@ -17,11 +17,17 @@ public class TipoCarnetDao extends EmpresaDao {
 		List<TipoCarnet> tipoCarnet = new ArrayList<TipoCarnet>();
 		Connection conexion = dameConexion();
 		Statement instruccion = conexion.createStatement();
-		ResultSet resultSet = instruccion.executeQuery("SELECT ID,DEFINICION");
+		ResultSet resultSet = instruccion.executeQuery("SELECT ID,descripcion from tipo_carnet" );
 		while (resultSet.next()) {
 			System.out.println(resultSet.getString(1) + " - " + resultSet.getString(2));
+			TipoCarnet carnet= new TipoCarnet();
+			carnet.setId(resultSet.getInt(1));
+			carnet.setDescripcion(resultSet.getString(2));
+		    tipoCarnet.add(carnet);
 		}
 
 		return tipoCarnet;
 	}
+
+
 }
