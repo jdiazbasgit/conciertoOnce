@@ -13,26 +13,23 @@ import empresa.beans.Vehiculo;
 import empresa.daos.EmpresaDAO;
 import empresa.daos.HijoDAO;
 import empresa.daos.VehiculoDao;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 @RestController
-@Getter
-@Setter
+@Data
 public class HomeRestController {
 
 	@Autowired
 	private VehiculoDao vehiculoDao;
-
 	@Autowired
 	private HijoDAO hijoDAO;
 	@Autowired
 	private EmpresaDAO empresaDAO;
 
-	
 	@GetMapping("/vehiculos")
 	public List<Vehiculo> getVehiculosDAO() throws SQLException {
 		return vehiculoDao.dameVehiculos();
+
 	}
 
 	@GetMapping("/hijos")
