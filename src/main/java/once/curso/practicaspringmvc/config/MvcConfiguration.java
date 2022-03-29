@@ -21,18 +21,18 @@ import empresa.daos.VehiculoDao;
 @EnableWebMvc
 public class MvcConfiguration extends WebMvcConfigurerAdapter {
 
-	@Bean
-	public ViewResolver getViewResolver() {
-		InternalResourceViewResolver resolver = new InternalResourceViewResolver();
-		resolver.setPrefix("/WEB-INF/views/");
-		resolver.setSuffix(".jsp");
-		return resolver;
-	}
+//	@Bean
+//	public ViewResolver getViewResolver() {
+//		InternalResourceViewResolver resolver = new InternalResourceViewResolver();
+//		resolver.setPrefix("/WEB-INF/views/");
+//		resolver.setSuffix(".jsp");
+//		return resolver;
+//	}
 
-	@Bean
-	public ConexionDAO getConexionDAO() {
-		return new ConexionDAO();
-	}
+//	@Bean
+//	public ConexionDAO getConexionDAO() {
+//		return new ConexionDAO();
+//	}
 
 	@Bean
 	public VehiculoDao getVehiculo() {

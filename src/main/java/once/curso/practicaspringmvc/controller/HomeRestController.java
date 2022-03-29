@@ -17,17 +17,23 @@ import empresa.daos.EmpresaDAO;
 import empresa.daos.HijoDAO;
 import empresa.daos.TipoCarnetDao;
 import empresa.daos.VehiculoDao;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 @RestController
-@Data
+@Getter
+@Setter
 public class HomeRestController {
 
 	@Autowired
 	private VehiculoDao vehiculoDao;
+	@Autowired
 	private TipoCarnetDao tipoCarnetDao;
+	@Autowired
 	private HijoDAO hijoDAO;
+	@Autowired
 	private EmpresaDAO empresaDAO;
+	@Autowired
 	private DatosPersonalesDao datosPersonalesDao;
 	
 
@@ -37,7 +43,7 @@ public class HomeRestController {
 		return vehiculoDao.dameVehiculos();
 	}
 	
-	@GetMapping("/Carnets")
+	@GetMapping("/carnets")
 	public List<TipoCarnet> getTiposCarnetDAO() throws SQLException {
 		return tipoCarnetDao.dameTipoCarnet();
 		
