@@ -17,12 +17,13 @@ public class VehiculoDao extends ConexionDAO {
 
 	public List<Vehiculo> dameVehiculos() throws SQLException {
 		List<Vehiculo> vehiculos = new ArrayList<Vehiculo>();
-		Vehiculo vehiculo = new Vehiculo();
+		
 
 		Connection conexion = getConexion();
 		Statement instruccion = conexion.createStatement();
 		ResultSet resultSet = instruccion.executeQuery("SELECT ID,MARCA,MODELO FROM VEHICULOS");
 		while (resultSet.next()) {
+			Vehiculo vehiculo = new Vehiculo();
 			vehiculo.setId(resultSet.getInt(1));
 			vehiculo.setMarca(resultSet.getString(2));
 			vehiculo.setModelo(resultSet.getString(3));
