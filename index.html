@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Web Accesible</title>
+    <meta charset='UTF-8'/>    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="css/estilos.css" type="text/css" />
+</head>
+
+<body>
+    <header class="text-light bg-dark text-center p-4">
+        <h1 class="display-1" >Aplicaci&oacute;n nada accesible</h1>
+        <h4 >Versi&oacute;n 1.5</h4>
+    </header>
+
+
+    <main class="container">
+        <div class="row">
+            <div class="col" rol="article">
+                <div class="card shadow-lg m-3" style="width: 28rem;" aria-label="Tarjeta de formulario">
+                    <img src="https://picsum.photos/600/300" class="card-img-top" alt="Imagen Decorativa" aria-hidden="true"/>
+                    <div class="card-body" >
+                        <header>
+                        <h4 class="card-title">Formulario Registro</h4>
+                        </header>
+                        <form action="#" method="get" class="mx-5">
+                            <div class="mb-3">
+                                <label for="correo" class="form-label">Correo Electr&oacute;nico</label>
+                                <input tabindex="1" type="text" id="correo" name="usuario" class="form-control" placeholder="usuario@dominio.es" 
+                                   title="Correo electr&oacute;nico" aria-required="true"/>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Contrase&ntilde;a</label>
+                                <input tabindex="2" type="password" id="password" name="pass" class="form-control" 
+                                placeholder="Contrase&ntilde;a" title="Contrase&ntilde;a"  aria-required="true"/>
+                            </div>
+                            <div class="mb-3">
+                                <label for="idioma">Idioma</label>
+                                <select tabindex="3" name="idioma" id="idioma" class="form-select" title="Selecciona Idioma">
+                                    <option value="1" text="Espa&ntilde;ol">Espa&ntilde;ol</option>
+                                    <option value="2" text="Ingl&eacute;s">Ingl&eacute;s</option>
+                                </select>
+                            </div>
+                            <div class="form-check form-switch mb-3">
+                                <input tabindex="4" type="checkbox" role="switch" id="recordar" class="form-check-input" placeholder="Recordarme" />
+                                <label for="recordar" tabindex="-1" class="form-check-label">Recordarme en este navegador</label>
+                            </div>
+                            <div class="mb-3 text-end">
+                                <button tabindex="5" type="submit" class="btn btn-dark" title="Enviar">
+                                    <em class="bi bi-send" alt="Enviar" aria-label="Enviar formulario"></em>
+                                    Enviar
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col" rol="article">
+                <div class="card shadow-lg m-3">
+                    <div class="card-body">
+                        <header>
+                        <h2 class="card-title">Lista de usuarios</h2>
+                        </header>
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <img src="https://thispersondoesnotexist.com/image" class="img-fluid rounded-circle avatar float-start me-3" alt="Avatar usuario"  title="avatar usuario" aria-hidden="true"/> 
+                                <div class="float-end">
+                                <nav aria-label="Opciones de usuario">
+                                    <a href="#" title="A&ntilde;adir a favoritos" class="btn btn-danger" tabindex="6"><em class="bi bi-star"></em></a>
+                                    <a href="#" title="Eliminar usuario" class="btn btn-warning" tabindex="7" ><em class="bi bi-trash"></em></a>
+                                    <a href="#" title="Facebook" class="btn btn-success" tabindex="8"><em class="bi bi-ear"></em></a>
+                                    <a href="#" title="Informaci&oacute;n usuario" class="btn btn-info" tabindex="9" ><em class="bi bi-info-circle"></em></a>
+                                </nav>
+                                </div>
+                                <h5>Max Power</span>
+                                <h6>C.E.O. (Director Ejecutivo)</h6>
+                            </li>
+                            <li class="list-group-item">
+                                <img src="https://thisartworkdoesnotexist.com" class="img-fluid rounded-circle avatar float-start me-3" alt="Avatar usuario"  title="avatar usuario" aria-hidden="true"/> 
+                                <div class="float-end">
+                                <nav aria-label="Opciones de usuario">
+                                    <a href="#" title="A&ntilde;adir a favoritos" class="btn btn-danger" tabindex="10"><em class="bi bi-star"></em></a>
+                                    <a href="#" title="Eliminar usuario" class="btn btn-warning" tabindex="11" ><em class="bi bi-trash"></em></a>
+                                    <a href="#" title="Facebook" class="btn btn-success" tabindex="12"><em class="bi bi-ear"></em></a>
+                                    <a href="#" title="Informaci&oacute;n usuario" class="btn btn-info" tabindex="13" ><em class="bi bi-info-circle"></em></a>
+                                </nav>
+                                </div>
+                                <h5>Enrico Palazzo</span>
+                                <h6>Director Musical Ejecutivo</h6>
+                            </li>
+                            <li class="list-group-item">
+                                <img src="https://thiscatdoesnotexist.com" class="img-fluid rounded-circle avatar float-start me-3" alt="Avatar usuario" title="avatar usuario" aria-hidden="true"/> 
+                                <div class="float-end">
+                                <nav aria-label="Opciones de usuario">
+                                    <a href="#" title="A&ntilde;adir a favoritos" class="btn btn-danger" tabindex="14"><em class="bi bi-star"></em></a>
+                                    <a href="#" title="Eliminar usuario" class="btn btn-warning" tabindex="15" ><em class="bi bi-trash"></em></a>
+                                    <a href="#" title="Facebook" class="btn btn-success" tabindex="16"><em class="bi bi-ear"></em></a>
+                                    <a href="#" title="Informaci&oacute;n usuario" class="btn btn-info" tabindex="17" ><em class="bi bi-info-circle"></em></a>
+                                </nav>
+                                </div>
+                                <h5>Mr. Minino</span>
+                                <h6>Jefe de personal gatuno</h6>
+                            </li>
+                            <li class="list-group-item">
+                                <img src="https://thishorsedoesnotexist.com" class="img-fluid rounded-circle avatar float-start me-3" alt="Avatar usuario" title="avatar usuario" aria-hidden="true"/>                                 
+                                <div class="float-end">
+                                <nav aria-label="Opciones de usuario"></nav>
+                                    <a href="#" aria-label="A&ntilde;adir a favoritos"  title="A&ntilde;adir a favoritos" class="btn btn-danger" tabindex="18"><em class="bi bi-star"></em></a>
+                                    <a href="#" aria-label="Eliminar usuario" title="Eliminar usuario" class="btn btn-warning" tabindex="19" ><em class="bi bi-trash"></em></a>
+                                    <a href="#" aria-label="Facebook" title="Facebook" class="btn btn-success" tabindex="20"><em class="bi bi-ear"></em></a>
+                                    <a href="#" aria-label="Informaci&oacute;n usuario" title="Informaci&oacute;n usuario" class="btn btn-info" tabindex="21" ><em class="bi bi-info-circle"></em></a>
+                                </nav>
+                                </div>
+                                <h5>Horseman</span>
+                                <h6>Productor de caballos renderizados por una I.A. (Inteligencia Artificial)</h6>
+                            </li>
+                        </ul>
+
+                    </div>
+                    <div class="card-footer">
+                    <footer>
+                        <div class="text-center">
+                            <button tabindex="22" class="btn btn-primary" role="" title="Mostrar todos los usuarios" aria-label="Mostrar todos los usuarios"><em class="bi bi-folder2-open"></em>Ver Todos</button>
+                            <button tabindex="23" class="btn btn-primary" role="" title="Descargar listado de usuarios" aria-label="Descargar listado de usuarios"><em class="bi bi-save"></em> Descargar</button>
+                        </div>
+                    </footer>
+                    </div>
+                </div>                
+            </div>
+        </div>
+    </main>
+
+    <!-- Separador -->
+    <div class="my-5"></div>
+
+    <footer class="fixed-bottom text-light text-opacity-25 bg-dark text-center p-3">
+        <hfooter>
+            Pi&eacute; de p&aacute;gina m&aacute;s bonito que todas las cosas &copy;2022
+        </hfooter>
+        <bfooter class="text-start">
+            <a class="btn btn-outline-light" href="https://github.com/borilio/curso-accesibilidad-tarea" title="Enlace a Github">
+                <em class="bi bi-github" alt="Ir a Github"></em>
+            </a>
+        </bfooter>
+    </footer>
+
+
+    <!-- Librerías javascript -->
+    <script src="js/codigo.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>
