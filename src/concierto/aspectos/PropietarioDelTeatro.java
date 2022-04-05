@@ -32,17 +32,17 @@ public class PropietarioDelTeatro {
 
 			// Before
 			System.out.println("SEÑORES APAGUEN LOS MOVILES QUE VA A EMPEZAR EL CONCIERTO soy el dueño");
-			if(musico.getClass().isInstance(new HombreOrquesta())) {
-				
-				if(musico.getInstrumentosInterface().size()<3) {
-					Tambor tambor= new Tambor();
-					InstrumentoBeanPapa papa= new InstrumentoBeanPapa();
+			if (musico.getClass().isInstance(new HombreOrquesta())) {
+
+				if (musico.getInstrumentosInterface().size() < 3) {
+					Tambor tambor = new Tambor();
+					InstrumentoBeanPapa papa = new InstrumentoBeanPapa();
 					papa.setSonido("tambor..........");
 					tambor.setInstrumentoBeanPapa(papa);
 					musico.getInstrumentosInterface().add(tambor);
 				}
 			}
-			
+
 			joinPoint.proceed();
 			System.out.println("SEÑORES EL CONCIERTO HA TERMINADO, PUIEDEN ENCENDER LOS MOVILES soy el dueño");
 			// AfterReturninig
@@ -61,7 +61,7 @@ public class PropietarioDelTeatro {
 			try {
 				musico.tocar();
 			} catch (SinSonidoException e1) {
-				
+
 			}
 			// AfterThrowiong
 		} finally {
