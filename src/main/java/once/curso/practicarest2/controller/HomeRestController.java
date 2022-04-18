@@ -1,6 +1,5 @@
 package once.curso.practicarest2.controller;
 
-import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import empresa.beans.Vehiculo;
 import empresa.daos.VehiculoDao;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 

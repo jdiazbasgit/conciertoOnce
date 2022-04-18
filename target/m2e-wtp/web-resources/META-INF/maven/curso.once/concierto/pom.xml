@@ -64,4 +64,5 @@
 
 	<artifactId>concierto</artifactId>
 	<groupId>curso.once</groupId>
+	<packaging>war</packaging>
 </project>
