@@ -36,16 +36,16 @@ class App extends React.Component {
                             <Link to="/Login">Login</Link>
                         </li>
                     </ul>
-                        <Routes>
-                            <Route path="/" element={<Login />} />
-                            <Route path="/regenerarChecks" element={<RegenerarChecks/>} />
-                            <Route path="/inputMeses" element={<InputMeses/>} />
-                            <Route path="/crearPDF" element={<CrearPDF/>} />
-                            <Route path="/login" element={<Login/>} />
-                        </Routes>
+                    <Routes>
+                        <Route path="/" element={<Login />} />
+                        <Route path="/regenerarChecks" element={<RegenerarChecks />} />
+                        <Route path="/inputMeses" element={<InputMeses />} />
+                        <Route path="/crearPDF" element={<CrearPDF />} />
+                        <Route path="/login" element={<Login />} />
+                    </Routes>
                 </div>
-            </BrowserRouter>  
-        );  
+            </BrowserRouter>
+        );
     }
 }
 

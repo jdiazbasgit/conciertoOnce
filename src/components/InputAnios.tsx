@@ -14,8 +14,8 @@ const InputAnios: FC<{ idempleado: string }> = ({ idempleado }): JSX.Element => 
     setSelectedAnio(value);
   };
 
-  const dameFechas = async () => {
-    const { data } = await getDatos(urlFechas);
+  const dameFechas = async (empleadoSeleccionado:string) => {
+    const { data } = await getDatos(${urlBase} );
     setFechas(data);
   }
 

@@ -21,9 +21,9 @@ const RegenerarChecks = () => {
   const [fechas, setFechas] = useState<ChecksFechasEmpleadosDto>();
   const { watch } = useForm();
   const [clickedButton, setClickedButton] = useState('');
-  let nuevoEmpleadoSeleccionado: string = watch("selectEmpleados")
-  let nuevoAnioSeleccionado: string = watch("selectAnios")  
-  let nuevoMesSeleccionado: string = watch("selectMeses")
+  const nuevoEmpleadoSeleccionado: string = watch("selectEmpleados")
+  const nuevoAnioSeleccionado: string = watch("selectAnios")  
+  const nuevoMesSeleccionado: string = watch("selectMeses")
 
 
   const selectChange = (event: React.ChangeEvent<HTMLInputElement>) => {
