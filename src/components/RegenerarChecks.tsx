@@ -60,12 +60,12 @@ const RegenerarChecks = () => {
   useEffect(() => {
     setDatosPdf({} as ChecksPdfDto);
     dameDatosPdf();   
-    if (datosPdf) {
+    /* if (datosPdf) {
       console.log(datosPdf.empleado,datosPdf?.mes,datosPdf.anio,datosPdf.nombreMes);
       datosPdf.checksEmpleadoDia.map((value:CheckDto, key:string)=>{
         console.log(key, value.checkEntrada, value?.hora);
       });
-    }
+    } */
   }, []);
 
   const creaPdf = (event: React.MouseEvent<HTMLButtonElement>) => {

@@ -5,6 +5,7 @@ import { getDatos, servidor } from "../services/Service";
 const url = `http://${servidor}/checks/empleados/`;
 
 const InputAnios: FC<{ idempleado: string }> = ({ idempleado }): JSX.Element => {
+  const url = `http://${servidor}/checks/empleados/`;
   const urlFechas: string = `${url}${idempleado}`;
   const [selectedAnio, setSelectedAnio] = useState<string>();
   const [fechas, setFechas] = useState<ChecksFechasEmpleadosDto>();
@@ -15,13 +16,14 @@ const InputAnios: FC<{ idempleado: string }> = ({ idempleado }): JSX.Element => 
   };
 
   const dameFechas = async (empleadoSeleccionado:string) => {
-    const { data } = await getDatos(${urlBase} );
+    const { data } = await getDatos(urlFechas);
     setFechas(data);
   }
-
+/* 
   useEffect(() => {
-    dameFechas();
-  }, []);
+    setFechas();
+    dameFechas(selectedAnio);
+  }, []); */
 
   return (
     <div>
