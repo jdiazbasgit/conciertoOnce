@@ -2,16 +2,16 @@ import React from "react";
 
 import "../css/App.css";
 
-class Cabecera extends React.Component {
+class Informes extends React.Component {
 
     render() {
         return (
 
             <div className="App">
-                <h1>Accesos</h1>
+                <h1>Informes</h1>
             </div>
         );
     }
 }
 
-export default Cabecera;
+export default Informes;

@@ -1,17 +1,16 @@
 import React from "react";
-
 import "../css/App.css";
 
-class Cabecera extends React.Component {
+class EmployeeJournal extends React.Component {
 
     render() {
         return (
 
             <div className="App">
-                <h1>Accesos</h1>
+                <h1>Empleados/Jornada</h1>
             </div>
         );
     }
 }
 
-export default Cabecera;
+export default EmployeeJournal;

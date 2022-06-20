@@ -2,16 +2,16 @@ import React from "react";
 
 import "../css/App.css";
 
-class Cabecera extends React.Component {
+class Calendario extends React.Component {
 
     render() {
         return (
 
             <div className="App">
-                <h1>Accesos</h1>
+                <h1>Calendario</h1>
             </div>
         );
     }
 }
 
-export default Cabecera;
+export default Calendario;
