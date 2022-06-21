@@ -1,21 +1,23 @@
-import React, { useEffect, useState } from 'react';
+import React, { InputHTMLAttributes, useEffect, useState } from 'react';
 import { Button, Col, Form, FormControl, Row } from 'react-bootstrap';
 import { render } from 'react-dom';
 import { useForm } from 'react-hook-form';
 import { getDatos, servidor } from '../services/Service';
 //https://stackoverflow.com/questions/66935038/setting-max-and-min-user-input-in-react-form
 
-function CrearPDF() {
+const CrearPDF = () => {
 
     const urlBase: string = `http://${servidor}/checks/empleados`
 
-    const [empleados, setEmpleados] = useState([]);
-    const [anios, setAnios] = useState([]);
-    const [meses, setMeses] = useState([]);
-    const [minAnio, setMinAnio] = useState([]);
-    const [maxAnio, setMaxAnio] = useState([]);
-    const [minMes, setMinMes] = useState([]);
-    const [maxMes, setMaxMes] = useState([]);
+    const [listaEmpleados, setlistaEmpleados] = useState([]);
+    const [listaAnios, setListaAnios] = useState([]);
+    const [listaMeses, setListaMeses] = useState([]);
+    const [anioSeleccionado, setAnioSeleccionado] = useState<number>(0);
+    const [meseleccionado, setMesSeleccionado] = useState<number>(0);
+    const [minAnio, setMinAnio] = useState<number>(0);
+    const [maxAnio, setMaxAnio] = useState<number>(0);
+    const [minMes, setMinMes] = useState<number>(0);
+    const [maxMes, setMaxMes] = useState<number>(0);
     const { register, handleSubmit, watch } = useForm();
     let watchEmpleado = watch('empleadoId');
     let watchAnio = watch('anio');
@@ -23,40 +25,48 @@ function CrearPDF() {
 
     const dameEmpleados = async () => {
         const { data } = await getDatos(urlBase);
-        setEmpleados(data);
+        setlistaEmpleados(data);
     }
 
     const dameAnios = async () => {
         const { data } = await getDatos(`${urlBase}/${watchEmpleado}`);
-        setAnios(data);
+        setListaAnios(data);
         setMinAnio(data.anioAlta);
         setMaxAnio(data.anioBaja);
     }
 
     const dameMeses = async () => {
         const { data } = await getDatos(`${urlBase}/${watchEmpleado}/${watchAnio}`);
-        setMeses(data);
+        setListaMeses(data);
         setMinMes(data.mesAlta);
         setMaxMes(data.mesBaja);
     }
 
     useEffect(() => {
-        setEmpleados([]);
+        setlistaEmpleados([]);
         dameEmpleados();
     }, []);
 
     useEffect(() => {
-        setAnios([]);
-        setMeses([]);
+        setListaAnios([]);
+        setListaMeses([]);
         if (watchEmpleado)
             dameAnios();
     }, [watchEmpleado]);
 
     useEffect(() => {
-        setMeses([]);
+        setListaMeses([]);
         if (watchAnio)
             dameMeses();
     }, [watchAnio]);
+
+    const crearPDF = (event: React.MouseEvent<HTMLButtonElement>) => {
+        event.preventDefault();
+        event.stopPropagation();
+        console.log("Crear PDF => idEmpleado: " + watchEmpleado + ", año " + watchAnio + ", mes "+ watchMes);
+       
+        
+    };
 
     return (
         <div>
@@ -66,24 +76,26 @@ function CrearPDF() {
                     <Col sm={5}>
                         <FormControl name="empleadoId" as="select" defaultValue="" >
                             <option value="" disabled key={0}>Selecciona Empleado...</option>
-                            {empleados.map((emp: any) => (
+                            {listaEmpleados.map((emp: any) => (
                                 <option value={emp.idEmpleado} key={emp.idEmpleado}>
                                     {emp.apellidosNombreEmpleado} -- {emp.dniEmpleado}
                                 </option>
                             ))}
                         </FormControl >
                     </Col>
-                    <Col sm={2}>                       
-                            <FormControl name="anio" type="number" placeholder="Selecciona Año..."
-                                min={this.minAnio} max={maxAnio}></FormControl >                     
+                    <Col sm={2}>    
+                    <FormControl name="anio" type="number" placeholder="Selecciona Mes..."
+                                min={minAnio} max={maxAnio} value={maxAnio}
+                                onChange={(e) => setAnioSeleccionado(Number(e.target.value))}></FormControl >            
+                                            
                     </Col>
                     <Col sm={2}>                        
-                            <FormControl name="anio" type="number" placeholder="Selecciona Mes..."
-                                min={minMes} max={maxMes} value={numb}
-                                onChange={(e) => setNumb(e.target.value)}></FormControl >                    
+                    <FormControl name="mes" type="number" placeholder="Selecciona Mes..."
+                                min={minMes} max={maxMes} value={maxMes}
+                                onChange={(e) => setMesSeleccionado(Number(e.target.value))}></FormControl >                    
                     </Col>
                     <Col sm={3}>
-                        <Button color="primary" className="btn-primary">Crear PDF</Button>
+                        <Button color="primary" className="btn-primary" onClick={crearPDF}>Crear PDF</Button>
                     </Col>
                 </Row>
             </Form>
