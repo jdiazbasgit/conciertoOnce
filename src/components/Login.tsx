@@ -27,7 +27,7 @@ class Login extends Component {
             (response) => {
                 console.log(response.data)
                 if(response.data.usuario==null) 
-                    this.error.current.innerText = "Usuario o clave erroneo" 
+                    this.error.current.innerText = "Usuario o clave erróneo" 
                 localStorage.token = response.data.token;
             }
         );
