@@ -1,4 +1,4 @@
-import React, { InputHTMLAttributes, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, Col, Form, FormControl, Row } from 'react-bootstrap';
 import { render } from 'react-dom';
 import { useForm } from 'react-hook-form';
@@ -84,7 +84,7 @@ const CrearPDF = () => {
                         </FormControl >
                     </Col>
                     <Col sm={2}>    
-                    <FormControl name="anio" type="number" placeholder="Selecciona Mes..."
+                    <FormControl name="anio" type="number" placeholder="Selecciona Año..."
                                 min={minAnio} max={maxAnio} value={maxAnio}
                                 onChange={(e) => setAnioSeleccionado(Number(e.target.value))}></FormControl >            
                                             

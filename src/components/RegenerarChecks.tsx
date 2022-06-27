@@ -1,87 +1,115 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Button, Col, Form, FormControl, Row } from 'react-bootstrap';
-import { useForm } from 'react-hook-form';
 import ChecksEmpleadoDto from '../dtos/checks/ChecksEmpleadoDto';
 import { getDatos, servidor } from '../services/Service';
+import "../css/checks.css";
 
 //https://blog.logrocket.com/guide-to-react-useeffect-hook/
 
-function Informes() {
+const ERROR_01="Error petición empleados, RegenerarChecks.tsx";
+const ERROR_02="Error petición fechas, RegenerarChecks.tsx";
+const ERROR_03="Error regenerando checks, RegenerarChecks.tsx";
+const MENSAJE_OK="Checks regenerados correctamente";
 
-    const urlBase: string = `http://${servidor}/checks/empleados`
+function RegenerarChecks() {
 
-    const [empleados, setEmpleados] = useState([]);
-    const [fechas, setFechas] = useState([]);
-    const listaEmpleadosRef = useRef<HTMLOptionElement>();
+  const urlEmpleados: string = `http://${servidor}/checks/empleados`
 
-    
-    const [meses, setMeses] = useState([]);
-    const [anios, setAnios] = useState([]);
-    const { register, handleSubmit, watch } = useForm();
-    let watchEmpleado = watch('empleadoId');
-    let watchAnio = watch('anio');
-    let watchMes = watch('mes');
+  const [empleados, setEmpleados] = useState<ChecksEmpleadoDto[]>([]);
+  const [idEmpleadoSeleccionado, setIdEmpleadoSeleccionado] = useState<number>(0);
+  const [minAnio, setMinAnio] = useState<number>(0);
+  const [maxAnio, setMaxAnio] = useState<number>(0);
+  const [anioSeleccionado, setAnioSeleccionado] = useState<number>(0);
+  const [mensajeUsuario, setMensajeUsuario] = useState<string>('');
 
+  const listaEmpleadosRef = useRef<HTMLSelectElement>();
+  const inputAnioRef = useRef<HTMLInputElement>();
+
+  useEffect(() => {
     const dameEmpleados = async () => {
-        const { data } = await getDatos(urlBase);
-        setEmpleados(data);
-    }
+      try {
+        const response = await getDatos(urlEmpleados);
+        if (response.status === 200)
+          setEmpleados(response.data);
+      } catch (error) {
+        console.log(ERROR_01);
+        // Redirigir a página de login ????????????
+      }
+    };
+    dameEmpleados();
+  }, [urlEmpleados]);
 
+
+  useEffect(() => {
     const dameFechas = async () => {
-        const { data } = await getDatos(`${urlBase}/${watchEmpleado}`);
-        setFechas(data);
+      try {
+        const response = await getDatos(`${urlEmpleados}/${idEmpleadoSeleccionado}`);
+        if (response.status === 200) {
+          setMinAnio(response.data.anioAlta);
+          setMaxAnio(response.data.anioBaja);
+        }
+      } catch (error) {
+        console.log(ERROR_02);
+        // Redirigir a página de login ????????????
+      }
+    };
+    dameFechas();
+  }, [idEmpleadoSeleccionado]);
+
+
+
+  const regenerarChecks = async (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+    event.stopPropagation();
+    try {
+      const response = await getDatos(`http://${servidor}/checks/regenera/${idEmpleadoSeleccionado}/${anioSeleccionado}`)
+      if (response.status === 200)
+        setMensajeUsuario(MENSAJE_OK);
+    }catch (error) {
+      console.log(ERROR_03);
+      // Redirigir a página de login ????????????
     }
+  }
 
-    useEffect(() => {
-        dameEmpleados();
-    }, [setEmpleados]);
+  const cambiarEmpleado = (selectedOption:any) => {
+    setIdEmpleadoSeleccionado(selectedOption);
+    console.log("IdEmpleado -> " + idEmpleadoSeleccionado);
+  }
 
-    useEffect(() => {
-        dameFechas();
-    }, [setEmpleados]);
-
-    useEffect(() => {
-        setAnios([]);
-        setMeses([]);
-        if (watchEmpleado)
-            dameFechas();
-    }, [watchEmpleado]);
-
-    const crearPdf=()=> console.log("click crear PDF");
-
-
-    return (
-        <div>
-            <h1>Crear PDF</h1>
-            <Form>
-                <Row>
-                    <Col sm={5}>
-                        <FormControl as="select" defaultValue="" >
-                            <option value="" disabled key={0} ref={listaEmpleadosRef}>Selecciona Empleado...</option>
-                            {empleados.map((emp: any) => (
-                                <option value={emp.idEmpleado} key={emp.idEmpleado}>
-                                    {emp.apellidosNombreEmpleado} -- {emp.dniEmpleado}
-                                </option>
-                            ))}
-                        </FormControl >
-                    </Col>
-                    <Col sm={2}>
-                        <FormControl type="number" placeholder="Selecciona Año..." ></FormControl >
-                    </Col>
-                    <Col sm={2}>
-                        <FormControl type="number" placeholder="Selecciona Mes..." ></FormControl >
-                    </Col>
-                    <Col sm={3}>
-                        <Button color="primary" className="btn-primary" onClick={crearPdf}>Crear PDF</Button>
-                    </Col>
-                </Row>
-            </Form>
-        </div>
-    );
+  return (
+    <div className="text-center">
+      <h2 className="mb-4">Regenerar Checks</h2>
+      <Form>
+        <Row className="mt-5">
+          <Col sm={4}>
+            <select className="checks-fondo-controles" defaultValue="" 
+                    ref={listaEmpleadosRef as React.RefObject<HTMLSelectElement>} onChange={cambiarEmpleado}>
+              <option className="checks-fondo-controles" value="" disabled key={0} >Selecciona Empleado...</option>
+              {empleados.map((emp: any) => (
+                <option className="checks-fondo-controles" value={emp.idEmpleado} key={emp.idEmpleado}>
+                  {emp.apellidosNombreEmpleado} -- {emp.dniEmpleado}
+                </option>
+              ))}
+            </select >
+          </Col>
+          <Col sm={2}>
+            <input className="checks-fondo-controles" type="number" placeholder="Selecciona Año..." min={minAnio}
+                 max={maxAnio} ref={inputAnioRef as React.RefObject<HTMLInputElement>}/>            
+          </Col>
+          <Col sm={3}>
+            <button className="btn checks-fondo-controles" onClick={regenerarChecks}>Regenerar Checks</button>
+          </Col>
+        </Row>
+      </Form>
+      <div className="regenerar-mensaje">
+            <h2>{mensajeUsuario}</h2>
+      </div>
+    </div>
+  );
 
 }
 
-export default Informes;
+export default RegenerarChecks;
 
 
 /* import { useEffect, useState } from "react";

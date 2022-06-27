@@ -57,7 +57,7 @@ function Informes() {
                 <Row>
                     <Col sm={5}>
                         <FormControl as="select" defaultValue="" >
-                            <option value="" disabled key={0} ref={listaEmpleadosRef}>Selecciona Empleado...</option>
+                            <option value="" disabled key={0} ref={listaEmpleadosRef as React.RefObject<HTMLOptionElement>}>Selecciona Empleado...</option>
                             {empleados.map((emp: any) => (
                                 <option value={emp.idEmpleado} key={emp.idEmpleado}>
                                     {emp.apellidosNombreEmpleado} -- {emp.dniEmpleado}
