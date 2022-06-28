@@ -4,6 +4,7 @@ import ChecksEmpleadoDto from '../dtos/checks/ChecksEmpleadoDto';
 import { getDatos, servidor } from '../services/Service';
 import "../css/checks.css";
 
+//https://stackoverflow.com/questions/21733847/react-jsx-selecting-selected-on-selected-select-option
 //https://blog.logrocket.com/guide-to-react-useeffect-hook/
 
 const ERROR_01="Error petición empleados, RegenerarChecks.tsx";
