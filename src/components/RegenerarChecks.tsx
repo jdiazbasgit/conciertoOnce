@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { ChangeEvent, useEffect, useRef, useState } from 'react';
 import { Button, Col, Form, FormControl, Row } from 'react-bootstrap';
 import ChecksEmpleadoDto from '../dtos/checks/ChecksEmpleadoDto';
 import { getDatos, servidor } from '../services/Service';
@@ -7,10 +7,10 @@ import "../css/checks.css";
 //https://stackoverflow.com/questions/21733847/react-jsx-selecting-selected-on-selected-select-option
 //https://blog.logrocket.com/guide-to-react-useeffect-hook/
 
-const ERROR_01="Error petición empleados, RegenerarChecks.tsx";
-const ERROR_02="Error petición fechas, RegenerarChecks.tsx";
-const ERROR_03="Error regenerando checks, RegenerarChecks.tsx";
-const MENSAJE_OK="Checks regenerados correctamente";
+const ERROR_01 = "Error petición empleados, RegenerarChecks.tsx";
+const ERROR_02 = "Error petición fechas, RegenerarChecks.tsx";
+const ERROR_03 = "Error regenerando checks, RegenerarChecks.tsx";
+const MENSAJE_OK = "Checks regenerados correctamente";
 
 function RegenerarChecks() {
 
@@ -42,19 +42,24 @@ function RegenerarChecks() {
 
 
   useEffect(() => {
-    const dameFechas = async () => {
-      try {
-        const response = await getDatos(`${urlEmpleados}/${idEmpleadoSeleccionado}`);
-        if (response.status === 200) {
-          setMinAnio(response.data.anioAlta);
-          setMaxAnio(response.data.anioBaja);
+    if (idEmpleadoSeleccionado !== 0) {
+      setMinAnio(0);
+      setMaxAnio(0);
+      const dameFechas = async () => {
+        try {
+          console.log("urlDameFechas : " + `${urlEmpleados}/${idEmpleadoSeleccionado}`)
+          const response = await getDatos(`${urlEmpleados}/${idEmpleadoSeleccionado}`);
+          if (response.status === 200) {
+            setMinAnio(response.data.anioAlta);
+            setMaxAnio(response.data.anioBaja);
+          }
+        } catch (error) {
+          console.log(ERROR_02);
+          // Redirigir a página de login ????????????
         }
-      } catch (error) {
-        console.log(ERROR_02);
-        // Redirigir a página de login ????????????
-      }
-    };
-    dameFechas();
+      };
+      dameFechas();
+    }
   }, [idEmpleadoSeleccionado]);
 
 
@@ -66,15 +71,20 @@ function RegenerarChecks() {
       const response = await getDatos(`http://${servidor}/checks/regenera/${idEmpleadoSeleccionado}/${anioSeleccionado}`)
       if (response.status === 200)
         setMensajeUsuario(MENSAJE_OK);
-    }catch (error) {
+    } catch (error) {
       console.log(ERROR_03);
       // Redirigir a página de login ????????????
     }
   }
 
-  const cambiarEmpleado = (selectedOption:any) => {
-    setIdEmpleadoSeleccionado(selectedOption);
-    console.log("IdEmpleado -> " + idEmpleadoSeleccionado);
+  const cambioEmpleado = (e: ChangeEvent) => {
+    setIdEmpleadoSeleccionado(Number((e.target as HTMLOptionElement).value));
+    console.log("IdEmpleado -> " + (e.target as HTMLOptionElement).value);
+  }
+
+  const cambioAnio = (e: ChangeEvent) => {
+    setAnioSeleccionado(Number((e.target as HTMLInputElement).value));
+    console.log("AnioSeleccionado -> " + (e.target as HTMLOptionElement).value);
   }
 
   return (
@@ -83,8 +93,8 @@ function RegenerarChecks() {
       <Form>
         <Row className="mt-5">
           <Col sm={4}>
-            <select className="checks-fondo-controles" defaultValue="" 
-                    ref={listaEmpleadosRef as React.RefObject<HTMLSelectElement>} onChange={cambiarEmpleado}>
+            <select className="checks-fondo-controles" defaultValue=""
+              ref={listaEmpleadosRef as React.RefObject<HTMLSelectElement>} onChange={cambioEmpleado}>
               <option className="checks-fondo-controles" value="" disabled key={0} >Selecciona Empleado...</option>
               {empleados.map((emp: any) => (
                 <option className="checks-fondo-controles" value={emp.idEmpleado} key={emp.idEmpleado}>
@@ -93,17 +103,17 @@ function RegenerarChecks() {
               ))}
             </select >
           </Col>
-          <Col sm={2}>
+          <Col sm={2} className="ml-5">
             <input className="checks-fondo-controles" type="number" placeholder="Selecciona Año..." min={minAnio}
-                 max={maxAnio} ref={inputAnioRef as React.RefObject<HTMLInputElement>}/>            
+              max={maxAnio} onChange={cambioAnio} ref={inputAnioRef as React.RefObject<HTMLInputElement>} />
           </Col>
-          <Col sm={3}>
+          <Col sm={3} className="ml-5">
             <button className="btn checks-fondo-controles" onClick={regenerarChecks}>Regenerar Checks</button>
           </Col>
         </Row>
       </Form>
       <div className="regenerar-mensaje">
-            <h2>{mensajeUsuario}</h2>
+        <h2>{mensajeUsuario}</h2>
       </div>
     </div>
   );
