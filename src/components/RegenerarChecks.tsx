@@ -89,7 +89,7 @@ function RegenerarChecks() {
 
   return (
     <div className="text-center">
-      <h2 className="mb-4">Regenerar Checks</h2>
+      <h2 className="mb-4"></h2>
       <Form>
         <Row className="mt-5">
           <Col sm={4}>
@@ -108,12 +108,12 @@ function RegenerarChecks() {
               max={maxAnio} onChange={cambioAnio} ref={inputAnioRef as React.RefObject<HTMLInputElement>} />
           </Col>
           <Col sm={3} className="ml-5">
-            <button className="btn checks-fondo-controles" onClick={regenerarChecks}>Regenerar Checks</button>
+            <button className="btn checks-fondo-controles boton-regenerar" onClick={regenerarChecks}>Regenerar Checks</button>
           </Col>
         </Row>
       </Form>
       <div className="regenerar-mensaje">
-        <h2>{mensajeUsuario}</h2>
+        <h1>{mensajeUsuario}</h1>
       </div>
     </div>
   );

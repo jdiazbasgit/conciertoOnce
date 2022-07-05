@@ -2,10 +2,24 @@
   text-align:center;
   color:green;
   margin-top:3%;
-  font-weight:900;
+  font-size:1.2em;
+  font-weight:bold;
 }
 
 .checks-fondo-controles{  
   background-color: #82c7d8;
   color:black;
+  font-weight:bold;
+  padding: 8px;
+}
+
+.boton-regenerar:hover{
+  background-color: #FFDC1A;
+  color: rgb(68,31,231);
+  padding:10px;
+}
+.boton-regenerar{ 
+  padding:10px;
+  padding-left:15px;
+  padding-right:15px;
 }
