@@ -45,6 +45,7 @@ const FichajesPdf = () => (
 ReactDOM.render(<FichajesPdf />, document.getElementById('root'));
 
 export default FichajesPdf;
+// https://controlhorario.me/wp-content/uploads/2021/01/registro_jornada-opcion1.pdf
 
 // https://codesandbox.io/s/o1wp2?file=/src/components/reports/InvoiceItemsTable.js
 
