@@ -30,7 +30,7 @@ class App extends React.Component {
                             <Link to="/InputMeses">Input Meses</Link>
                         </li>
                         <li>
-                            <Link to="/CrearPdf">Crear PDF</Link>
+                            <Link to="/FichajesPdf">Crear PDF</Link>
                         </li>
                         <li>
                             <Link to="/Login">Login</Link>

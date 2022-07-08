@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { PDFViewer } from '@react-pdf/renderer';
-import MyDocument from './Crear_PDF';
+import MyDocument from './FichajesPdf';
 
 const App = () => (
   <PDFViewer>

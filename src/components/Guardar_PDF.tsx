@@ -1,5 +1,5 @@
 
 import ReactPDF from '@react-pdf/renderer';
-import MyDocument from './Crear_PDF';
+import MyDocument from './FichajesPdf';
 
 ReactPDF.render(<MyDocument />, `${__dirname}/example.pdf`);
