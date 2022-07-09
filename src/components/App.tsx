@@ -4,13 +4,13 @@ import "../css/App.css";
 import Login from "../components/Login";
 import CrearPDF from "./CrearPDF";
 import InputMeses from "./InputMeses";
-import RegenerarChecks from "./RegenerarChecks";
 import {
     Routes,
     Route,
     Link,
     BrowserRouter,
 } from "react-router-dom";
+import Regenerar from "./Regenerar";
 
 
 class App extends React.Component {
@@ -24,7 +24,7 @@ class App extends React.Component {
                             <Link to="/">Home</Link>
                         </li>
                         <li>
-                            <Link to="/RegenerarChecks">Regenerar Checks</Link>
+                            <Link to="/Regenerar">Regenerar Checks</Link>
                         </li>
                         <li>
                             <Link to="/InputMeses">Input Meses</Link>
@@ -38,7 +38,7 @@ class App extends React.Component {
                     </ul>
                     <Routes>
                         <Route path="/" element={<Login />} />
-                        <Route path="/regenerarChecks" element={<RegenerarChecks />} />
+                        <Route path="/regenerar" element={<Regenerar/>} />
                         <Route path="/inputMeses" element={<InputMeses />} />
                         <Route path="/crearPDF" element={<CrearPDF />} />
                         <Route path="/login" element={<Login />} />

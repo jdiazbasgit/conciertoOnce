@@ -13,7 +13,6 @@ const ERROR_03 = "Error regenerando checks, RegenerarChecks.tsx";
 const MENSAJE_OK = "Checks regenerados correctamente";
 
 function RegenerarChecks() {
-
   const urlEmpleados: string = `http://${servidor}/checks/empleados`
 
   const [empleados, setEmpleados] = useState<ChecksEmpleadoDto[]>([]);
@@ -93,7 +92,8 @@ function RegenerarChecks() {
       <Form>
         <Row className="mt-5">
           <Col sm={4}>
-            <select className="checks-fondo-controles" defaultValue=""
+            <label htmlFor="empleado">Emplead@</label>
+            <select id="empleado" className="checks-fondo-controles" defaultValue=""
               ref={listaEmpleadosRef as React.RefObject<HTMLSelectElement>} onChange={cambioEmpleado}>
               <option className="checks-fondo-controles" value="" disabled key={0} >Selecciona Empleado...</option>
               {empleados.map((emp: any) => (
@@ -103,8 +103,9 @@ function RegenerarChecks() {
               ))}
             </select >
           </Col>
-          <Col sm={2} className="ml-5">
-            <input className="checks-fondo-controles" type="number" placeholder="Selecciona Año..." min={minAnio}
+          <Col sm={2} className="ml-5">            
+          <label htmlFor="anio"> A&ntilde;o</label>
+            <input id="anio" className="checks-fondo-controles" type="number" placeholder="Selecciona Año..." min={minAnio}
               max={maxAnio} onChange={cambioAnio} ref={inputAnioRef as React.RefObject<HTMLInputElement>} />
           </Col>
           <Col sm={3} className="ml-5">
