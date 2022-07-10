@@ -1,7 +1,8 @@
-import "../css/CalendarioLaboral.css";
+import "../css/checks.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import React, { ChangeEvent, useEffect, useRef, useState } from "react";
 import { getDatos, servidor } from "../services/Service";
+import { Form, Row, Col } from "react-bootstrap";
 
 const ERROR_01 = "Error petición emplead@s, RegenerarFichajes.tsx";
 const ERROR_02 = "Error petición fechas, RegenerarFichajes.tsx";
@@ -48,7 +49,7 @@ function Regenerar() {
       try {
         if (idEmpleadoSeleccionado > 0) {
           const response = await getDatos(`${urlEmpleados}/${idEmpleadoSeleccionado}`);
-          if (response.status === 200){
+          if (response.status === 200) {
             setMinAnio(response.data.anioAlta);
             setMaxAnio(response.data.anioBaja);
           }
@@ -89,33 +90,46 @@ function Regenerar() {
   }
 
   return (
-    <div className="row container-fluid justify-content-center ">
-      <div className="row text-primary h2 text-center">Regenerar Fichajes</div>
+    <div>
 
-      <div className="col-2 mt-4 ml-0 mr-5 justify-content-left">
+      <h2 className="text-primary text-center mt-5 mb-5">Regenerar Fichajes</h2>
+      <Form className="mt-2">
+        <Row className="container-fluid justify-content-center">
+          <Col>
+            {/* <div className="col-2 mt-4 ml-0 mr-5 justify-content-left"> */}
 
-          <select id="empleados" className="oficial-selects" defaultValue=""
-            ref={listaEmpleadosRef as React.RefObject<HTMLSelectElement>} onChange={cambioEmpleado}>
-            <option className="checks-fondo-controles" value="" disabled key={0} >Selecciona Emplead@...</option>
-            {empleados.map((emp: any) => (
-              <option className="checks-fondo-controles" value={emp.idEmpleado} key={emp.idEmpleado}>
-                {emp.apellidosNombreEmpleado}
-              </option>
-            ))}
-          </select >
-        </div>
-        <div className="col-2 ml-5 mt-4 p-2 justify-content-center">
-          <input id="anios" className="oficial-selects checks-fondo-controles p-1" type="number" min={minAnio}
-              max={maxAnio} onChange={cambioAnio} value={anioSeleccionado} ref={inputAnioRef as React.RefObject<HTMLInputElement>} />         
-        </div>
-        <div className="col-2 my-4 justify-content-right">
-          <button className="btn btn-primary p-15" onClick={regenerarFichajes}>Regenerar Fichajes</button>
-      </div>
-      
-      <div className=" row container-fluid justify-content-center">
-          <h2 className="text-success mt-5 text-center">{mensajeUsuario}</h2>
-      </div>
+            <label htmlFor="empleados"  className="h5">Emplead@ : </label>
+            <select id="empleados" className="checks-fondo-controles  ml-2" defaultValue=""
+              ref={listaEmpleadosRef as React.RefObject<HTMLSelectElement>} onChange={cambioEmpleado} required>
+              <option className="checks-fondo-controles" value="" disabled key={0} >Selecciona Emplead@...</option>
+              {empleados.map((emp: any) => (
+                <option className="checks-fondo-controles" value={emp.idEmpleado} key={emp.idEmpleado}>
+                  {emp.apellidosNombreEmpleado}
+                </option>
+              ))}
+            </select >
+          </Col>
+          <Col>
+            {/* <div className="col-2 ml-5 mt-4 p-2 justify-content-center"> */}
+            <label htmlFor="anios" className="h5"> A&ntilde;o : </label>
+            <input id="anios" className="checks-fondo-controles p-1 ml-2" type="number" min={minAnio} required
+              max={maxAnio} onChange={cambioAnio} value={anioSeleccionado} ref={inputAnioRef as React.RefObject<HTMLInputElement>} />
+          </Col>
+          {/* <div className="col-2 my-4 justify-content-right"> */}
+
+          <Col>
+            <button className="checks-fondo-controles" onClick={regenerarFichajes}>Regenerar Fichajes</button>
+          </Col>
+
+          {/* <div className=" row container-fluid justify-content-center"> */}
+          <Row className="container-fluid justify-content-center">
+            <h2 className="text-success mt-5 text-center">{mensajeUsuario}</h2>
+          </Row>
+
+        </Row>
+      </Form>
     </div>
   )
 }
+
 export default Regenerar;

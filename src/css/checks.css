@@ -18,8 +18,10 @@
   color: rgb(68,31,231);
   padding:10px;
 }
+
 .boton-regenerar{ 
   padding:10px;
   padding-left:15px;
-  padding-right:15px;
+  padding-right:15px; 
+  background-color: #82c7d8;
 }
