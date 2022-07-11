@@ -2,17 +2,15 @@ import "../css/checks.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import React, { ChangeEvent, useEffect, useRef, useState } from "react";
 import { getDatos, servidor } from "../services/Service";
-import { Form, Row, Col } from "react-bootstrap";
+import { Form, Row} from "react-bootstrap";
 
 const ERROR_01 = "Error petición emplead@s, RegenerarFichajes.tsx";
 const ERROR_02 = "Error petición fechas, RegenerarFichajes.tsx";
 const ERROR_03 = "Error regenerando fichajes, RegenerarFichajes.tsx";
 const MENSAJE_OK = "Fichajes regenerados correctamente";
-const MENSAJE_KO = "Emplead@ o Año seleccionado son incorrectos";
+const MENSAJE_KO = "No se han podido regenerar los fichajes solicitados";
+const ERROR_DATOS_SELECCIONADOS = "Emplead@ o Año seleccionado son incorrectos";
 const ERROR_DESCONOCIDO = "Error inesperado. Por favor, probar más adelante";
-
-// redirect if user not logged 
-//https://levelup.gitconnected.com/react-template-for-jwt-authentication-with-private-routes-and-redirects-f77c488bfb85
 
 function Regenerar() {
   const urlEmpleados: string = `http://${servidor}/checks/empleados`;
@@ -20,7 +18,8 @@ function Regenerar() {
 
   const [empleados, setEmpleados] = useState([]);
   const [mensajeUsuario, setMensajeUsuario] = useState<string>("");
-  const [idEmpleadoSeleccionado, setIdEmpleadoSeleccionado] = useState(0);
+  const [mensajeError, setMensajeError] = useState<string>("");
+  const [idEmpleadoSeleccionado, setIdEmpleadoSeleccionado] = useState<number>(0);
   const [anioSeleccionado, setAnioSeleccionado] = useState<number>(0);
   const [minAnio, setMinAnio] = useState<number>(0);
   const [maxAnio, setMaxAnio] = useState<number>(0);
@@ -30,6 +29,7 @@ function Regenerar() {
 
   useEffect(() => {
     setMensajeUsuario("");
+    setMensajeError("");
     const dameEmpleados = async () => {
       try {
         const response = await getDatos(urlEmpleados);
@@ -37,14 +37,15 @@ function Regenerar() {
           setEmpleados(response.data);
       } catch (error) {
         console.error(ERROR_01);
-        setMensajeUsuario(ERROR_DESCONOCIDO);
+        setMensajeError(ERROR_DESCONOCIDO);
       }
     };
     dameEmpleados();
   }, [urlEmpleados]);
 
   useEffect(() => {
-    setMensajeUsuario("");
+    setMensajeUsuario("");    
+    setMensajeError("");
     const dameAnios = async () => {
       try {
         if (idEmpleadoSeleccionado > 0) {
@@ -56,7 +57,7 @@ function Regenerar() {
         }
       } catch (error) {
         console.error(ERROR_02);
-        setMensajeUsuario(ERROR_DESCONOCIDO);
+        setMensajeError(ERROR_DESCONOCIDO);
       }
     };
     dameAnios();
@@ -64,6 +65,8 @@ function Regenerar() {
 
 
   const cambioEmpleado = (e: ChangeEvent) => {
+    setMinAnio(0);
+    inputAnioRef.current!.value="0";
     setIdEmpleadoSeleccionado(Number((e.target as HTMLOptionElement).value));
     console.log("IdEmpleado -> " + (e.target as HTMLOptionElement).value);
   }
@@ -76,30 +79,33 @@ function Regenerar() {
   const regenerarFichajes = async (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
     event.stopPropagation();
+    setMensajeUsuario("");    
+    setMensajeError("");
     if (idEmpleadoSeleccionado > 0 && anioSeleccionado > 0) {
       try {
-        await getDatos(`${urlRegenerarFichajes}${idEmpleadoSeleccionado}/${anioSeleccionado}`);
-        setMensajeUsuario(MENSAJE_OK);
+        const response = await getDatos(`${urlRegenerarFichajes}${idEmpleadoSeleccionado}/${anioSeleccionado}`);
+        console.log(`${urlRegenerarFichajes}${idEmpleadoSeleccionado}/${anioSeleccionado}`);
+        if(response.data.length>0)
+           setMensajeUsuario(MENSAJE_OK);
+        else
+           setMensajeError(MENSAJE_KO)
       } catch (error) {
         console.log(ERROR_03);
-        setMensajeUsuario(ERROR_DESCONOCIDO);
+        setMensajeError(ERROR_DESCONOCIDO);
       }
     } else {
-      setMensajeUsuario(MENSAJE_KO)
+      setMensajeError(ERROR_DATOS_SELECCIONADOS)
     }
   }
 
   return (
     <div>
-
-      <h2 className="text-primary text-center mt-5 mb-5">Regenerar Fichajes</h2>
-      <Form className="mt-2">
-        <Row className="container-fluid justify-content-center">
-          <Col>
-            {/* <div className="col-2 mt-4 ml-0 mr-5 justify-content-left"> */}
-
-            <label htmlFor="empleados"  className="h5">Emplead@ : </label>
-            <select id="empleados" className="checks-fondo-controles  ml-2" defaultValue=""
+      <h2 className="checks-h2 text-center mt-5 mb-5">Regenerar Fichajes</h2>
+      <Form className="mt-5">
+        <Row className="justify-content-center my-5">
+          <div className="col-4">
+            <label htmlFor="empleados" className="h5">Emplead@ : </label>
+            <select id="empleados" className="checks-fondo-controles  ml-3" defaultValue=""
               ref={listaEmpleadosRef as React.RefObject<HTMLSelectElement>} onChange={cambioEmpleado} required>
               <option className="checks-fondo-controles" value="" disabled key={0} >Selecciona Emplead@...</option>
               {empleados.map((emp: any) => (
@@ -108,24 +114,19 @@ function Regenerar() {
                 </option>
               ))}
             </select >
-          </Col>
-          <Col>
-            {/* <div className="col-2 ml-5 mt-4 p-2 justify-content-center"> */}
+          </div>
+          <div className="col-3">
             <label htmlFor="anios" className="h5"> A&ntilde;o : </label>
-            <input id="anios" className="checks-fondo-controles p-1 ml-2" type="number" min={minAnio} required
+            <input id="anios" className="checks-fondo-controles p-1  ml-3" type="number" min={minAnio} required
               max={maxAnio} onChange={cambioAnio} value={anioSeleccionado} ref={inputAnioRef as React.RefObject<HTMLInputElement>} />
-          </Col>
-          {/* <div className="col-2 my-4 justify-content-right"> */}
-
-          <Col>
-            <button className="checks-fondo-controles" onClick={regenerarFichajes}>Regenerar Fichajes</button>
-          </Col>
-
-          {/* <div className=" row container-fluid justify-content-center"> */}
-          <Row className="container-fluid justify-content-center">
-            <h2 className="text-success mt-5 text-center">{mensajeUsuario}</h2>
+          </div>
+          <Row className="justify-content-center mt-5 mb-5">
+            <div className="col-2">
+              <button className="boton-regenerar mt-5" onClick={regenerarFichajes}>Regenerar Fichajes</button>
+            </div>
           </Row>
-
+          <h2 className="text-success mt-5 text-center">{mensajeUsuario}</h2>
+          <h2 className="text-danger text-center">{mensajeError}</h2>
         </Row>
       </Form>
     </div>

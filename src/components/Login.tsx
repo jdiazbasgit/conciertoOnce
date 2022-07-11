@@ -1,6 +1,11 @@
 import { Component, createRef, ReactNode } from "react";
 import { login, getDatos, datosBody } from "../services/Service";
 
+// redirect if user not logged 
+//https://levelup.gitconnected.com/react-template-for-jwt-authentication-with-private-routes-and-redirects-f77c488bfb85
+
+//Para controlar largo opciones submenú desplegable
+//<Select minMenuHeight={50} maxMenuHeight={100} value={selectedValue} options={this.state.selectOptions} onChange={this.handleChange.bind(this)} />
 
 class Login extends Component {
     usuario: any;

@@ -11,17 +11,27 @@
   color:black;
   font-weight:bold;
   padding: 8px;
+  cursor:pointer;
 }
 
-.boton-regenerar:hover{
-  background-color: #FFDC1A;
+.checks-boton:hover{
+  background-color: #ffdacd;
   color: rgb(68,31,231);
-  padding:10px;
 }
 
-.boton-regenerar{ 
-  padding:10px;
-  padding-left:15px;
-  padding-right:15px; 
+.checks-boton{ 
+  padding-top:13px;
+  padding-right:25px; 
+  padding-bottom:13px;
+  padding-left:25px;
   background-color: #82c7d8;
+  font-weight:bold;
+}
+
+.checks-h2, .checks-label{
+  color: #425056;
+}
+
+.checks-container{
+  margin-top:250px;
 }
