@@ -2,8 +2,8 @@ import axios from 'axios';
 import Login from "../clases/Login"
 /* eslint-disable no-undef */
 
-export const servidor = "82.223.202.137:8082";
-//const servidor = "localhost:8082";
+//export const servidor = "82.223.202.137:8082";
+export const servidor = "localhost:8082";
 const urlLogin=`http://${servidor}/user`;
 
 export function login(usuario:string, clave:string){
