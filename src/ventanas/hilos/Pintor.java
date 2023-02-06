@@ -15,7 +15,7 @@ public class Pintor extends Thread {
 		while (true) {
 			ventanaBolas.repaint();
 			try {
-				Thread.sleep(2);
+				Thread.sleep(20);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

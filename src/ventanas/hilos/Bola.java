@@ -45,10 +45,10 @@ public class Bola extends Thread {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				if (getImpactos() > 1000) {
+				/*if (getImpactos() > 1000) {
 					// getVentanaBolas().getBolas().remove(this);
 					fin = true;
-				}
+				}*/
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
